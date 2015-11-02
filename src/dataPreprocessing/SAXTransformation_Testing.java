@@ -69,7 +69,7 @@ public class SAXTransformation_Testing {
 			JSONObject jsobj = (JSONObject) parser.parse(new FileReader(jsconfig));
 			path = (String) jsobj.get("path");
 			//output_filename = jsobj.get("output").toString();
-			output_filename = "C:\\user\\workspace\\research\\transformed_petro_subset1_testing.csv";
+			output_filename = "C:\\user\\workspace\\test\\transformed_petro_subset1_testing_2010.csv";
 			test_setting_path = jsobj.get("test_setting").toString();
 		    
 			

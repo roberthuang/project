@@ -265,9 +265,9 @@ public class SAXTransformation {
 		if(!outputfile.getParentFile().exists()) outputfile.getParentFile().mkdirs();
 		try {
 			FileWriter fw = new FileWriter(outputfile);
-			fw.write("{\r\n\t\"path\"\t\t:\t\"petro_subset1.csv\",");
-			fw.write("\r\n\t\"output\"\t:\t\"C:\\user\\workspace\\research\\transformed_petro_subset1_testing.csv\",");
-			fw.write("\r\n\t\"test_setting\"\t:\t\"petro_subset1_breakpoints.txt\",");
+			fw.write("{\r\n\t\"path\"\t\t:\t\"petro_subset1_2010.csv\",");
+			fw.write("\r\n\t\"output\"\t:\t\"C:\\user\\workspace\\test\\transformed_petro_subset1_testing.csv\",");
+			fw.write("\r\n\t\"test_setting\"\t:\t\"petro_subset1_breakpoints_2010.txt\",");
 			fw.write("\r\n\t\"attrs\"\t:\r\n\t[");
 			boolean first = true;
 			for(int i=0;i<attrs.size();i++){

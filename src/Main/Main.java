@@ -26,22 +26,22 @@ public class Main {
     		int tl = 2;
     		
     		int window_size = 12;//Temporal Data Base to SDB(Training)
-    		int minsup = 20;
-    		double min_conf = 0.60;
+    		int minsup = 10;
+    		double min_conf = 0.02;
     		
 	        /**1.SAX**/
     	    System.out.println("##Step1.1: SAX(Traing)");
             SAXTransformation sax = new SAXTransformation();
-            sax.start("SAXTransformation_config_petro_subset1.txt");
+            sax.start("SAXTransformation_config_petro_subset1_2010.txt");
             
             System.out.println("##Step1.2: SAX(Testing)");
             SAXTransformation_Testing sax_testing = new SAXTransformation_Testing();
-            sax_testing.start("petro_subset1_breakpoints.txt");
+            sax_testing.start("petro_subset1_breakpoints_2010.txt");
             
             
             /**2.Get Attribute**/ 
         	System.out.println("##Step2: GetAttribute");
-            String path = "petro_subset1.csv";//For Get Attribute 
+            String path = "petro_subset1_2010.csv";//For Get Attribute 
             ArrayList<ArrayList<String>> records = readCSV(path);
             GetAttr g = new GetAttr();
             //HashMap<Integer, String> class_table = g.Move_Average(period_for_moving_average, records);    
@@ -51,13 +51,13 @@ public class Main {
             /**3.Temporal Data Base to SDB(Training)**/
             System.out.println("##Step3.1: Temporal Data Base to SDB(Training)");
             //For training
-            String path_of_file_training_after_SAX = "transformed_petro_subset1_training.csv";
+            String path_of_file_training_after_SAX = "transformed_petro_subset1_training_2010.csv";
     		T2SDB t = new T2SDB();
             t.translate_training(window_size, path_of_file_training_after_SAX,  class_table);
             
             System.out.println("##Step3.2: Temporal Data Base to SDB(Testing)");
             //For testing
-            String path_of_testing_file_after_SAX = "transformed_petro_subset1_testing.csv";
+            String path_of_testing_file_after_SAX = "transformed_petro_subset1_testing_2010.csv";
             t.translate_testing(window_size, path_of_testing_file_after_SAX);
              
             
@@ -65,13 +65,13 @@ public class Main {
             System.out.println("##Step4: Sequential Pattern Mining(Training)");
             //Load a sequence database
             SequenceDatabase sequenceDatabase = new SequenceDatabase(); 
-            sequenceDatabase.loadFile("C:\\user\\workspace\\research\\SDB(Training).txt");
+            sequenceDatabase.loadFile("C:\\user\\workspace\\test\\SDB(Training).txt");
             //print the database to console
             //sequenceDatabase.print();
     		
     		AlgoPrefixSpan_with_Strings algo = new AlgoPrefixSpan_with_Strings(); 
     		//execute the algorithm
-    		algo.runAlgorithm(sequenceDatabase, "C:\\user\\workspace\\research\\sequential_patterns.txt", minsup);    
+    		algo.runAlgorithm(sequenceDatabase, "C:\\user\\workspace\\test\\sequential_patterns.txt", minsup);    
     		algo.printStatistics(sequenceDatabase.size());
     		
     		

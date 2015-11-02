@@ -131,7 +131,7 @@ public class RuleMapping {
         int True_Negative  = 0;
         int False_Positive = 0;
         int False_Negative = 0;     
-        int index = 656;
+        int index = 240;
         
         
         
