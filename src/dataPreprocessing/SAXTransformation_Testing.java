@@ -58,7 +58,7 @@ public class SAXTransformation_Testing {
 	}
 	
 	static void mainflow(String jsconfig) {
-		System.out.println("==========SAXTransformation(Testing)=============");
+		//System.out.println("==========SAXTransformation(Testing)=============");
 		//0. Load configurations
 		JSONParser parser = new JSONParser();
 		String path = "",
@@ -92,9 +92,9 @@ public class SAXTransformation_Testing {
 		
 		try {
 			//1. Read the csv file
-			System.out.print("Reading \"" + path + "\"...");
+			//System.out.print("Reading \"" + path + "\"...");
 			ArrayList<ArrayList<String>> records = readCSV(path);
-			System.out.println("done.\nFind " + records.size() + " records.");
+			//System.out.println("done.\nFind " + records.size() + " records.");
 			
 			int Num_Attrs = records.get(0).size();
 			ArrayList<String> attrs = records.get(0);
@@ -104,7 +104,7 @@ public class SAXTransformation_Testing {
 			
 			
 			
-			System.out.print("Transforming...");
+			//System.out.print("Transforming...");
 			//2. Transform each attribute (whose flag = 1) into category attribute by SAX
 			for(int r=training_data+1;r<records.size();r++){
 				ArrayList<String> curRecord = records.get(r);
@@ -129,12 +129,12 @@ public class SAXTransformation_Testing {
 				}
 			}
 			
-			System.out.println("done.");
-			System.out.print("Writing to output file (" + output_filename + ") ...");
+			//System.out.println("done.");
+			//System.out.print("Writing to output file (" + output_filename + ") ...");
 			
 			//3. Write records into output file
 			writeCSV("", output_filename, records);
-			System.out.println("done.");
+			//System.out.println("done.");
 		} catch (FileNotFoundException e) {
 			System.out.println("[ERROR] File Not Found Exception.");
 			e.printStackTrace();
@@ -142,7 +142,7 @@ public class SAXTransformation_Testing {
 			System.out.println("[ERROR] I/O Exception.");
 			e.printStackTrace();
 		}
-		System.out.println("===================================================\n");
+		//System.out.println("===================================================\n");
 	}
 	
 	static ArrayList<ArrayList<String>> readCSV(String fullpath) throws FileNotFoundException{

@@ -57,7 +57,7 @@ public class SAXTransformation {
 	}
 	
 	static void mainflow(String jsconfig) {
-		System.out.println("==========SAXTransformation(Training)=============");
+		//System.out.println("==========SAXTransformation(Training)=============");
 		//Initialize BREAKPOINT_TABLE (Make each category has same probability in normal distribution)
 		initialize();
 		
@@ -86,14 +86,14 @@ public class SAXTransformation {
 		
 		try {
 			//1. Read the csv file
-			System.out.print("Reading \"" + path + "\"...");
+			//System.out.print("Reading \"" + path + "\"...");
 			ArrayList<ArrayList<String>> records = readCSV(path);
-			System.out.println("done.\nFind " + records.size() + " records.");
+			//System.out.println("done.\nFind " + records.size() + " records.");
 			
 			int Num_Attrs = records.get(0).size();
 			ArrayList<String> attrs = records.get(0);
 			
-			System.out.print("Gathering information...");
+			//System.out.print("Gathering information...");
 			//2. Get average of each attribute (whose flag = 1)
 			double[] Avgs = new double[Num_Attrs];	//Now it is a set of summation, not average.
 			int[] numValid = new int[Num_Attrs];
@@ -148,8 +148,8 @@ public class SAXTransformation {
 					breakpoint_values[c][i] = Avgs[c] + BREAKPOINT_TABLE[numCategory][i] * Vars[c];
 			}
 			writeTestingSettings(test_setting_path, attrs, attrSettings, breakpoint_values);
-			System.out.println("done.");
-			System.out.print("Transforming...");
+			//System.out.println("done.");
+			//System.out.print("Transforming...");
 			
 			//5. Transform each attribute (whose flag = 1) into category attribute by SAX
 			
@@ -176,12 +176,12 @@ public class SAXTransformation {
 				}
 			}
 			
-			System.out.println("done.");
-			System.out.print("Writing to output file (" + output_filename + ") ...");
+			//System.out.println("done.");
+			//System.out.print("Writing to output file (" + output_filename + ") ...");
 			
 			//6. Write records into output file
 			writeCSV("", output_filename, records);
-			System.out.println("done.");
+			//System.out.println("done.");
 		} catch (FileNotFoundException e) {
 			System.out.println("[ERROR] File Not Found Exception.");
 			e.printStackTrace();
@@ -189,7 +189,7 @@ public class SAXTransformation {
 			System.out.println("[ERROR] I/O Exception.");
 			e.printStackTrace();
 		}
-		System.out.println("===================================================\n");
+		//System.out.println("===================================================\n");
 	}
 	
 	static void initialize(){

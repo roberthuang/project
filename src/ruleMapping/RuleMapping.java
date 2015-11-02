@@ -126,6 +126,25 @@ public class RuleMapping {
     
     
     public void evaluate(HashMap<Integer, String> class_table , HashMap<Integer, ArrayList<String>> predict) {
+    	
+    	HashMap<String, Integer> number = new HashMap<>();
+    	for (Integer i : predict.keySet()) {
+    	    if (number.get(predict.get(i).get(0)) == null) {
+    	        number.put(predict.get(i).get(0), 1);
+    	    } else {
+    	    	int temp = number.get(predict.get(i).get(0));
+    	    	temp = temp + 1;
+    	    	number.put(predict.get(i).get(0), temp);
+    	    }	
+    	}
+    	
+    	System.out.println("Rise" + number.get("Rise"));
+    	System.out.println("Down" + number.get("Down"));
+    	
+    	for (Integer i : predict.keySet()) {
+    		System.out.println(i + " " + predict.get(i));    	
+    		
+    	}
     	//Argument
         int True_Positive  = 0;
         int True_Negative  = 0;
@@ -153,23 +172,16 @@ public class RuleMapping {
         }
         
         
-        System.out.println("True_Positive: " + True_Positive);
-        System.out.println("True_Negative: " + True_Negative);
-        System.out.println("False_Positive: " + False_Positive);
-        System.out.println("False_Negative: " + False_Negative);
-        double acc = (True_Positive + True_Negative)/ (double)(True_Positive + True_Negative + False_Positive + False_Negative);
+        
         double precision_rise =  True_Positive / (double)(True_Positive + False_Negative);
         double recall_rise =  True_Positive / (double)(True_Positive + False_Positive);
         double precision_down =  True_Negative / (double)(True_Negative +  False_Positive);
         double recall_down =  True_Negative / (double)( True_Negative + False_Negative);
-            
-        double f_measure_rise = 2*precision_rise*recall_rise / (precision_rise + recall_rise);
-        double f_measure_down = 2*precision_down*recall_down / (precision_down + recall_down);
-        System.out.println("acc: " + acc);
-        System.out.println("f_measure_rise: " + f_measure_rise);
-    	System.out.println("f_measure_down: " + f_measure_down);
-    	System.out.println("precision_rise: " + precision_rise);
-    	System.out.println("precision_down: " +  precision_down);
+      
+      	System.out.println("precision_rise: " + precision_rise);
+    	System.out.println("recall_rise : " +  recall_rise );
+    	System.out.println("precision_down: " + precision_down);
+    	System.out.println("recall_down: " +  recall_down);
     }
     
 }

@@ -11,11 +11,11 @@ public class GetAttr {
      *
      */
     public static HashMap<Integer, String> Move_Average(int length, ArrayList<ArrayList<String>> records) {
-        System.out.printf("================Moving Average(%d)==================\n",length); 	
+        //System.out.printf("================Moving Average(%d)==================\n",length); 	
         HashMap<Integer, String> result = new HashMap<>(); 
         int training_data = (int)((records.size()-1)*0.8);  
-        System.out.println("Training Data Size: " + training_data);
-        System.out.println("Record Data Size: " + records.size());
+        //System.out.println("Training Data Size: " + training_data);
+        //System.out.println("Record Data Size: " + records.size());
         
         //The column of Target
         int col = 1;                                                                                                                            
@@ -64,14 +64,14 @@ public class GetAttr {
         	
         	
         }*/
-        System.out.println("Moving avearge number :" + result.size());
-        System.out.println("===================================================\n");  
+        //System.out.println("Moving avearge number :" + result.size());
+        //System.out.println("===================================================\n");  
       
         return result;
     }
     
     public static HashMap<Integer, String> MACD(int sl, int ll, int tl, ArrayList<ArrayList<String>> records) {
-    	System.out.printf("================MACD(sl=%d,ll=%d,tl=%d)==================\n", sl, ll, tl);
+    	//System.out.printf("================MACD(sl=%d,ll=%d,tl=%d)==================\n", sl, ll, tl);
     	HashMap<Integer, String> result = new HashMap<>(); 
     	for (int i = 1; i < records.size(); i++) {
     	    double MACD = DIF(i, sl, ll, records) - DEM(i, sl, ll, tl, records);        	
@@ -81,8 +81,8 @@ public class GetAttr {
     			result.put(i, "Rise");			
     		}
     	}
-    	System.out.println("Moving avearge number :" + result.size());
-        System.out.println("===================================================\n"); 
+    	//System.out.println("Moving avearge number :" + result.size());
+        //System.out.println("===================================================\n"); 
     	return result;
     } 
      
