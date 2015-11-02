@@ -165,17 +165,19 @@ public class RuleMapping {
                     }              	
                 }
         }
-        
+        for (Integer i : class_table.keySet()) {
+        	System.out.println(i + "¡@" + class_table.get(i));	
+        }
         
         
         double precision_rise =  True_Positive / (double)(True_Positive + False_Negative);
-        e.put("precision_rise ", precision_rise);
+        e.put("precision_rise", precision_rise);
         double recall_rise =  True_Positive / (double)(True_Positive + False_Positive);
-        e.put("recall_rise ", recall_rise);
+        e.put("recall_rise", recall_rise);
         double precision_down =  True_Negative / (double)(True_Negative +  False_Positive);
-        e.put("precision_down ", precision_down);
+        e.put("precision_down", precision_down);
         double recall_down =  True_Negative / (double)( True_Negative + False_Negative);
-        e.put("recall_down  ", recall_down );
+        e.put("recall_down", recall_down );
         return e;
         }
     

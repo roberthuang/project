@@ -14,13 +14,20 @@ import ca.pfv.spmf.algorithms.sequentialpatterns.BIDE_and_prefixspan_with_string
 import ca.pfv.spmf.input.sequence_database_list_strings.SequenceDatabase;
 
 public class Main {
-    public static void main(String[] args) {
+	
+	
+    public static void main(String[] args) throws 
+    FileNotFoundException {
+    	
+    	
+    	for (int i = 1;i <=1; i ++) {
+    		for (double j = 0.1;j <= 0.1; j = j + 0.1) {
     	
     	    
         try {		
     		/**0.Set Argument**/
         	//MA
-    		int period_for_moving_average  = 3;
+    		//int period_for_moving_average  = 3;
     		
     		//MCDA
     		int sl = 3;
@@ -28,8 +35,8 @@ public class Main {
     		int tl = 2;
     		
     		int window_size = 12;//Temporal Data Base to SDB(Training)
-    		int minsup = 50;
-    		double min_conf = 0.02;
+    		int minsup = 20;
+    		double min_conf = 0.49;
     		
 	        /**1.SAX**/
     	    //System.out.println("##Step1.1: SAX(Traing)");
@@ -91,7 +98,21 @@ public class Main {
     		/**7.Evaluate Precision**/
     		HashMap<String, Double> e = mapping.evaluate(class_table, result_of_predict_for_testing_data );
     		
-    		 
+            /*
+    		osw.write("i: " + i + "j: " + j + "\r\n");
+    		osw.write("Rise: " + e.get("Rise") + "\r\n");
+    		osw.write("Down: " + e.get("Down") + "\r\n");
+    		osw.write("precision_rise: " + e.get("precision_rise") + "\r\n");
+    		osw.write("recall_rise: " + e.get("recall_rise") + "\r\n");
+    		osw.write("precision_down: " + e.get("precision_down") + "\r\n");
+    		osw.write("recall_down: " + e.get("down") + "\r\n");*/
+    		System.out.println(e.get("Rise"));
+    		System.out.println(e.get("Down"));
+    		System.out.println(e.get("precision_rise"));
+    		System.out.println(e.get("recall_rise"));
+    		System.out.println(e.get("precision_down"));
+    		System.out.println(e.get("recall_down"));
+    		
         } catch (FileNotFoundException e) {
             System.out.println("[ERROR] File Not Found Exception.");
             e.printStackTrace();
@@ -100,8 +121,11 @@ public class Main {
             e.printStackTrace();  	
         } 
     	
-       
         
+    	}
+    	}
+        
+    	
     }
     
     static ArrayList<ArrayList<String>> readCSV(String fullpath) throws FileNotFoundException{
