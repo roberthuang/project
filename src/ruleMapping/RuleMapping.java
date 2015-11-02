@@ -137,8 +137,17 @@ public class RuleMapping {
     	    	number.put(predict.get(i).get(0), temp);
     	    }	
     	}
-    	e.put("Rise", (double)number.get("Rise"));
-    	e.put("Rise", (double)number.get("Rise"));
+    	
+    	if (number.get("Rise") == null) {
+    		e.put("Rise", null);	
+    	} else {
+    	    e.put("Rise", (double)number.get("Rise"));
+    	}
+    	if (number.get("Down") == null) {
+    		e.put("Down", null);
+    	} else {
+    		e.put("Down", (double)number.get("Down"));
+    	}
     	
     	//Argument
         int True_Positive  = 0;
@@ -164,9 +173,6 @@ public class RuleMapping {
                     	False_Positive = False_Positive + 1;
                     }              	
                 }
-        }
-        for (Integer i : class_table.keySet()) {
-        	System.out.println(i + "¡@" + class_table.get(i));	
         }
         
         

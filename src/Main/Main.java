@@ -18,13 +18,15 @@ public class Main {
 	
     public static void main(String[] args) throws 
     FileNotFoundException {
-    	
-    	
-    	for (int i = 1;i <=1; i ++) {
-    		for (double j = 0.1;j <= 0.1; j = j + 0.1) {
+    	 try {
+    	   File fout = new File("C:\\user\\workspace\\test\\data.txt");
+    	   FileOutputStream fos = new FileOutputStream(fout);
+	       OutputStreamWriter osw = new OutputStreamWriter(fos);  
+    	  for (int i = 1;i <=40; i ++) {
+    		for (double j = 0.0001;j <= 0.7; j = j + 0.001) {
     	
     	    
-        try {		
+       		
     		/**0.Set Argument**/
         	//MA
     		//int period_for_moving_average  = 3;
@@ -35,8 +37,8 @@ public class Main {
     		int tl = 2;
     		
     		int window_size = 12;//Temporal Data Base to SDB(Training)
-    		int minsup = 20;
-    		double min_conf = 0.49;
+    		int minsup = i;
+    		double min_conf = j;
     		
 	        /**1.SAX**/
     	    //System.out.println("##Step1.1: SAX(Traing)");
@@ -98,21 +100,22 @@ public class Main {
     		/**7.Evaluate Precision**/
     		HashMap<String, Double> e = mapping.evaluate(class_table, result_of_predict_for_testing_data );
     		
-            /*
-    		osw.write("i: " + i + "j: " + j + "\r\n");
+            
+    		osw.write("i: " + i + " j: " + j + "\r\n");
     		osw.write("Rise: " + e.get("Rise") + "\r\n");
     		osw.write("Down: " + e.get("Down") + "\r\n");
     		osw.write("precision_rise: " + e.get("precision_rise") + "\r\n");
     		osw.write("recall_rise: " + e.get("recall_rise") + "\r\n");
     		osw.write("precision_down: " + e.get("precision_down") + "\r\n");
-    		osw.write("recall_down: " + e.get("down") + "\r\n");*/
-    		System.out.println(e.get("Rise"));
-    		System.out.println(e.get("Down"));
-    		System.out.println(e.get("precision_rise"));
-    		System.out.println(e.get("recall_rise"));
-    		System.out.println(e.get("precision_down"));
-    		System.out.println(e.get("recall_down"));
+    		osw.write("recall_down: " + e.get("down") + "\r\n");
+    		osw.write("\r\n");
+    		osw.write("\r\n");
+    		 
+        	}
     		
+        	}	
+    	  
+    	    osw.close();
         } catch (FileNotFoundException e) {
             System.out.println("[ERROR] File Not Found Exception.");
             e.printStackTrace();
@@ -122,9 +125,7 @@ public class Main {
         } 
     	
         
-    	}
-    	}
-        
+    	
     	
     }
     
