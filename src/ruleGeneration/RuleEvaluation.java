@@ -95,7 +95,7 @@ public class RuleEvaluation {
 
 	static void mainflow(String jsconfig, double min_conf_input) {
 
-		System.out.println("===============  RuleEvaluation ===================");
+		//System.out.println("===============  RuleEvaluation ===================");
 
 		JSONParser parser = new JSONParser();
 
@@ -148,7 +148,7 @@ public class RuleEvaluation {
 
 			writeFile(output_filename, rules);
 
-			System.out.println("Total: " + rules.size() + " rules are generated.");
+			//System.out.println("Total: " + rules.size() + " rules are generated.");
 
 		} catch (FileNotFoundException e) {
 
@@ -158,7 +158,7 @@ public class RuleEvaluation {
 
 		}
 
-		System.out.println("===================================================\n");
+		//System.out.println("===================================================\n");
 
 	}
 

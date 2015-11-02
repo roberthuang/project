@@ -9,7 +9,7 @@ public class T2SDB {
     **/
     public void translate_training(int window_size, String path, HashMap<Integer, String> class_table) {
        try {
-           System.out.print("=============Transfer to SDB(Training)=============\n");
+           //System.out.print("=============Transfer to SDB(Training)=============\n");
            ArrayList<ArrayList<String>> records = readCSV(path);
            
            int training_data = (int)((records.size() - 1)*0.8);
@@ -47,8 +47,8 @@ public class T2SDB {
            }
            osw.close(); 
          
-           System.out.println("Training Data's window number: " + training_data );
-           System.out.println("===================================================\n");   
+           //System.out.println("Training Data's window number: " + training_data );
+           //System.out.println("===================================================\n");   
            
        } catch (FileNotFoundException e) {
 	       System.out.println("[ERROR] File Not Found Exception.");
@@ -62,7 +62,7 @@ public class T2SDB {
    
    public void translate_testing(int window_size, String path) {
        try {
-    	   System.out.print("=============Transfer to SDB(Testing)=============\n");
+    	   //System.out.print("=============Transfer to SDB(Testing)=============\n");
            ArrayList<ArrayList<String>> records = readCSV(path);
            
            //The source cloumn
@@ -91,8 +91,8 @@ public class T2SDB {
              
            }
            osw.close(); 
-           System.out.println("Testing Data's window number: " + (records.size()- 1 - training_data) );
-           System.out.println("===================================================\n");   
+           //System.out.println("Testing Data's window number: " + (records.size()- 1 - training_data) );
+           //System.out.println("===================================================\n");   
        } catch (FileNotFoundException e) {
 	       System.out.println("[ERROR] File Not Found Exception.");
 	       e.printStackTrace();

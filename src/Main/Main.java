@@ -23,13 +23,13 @@ public class Main {
     		int period_for_moving_average  = 3;
     		
     		//MCDA
-    		int sl = 4;
-    		int ll = 5;
+    		int sl = 3;
+    		int ll = 4;
     		int tl = 2;
     		
     		int window_size = 12;//Temporal Data Base to SDB(Training)
     		int minsup = 50;
-    		double min_conf = 0.40;
+    		double min_conf = 0.02;
     		
 	        /**1.SAX**/
     	    //System.out.println("##Step1.1: SAX(Traing)");
@@ -39,8 +39,7 @@ public class Main {
             //System.out.println("##Step1.2: SAX(Testing)");
             SAXTransformation_Testing sax_testing = new SAXTransformation_Testing();
             sax_testing.start("petro_subset1_breakpoints_2010.txt");
-            
-            
+           
             /**2.Get Attribute**/ 
         	//System.out.println("##Step2: GetAttribute");
             String path = "petro_subset1_2010.csv";//For Get Attribute 
@@ -74,7 +73,7 @@ public class Main {
     		AlgoPrefixSpan_with_Strings algo = new AlgoPrefixSpan_with_Strings(); 
     		//execute the algorithm
     		algo.runAlgorithm(sequenceDatabase, "C:\\user\\workspace\\test\\sequential_patterns.txt", minsup);    
-    		algo.printStatistics(sequenceDatabase.size());
+    		//algo.printStatistics(sequenceDatabase.size());
     		
     		
     		/**5.Rule Generation**/
@@ -90,7 +89,7 @@ public class Main {
     		= mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"));
     	
     		/**7.Evaluate Precision**/
-    		mapping.evaluate(class_table, result_of_predict_for_testing_data );
+    		HashMap<String, Double> e = mapping.evaluate(class_table, result_of_predict_for_testing_data );
     		
     		 
         } catch (FileNotFoundException e) {
@@ -193,6 +192,7 @@ public class Main {
             }
 			itemsets.add(itemset_next);		
 			result.put(itemsets, list);
+			
 		}
 		/*
 		//debug

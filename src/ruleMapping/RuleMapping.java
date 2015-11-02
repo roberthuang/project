@@ -125,8 +125,8 @@ public class RuleMapping {
     
     
     
-    public void evaluate(HashMap<Integer, String> class_table , HashMap<Integer, ArrayList<String>> predict) {
-    	
+    public HashMap<String, Double> evaluate(HashMap<Integer, String> class_table , HashMap<Integer, ArrayList<String>> predict) {
+    	HashMap<String, Double> e = new HashMap<>();
     	HashMap<String, Integer> number = new HashMap<>();
     	for (Integer i : predict.keySet()) {
     	    if (number.get(predict.get(i).get(0)) == null) {
@@ -137,14 +137,9 @@ public class RuleMapping {
     	    	number.put(predict.get(i).get(0), temp);
     	    }	
     	}
+    	e.put("Rise", (double)number.get("Rise"));
+    	e.put("Rise", (double)number.get("Rise"));
     	
-    	System.out.println("Rise" + number.get("Rise"));
-    	System.out.println("Down" + number.get("Down"));
-    	
-    	for (Integer i : predict.keySet()) {
-    		System.out.println(i + " " + predict.get(i));    	
-    		
-    	}
     	//Argument
         int True_Positive  = 0;
         int True_Negative  = 0;
@@ -174,14 +169,14 @@ public class RuleMapping {
         
         
         double precision_rise =  True_Positive / (double)(True_Positive + False_Negative);
+        e.put("precision_rise ", precision_rise);
         double recall_rise =  True_Positive / (double)(True_Positive + False_Positive);
+        e.put("recall_rise ", recall_rise);
         double precision_down =  True_Negative / (double)(True_Negative +  False_Positive);
+        e.put("precision_down ", precision_down);
         double recall_down =  True_Negative / (double)( True_Negative + False_Negative);
-      
-      	System.out.println("precision_rise: " + precision_rise);
-    	System.out.println("recall_rise : " +  recall_rise );
-    	System.out.println("precision_down: " + precision_down);
-    	System.out.println("recall_down: " +  recall_down);
-    }
+        e.put("recall_down  ", recall_down );
+        return e;
+        }
     
 }
