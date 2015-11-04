@@ -70,6 +70,32 @@ public class GetAttr {
         return result;
     }
     
+    public static HashMap<Integer, String> getAttr_target(ArrayList<ArrayList<String>> records) {
+    	HashMap<Integer, String> result = new HashMap<>();
+    	int index_of_target_att = records.get(0).size()-1;
+    	for (int i = 1; i < records.size(); i++) {
+    	    if (i==1) {
+    	    	result.put(i, "Rise"); 
+    	    	continue;
+    	    }
+    	    if (Double.parseDouble(records.get(i).get(index_of_target_att))- Double.parseDouble(records.get(i-1).get(index_of_target_att)) >= 0 ) {
+    	    	result.put(i, "Rise");     
+    	    } else {
+    	    	result.put(i, "Down");  
+    	    }	
+    	}
+    	
+    	for (Integer i : result.keySet()) {
+    		System.out.println(i+ " " + result.get(i));
+    		
+    	}
+    	return result; 
+    }
+    
+    
+    
+    
+    /*
     public static HashMap<Integer, String> MACD(int sl, int ll, int tl, ArrayList<ArrayList<String>> records) {
     	//System.out.printf("================MACD(sl=%d,ll=%d,tl=%d)==================\n", sl, ll, tl);
     	HashMap<Integer, String> result = new HashMap<>(); 
@@ -111,6 +137,6 @@ public class GetAttr {
     
     public static double DEM(int t, int sl, int ll, int tl, ArrayList<ArrayList<String>> records) {
         return 	(DIF(t, sl, ll, records) + DIF(t-1, sl, ll, records))/(double) tl;
-    }
+    }*/
 
 }

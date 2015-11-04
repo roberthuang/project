@@ -45,7 +45,7 @@ public class Main {
             ArrayList<ArrayList<String>> records = readCSV(path);
             GetAttr g = new GetAttr();
             //HashMap<Integer, String> class_table = g.Move_Average(period_for_moving_average, records);    
-            HashMap<Integer, String> class_table =  g.MACD(sl, ll, tl, records);
+            //HashMap<Integer, String> class_table =  g.MACD(sl, ll, tl, records);
     		
     		
     		
