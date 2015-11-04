@@ -1,0 +1,8 @@
+Rise: 60.0
+Down: null
+precision_rise: 0.48333333333333334
+recall_rise: 1.0
+precision_down: NaN
+recall_down: null
+
+

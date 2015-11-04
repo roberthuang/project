@@ -5,7 +5,7 @@
 	"attrs"		:
 	[
 		{
-			"attr_name"		:	"SMR_20_US",
+			"attr_name"		:	"Crude_Oil_NYMEX",
 			"num_category"	:	3
 		}
 		

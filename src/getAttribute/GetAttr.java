@@ -18,7 +18,7 @@ public class GetAttr {
         //System.out.println("Record Data Size: " + records.size());
         
         //The column of Target
-        int col = 1;                                                                                                                            
+        int col = 2;                                                                                                                            
         for (int i = 1; i < records.size(); i++ ) {
         
             if (i <= length) {
@@ -90,7 +90,7 @@ public class GetAttr {
     	if (t == 0) {  
     		return 0.0;
     	}
-    	int col = 1;
+    	int col = 2;
     	double alpha = 2/(double)(l+1);
     	double p = Double.parseDouble(records.get(t).get(col));
         if (s.equals("sl")) {
