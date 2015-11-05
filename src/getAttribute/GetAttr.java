@@ -6,10 +6,12 @@ import java.util.*;
 public class GetAttr {
 	private static HashMap<Integer, Double> temp_sl = new HashMap<>();
 	private static HashMap<Integer, Double> temp_ll = new HashMap<>();
+	
+	
 	/*  Input: length(period), records(csv file)
      *  Output: the class(Rise or Down) of target attribute
      *
-     */
+     *//*
     public static HashMap<Integer, String> Move_Average(int length, ArrayList<ArrayList<String>> records) {
         //System.out.printf("================Moving Average(%d)==================\n",length); 	
         HashMap<Integer, String> result = new HashMap<>(); 
@@ -57,19 +59,16 @@ public class GetAttr {
                 result.put(i, "Down"); 
             }              
         }  
-        /*
-        //Debug 
-        for (Integer i :result.keySet()) {
-        	System.out.println(i + " " + result.get(i));
-        	
-        	
-        }*/
+        
         //System.out.println("Moving avearge number :" + result.size());
         //System.out.println("===================================================\n");  
       
         return result;
-    }
+    }*/
     
+	public void 
+	
+	
     public static HashMap<Integer, String> getAttr_target(ArrayList<ArrayList<String>> records) {
     	HashMap<Integer, String> result = new HashMap<>();
     	int index_of_target_att = records.get(0).size()-1;
@@ -92,7 +91,7 @@ public class GetAttr {
     	return result; 
     }
     
-    
+    public 
     
     
     /*
