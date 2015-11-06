@@ -13,9 +13,7 @@ public class T2SDB {
            ArrayList<ArrayList<String>> records = readCSV(path);
            
            int training_data = (int)((records.size() - 1)*0.8);
-           //The source cloumn
-           int col = 2;
-           
+                      
            //output
            File fout = new File("SDB(Training).txt");
 	       FileOutputStream fos = new FileOutputStream(fout);
@@ -27,10 +25,11 @@ public class T2SDB {
                for (int j = 0; j < window_size;j++) {
                    int index = i + j;                     
                    if (index <= training_data) {
-                       class_index = index;                     
-                       osw.write(records.get(index).get(col) + " "+ -1 + " ");
-                       //Debug
-                       //osw.write(index + " "+ -1 + " ");
+                       class_index = index;     
+                       for (int k = 1;k < records.get(i).size()-1; k++) {
+                    	   osw.write(records.get(index).get(k) + " ");        	                     	   
+                       }                       
+                       osw.write(-1 + " ");
                    }                       
                }
                
@@ -39,17 +38,14 @@ public class T2SDB {
                    osw.write(class_table.get(class_index) + " "+ -1 + " ");
                    //Debug
                    //osw.write(class_table.get(class_index) + "(" + class_index + ")" + " "+ -1 + " ");
-               }
-               
+               }               
                osw.write(""+-2);
-               osw.write("\r\n");
-               		
+               osw.write("\r\n");               		
            }
            osw.close(); 
          
            //System.out.println("Training Data's window number: " + training_data );
-           //System.out.println("===================================================\n");   
-           
+           //System.out.println("===================================================\n");              
        } catch (FileNotFoundException e) {
 	       System.out.println("[ERROR] File Not Found Exception.");
 	    e.printStackTrace();
@@ -106,19 +102,19 @@ public class T2SDB {
    
    static ArrayList<ArrayList<String>> readCSV(String fullpath) throws FileNotFoundException{
        ArrayList<ArrayList<String>> records = new ArrayList<>();
-	File inputFile = new File(fullpath);
-	Scanner scl = new Scanner(inputFile);
-	while(scl.hasNextLine()){
-		ArrayList<String> newRecord = new ArrayList<>();
-		String[] tokens = scl.nextLine().split(",");
-		for(String token : tokens){
-			newRecord.add(token);
-		}
-		records.add(newRecord);
-	}
-	scl.close();
+       File inputFile = new File(fullpath);
+	   Scanner scl = new Scanner(inputFile);
+	   while(scl.hasNextLine()){
+		   ArrayList<String> newRecord = new ArrayList<>();
+		   String[] tokens = scl.nextLine().split(",");
+		   for(String token : tokens){
+			   newRecord.add(token);
+		   }
+		   records.add(newRecord);
+	   }
+	   scl.close();
 		
-	return records; 
+	   return records; 
    }
    
    

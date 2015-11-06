@@ -24,7 +24,7 @@ public class Main {
 	        //OutputStreamWriter osw = new OutputStreamWriter(fos);  
 
     		/**0.Set Argument**/
-    		int window_size = 12;//Temporal Data Base to SDB(Training)
+    		int window_size = 3;//Temporal Data Base to SDB(Training)
     		int minsup = 10;
     		double min_conf = 0.5;
     		
@@ -52,28 +52,28 @@ public class Main {
     		T2SDB t = new T2SDB();
             t.translate_training(window_size, path_of_file_training_after_SAX,  feature_target);
             
-            System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
+            //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             //For testing
-            String path_of_testing_file_after_SAX = "transformed_petro_subset1_testing_2010.csv";
-            t.translate_testing(window_size, path_of_testing_file_after_SAX);
+            //String path_of_testing_file_after_SAX = "transformed_petro_subset1_testing_2010.csv";
+            //t.translate_testing(window_size, path_of_testing_file_after_SAX);
                          
             /**4.Sequential Pattern Mining**/
-            System.out.println("##Step 4: Sequential Pattern Mining");
+            //System.out.println("##Step 4: Sequential Pattern Mining");
             //Load a sequence database
-            SequenceDatabase sequenceDatabase = new SequenceDatabase(); 
-            sequenceDatabase.loadFile("C:\\user\\workspace\\test\\SDB(Training).txt");
+            //SequenceDatabase sequenceDatabase = new SequenceDatabase(); 
+            //sequenceDatabase.loadFile("C:\\user\\workspace\\test\\SDB(Training).txt");
             //print the database to console
             //sequenceDatabase.print();
     		
-    		AlgoPrefixSpan_with_Strings algo = new AlgoPrefixSpan_with_Strings(); 
+    		//AlgoPrefixSpan_with_Strings algo = new AlgoPrefixSpan_with_Strings(); 
     		//execute the algorithm
-    		algo.runAlgorithm(sequenceDatabase, "C:\\user\\workspace\\test\\sequential_patterns.txt", minsup);    
+    		//algo.runAlgorithm(sequenceDatabase, "C:\\user\\workspace\\test\\sequential_patterns.txt", minsup);    
     		//algo.printStatistics(sequenceDatabase.size());
     		    		
     		/**5.Rule Generation**/
-    		System.out.println("##Step 5: Rule Generation");
-    		RuleEvaluation rule = new RuleEvaluation();
-    		rule.start("RuleEvaluation_config.txt", min_conf);
+    		//System.out.println("##Step 5: Rule Generation");
+    		//RuleEvaluation rule = new RuleEvaluation();
+    		//rule.start("RuleEvaluation_config.txt", min_conf);
                 		
     		/**6.Rule Mapping**/
     		//System.out.println("##Step 6: Rule Mapping");
