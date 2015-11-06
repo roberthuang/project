@@ -7,12 +7,11 @@ public class GetAttr {
 	private static HashMap<Integer, Double> temp_sl = new HashMap<>();
 	private static HashMap<Integer, Double> temp_ll = new HashMap<>();
 	
-	
-	/*  Input: length(period), records(csv file)
+	/** Input: length(period), records(csv file)
      *  Output: the class(Rise or Down) of target attribute
      *
-     *//*
-    public static HashMap<Integer, String> Move_Average(int length, ArrayList<ArrayList<String>> records) {
+    **/
+    public static HashMap<Integer, String> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {
         //System.out.printf("================Moving Average(%d)==================\n",length); 	
         HashMap<Integer, String> result = new HashMap<>(); 
         int training_data = (int)((records.size()-1)*0.8);  
@@ -20,20 +19,16 @@ public class GetAttr {
         //System.out.println("Record Data Size: " + records.size());
         
         //The column of Target
-        int col = 2;                                                                                                                            
-        for (int i = 1; i < records.size(); i++ ) {
-        
+        int col = att_index;                                                                                                                            
+        for (int i = 1; i < records.size(); i++ ) {       
             if (i <= length) {
-                if (i == length) {
-                    result.put(i, "Rise");     
-                }
+                result.put(i, att + "_" + length + "_1");     
                 continue;
             }
             
             double sum_t = 0;
             double sum_t_1 = 0;
-            if (i - length + 1 >= 1) {
-             
+            if (i - length + 1 >= 1) {         
                 for (int p_1 = i; p_1 >= i-length+1; p_1--) {                
                     sum_t = sum_t + Double.parseDouble(records.get(p_1).get(col));
                 } 
@@ -47,27 +42,52 @@ public class GetAttr {
                     }
                 }
                 
-            }  
+            }          
             
             //Rise or Down
             double MA = sum_t/length - sum_t_1/length;     
             if (MA >= 0) {
                 //System.out.println("i: " + i + " " + MA);
-                result.put(i, "Rise");    
+                result.put(i, att + "_" + length + "_1");    
             } else {
                 //System.out.println("i: " + i + " " + MA);
-                result.put(i, "Down"); 
+                result.put(i, att + "_" + length + "_0"); 
             }              
-        }  
-        
+        }       
         //System.out.println("Moving avearge number :" + result.size());
-        //System.out.println("===================================================\n");  
-      
+        //System.out.println("===================================================\n");      
         return result;
-    }*/
+    }
     
-	public void 
 	
+	public static void get(ArrayList<ArrayList<String>> records) {
+		String output_filename = "C:\\user\\workspace\\test\\transformed_petro_subset1_new.csv";
+		ArrayList<ArrayList<String>> result = new ArrayList<>();
+		
+		for (int i = 0; i < records.size(); i++) {		
+			ArrayList<String> temp = new ArrayList<>();
+			//Add time
+			temp.add(records.get(i).get(0));
+			if(i == 0) {
+			   for (int j = 1; j < records.get(i).size()-1; j++) {
+			       temp.add(records.get(i).get(j));
+			       temp.add(records.get(i).get(j)+ "_3");
+			       temp.add(records.get(i).get(j)+ "_4");			
+			   }
+			   temp.add(records.get(i).get(records.get(i).size()-1));		
+			} else {
+				//All the conditional att need to add. eg. x -> x x_3 x_4
+		        for (int j = 1; j < records.get(i).size()-1; j++) {
+		            temp.add(records.get(i).get(j));
+		            temp.add(Move_Average()));
+		        }
+		        
+			}
+			temp.add(records.get(i).get(records.get(i).size()-1));
+			result.add(temp);
+		}		
+		//writeCSV("", output_filename,result);
+	}
 	
     public static HashMap<Integer, String> getAttr_target(ArrayList<ArrayList<String>> records) {
     	HashMap<Integer, String> result = new HashMap<>();
@@ -90,10 +110,9 @@ public class GetAttr {
     	}
     	return result; 
     }
+   
     
-    public 
-    
-    
+	
     /*
     public static HashMap<Integer, String> MACD(int sl, int ll, int tl, ArrayList<ArrayList<String>> records) {
     	//System.out.printf("================MACD(sl=%d,ll=%d,tl=%d)==================\n", sl, ll, tl);
@@ -137,5 +156,19 @@ public class GetAttr {
     public static double DEM(int t, int sl, int ll, int tl, ArrayList<ArrayList<String>> records) {
         return 	(DIF(t, sl, ll, records) + DIF(t-1, sl, ll, records))/(double) tl;
     }*/
+	
+	static void writeCSV(String path, String filename, ArrayList<ArrayList<String>> records) throws IOException{
+		FileWriter outputFW = new FileWriter(path + filename);
+		for(int i=0;i<records.size();i++){
+			ArrayList<String> record = records.get(i);
+			StringBuilder recordSB = new StringBuilder();
+			for(String col : record) recordSB.append(col).append(',');
+			recordSB.deleteCharAt(recordSB.length()-1);
+			outputFW.write(recordSB.toString());
+			if(i < records.size()-1) outputFW.write("\r\n");
+		}
+		outputFW.close();
+	}
+	
 
 }

@@ -1,8 +1,6 @@
-/Main/
 /ca/
 /dataPreprocessing/
 /getAttribute/
-/json-simple-1.1.1.jar
 /ruleGeneration/
 /ruleMapping/
 /transferToSDB/
