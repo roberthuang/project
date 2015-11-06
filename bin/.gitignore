@@ -1,6 +1,3 @@
-/ca/
-/dataPreprocessing/
 /getAttribute/
-/ruleGeneration/
-/ruleMapping/
-/transferToSDB/
+/Main/
+/dataPreprocessing/

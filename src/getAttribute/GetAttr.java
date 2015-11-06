@@ -7,10 +7,10 @@ public class GetAttr {
 	private static HashMap<Integer, Double> temp_sl = new HashMap<>();
 	private static HashMap<Integer, Double> temp_ll = new HashMap<>();
 	
-	/** Input: length(period), records(csv file)
-     *  Output: the class(Rise or Down) of target attribute
+	/* Input: 
+     * Output: 
      *
-    **/
+     */
     public static HashMap<Integer, String> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {
         //System.out.printf("================Moving Average(%d)==================\n",length); 	
         HashMap<Integer, String> result = new HashMap<>(); 
@@ -59,10 +59,16 @@ public class GetAttr {
         return result;
     }
     
-	
-	public static void get(ArrayList<ArrayList<String>> records) {
-		String output_filename = "C:\\user\\workspace\\test\\transformed_petro_subset1_new.csv";
+    /* Input: 
+     * Output: 
+     *
+     */
+	public static void featureExtraction(ArrayList<ArrayList<String>> records) {
+		String output_filename = "C:\\user\\workspace\\test\\transformed_petro_subset1_feature.csv";
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
+		
+		HashMap<Integer, String> table1 = Move_Average(3, records.get(0).get(1), 1, records);
+		HashMap<Integer, String> table2 = Move_Average(4, records.get(0).get(1), 1, records);
 		
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
@@ -73,23 +79,28 @@ public class GetAttr {
 			       temp.add(records.get(i).get(j));
 			       temp.add(records.get(i).get(j)+ "_3");
 			       temp.add(records.get(i).get(j)+ "_4");			
-			   }
-			   temp.add(records.get(i).get(records.get(i).size()-1));		
+			   }	
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4
 		        for (int j = 1; j < records.get(i).size()-1; j++) {
-		            temp.add(records.get(i).get(j));
-		            temp.add(Move_Average()));
+		            temp.add(records.get(i).get(j));		        
+		            temp.add(table1.get(i));
+		            temp.add(table2.get(i));
 		        }
 		        
 			}
 			temp.add(records.get(i).get(records.get(i).size()-1));
 			result.add(temp);
 		}		
-		//writeCSV("", output_filename,result);
+		try {
+		writeCSV("", output_filename,result);
+		} catch (IOException e) {
+			System.out.println("[ERROR] I/O Exception.");
+			e.printStackTrace();
+		}
 	}
 	
-    public static HashMap<Integer, String> getAttr_target(ArrayList<ArrayList<String>> records) {
+    public static HashMap<Integer, String> featureExtraction_target(ArrayList<ArrayList<String>> records) {
     	HashMap<Integer, String> result = new HashMap<>();
     	int index_of_target_att = records.get(0).size()-1;
     	for (int i = 1; i < records.size(); i++) {
@@ -102,12 +113,7 @@ public class GetAttr {
     	    } else {
     	    	result.put(i, "Down");  
     	    }	
-    	}
-    	
-    	for (Integer i : result.keySet()) {
-    		System.out.println(i+ " " + result.get(i));
-    		
-    	}
+    	}    	  
     	return result; 
     }
    
@@ -156,7 +162,11 @@ public class GetAttr {
     public static double DEM(int t, int sl, int ll, int tl, ArrayList<ArrayList<String>> records) {
         return 	(DIF(t, sl, ll, records) + DIF(t-1, sl, ll, records))/(double) tl;
     }*/
-	
+    
+    /* Input: 
+     * Output: 
+     *
+     */
 	static void writeCSV(String path, String filename, ArrayList<ArrayList<String>> records) throws IOException{
 		FileWriter outputFW = new FileWriter(path + filename);
 		for(int i=0;i<records.size();i++){
