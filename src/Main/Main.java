@@ -24,9 +24,9 @@ public class Main {
 	        OutputStreamWriter osw = new OutputStreamWriter(fos);  
 
     		/**0.Set Argument**/
-    		int window_size = 3;//Temporal Data Base to SDB(Training)
-    		int minsup = 50;
-    		double min_conf = 0.45;
+    		int window_size = 4;//Temporal Data Base to SDB(Training)
+    		int minsup = 15;
+    		double min_conf = 0.15;
     		
     		/**1.Feature Events Extraction**/ 
         	System.out.println("##Step 1: Feature Events Extraction");
@@ -82,17 +82,17 @@ public class Main {
     		= mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"));
     	    
     		/**7.Evaluate Precision**/
-    		//HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data );    		           
-    		/*
+    		HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data );    		           
+    		
     		osw.write("Rise: " + e.get("Rise") + "\r\n");
     		osw.write("Down: " + e.get("Down") + "\r\n");
     		osw.write("precision_rise: " + e.get("precision_rise") + "\r\n");
     		osw.write("recall_rise: " + e.get("recall_rise") + "\r\n");
     		osw.write("precision_down: " + e.get("precision_down") + "\r\n");
-    		osw.write("recall_down: " + e.get("down") + "\r\n");
+    		osw.write("recall_down: " + e.get("recall_down") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");	  
-    	    osw.close();*/
+    	    osw.close();
            
         } catch (FileNotFoundException e) {
             System.out.println("[ERROR] File Not Found Exception.");
