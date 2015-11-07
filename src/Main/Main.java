@@ -29,7 +29,7 @@ public class Main {
     		double min_conf = 0.45;
     		
     		/**1.Feature Events Extraction**/ 
-        	//System.out.println("##Step 1: Feature Events Extraction");
+        	System.out.println("##Step 1: Feature Events Extraction");
             String path = "petro_subset1_2010.csv";//For Get Attribute 
             ArrayList<ArrayList<String>> records = readCSV(path);
             GetAttr g = new GetAttr(); 
