@@ -35,8 +35,7 @@ public class RuleMapping {
             	answer.add("Down");   
             }	
         }
-        
-    	 	
+            	 	
     	//2.Begin Mapping 
         HashMap<Integer, ArrayList<String>> result = new HashMap<>();      
         for (Integer i : SDB_for_testing.keySet()) {
@@ -51,16 +50,31 @@ public class RuleMapping {
                 int size = 0;
                 int current = 0;
                 for (int i_1 = 0; i_1 <  itemsets.size(); i_1++) {
-                    for (int j = current; j < rule.size(); j++) {
-                       
-                        if (Collections.indexOfSubList(rule.get(j),itemsets.get(i_1)) != -1) {    
+                	
+                    for (int j = current; j < rule.size(); j++) {    
+                    	boolean have = false;
+                    	/*
+                        if (rule.get(j).containsAll(itemsets.get(i_1))) {    
                             current = j;
                             current = current + 1;
                             size = size + 1;
                             break;
-                        }
-                    }
-                
+                        }*/
+                    	for (int k = 0; k < itemsets.get(i_1).size(); k++) {
+                    	    if (rule.get(j).contains(itemsets.get(i_1).get(k))) {
+                    	        have = true;                    	       
+                    	    	break;
+                    	    }
+                    	}
+                    	
+                    	if (have == true) {
+                    		current = j;
+                            current = current + 1;
+                            size = size + 1;
+                            break;
+                    	}
+                    }                                                            
+                    
                 }
                 
                 if (size == itemsets.size()) {

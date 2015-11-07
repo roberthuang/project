@@ -80,7 +80,7 @@ public class Main {
     		RuleMapping mapping = new RuleMapping();
     		HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
     		= mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"));
-    	
+    	    
     		/**7.Evaluate Precision**/
     		//HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data );    		           
     		/*
@@ -146,8 +146,8 @@ public class Main {
         for (Integer i : result.keySet()) {
 	        System.out.println(i + " " + result.get(i));
 	    
-	    }
-        System.out.println(result.size());*/
+	    }*/
+        //System.out.println(result.size());
         sc.close();
         return result;
         

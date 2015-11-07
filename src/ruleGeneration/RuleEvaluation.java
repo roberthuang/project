@@ -84,15 +84,12 @@ public class RuleEvaluation {
 
 	}
 
-
 	public static void start(String jsconfig, double min_conf_input) {
 
 		mainflow(jsconfig, min_conf_input);
 
 	}
-
 	
-
 	static void mainflow(String jsconfig, double min_conf_input) {
 
 		//System.out.println("===============  RuleEvaluation ===================");
@@ -129,9 +126,7 @@ public class RuleEvaluation {
 			System.exit(0);
 
 		}
-
 		
-
 		try {
 
 			//1. read patterns
@@ -145,7 +140,7 @@ public class RuleEvaluation {
 			//3. output to file			
 			writeFile(output_filename, rules);
 			
-			//System.out.println("Total: " + rules.size() + " rules are generated.");
+			System.out.println("Total: " + rules.size() + " rules are generated.");
 
 		} catch (FileNotFoundException e) {
 
@@ -154,12 +149,8 @@ public class RuleEvaluation {
 			e.printStackTrace();
 
 		}
-
 		//System.out.println("===================================================\n");
-
 	}
-
-	
 
 	static HashMap<String, Double> readPatterns(String filename) throws FileNotFoundException{
 
@@ -182,8 +173,6 @@ public class RuleEvaluation {
 		return patterns;
 
 	}
-
-	
 
 	static HashMap<String, RuleEval> generateRules(HashMap<String, Double> patterns, HashSet<String> contains_event){			     
 		HashMap<String, RuleEval> rules = new HashMap<>();        
@@ -259,13 +248,10 @@ public class RuleEvaluation {
 			rules.put(rule, new RuleEval(sup, sup));	//Confidence of DEFAULT = its support
 
 		}
-
+		
 		return rules;
-
 	}
-
 	
-
 	static void writeFile(String filename, final HashMap<String, RuleEval> rules){
 
 		try {
