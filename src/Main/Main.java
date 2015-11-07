@@ -19,17 +19,17 @@ public class Main {
     public static void main(String[] args) throws 
     FileNotFoundException {
         try {
-    	    //File fout = new File("C:\\user\\workspace\\test\\data.txt");
-    	    //FileOutputStream fos = new FileOutputStream(fout);
-	        //OutputStreamWriter osw = new OutputStreamWriter(fos);  
+    	    File fout = new File("C:\\user\\workspace\\test\\data.txt");
+    	    FileOutputStream fos = new FileOutputStream(fout);
+	        OutputStreamWriter osw = new OutputStreamWriter(fos);  
 
     		/**0.Set Argument**/
     		int window_size = 3;//Temporal Data Base to SDB(Training)
-    		int minsup = 10;
-    		double min_conf = 0.5;
+    		int minsup = 50;
+    		double min_conf = 0.45;
     		
     		/**1.Feature Events Extraction**/ 
-        	System.out.println("##Step 1: Feature Events Extraction");
+        	//System.out.println("##Step 1: Feature Events Extraction");
             String path = "petro_subset1_2010.csv";//For Get Attribute 
             ArrayList<ArrayList<String>> records = readCSV(path);
             GetAttr g = new GetAttr(); 
@@ -52,49 +52,47 @@ public class Main {
     		T2SDB t = new T2SDB();
             t.translate_training(window_size, path_of_file_training_after_SAX,  feature_target);
             
-            //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
+            System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             //For testing
-            //String path_of_testing_file_after_SAX = "transformed_petro_subset1_testing_2010.csv";
-            //t.translate_testing(window_size, path_of_testing_file_after_SAX);
+            String path_of_testing_file_after_SAX = "transformed_petro_subset1_testing_2010.csv";
+            t.translate_testing(window_size, path_of_testing_file_after_SAX);
                          
             /**4.Sequential Pattern Mining**/
-            //System.out.println("##Step 4: Sequential Pattern Mining");
+            System.out.println("##Step 4: Sequential Pattern Mining");
             //Load a sequence database
-            //SequenceDatabase sequenceDatabase = new SequenceDatabase(); 
-            //sequenceDatabase.loadFile("C:\\user\\workspace\\test\\SDB(Training).txt");
+            SequenceDatabase sequenceDatabase = new SequenceDatabase(); 
+            sequenceDatabase.loadFile("C:\\user\\workspace\\test\\SDB(Training).txt");
             //print the database to console
             //sequenceDatabase.print();
     		
-    		//AlgoPrefixSpan_with_Strings algo = new AlgoPrefixSpan_with_Strings(); 
+    		AlgoPrefixSpan_with_Strings algo = new AlgoPrefixSpan_with_Strings(); 
     		//execute the algorithm
-    		//algo.runAlgorithm(sequenceDatabase, "C:\\user\\workspace\\test\\sequential_patterns.txt", minsup);    
+    		algo.runAlgorithm(sequenceDatabase, "C:\\user\\workspace\\test\\sequential_patterns.txt", minsup);    
     		//algo.printStatistics(sequenceDatabase.size());
     		    		
     		/**5.Rule Generation**/
-    		//System.out.println("##Step 5: Rule Generation");
-    		//RuleEvaluation rule = new RuleEvaluation();
-    		//rule.start("RuleEvaluation_config.txt", min_conf);
+    		System.out.println("##Step 5: Rule Generation");
+    		RuleEvaluation rule = new RuleEvaluation();
+    		rule.start("C:\\user\\workspace\\test\\RuleEvaluation_config.txt", min_conf);
                 		
-    		/**6.Rule Mapping**/
-    		//System.out.println("##Step 6: Rule Mapping");
-    		//RuleMapping mapping = new RuleMapping();
-    		//HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
-    		//= mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"));
+    		/**6.Rule Mapping**/    		
+    		System.out.println("##Step 6: Rule Mapping");
+    		RuleMapping mapping = new RuleMapping();
+    		HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
+    		= mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"));
     	
     		/**7.Evaluate Precision**/
-    		//HashMap<String, Double> e = mapping.evaluate(class_table, result_of_predict_for_testing_data );
-    		
-            
-    		
-    		//osw.write("Rise: " + e.get("Rise") + "\r\n");
-    		//osw.write("Down: " + e.get("Down") + "\r\n");
-    		//osw.write("precision_rise: " + e.get("precision_rise") + "\r\n");
-    		//osw.write("recall_rise: " + e.get("recall_rise") + "\r\n");
-    		//osw.write("precision_down: " + e.get("precision_down") + "\r\n");
-    		//osw.write("recall_down: " + e.get("down") + "\r\n");
-    		//osw.write("\r\n");
-    		//osw.write("\r\n");	  
-    	    //osw.close();
+    		//HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data );    		           
+    		/*
+    		osw.write("Rise: " + e.get("Rise") + "\r\n");
+    		osw.write("Down: " + e.get("Down") + "\r\n");
+    		osw.write("precision_rise: " + e.get("precision_rise") + "\r\n");
+    		osw.write("recall_rise: " + e.get("recall_rise") + "\r\n");
+    		osw.write("precision_down: " + e.get("precision_down") + "\r\n");
+    		osw.write("recall_down: " + e.get("down") + "\r\n");
+    		osw.write("\r\n");
+    		osw.write("\r\n");	  
+    	    osw.close();*/
            
         } catch (FileNotFoundException e) {
             System.out.println("[ERROR] File Not Found Exception.");
@@ -117,19 +115,16 @@ public class Main {
 		    }
 		    records.add(newRecord);
 	    }
-	    scl.close();
-		
+	    scl.close();		
 	    return records; 
     }
     
     static HashMap<Integer, ArrayList<ArrayList<String>>> ReadSDB_for_testing(String filename) throws FileNotFoundException{
         HashMap<Integer, ArrayList<ArrayList<String>>> result = new HashMap<>();
-        int index = 1;
-        
+        int index = 1;        
         Scanner sc = new Scanner(new File(filename));
         
-        while(sc.hasNextLine()) {
-        
+        while(sc.hasNextLine()) {        
             ArrayList<ArrayList<String>> itemsets = new ArrayList<>();
          
             String[] tokens = sc.nextLine().split(" -1 -2");
@@ -166,8 +161,8 @@ public class Main {
 		Scanner sc = new Scanner(new File(filename));
 		while(sc.hasNextLine()){
 		
-		        ArrayList<ArrayList<String>> itemsets = new ArrayList<>();
-		        ArrayList<Double> list = new ArrayList<>();
+		    ArrayList<ArrayList<String>> itemsets = new ArrayList<>();
+		    ArrayList<Double> list = new ArrayList<>();
 			String[] tokens = sc.nextLine().split("\t:\t");
 			//For sup, confidence
 			String[] number = tokens[1].split(",\t");
@@ -175,6 +170,7 @@ public class Main {
 			    double n = Double.parseDouble(s);
 			    list.add(n);
 			}
+			
 			//For items
 			String[] tokens_next = tokens[0].split(" -> ");
 			String[] tokens_next_next = tokens_next[0].split(" -1 ");
@@ -200,8 +196,8 @@ public class Main {
 		for (ArrayList<ArrayList<String>> key : result.keySet()) {
 		    System.out.println(key + " " + result.get(key));
 		
-		}
-		*/
+		}*/
+		
 		sc.close();
 		return result;	
     }

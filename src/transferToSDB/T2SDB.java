@@ -59,13 +59,8 @@ public class T2SDB {
    public void translate_testing(int window_size, String path) {
        try {
     	   //System.out.print("=============Transfer to SDB(Testing)=============\n");
-           ArrayList<ArrayList<String>> records = readCSV(path);
-           
-           //The source cloumn
-           int col = 2;
-           
-           int training_data = (int)((records.size()-1)*0.8);
-       
+           ArrayList<ArrayList<String>> records = readCSV(path);                          
+           int training_data = (int)((records.size()-1)*0.8);       
            
            //output
            File fout = new File("SDB(Testing).txt");
@@ -76,10 +71,11 @@ public class T2SDB {
                for (int j = 0; j < window_size;j++) {
                    int index = i + j;                     
                    if (index < records.size()) {                          
-                	   //System.out.println(index);
-                       osw.write(records.get(index).get(col) + " "+ -1 + " ");
-                       //Debug
-                	   //osw.write(index + " "+ -1 + " ");
+                	   for (int k = 1;k < records.get(i).size()-1; k++) {
+                    	   osw.write(records.get(index).get(k) + " ");        	                     	   
+                       }                       
+                       osw.write(-1 + " ");                       
+                       
                    }                    
                }        
                osw.write(""+-2);

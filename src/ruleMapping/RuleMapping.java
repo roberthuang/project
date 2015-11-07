@@ -38,21 +38,14 @@ public class RuleMapping {
         
     	 	
     	//2.Begin Mapping 
-        HashMap<Integer, ArrayList<String>> result = new HashMap<>();
-
-       
+        HashMap<Integer, ArrayList<String>> result = new HashMap<>();      
         for (Integer i : SDB_for_testing.keySet()) {
             //Match rule's number
             int match_number = 0;
             ArrayList<ArrayList<ArrayList<String>>> match_rules = new  ArrayList<>();
             
             //The sequence in SDB_Testing
-            ArrayList<ArrayList<String>> itemsets = SDB_for_testing.get(i);
-            
-            
-            //For choose rule when mapping to the many rule
-            HashMap<Integer, ArrayList<ArrayList<String>>> compare = new HashMap<>();
-       
+            ArrayList<ArrayList<String>> itemsets = SDB_for_testing.get(i);                            
             for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
                 //The size of mapping items in rule                
                 int size = 0;
@@ -76,7 +69,7 @@ public class RuleMapping {
                 }
                
             } 
-            //System.out.println(match_number);
+            System.out.println(match_number);
             
             if (match_number >=2) {
                 int max = 0;

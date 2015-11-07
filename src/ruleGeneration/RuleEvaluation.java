@@ -114,14 +114,12 @@ public class RuleEvaluation {
 			//min_conf = Double.parseDouble(jsobj.get("min_conf").toString());
 			min_conf = min_conf_input;
 
-			JSONArray js_events = (JSONArray) jsobj.get("contains_event");
-
+			JSONArray js_events = (JSONArray) jsobj.get("contains_event");	
 			for(int i=0;i<js_events.size();i++){
 
 				contains_event.add(js_events.get(i).toString());
 
 			}
-
 		} catch (Exception e) {
 
 			System.out.println("[ERROR] Failed at JSON parsing.");
@@ -144,10 +142,9 @@ public class RuleEvaluation {
 
 			HashMap<String, RuleEval> rules = generateRules(patterns, contains_event);
 
-			//3. output to file
-
+			//3. output to file			
 			writeFile(output_filename, rules);
-
+			
 			//System.out.println("Total: " + rules.size() + " rules are generated.");
 
 		} catch (FileNotFoundException e) {
@@ -176,33 +173,21 @@ public class RuleEvaluation {
 		Scanner sc = new Scanner(new File(filename));
 
 		while(sc.hasNextLine()){
-
 			String[] tokens = sc.nextLine().split(" -1  #SUP: ");
-
-			double sup = Double.parseDouble(tokens[1])/traing_data;
-            
-				
-
-			patterns.put(tokens[0], sup);
-
+			double sup = Double.parseDouble(tokens[1])/traing_data;       
+			patterns.put(tokens[0], sup);            
 		}
-
 		sc.close();
-
+       
 		return patterns;
 
 	}
 
 	
 
-	static HashMap<String, RuleEval> generateRules(HashMap<String, Double> patterns, HashSet<String> contains_event){
-
-	        
-
-		HashMap<String, RuleEval> rules = new HashMap<>();
-
+	static HashMap<String, RuleEval> generateRules(HashMap<String, Double> patterns, HashSet<String> contains_event){			     
+		HashMap<String, RuleEval> rules = new HashMap<>();        
 		Iterator<String> keys = patterns.keySet().iterator();
-
 		String default_predict = null;
 
 		while(keys.hasNext()){
@@ -212,16 +197,15 @@ public class RuleEvaluation {
 			double sup = patterns.get(key);
 
 			String[] items = key.split(" -1 ");
-
+       
 			boolean keep = false;
-
-			
-
+           
 			for(int i=0;i<items.length && !keep;i++){
 
 				if(contains_event.size() == 0 || contains_event.contains(items[i])) keep = true;
 
 			}
+			
 
 			if(!keep) continue;
 
@@ -250,7 +234,7 @@ public class RuleEvaluation {
 						  RHS = new StringBuilder(items[splitPoint]);
 
 			for(int i=1;i<splitPoint;i++) LHS.append(" -1 ").append(items[i]);
-
+            
 			
 
 			for(int i=splitPoint+1;i<items.length;i++) RHS.append(" -1 ").append(items[i]);
