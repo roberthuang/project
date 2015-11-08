@@ -140,7 +140,7 @@ public class RuleEvaluation {
 			//3. output to file			
 			writeFile(output_filename, rules);
 			
-			System.out.println("Total: " + rules.size() + " rules are generated.");
+			//System.out.println("Total: " + rules.size() + " rules are generated.");
 
 		} catch (FileNotFoundException e) {
 

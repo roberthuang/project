@@ -81,7 +81,7 @@ public class RuleMapping {
                 }
                
             } 
-            System.out.println(match_number);
+            //System.out.println(match_number);
             
             if (match_number >=2) {
                 int max = 0;
