@@ -11,6 +11,29 @@ public class GetAttr {
      * Output: 
      *
      */
+	public static HashMap<Integer, String> feature(int att_index, ArrayList<ArrayList<String>> records) {
+		 HashMap<Integer, String> result = new HashMap<>(); 
+	     int training_data = (int)((records.size()-1)*0.8);  	
+	     int col = att_index; 
+	     for (int i = 1; i < records.size(); i++ ) {       
+	            if (i == 1) {
+	                result.put(i, "R");     
+	                continue;
+	            }
+	            
+	            if (Double.parseDouble(records.get(i).get(col))- Double.parseDouble(records.get(i-1).get(col)) >= 0 ) {
+	    	    	result.put(i, "R");     
+	    	    } else {
+	    	    	result.put(i, "D");  
+	    	    }	
+        }       
+	        	 
+	    return result;
+		
+	}
+	
+	
+	
     public static HashMap<Integer, String> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {
         //System.out.printf("================Moving Average(%d)==================\n",length); 	
         HashMap<Integer, String> result = new HashMap<>(); 
@@ -22,7 +45,7 @@ public class GetAttr {
         int col = att_index;                                                                                                                            
         for (int i = 1; i < records.size(); i++ ) {       
             if (i <= length) {
-                result.put(i, att + "_" + length + "_1");     
+                result.put(i, "MA"+ length + "_0");     
                 continue;
             }
             
@@ -46,12 +69,12 @@ public class GetAttr {
             
             //Rise or Down
             double MA = sum_t/length - sum_t_1/length;     
-            if (MA >= 0) {
+            if (MA > 0) {
                 //System.out.println("i: " + i + " " + MA);
-                result.put(i, att + "_" + length + "_1");    
+                result.put(i, "MA" + length + "_1");    
             } else {
                 //System.out.println("i: " + i + " " + MA);
-                result.put(i, att + "_" + length + "_0"); 
+                result.put(i, "MA" + length + "_0"); 
             }              
         }       
         //System.out.println("Moving avearge number :" + result.size());
@@ -64,11 +87,12 @@ public class GetAttr {
      *
      */
 	public static void featureExtraction(ArrayList<ArrayList<String>> records) {
-		String output_filename = "C:\\user\\workspace\\test\\transformed_petro_subset1_feature.csv";
+		String output_filename = "transformed_petro_subset1_feature.csv";
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
-		
+		HashMap<Integer, String> table = Move_Average(2, records.get(0).get(1), 1, records);		
 		HashMap<Integer, String> table1 = Move_Average(3, records.get(0).get(1), 1, records);
 		HashMap<Integer, String> table2 = Move_Average(4, records.get(0).get(1), 1, records);
+		HashMap<Integer, String> table4 = feature(1, records);
 		
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
@@ -77,13 +101,19 @@ public class GetAttr {
 			if(i == 0) {
 			   for (int j = 1; j < records.get(i).size()-1; j++) {
 			       temp.add(records.get(i).get(j));
-			       temp.add(records.get(i).get(j)+ "_3");
-			       temp.add(records.get(i).get(j)+ "_4");			
+			       temp.add("Feature");
+			       temp.add("MA2");
+			       //temp.add(records.get(i).get(j)+ "_3");
+			          temp.add("MA3");
+			       //temp.add(records.get(i).get(j)+ "_4");
+			       temp.add("MA4");
 			   }	
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4
 		        for (int j = 1; j < records.get(i).size()-1; j++) {
-		            temp.add(records.get(i).get(j));		        
+		            temp.add(records.get(i).get(j));
+		            temp.add(table4.get(i));
+		            temp.add(table.get(i));
 		            temp.add(table1.get(i));
 		            temp.add(table2.get(i));
 		        }

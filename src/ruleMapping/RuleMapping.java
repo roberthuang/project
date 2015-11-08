@@ -41,8 +41,7 @@ public class RuleMapping {
         for (Integer i : SDB_for_testing.keySet()) {
             //Match rule's number
             int match_number = 0;
-            ArrayList<ArrayList<ArrayList<String>>> match_rules = new  ArrayList<>();
-            
+            ArrayList<ArrayList<ArrayList<String>>> match_rules = new  ArrayList<>();            
             //The sequence in SDB_Testing
             ArrayList<ArrayList<String>> itemsets = SDB_for_testing.get(i);                            
             for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
@@ -50,15 +49,15 @@ public class RuleMapping {
                 int size = 0;
                 int current = 0;
                 for (int i_1 = 0; i_1 <  itemsets.size(); i_1++) {                	
-                    for (int j = current; j < rule.size(); j++) {    
-                    	boolean have = false;
-                    	/*
-                        if (rule.get(j).containsAll(itemsets.get(i_1))) {    
+                    for (int j = current; j < rule.size()-1; j++) {    
+                    	//boolean have = false;
+                    	
+                        if (itemsets.get(i_1).containsAll(rule.get(j))) {    
                             current = j;
                             current = current + 1;
                             size = size + 1;
                             break;
-                        }*/
+                        }/*
                     	for (int k = 0; k < itemsets.get(i_1).size(); k++) {
                     	    if (rule.get(j).contains(itemsets.get(i_1).get(k))) {
                     	        have = true;                    	       
@@ -71,12 +70,12 @@ public class RuleMapping {
                             current = current + 1;
                             size = size + 1;
                             break;
-                    	}
+                    	}*/
                     }                                                            
                     
                 }
                 
-                if (size == itemsets.size()) {
+                if (size == rule.size()-1) {
                 	match_number = match_number + 1;      
                 	match_rules.add(rule);
                 }
@@ -175,8 +174,9 @@ public class RuleMapping {
                     }              	
                 }
         }
-        
-        
+        int size = True_Negative +  True_Positive + False_Positive + False_Negative;
+        double acc =  (True_Positive + True_Negative)/ (double)(size);
+        e.put("acc", acc);
         double precision_rise =  True_Positive / (double)(True_Positive + False_Negative);
         e.put("precision_rise", precision_rise);
         double recall_rise =  True_Positive / (double)(True_Positive + False_Positive);

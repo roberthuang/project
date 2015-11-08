@@ -24,9 +24,9 @@ public class Main {
 	        OutputStreamWriter osw = new OutputStreamWriter(fos);  
 
     		/**0.Set Argument**/
-    		int window_size = 4;//Temporal Data Base to SDB(Training)
-    		int minsup = 15;
-    		double min_conf = 0.15;
+    		int window_size = 5;//Temporal Data Base to SDB(Training)
+    		int minsup = 65;
+    		double min_conf = 0.54;
     		
     		/**1.Feature Events Extraction**/ 
         	System.out.println("##Step 1: Feature Events Extraction");
@@ -34,6 +34,7 @@ public class Main {
             ArrayList<ArrayList<String>> records = readCSV(path);
             GetAttr g = new GetAttr(); 
             HashMap<Integer, String> feature_target = g.featureExtraction_target(records);
+            
             g.featureExtraction(records);		
             
 	        /**2.SAX**/
@@ -84,12 +85,14 @@ public class Main {
     		/**7.Evaluate Precision**/
     		HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data );    		           
     		
-    		osw.write("Rise: " + e.get("Rise") + "\r\n");
-    		osw.write("Down: " + e.get("Down") + "\r\n");
-    		osw.write("precision_rise: " + e.get("precision_rise") + "\r\n");
-    		osw.write("recall_rise: " + e.get("recall_rise") + "\r\n");
-    		osw.write("precision_down: " + e.get("precision_down") + "\r\n");
-    		osw.write("recall_down: " + e.get("recall_down") + "\r\n");
+    		osw.write("Predict: (1) Rise: " + e.get("Rise") + "\r\n");
+    		osw.write("         (2) Down: " + e.get("Down") + "\r\n");
+    		osw.write("window_size:"        + window_size + "\r\n");
+    		osw.write("precision_rise: "    + e.get("precision_rise") + "\r\n");
+    		osw.write("precision_down: "    + e.get("precision_down") + "\r\n");
+    		osw.write("recall_rise: "       + e.get("recall_rise") + "\r\n");    		
+    		osw.write("recall_down: "       + e.get("recall_down") + "\r\n");
+    		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");	  
     	    osw.close();
