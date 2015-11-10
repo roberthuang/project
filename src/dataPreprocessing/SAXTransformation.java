@@ -163,12 +163,15 @@ public class SAXTransformation {
 						double val = Double.parseDouble(curValue);
 						for(int i=0;i<breakpoint_values[c].length;i++){
 							if(val <= breakpoint_values[c][i]){
-								curRecord.set(c, records.get(0).get(c) + "_" + (i+1));
+								//curRecord.set(c, records.get(0).get(c) + "_" + (i+1));
+								curRecord.set(c, "C" + "_" + (i+1));
 								break;
 							}
 						}
-						if(val > breakpoint_values[c][breakpoint_values[c].length-1])
-							curRecord.set(c, records.get(0).get(c) + "_" + (breakpoint_values[c].length+1));
+						if(val > breakpoint_values[c][breakpoint_values[c].length-1]) {
+							//curRecord.set(c, records.get(0).get(c) + "_" + (breakpoint_values[c].length+1));
+							curRecord.set(c, "C" + "_" + (breakpoint_values[c].length+1));
+						}   
 					} catch(NumberFormatException e) {
 						//The value is not a valid double
 						curRecord.set(c, INVALID_SYMBOL);

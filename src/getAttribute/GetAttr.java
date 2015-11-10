@@ -100,7 +100,7 @@ public class GetAttr {
 			temp.add(records.get(i).get(0));
 			if(i == 0) {
 			   for (int j = 1; j < records.get(i).size()-1; j++) {
-			       temp.add(records.get(i).get(j));
+			       //temp.add(records.get(i).get(j));
 			       temp.add("Feature");
 			       temp.add("MA2");
 			       //temp.add(records.get(i).get(j)+ "_3");
@@ -111,7 +111,7 @@ public class GetAttr {
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4
 		        for (int j = 1; j < records.get(i).size()-1; j++) {
-		            temp.add(records.get(i).get(j));
+		            //temp.add(records.get(i).get(j));
 		            temp.add(table4.get(i));
 		            temp.add(table.get(i));
 		            temp.add(table1.get(i));
