@@ -3,11 +3,12 @@ import java.io.*;
 import java.util.*;
 
 public class T2SDB {
+	
 	/** Input: window_size, path(csv file which is symbolic by SAX), class_table(the target attribute's class)
      * Output: Sequential Data Base
      *
-    **/
-    public void translate_training(int window_size, String path, HashMap<Integer, String> class_table) {
+    **//*
+    public void translate_training(int window_size, String path, HashMap<Integer, String> class_table, String output) {
        try {
            //System.out.print("=============Transfer to SDB(Training)=============\n");
            ArrayList<ArrayList<String>> records = readCSV(path);
@@ -15,7 +16,7 @@ public class T2SDB {
            int training_data = (int)((records.size() - 1)*0.8);
                       
            //output
-           File fout = new File("SDB(Training).txt");
+           File fout = new File(output);
 	       FileOutputStream fos = new FileOutputStream(fout);
 	       OutputStreamWriter osw = new OutputStreamWriter(fos);           
            
@@ -54,9 +55,54 @@ public class T2SDB {
            e.printStackTrace();
        }  
        
-   } 
+   }*/
+	//weka
+	public void translate_training(int window_size, String path, HashMap<Integer, String> class_table, String output) {
+	       try {	         
+	           ArrayList<ArrayList<String>> records = readCSV(path);
+	           
+	           int training_data = (int)((records.size() - 1)*0.8);
+	                      
+	           //output
+	           File fout = new File(output);
+		       FileOutputStream fos = new FileOutputStream(fout);
+		       OutputStreamWriter osw = new OutputStreamWriter(fos);           
+	           
+	           for (int i = 1; i <= training_data; i++) { 
+	               //The calss_table's index
+	               int class_index = 0;             
+	               for (int j = 0; j < window_size;j++) {
+	                   int index = i + j;                     
+	                   if (index <= training_data) {
+	                       class_index = index;   
+	                       double sum = 0;
+	                       boolean empty = false;
+	                       for (int k = 1;k < records.get(i).size()-1; k++) {	                    	   	                    		  	                           	                    	  
+	                    	   sum = sum + Double.parseDouble(records.get(index).get(k));
+	                       }  
+	                       osw.write(sum/(double)window_size + "," + " ");	                       
+	                   }                       
+	               }
+	               
+	               class_index = class_index + 1;
+	               if (class_index <= training_data) {
+	                   osw.write(class_table.get(class_index));	                   
+	               }               
+	               
+	               osw.write("\r\n");               		
+	           }
+	           osw.close(); 	         	           
+	       } catch (FileNotFoundException e) {
+		       System.out.println("[ERROR] File Not Found Exception.");
+		    e.printStackTrace();
+		   } catch (IOException e) {
+	           System.out.println("[ERROR] I/O Exception.");
+	           e.printStackTrace();
+	       }  
+	       
+   }
    
-   public void translate_testing(int window_size, String path) {
+   public void translate_testing(int window_size, String path, String output) {
        try {
     	   //System.out.print("=============Transfer to SDB(Testing)=============\n");
            ArrayList<ArrayList<String>> records = readCSV(path);                          

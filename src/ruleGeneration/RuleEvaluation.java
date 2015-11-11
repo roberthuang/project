@@ -85,7 +85,7 @@ public class RuleEvaluation {
 	}
 
 	public static void start(String jsconfig, double min_conf_input) {
-
+        
 		mainflow(jsconfig, min_conf_input);
 
 	}
@@ -169,7 +169,7 @@ public class RuleEvaluation {
 			patterns.put(tokens[0], sup);            
 		}
 		sc.close();
-       
+        
 		return patterns;
 
 	}

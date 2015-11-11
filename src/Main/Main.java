@@ -20,7 +20,7 @@ public class Main {
     	    File fout = new File("data.txt");
     	    FileOutputStream fos = new FileOutputStream(fout);
 	        OutputStreamWriter osw = new OutputStreamWriter(fos);  
-   	       
+   	        
 	        //for (int i = 100; i <=150; i++) {
 	        	
 	            //for (double j = 0.01; j <= 0.70; j = j + 0.01) {
@@ -53,14 +53,14 @@ public class Main {
             //System.out.println("##Step 3.1: Temporal Data Base to SDB(Training)");
             //For training
             //String path_of_file_training_after_SAX = "transformed_petro_subset1_training_2010.csv";
-            String path_of_file_training_after_SAX = "transformed_petro_subset1_feature.csv";
+            String path_after_discrete = "transformed_petro_subset1_feature.csv";
     		T2SDB t = new T2SDB();
-            t.translate_training(window_size, path_of_file_training_after_SAX,  feature_target);
+            t.translate_training(window_size, path_after_discrete,  feature_target, "SDB(Training).txt");
             
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             //For testing
             String path_of_testing_file_after_SAX = "transformed_petro_subset1_feature.csv";
-            t.translate_testing(window_size, path_of_testing_file_after_SAX);
+            t.translate_testing(window_size, path_of_testing_file_after_SAX, "SDB(Testing).txt");
                          
             /**4.Sequential Pattern Mining**/
             //System.out.println("##Step 4: Sequential Pattern Mining");
