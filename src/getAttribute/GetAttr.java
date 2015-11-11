@@ -32,8 +32,6 @@ public class GetAttr {
 		
 	}
 	
-	
-	/*
     public static HashMap<Integer, String> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {
         //System.out.printf("================Moving Average(%d)==================\n",length); 	
         HashMap<Integer, String> result = new HashMap<>(); 
@@ -45,7 +43,7 @@ public class GetAttr {
         int col = att_index;                                                                                                                            
         for (int i = 1; i < records.size(); i++ ) {       
             if (i <= length) {
-                result.put(i, "MA"+ length + "_0");     
+                result.put(i, "MA"+ att.charAt(0) + length + "_0");     
                 continue;
             }
             
@@ -70,17 +68,17 @@ public class GetAttr {
             double MA = sum_t/length - sum_t_1/length;     
             if (MA > 0) {
                 //System.out.println("i: " + i + " " + MA);
-                result.put(i, "MA" + length + "_1");    
+                result.put(i, "MA" + att.charAt(0) + length + "_1");    
             } else {
                 //System.out.println("i: " + i + " " + MA);
-                result.put(i, "MA" + length + "_0"); 
+                result.put(i, "MA" + att.charAt(0) + length + "_0"); 
             }              
         }       
         //System.out.println("Moving avearge number :" + result.size());
         //System.out.println("===================================================\n");      
         return result;
-    }*/
-		
+    }
+	 /*	
 	 //for Weka
 	 public static HashMap<Integer, Double> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {	        
 	        HashMap<Integer, Double> result = new HashMap<>(); 
@@ -102,12 +100,12 @@ public class GetAttr {
 	        }       
 	           
 	        return result;
-	    }
+	    }*/
     
     /* Input: 
      * Output: 
      *
-     *//*
+     */
 	public static void featureExtraction(ArrayList<ArrayList<String>> records) {
 		
 		HashMap<Integer, String> h = featureExtraction_target(records);
@@ -116,9 +114,9 @@ public class GetAttr {
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
 		HashMap<Integer, String> table = Move_Average(2, records.get(0).get(1), 1, records);		
 		HashMap<Integer, String> table1 = Move_Average(3, records.get(0).get(1), 1, records);
-		HashMap<Integer, String> table2 = Move_Average(4, records.get(0).get(1), 1, records);
+		//HashMap<Integer, String> table2 = Move_Average(4, records.get(0).get(1), 1, records);
 		HashMap<Integer, String> table4 = feature(1, records);
-		
+		HashMap<Integer, String> table5 = Move_Average(2, records.get(0).get(2), 2, records);
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add time
@@ -129,11 +127,12 @@ public class GetAttr {
 			       temp.add("Feature");
 			       temp.add("MA2");
 			       //temp.add(records.get(i).get(j)+ "_3");
-			          temp.add("MA3");
+			         temp.add("MA3");
 			       //temp.add(records.get(i).get(j)+ "_4");
-			       temp.add("MA4");
+			       // temp.add("MA4");
+			       temp.add("MAS2");
 			   }	
-			   temp.add(records.get(i).get(records.get(i).size()-1));
+			   //temp.add(records.get(i).get(records.get(i).size()-1));
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4
 		        for (int j = 1; j < records.get(i).size()-1; j++) {
@@ -141,12 +140,13 @@ public class GetAttr {
 		            temp.add(table4.get(i));
 		            temp.add(table.get(i));
 		            temp.add(table1.get(i));
-		            temp.add(table2.get(i));
+		            //temp.add(table2.get(i));
+		            temp.add(table5.get(i));
 		        }
-		        temp.add(h.get(i));
+		        //temp.add(h.get(i));
 		        
 			}
-			//temp.add(records.get(i).get(records.get(i).size()-1));
+			temp.add(records.get(i).get(records.get(i).size()-1));
 			
 			result.add(temp);
 		}		
@@ -156,8 +156,8 @@ public class GetAttr {
 			System.out.println("[ERROR] I/O Exception.");
 			e.printStackTrace();
 		}
-	}*/
-	 
+	}
+	/*
     //weka
     public static void featureExtraction(ArrayList<ArrayList<String>> records) {		      
 		String output_filename = "weka.csv";
@@ -206,7 +206,7 @@ public class GetAttr {
 			System.out.println("[ERROR] I/O Exception.");
 			e.printStackTrace();
 		}
-	}
+	}*/
 	
     public static HashMap<Integer, String> featureExtraction_target(ArrayList<ArrayList<String>> records) {
     	HashMap<Integer, String> result = new HashMap<>();

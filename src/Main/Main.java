@@ -27,10 +27,9 @@ public class Main {
 	        	
 	          //System.out.println("i: " + i + " j: " + j);
     		/**0.Set Argument**/
-    		int window_size = 3;
-    		int minsup = 50;
-            double min_conf = 0.4;    				
-    		
+    		int window_size = 5;
+    		int minsup = 60;
+    		double min_conf = 0.40;
     		/**1.Feature Events Extraction**/ 
         	//System.out.println("##Step 1: Feature Events Extraction");
             String path = "petro_subset1_2010.csv";//For Get Attribute 
@@ -57,13 +56,13 @@ public class Main {
     		T2SDB t = new T2SDB();
             t.translate_training(window_size, path_after_discrete,  feature_target, "SDB(Training).txt");
             
-            //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
+            System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             //For testing
             String path_of_testing_file_after_SAX = "transformed_petro_subset1_feature.csv";
             t.translate_testing(window_size, path_of_testing_file_after_SAX, "SDB(Testing).txt");
                          
             /**4.Sequential Pattern Mining**/
-            //System.out.println("##Step 4: Sequential Pattern Mining");
+            System.out.println("##Step 4: Sequential Pattern Mining");
             //Load a sequence database
             SequenceDatabase sequenceDatabase = new SequenceDatabase(); 
             sequenceDatabase.loadFile("SDB(Training).txt");
@@ -76,19 +75,19 @@ public class Main {
     		//algo.printStatistics(sequenceDatabase.size());
     		    		
     		/**5.Rule Generation**/
-    		//System.out.println("##Step 5: Rule Generation");
+    		System.out.println("##Step 5: Rule Generation");
     		RuleEvaluation rule = new RuleEvaluation();
     		rule.start("RuleEvaluation_config.txt", min_conf);
                 		
     		/**6.Rule Mapping**/    		
-    		//System.out.println("##Step 6: Rule Mapping");
+    		System.out.println("##Step 6: Rule Mapping");
     		RuleMapping mapping = new RuleMapping();
     		HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
     		= mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"));
     	    
     		/**7.Evaluate Precision**/
     		HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data );    		           
-    		    		    	
+    		   		    	
     		osw.write("Predict: (1) Rise: " + e.get("Rise") + "\r\n");
     		osw.write("         (2) Down: " + e.get("Down") + "\r\n");
     		osw.write("window_size:"        + window_size + "\r\n");
