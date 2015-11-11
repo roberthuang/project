@@ -21,15 +21,15 @@ public class Main {
     	    FileOutputStream fos = new FileOutputStream(fout);
 	        OutputStreamWriter osw = new OutputStreamWriter(fos);  
    	       
-	        for (int i = 100; i <=150; i++) {
+	        //for (int i = 100; i <=150; i++) {
 	        	
-	            for (double j = 0.01; j <= 0.70; j = j + 0.01) {
+	            //for (double j = 0.01; j <= 0.70; j = j + 0.01) {
 	        	
-	          System.out.println("i: " + i + " j: " + j);
+	          //System.out.println("i: " + i + " j: " + j);
     		/**0.Set Argument**/
-    		int window_size = 5;
-    		int minsup = i;
-            double min_conf = j;    				
+    		int window_size = 3;
+    		int minsup = 50;
+            double min_conf = 0.4;    				
     		
     		/**1.Feature Events Extraction**/ 
         	//System.out.println("##Step 1: Feature Events Extraction");
@@ -101,9 +101,9 @@ public class Main {
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");
-	            }
+	            //}
 	            
-	        }
+	        //}
     	    osw.close();
             
         } catch (FileNotFoundException e) {

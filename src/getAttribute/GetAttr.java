@@ -87,6 +87,9 @@ public class GetAttr {
      *
      */
 	public static void featureExtraction(ArrayList<ArrayList<String>> records) {
+		
+		HashMap<Integer, String> h = featureExtraction_target(records);
+		
 		String output_filename = "transformed_petro_subset1_feature.csv";
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
 		HashMap<Integer, String> table = Move_Average(2, records.get(0).get(1), 1, records);		
@@ -108,6 +111,7 @@ public class GetAttr {
 			       //temp.add(records.get(i).get(j)+ "_4");
 			       temp.add("MA4");
 			   }	
+			   temp.add(records.get(i).get(records.get(i).size()-1));
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4
 		        for (int j = 1; j < records.get(i).size()-1; j++) {
@@ -117,9 +121,11 @@ public class GetAttr {
 		            temp.add(table1.get(i));
 		            temp.add(table2.get(i));
 		        }
+		        temp.add(h.get(i));
 		        
 			}
-			temp.add(records.get(i).get(records.get(i).size()-1));
+			//temp.add(records.get(i).get(records.get(i).size()-1));
+			
 			result.add(temp);
 		}		
 		try {
