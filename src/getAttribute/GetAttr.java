@@ -4,16 +4,11 @@ import java.io.*;
 import java.util.*;
 
 public class GetAttr {
-	private static HashMap<Integer, Double> temp_sl = new HashMap<>();
-	private static HashMap<Integer, Double> temp_ll = new HashMap<>();
+	//private static HashMap<Integer, Double> temp_sl = new HashMap<>();
+	//private static HashMap<Integer, Double> temp_ll = new HashMap<>();
 	
-	/* Input: 
-     * Output: 
-     *
-     */
-	public static HashMap<Integer, String> feature(int att_index, ArrayList<ArrayList<String>> records) {
-		 HashMap<Integer, String> result = new HashMap<>(); 
-	     int training_data = (int)((records.size()-1)*0.8);  	
+	public static HashMap<Integer, String> feature_source(int att_index, ArrayList<ArrayList<String>> records) {
+		 HashMap<Integer, String> result = new HashMap<>(); 	    
 	     int col = att_index; 
 	     for (int i = 1; i < records.size(); i++ ) {       
 	            if (i == 1) {
@@ -35,7 +30,7 @@ public class GetAttr {
     public static HashMap<Integer, String> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {
         //System.out.printf("================Moving Average(%d)==================\n",length); 	
         HashMap<Integer, String> result = new HashMap<>(); 
-        int training_data = (int)((records.size()-1)*0.8);  
+        //int training_data = (int)((records.size()-1)*0.8);  
         //System.out.println("Training Data Size: " + training_data);
         //System.out.println("Record Data Size: " + records.size());
         
@@ -62,7 +57,7 @@ public class GetAttr {
                         sum_t_1 = sum_t_1 + Double.parseDouble(records.get(p_2).get(col));
                     }
                 }
-                            }          
+            }          
             
             //Rise or Down
             double MA = sum_t/length - sum_t_1/length;     
@@ -102,52 +97,39 @@ public class GetAttr {
 	        return result;
 	    }*/
     
-    /* Input: 
-     * Output: 
-     *
-     */
-	public static void featureExtraction(ArrayList<ArrayList<String>> records) {
+	public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records) {				
 		
-		HashMap<Integer, String> h = featureExtraction_target(records);
-		
-		String output_filename = "transformed_petro_subset1_feature.csv";
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
-		HashMap<Integer, String> table = Move_Average(2, records.get(0).get(1), 1, records);		
-		HashMap<Integer, String> table1 = Move_Average(3, records.get(0).get(1), 1, records);
-		//HashMap<Integer, String> table2 = Move_Average(4, records.get(0).get(1), 1, records);
-		HashMap<Integer, String> table4 = feature(1, records);
-		HashMap<Integer, String> table5 = Move_Average(2, records.get(0).get(2), 2, records);
+		HashMap<Integer, String> FS = feature_source(1, records);
+		HashMap<Integer, String> MAS1_2 = Move_Average(2, records.get(0).get(1), 1, records);		
+		HashMap<Integer, String> MAS1_3 = Move_Average(3, records.get(0).get(1), 1, records);
+		HashMap<Integer, String> MAT_2 = Move_Average(2, records.get(0).get(2), 2, records);
+		HashMap<Integer, String> MAT_3 = Move_Average(3, records.get(0).get(2), 2, records);
+		
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
-			//Add time
+			//Add Date
 			temp.add(records.get(i).get(0));
-			if(i == 0) {
-			   for (int j = 1; j < records.get(i).size()-1; j++) {
+			if(i == 0) {			 
 			       //temp.add(records.get(i).get(j));
 			       temp.add("Feature");
-			       temp.add("MA2");
-			       //temp.add(records.get(i).get(j)+ "_3");
-			         temp.add("MA3");
-			       //temp.add(records.get(i).get(j)+ "_4");
-			       // temp.add("MA4");
-			       temp.add("MAS2");
-			   }	
-			   //temp.add(records.get(i).get(records.get(i).size()-1));
+			       temp.add("MAS1_2");			     
+			       temp.add("MAS1_3");			       			    
+			       temp.add("MAT_2");	
+			       temp.add("MAT_3");
+			      
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4
-		        for (int j = 1; j < records.get(i).size()-1; j++) {
-		            //temp.add(records.get(i).get(j));
-		            temp.add(table4.get(i));
-		            temp.add(table.get(i));
-		            temp.add(table1.get(i));
-		            //temp.add(table2.get(i));
-		            temp.add(table5.get(i));
-		        }
-		        //temp.add(h.get(i));
-		        
+		        for (int j = 1; j < records.get(i).size()-1; j++) {		          
+		            temp.add(FS.get(i));
+		            temp.add(MAS1_2.get(i));
+		            temp.add(MAS1_3.get(i));		           
+		            temp.add(MAT_2.get(i));
+		            temp.add(MAT_3.get(i));		           
+		        }		     		      
 			}
-			temp.add(records.get(i).get(records.get(i).size()-1));
-			
+			//Add the last one of every line
+			temp.add(records.get(i).get(records.get(i).size()-1));			
 			result.add(temp);
 		}		
 		try {
@@ -224,9 +206,7 @@ public class GetAttr {
     	}    	  
     	return result; 
     }
-   
-    
-	
+       
     /*
     public static HashMap<Integer, String> MACD(int sl, int ll, int tl, ArrayList<ArrayList<String>> records) {
     	//System.out.printf("================MACD(sl=%d,ll=%d,tl=%d)==================\n", sl, ll, tl);
@@ -270,11 +250,7 @@ public class GetAttr {
     public static double DEM(int t, int sl, int ll, int tl, ArrayList<ArrayList<String>> records) {
         return 	(DIF(t, sl, ll, records) + DIF(t-1, sl, ll, records))/(double) tl;
     }*/
-    
-    /* Input: 
-     * Output: 
-     *
-     */
+        
 	static void writeCSV(String path, String filename, ArrayList<ArrayList<String>> records) throws IOException{
 		FileWriter outputFW = new FileWriter(path + filename);
 		for(int i=0;i<records.size();i++){

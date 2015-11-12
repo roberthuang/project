@@ -17,7 +17,7 @@ public class weka {
     	    ArrayList<ArrayList<String>> records = readCSV(path);
     	    /**Feature Extraction**/
     	    GetAttr g = new GetAttr();     	    
-    	    g.featureExtraction(records);    	        	        	  
+    	    g.featureExtraction("weka.csv", records);    	        	        	  
     	    
     	    /**Translate to SDB**/
     	    T2SDB t2sdb = new T2SDB();   

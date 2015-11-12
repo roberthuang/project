@@ -128,7 +128,7 @@ public class RuleMapping {
     
     }
            
-    public HashMap<String, Double> evaluate(HashMap<Integer, String> class_table , HashMap<Integer, ArrayList<String>> predict) {
+    public HashMap<String, Double> evaluate(HashMap<Integer, String> class_table , HashMap<Integer, ArrayList<String>> predict, int traing_data_size) {
     	HashMap<String, Double> e = new HashMap<>();
     	HashMap<String, Integer> number = new HashMap<>();
     	for (Integer i : predict.keySet()) {
@@ -157,7 +157,7 @@ public class RuleMapping {
         int True_Negative  = 0;
         int False_Positive = 0;
         int False_Negative = 0;     
-        int index = 240;                      
+        int index = traing_data_size;                      
         for (int i = 1; i <= predict.size(); i++) {
                 if (predict.get(i).get(0).equals("Rise"))	{
                     if (class_table.get(i+index).equals("Rise")) {

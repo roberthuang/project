@@ -84,13 +84,13 @@ public class RuleEvaluation {
 
 	}
 
-	public static void start(String jsconfig, double min_conf_input) {
+	public static void start(String jsconfig, double min_conf_input, int traing_data_size) {
         
-		mainflow(jsconfig, min_conf_input);
+		mainflow(jsconfig, min_conf_input, traing_data_size);
 
 	}
 	
-	static void mainflow(String jsconfig, double min_conf_input) {
+	static void mainflow(String jsconfig, double min_conf_input, int traing_data_size) {
 
 		//System.out.println("===============  RuleEvaluation ===================");
 
@@ -131,7 +131,7 @@ public class RuleEvaluation {
 
 			//1. read patterns
 
-			HashMap<String, Double> patterns = readPatterns(path);
+			HashMap<String, Double> patterns = readPatterns(path, traing_data_size);
 
 			//2. generate rules
 
@@ -152,26 +152,17 @@ public class RuleEvaluation {
 		//System.out.println("===================================================\n");
 	}
 
-	static HashMap<String, Double> readPatterns(String filename) throws FileNotFoundException{
-
-	        //traing_data_size
-	        double traing_data = 240;
-
-	        
-
+	static HashMap<String, Double> readPatterns(String filename, int traing_data_size) throws FileNotFoundException{	      
 		HashMap<String, Double> patterns = new HashMap<>();
-
 		Scanner sc = new Scanner(new File(filename));
 
 		while(sc.hasNextLine()){
 			String[] tokens = sc.nextLine().split(" -1  #SUP: ");
-			double sup = Double.parseDouble(tokens[1])/traing_data;       
+			double sup = Double.parseDouble(tokens[1])/traing_data_size;       
 			patterns.put(tokens[0], sup);            
 		}
-		sc.close();
-        
+		sc.close();        
 		return patterns;
-
 	}
 
 	static HashMap<String, RuleEval> generateRules(HashMap<String, Double> patterns, HashSet<String> contains_event){			     
