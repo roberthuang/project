@@ -1,17 +1,15 @@
 package Main;
 import java.io.*;
 import java.util.*;
-import java.net.URL;
 
-import dataPreprocessing.SAXTransformation;
-import dataPreprocessing.SAXTransformation_Testing;
 import getAttribute.GetAttr;
 import ruleGeneration.RuleEvaluation;
 import ruleMapping.RuleMapping;
 import transferToSDB.T2SDB;
-
 import ca.pfv.spmf.algorithms.sequentialpatterns.BIDE_and_prefixspan_with_strings.AlgoPrefixSpan_with_Strings;
 import ca.pfv.spmf.input.sequence_database_list_strings.SequenceDatabase;
+import dataPreprocessing.SAXTransformation;
+import dataPreprocessing.SAXTransformation_Testing;
 
 public class Main {
     public static void main(String[] args) throws 
@@ -21,47 +19,40 @@ public class Main {
     	    FileOutputStream fos = new FileOutputStream(fout);
 	        OutputStreamWriter osw = new OutputStreamWriter(fos);  
    	        
-	        for (int i = 5; i <=50; i++) {
-	        	
+	             	
 	            for (double j = 0.01; j <= 0.70; j = j + 0.01) {
 	        	
-	        System.out.println("i: " + i + " j: " + j);
+	        System.out.println(" j: " + j);
     		/**0.Set Argument**/
     		int window_size = 3;
-    		int minsup = i;
+    		int minsup = 20;
     		double min_conf = j;
-    		
-    		String path = "petro_subset1_2012.csv";//For Get Attribute 
+    		//Input
+    		String path = "petro_subset1_2010.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);
             int traing_data_size = (int)((records.size()-1)*0.8);
             
-    		/**1.Feature Events Extraction**/ 
-        	//System.out.println("##Step 1: Feature Events Extraction");                                   
-            GetAttr g = new GetAttr(); 
-            HashMap<Integer, String> feature_target = g.featureExtraction_target(records);
-            
-            g.featureExtraction("transformed_petro_subset1_feature.csv", records);		
+    		HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
+            GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records);		
             
 	        /**2.SAX**/
     	    //System.out.println("##Step 2.1: SAX(Traing)");
-            //SAXTransformation sax = new SAXTransformation();
-            //sax.start("SAXTransformation_config_petro_subset1_2010.txt");
+            SAXTransformation.start("SAXTransformation_config_petro_subset1_2010.txt");
                        
-            //System.out.println("##Step 2.2: SAX(Testing)");
-            //SAXTransformation_Testing sax_testing = new SAXTransformation_Testing();
-            //sax_testing.start("petro_subset1_breakpoints_2010.txt");
+            //System.out.println("##Step 2.2: SAX(Testing)");          
+            SAXTransformation_Testing.start("petro_subset1_breakpoints_2010.txt");
                                               
             /**3.Temporal Data Base to SDB(Training)**/
             //System.out.println("##Step 3.1: Temporal Data Base to SDB(Training)");
             //For training
-            //String path_of_file_training_after_SAX = "transformed_petro_subset1_training_2010.csv";
-            String path_after_discrete = "transformed_petro_subset1_feature.csv";
+            String path_of_file_training_after_SAX = "transformed_petro_subset1_training_2010.csv";
+            //String path_after_discrete = "transformed_petro_subset1_feature.csv";
     		T2SDB t = new T2SDB();
-            t.translate_training(window_size, path_after_discrete,  feature_target, "SDB(Training).txt");
+            t.translate_training(window_size, path_of_file_training_after_SAX,  feature_target, "SDB(Training).txt");
             
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             //For testing
-            String path_of_testing_file_after_SAX = "transformed_petro_subset1_feature.csv";
+            String path_of_testing_file_after_SAX = "transformed_petro_subset1_testing_2010.csv";
             t.translate_testing(window_size, path_of_testing_file_after_SAX, "SDB(Testing).txt");
                          
             /**4.Sequential Pattern Mining**/
@@ -76,11 +67,10 @@ public class Main {
     		//execute the algorithm
     		algo.runAlgorithm(sequenceDatabase, "sequential_patterns.txt", minsup);    
     		//algo.printStatistics(sequenceDatabase.size());
-    		    		
-    		/**5.Rule Generation**/
-    		//System.out.println("##Step 5: Rule Generation");
-    		RuleEvaluation rule = new RuleEvaluation();
-    		rule.start("RuleEvaluation_config.txt", min_conf, traing_data_size);
+    		
+    		/**Generating Rule**/
+    		//System.out.println("##Step 5: Rule Generating");
+    		RuleEvaluation.start("RuleEvaluation_config.txt", min_conf, traing_data_size);
                 		
     		/**6.Rule Mapping**/    		
     		//System.out.println("##Step 6: Rule Mapping");
@@ -90,11 +80,11 @@ public class Main {
     	    
     		/**7.Evaluate Precision**/
     		HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size);    		           
-    		 		    	
+    			    	
     		osw.write("Predict: (1) Rise: " + e.get("Rise") + "\r\n");
     		osw.write("         (2) Down: " + e.get("Down") + "\r\n");
     		osw.write("window_size:"        + window_size + "\r\n");
-    		osw.write("minsup:"             + i + "\r\n");
+    		//osw.write("minsup:"             + i + "\r\n");
     		osw.write("min_conf:"           + j + "\r\n");
     		osw.write("precision_rise: "    + e.get("precision_rise") + "\r\n");
     		osw.write("precision_down: "    + e.get("precision_down") + "\r\n");
@@ -103,7 +93,7 @@ public class Main {
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");
-	            }
+	            //}
 	            
 	        }
     	    osw.close();

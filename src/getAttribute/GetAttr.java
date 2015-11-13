@@ -7,7 +7,7 @@ public class GetAttr {
 	//private static HashMap<Integer, Double> temp_sl = new HashMap<>();
 	//private static HashMap<Integer, Double> temp_ll = new HashMap<>();
 	
-	public static HashMap<Integer, String> feature_source(int att_index, ArrayList<ArrayList<String>> records) {
+	public static HashMap<Integer, String> feature(int att_index, ArrayList<ArrayList<String>> records) {
 		 HashMap<Integer, String> result = new HashMap<>(); 	    
 	     int col = att_index; 
 	     for (int i = 1; i < records.size(); i++ ) {       
@@ -16,16 +16,28 @@ public class GetAttr {
 	                continue;
 	            }
 	            
-	            if (Double.parseDouble(records.get(i).get(col))- Double.parseDouble(records.get(i-1).get(col)) >= 0 ) {
+	            if (Double.parseDouble(records.get(i).get(col))- Double.parseDouble(records.get(i-1).get(col)) > 0 ) {
 	    	    	result.put(i, "R");     
 	    	    } else {
 	    	    	result.put(i, "D");  
 	    	    }	
-        }       
-	        	 
-	    return result;
-		
+        }       	        	
+	    return result;		
 	}
+	
+	public static HashMap<Integer, String> match_source_target(HashMap<Integer, String> s, HashMap<Integer, String> t) {
+		HashMap<Integer, String> result = new HashMap<>(); 
+	    for (int i = 1;i < t.size(); i++) {
+	        if (s.get(i) == t.get(i)) {
+	        	result.put(i, "Same");
+	        } else {
+	        	result.put(i, "Diff");
+	        }
+	    }	    
+	    return result;
+	}
+	
+	
 	
     public static HashMap<Integer, String> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {
         //System.out.printf("================Moving Average(%d)==================\n",length); 	
@@ -100,7 +112,10 @@ public class GetAttr {
 	public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records) {				
 		
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
-		HashMap<Integer, String> FS = feature_source(1, records);
+		HashMap<Integer, String> FS = feature(1, records);
+		HashMap<Integer, String> FT = feature(2, records);		
+		HashMap<Integer, String> Match = match_source_target(FS, FT);
+		
 		HashMap<Integer, String> MAS1_2 = Move_Average(2, records.get(0).get(1), 1, records);		
 		HashMap<Integer, String> MAS1_3 = Move_Average(3, records.get(0).get(1), 1, records);
 		HashMap<Integer, String> MAT_2 = Move_Average(2, records.get(0).get(2), 2, records);
@@ -111,22 +126,24 @@ public class GetAttr {
 			//Add Date
 			temp.add(records.get(i).get(0));
 			if(i == 0) {			 
-			       //temp.add(records.get(i).get(j));
+			       temp.add(records.get(i).get(1));
 			       temp.add("Feature");
 			       temp.add("MAS1_2");			     
 			       temp.add("MAS1_3");			       			    
 			       temp.add("MAT_2");	
 			       temp.add("MAT_3");
-			      
+			       temp.add("Match");			      
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4
-		        for (int j = 1; j < records.get(i).size()-1; j++) {		          
+		       
+		        	temp.add(records.get(i).get(1));
 		            temp.add(FS.get(i));
 		            temp.add(MAS1_2.get(i));
 		            temp.add(MAS1_3.get(i));		           
 		            temp.add(MAT_2.get(i));
-		            temp.add(MAT_3.get(i));		           
-		        }		     		      
+		            temp.add(MAT_3.get(i));	
+		            temp.add(Match.get(i));	
+		        	     		      
 			}
 			//Add the last one of every line
 			temp.add(records.get(i).get(records.get(i).size()-1));			
@@ -198,7 +215,7 @@ public class GetAttr {
     	    	result.put(i, "Rise"); 
     	    	continue;
     	    }
-    	    if (Double.parseDouble(records.get(i).get(index_of_target_att))- Double.parseDouble(records.get(i-1).get(index_of_target_att)) >= 0 ) {
+    	    if (Double.parseDouble(records.get(i).get(index_of_target_att))- Double.parseDouble(records.get(i-1).get(index_of_target_att)) > 0 ) {
     	    	result.put(i, "Rise");     
     	    } else {
     	    	result.put(i, "Down");  

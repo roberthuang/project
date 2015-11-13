@@ -6,7 +6,7 @@
 	[
 		{
 			"attr_name"		:	"Crude_Oil_NYMEX",
-			"num_category"	:	2
+			"num_category"	:	3
 		}
 		
 	]
