@@ -20,13 +20,13 @@ public class Main {
 	        OutputStreamWriter osw = new OutputStreamWriter(fos);  
    	        
 	             	
-	         for (double j = 0.01; j <= 0.90; j = j + 0.01) {
+	         //for (double j = 0.01; j <= 1; j = j + 0.01) {
 	        	
-	        System.out.println(" j: " + j);
+	        //System.out.println(" j: " + j);
     		/**0.Set Argument**/
-    		int window_size = 2;
-    		int minsup = 15;
-    		double min_conf = j;
+    		int window_size = 3;
+    		int minsup = 40;
+    		double min_conf = 0.5;
     		//Input
     		String path = "petro_subset1_2010.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);
@@ -85,7 +85,7 @@ public class Main {
     		osw.write("         (2) Down: " + e.get("Down") + "\r\n");
     		osw.write("window_size:"        + window_size + "\r\n");
     		//osw.write("minsup:"             + i + "\r\n");
-    		osw.write("min_conf:"           + j + "\r\n");
+    		//osw.write("min_conf:"           + j + "\r\n");
     		
     		osw.write("True_Positive: "    + e.get("True_Positive") + "\r\n");
     		osw.write("True_Negative: "    + e.get("True_Negative") + "\r\n");
@@ -99,7 +99,7 @@ public class Main {
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");
-	        }
+	        //}
 	            
 	     
     	    osw.close();

@@ -12,7 +12,7 @@ public class GetAttr {
 	     int col = att_index; 
 	     for (int i = 1; i < records.size(); i++ ) {       
 	            if (i == 1) {
-	                result.put(i, "D");     
+	                result.put(i, "D" );     
 	                continue;
 	            }
 	            
@@ -24,6 +24,25 @@ public class GetAttr {
         }       	        	
 	    return result;		
 	}
+	
+	public static HashMap<Integer, String> feature2(int att_index, ArrayList<ArrayList<String>> records) {
+		 HashMap<Integer, String> result = new HashMap<>(); 	    
+	     int col = att_index; 
+	     for (int i = 1; i < records.size(); i++ ) {       
+	            if (i == 1) {
+	            	result.put(i, records.get(0).get(col) + "_R");      
+	                continue;
+	            }
+	            
+	            if (Double.parseDouble(records.get(i).get(col))- Double.parseDouble(records.get(i-1).get(col)) > 0 ) {
+	    	    	result.put(i,  records.get(0).get(col) + "_R");     
+	    	    } else {
+	    	    	result.put(i,  records.get(0).get(col) + "_D");  
+	    	    }	
+       }       	        	
+	    return result;		
+	}
+	
 	
 	public static HashMap<Integer, String> match_source_target(HashMap<Integer, String> s, HashMap<Integer, String> t) {
 		HashMap<Integer, String> result = new HashMap<>(); 
@@ -112,6 +131,9 @@ public class GetAttr {
 	public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records) {				
 		
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
+		HashMap<Integer, String> FS2 = feature2(1, records);
+		HashMap<Integer, String> FT2 = feature2(2, records);
+		
 		HashMap<Integer, String> FS = feature(1, records);
 		HashMap<Integer, String> FT = feature(2, records);		
 		HashMap<Integer, String> Match = match_source_target(FS, FT);
@@ -138,8 +160,8 @@ public class GetAttr {
 				//All the conditional att need to add. eg. x -> x x_3 x_4
 		       
 		        	//temp.add(records.get(i).get(1));
-		           temp.add(FS.get(i));
-		           temp.add(FT.get(i));
+		           temp.add(FS2.get(i));
+		           temp.add(FT2.get(i));
 		           temp.add(MAS1_2.get(i));
 		           temp.add(MAS1_3.get(i));		           
 		           temp.add(MAT_2.get(i));

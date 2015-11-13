@@ -222,7 +222,7 @@ public class RuleEvaluation {
 			String rule = new StringBuilder(LHS).append(" -> ").append(RHS).toString();
 
 			if(!patterns.containsKey(LHS.toString())) System.out.println(LHS + "\t->\t" + RHS);
-
+            
 			double conf = 1.0 * sup / patterns.get(LHS.toString());
             
 			
