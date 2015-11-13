@@ -12,7 +12,7 @@ public class GetAttr {
 	     int col = att_index; 
 	     for (int i = 1; i < records.size(); i++ ) {       
 	            if (i == 1) {
-	                result.put(i, "R");     
+	                result.put(i, "D");     
 	                continue;
 	            }
 	            
@@ -127,23 +127,24 @@ public class GetAttr {
 			temp.add(records.get(i).get(0));
 			if(i == 0) {			 
 			       //temp.add(records.get(i).get(1));
-			       temp.add("Feature");
+			       temp.add("Feature_S");
+			       temp.add("Feature_T");
 			       temp.add("MAS1_2");			     
 			       temp.add("MAS1_3");			       			    
 			       temp.add("MAT_2");	
-			       temp.add("MAT_3");
+			       temp.add("MAT_3");			      
 			       temp.add("Match");			      
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4
 		       
 		        	//temp.add(records.get(i).get(1));
-		            temp.add(FS.get(i));
-		            temp.add(MAS1_2.get(i));
-		            temp.add(MAS1_3.get(i));		           
-		            temp.add(MAT_2.get(i));
-		            temp.add(MAT_3.get(i));	
-		            temp.add(Match.get(i));	
-		        	     		      
+		           temp.add(FS.get(i));
+		           temp.add(FT.get(i));
+		           temp.add(MAS1_2.get(i));
+		           temp.add(MAS1_3.get(i));		           
+		           temp.add(MAT_2.get(i));
+		           temp.add(MAT_3.get(i));	
+		           temp.add(Match.get(i));			        	     		     
 			}
 			//Add the last one of every line
 			temp.add(records.get(i).get(records.get(i).size()-1));			

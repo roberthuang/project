@@ -175,11 +175,16 @@ public class RuleMapping {
                 }
         }
         int size = True_Negative +  True_Positive + False_Positive + False_Negative;
+        e.put("True_Positive", (double)True_Positive);
+        e.put("True_Negative", (double)True_Negative);
+        e.put("False_Positive", (double)False_Positive);
+        e.put("False_Negative", (double)False_Negative);
+        
         double acc =  (True_Positive + True_Negative)/ (double)(size);
         e.put("acc", acc);
-        double precision_rise =  True_Positive / (double)(True_Positive + False_Negative);
+        double precision_rise =  True_Positive / (double)(True_Positive + False_Positive);
         e.put("precision_rise", precision_rise);
-        double recall_rise =  True_Positive / (double)(True_Positive + False_Positive);
+        double recall_rise =  True_Positive / (double)(True_Positive + False_Negative);
         e.put("recall_rise", recall_rise);
         double precision_down =  True_Negative / (double)(True_Negative +  False_Positive);
         e.put("precision_down", precision_down);
