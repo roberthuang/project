@@ -126,7 +126,7 @@ public class GetAttr {
 			//Add Date
 			temp.add(records.get(i).get(0));
 			if(i == 0) {			 
-			       temp.add(records.get(i).get(1));
+			       //temp.add(records.get(i).get(1));
 			       temp.add("Feature");
 			       temp.add("MAS1_2");			     
 			       temp.add("MAS1_3");			       			    
@@ -136,7 +136,7 @@ public class GetAttr {
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4
 		       
-		        	temp.add(records.get(i).get(1));
+		        	//temp.add(records.get(i).get(1));
 		            temp.add(FS.get(i));
 		            temp.add(MAS1_2.get(i));
 		            temp.add(MAS1_3.get(i));		           
