@@ -57,7 +57,7 @@ public class GetAttr {
 	}
 	
 	
-	
+	/*
     public static HashMap<Integer, String> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {
         //System.out.printf("================Moving Average(%d)==================\n",length); 	
         HashMap<Integer, String> result = new HashMap<>(); 
@@ -103,8 +103,8 @@ public class GetAttr {
         //System.out.println("Moving avearge number :" + result.size());
         //System.out.println("===================================================\n");      
         return result;
-    }
-	 /*	
+    }*/
+	 
 	 //for Weka
 	 public static HashMap<Integer, Double> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {	        
 	        HashMap<Integer, Double> result = new HashMap<>(); 
@@ -121,13 +121,14 @@ public class GetAttr {
 	                for (int p_1 = i; p_1 >= i-length+1; p_1--) {                
 	                    sum_t = sum_t + Double.parseDouble(records.get(p_1).get(col));
 	                } 	
-	                result.put(i, sum_t/(double)2);  
+	                result.put(i, sum_t/(double)length);  
 	            }          	            	                    
 	        }       
 	           
 	        return result;
-	    }*/
-    
+	    }
+	 
+    /*
 	public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records) {				
 		
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
@@ -178,46 +179,67 @@ public class GetAttr {
 			System.out.println("[ERROR] I/O Exception.");
 			e.printStackTrace();
 		}
-	}
-	/*
+	}*/
+	
+	 
+	 
+	 
     //weka
-    public static void featureExtraction(ArrayList<ArrayList<String>> records) {		      
-		String output_filename = "weka.csv";
+    public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records) {		      
+		
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
 		HashMap<Integer, Double> table = Move_Average(2, records.get(0).get(1), 1, records);		
 		HashMap<Integer, Double> table1 = Move_Average(3, records.get(0).get(1), 1, records);
 		HashMap<Integer, Double> table2 = Move_Average(4, records.get(0).get(1), 1, records);
+		HashMap<Integer, Double> table3 = Move_Average(2, records.get(0).get(2), 2, records);		
+		HashMap<Integer, Double> table4 = Move_Average(3, records.get(0).get(2), 2, records);
+		HashMap<Integer, Double> table5 = Move_Average(4, records.get(0).get(2), 2, records);
 				
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add time
 			temp.add(records.get(i).get(0));
 			if(i == 0) {
-			   for (int j = 1; j < records.get(i).size()-1; j++) {			       		     
-			       temp.add("MA2");			     
-			       temp.add("MA3");			      
-			       temp.add("MA4");
-			   }	
+			   	   temp.add(records.get(i).get(1));       		        
+			       temp.add("MAS2");			     
+			       temp.add("MAS3");			      
+			       temp.add("MAS4");
+			       temp.add("MAT2");			     
+			       temp.add("MAT3");			      
+			       temp.add("MAT4");
 			   
 			} else {				
-		        for (int j = 1; j < records.get(i).size()-1; j++) {	
-		        	if (table.get(i) == null) {		
-		        		temp.add("86.68336");
-		        	} else {
-		        		temp.add(table.get(i).toString());	
-		        	}
-		        	if (table1.get(i) == null) {		
-		        		temp.add("130.1424");
-		        	} else {
-		        		temp.add(table1.get(i).toString());	
-		        	}
-		        	if (table2.get(i) == null) {		
-		        		temp.add("173.6877");
-		        	} else {
-		        		temp.add(table2.get(i).toString());	
-		        	}		           
-		        }
-		                
+				   temp.add(records.get(i).get(1));
+				   if (table.get(i) == null) {
+				       temp.add("86.68336");
+				   } else {				    
+					   temp.add(table.get(i).toString());
+				   }   
+				   if (table1.get(i) == null) {
+				       temp.add("86.7612");
+				   } else {				    
+					   temp.add(table1.get(i).toString());
+				   }
+				   if (table2.get(i) == null) {
+				       temp.add("86.84385");
+				   } else {				    
+					   temp.add(table2.get(i).toString());
+				   }
+				   if (table3.get(i) == null) {
+				       temp.add("283.0698");
+				   } else {				    
+					   temp.add(table3.get(i).toString());
+				   }   
+				   if (table4.get(i) == null) {
+				       temp.add("283.317");
+				   } else {				    
+					   temp.add(table4.get(i).toString());
+				   }  
+				   if (table5.get(i) == null) {
+				       temp.add("283.5546");
+				   } else {				    
+					   temp.add(table5.get(i).toString());
+				   } 
 			}	
 			temp.add(records.get(i).get(records.get(i).size()-1));	
 			result.add(temp);
@@ -228,7 +250,7 @@ public class GetAttr {
 			System.out.println("[ERROR] I/O Exception.");
 			e.printStackTrace();
 		}
-	}*/
+	}
 	
     public static HashMap<Integer, String> featureExtraction_target(ArrayList<ArrayList<String>> records) {
     	HashMap<Integer, String> result = new HashMap<>();

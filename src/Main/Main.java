@@ -24,9 +24,9 @@ public class Main {
 	        	
 	        //System.out.println(" j: " + j);
     		/**0.Set Argument**/
-    		int window_size = 3;
-    		int minsup = 40;
-    		double min_conf = 0.5;
+    		int window_size = 4;
+    		int minsup = 60;
+    		double min_conf = 0.34;
     		//Input
     		String path = "petro_subset1_2010.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);

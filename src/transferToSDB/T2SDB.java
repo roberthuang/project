@@ -4,10 +4,7 @@ import java.util.*;
 
 public class T2SDB {
 	
-	/** Input: window_size, path(csv file which is symbolic by SAX), class_table(the target attribute's class)
-     * Output: Sequential Data Base
-     *
-    **/
+	/*
     public void translate_training(int window_size, String path, HashMap<Integer, String> class_table, String output) {
        try {
            //System.out.print("=============Transfer to SDB(Training)=============\n");
@@ -55,8 +52,8 @@ public class T2SDB {
            e.printStackTrace();
        }  
        
-   }
-    /*
+   }*/
+    
 	//weka
 	public void translate_training(int window_size, String path, HashMap<Integer, String> class_table, String output) {
 	       try {	         
@@ -76,12 +73,9 @@ public class T2SDB {
 	                   int index = i + j;                     
 	                   if (index <= training_data) {
 	                       class_index = index;   
-	                       double sum = 0;
-	                       boolean empty = false;
-	                       for (int k = 1;k < records.get(i).size()-1; k++) {	                    	   	                    		  	                           	                    	  
-	                    	   sum = sum + Double.parseDouble(records.get(index).get(k));
-	                       }  
-	                       osw.write(sum/(double)window_size + "," + " ");	                       
+	                       for (int k = 1;k < records.get(i).size()-1; k++) {
+	                    	   osw.write(records.get(index).get(k)  + "," + " ");        	                     	   
+	                       }                   	                                          
 	                   }                       
 	               }
 	               
@@ -101,7 +95,7 @@ public class T2SDB {
 	           e.printStackTrace();
 	       }  
 	       
-   }*/
+   }
    
    public void translate_testing(int window_size, String path, String output) {
        try {
