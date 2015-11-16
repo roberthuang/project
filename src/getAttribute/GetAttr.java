@@ -181,9 +181,37 @@ public class GetAttr {
 		}
 	}*/
 	
-	 
-	 
-	 
+	 public static void featureExtraction_one(String output_filename, ArrayList<ArrayList<String>> records) {				
+			
+			ArrayList<ArrayList<String>> result = new ArrayList<>();
+						
+			for (int i = 0; i < records.size(); i++) {		
+				ArrayList<String> temp = new ArrayList<>();
+				//Add Date
+				temp.add(records.get(i).get(0));
+				if(i == 0) {			 
+				       //temp.add(records.get(i).get(1));
+				       temp.add("Feature_S");				      			    
+				} else {
+					   if (Double.parseDouble(records.get(i).get(1)) <= 77.59) {
+					       temp.add("RR");   
+					   } else {
+						   temp.add("DD"); 
+					   }			       
+			        	//temp.add(records.get(i).get(1));			          			        	     		    
+				}
+				//Add the last one of every line
+				temp.add(records.get(i).get(records.get(i).size()-1));			
+				result.add(temp);
+			}		
+			try {
+			writeCSV("", output_filename,result);
+			} catch (IOException e) {
+				System.out.println("[ERROR] I/O Exception.");
+				e.printStackTrace();
+			}
+		} 
+	 	
     //weka
     public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records) {		      
 		

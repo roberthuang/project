@@ -24,16 +24,17 @@ public class Main {
 	        	
 	        //System.out.println(" j: " + j);
     		/**0.Set Argument**/
-    		int window_size = 4;
-    		int minsup = 60;
-    		double min_conf = 0.34;
+    		int window_size = 3;
+    		int minsup = 30;
+    		double min_conf = 0.24;
     		//Input
     		String path = "petro_subset1_2010.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);
             int traing_data_size = (int)((records.size()-1)*0.8);
             
     		HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
-            GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records);		
+            //GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records);
+            GetAttr.featureExtraction_one("transformed_petro_subset1_feature.csv", records);	
             
 	        /**2.SAX**/
     	    //System.out.println("##Step 2.1: SAX(Traing)");
@@ -43,20 +44,20 @@ public class Main {
             //SAXTransformation_Testing.start("petro_subset1_breakpoints_2010.txt");
                                               
             /**3.Temporal Data Base to SDB(Training)**/
-            //System.out.println("##Step 3.1: Temporal Data Base to SDB(Training)");
+            System.out.println("##Step 3.1: Temporal Data Base to SDB(Training)");
             //For training
-            String path_of_file_training_after_SAX = "transformed_petro_subset1_feature.csv";
-            //String path_after_discrete = "transformed_petro_subset1_feature.csv";
+            //String path_of_file_training_after_SAX = "transformed_petro_subset1_feature.csv";
+            String path_after_discrete = "transformed_petro_subset1_feature.csv";
     		T2SDB t = new T2SDB();
-            t.translate_training(window_size, path_of_file_training_after_SAX,  feature_target, "SDB(Training).txt");
+            t.translate_training(window_size, path_after_discrete,  feature_target, "SDB(Training).txt");
             
-            //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
+            System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             //For testing
             String path_of_testing_file_after_SAX = "transformed_petro_subset1_feature.csv";
             t.translate_testing(window_size, path_of_testing_file_after_SAX, "SDB(Testing).txt");
                          
             /**4.Sequential Pattern Mining**/
-            //System.out.println("##Step 4: Sequential Pattern Mining");
+            System.out.println("##Step 4: Sequential Pattern Mining");
             //Load a sequence database
             SequenceDatabase sequenceDatabase = new SequenceDatabase(); 
             sequenceDatabase.loadFile("SDB(Training).txt");
@@ -69,12 +70,12 @@ public class Main {
     		//algo.printStatistics(sequenceDatabase.size());
     		
     		/**Generating Rule**/
-    		//System.out.println("##Step 5: Rule Generating");
+    		System.out.println("##Step 5: Rule Generating");
     		RuleEvaluation.start("RuleEvaluation_config.txt", min_conf, traing_data_size);
                 		
     		/**6.Rule Mapping**/    		
-    		//System.out.println("##Step 6: Rule Mapping");
-    		RuleMapping mapping = new RuleMapping();
+    		System.out.println("##Step 6: Rule Mapping");
+    	    RuleMapping mapping = new RuleMapping();
     		HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
     		= mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"));
     	    

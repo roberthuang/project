@@ -4,7 +4,7 @@ import java.util.*;
 
 public class T2SDB {
 	
-	/*
+	
     public void translate_training(int window_size, String path, HashMap<Integer, String> class_table, String output) {
        try {
            //System.out.print("=============Transfer to SDB(Training)=============\n");
@@ -52,8 +52,8 @@ public class T2SDB {
            e.printStackTrace();
        }  
        
-   }*/
-    
+   }
+    /*
 	//weka
 	public void translate_training(int window_size, String path, HashMap<Integer, String> class_table, String output) {
 	       try {	         
@@ -95,7 +95,7 @@ public class T2SDB {
 	           e.printStackTrace();
 	       }  
 	       
-   }
+   }*/
    
    public void translate_testing(int window_size, String path, String output) {
        try {
