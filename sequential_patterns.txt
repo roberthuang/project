@@ -1,11 +1,2 @@
-DD -1  #SUP: 227
-DD -1 Rise -1  #SUP: 108
-DD -1 Down -1  #SUP: 116
-DD -1 DD -1  #SUP: 217
-DD -1 DD -1 Rise -1  #SUP: 103
-DD -1 DD -1 Down -1  #SUP: 112
-DD -1 DD -1 DD -1  #SUP: 210
-DD -1 DD -1 DD -1 Rise -1  #SUP: 99
-DD -1 DD -1 DD -1 Down -1  #SUP: 110
-Down -1  #SUP: 117
-Rise -1  #SUP: 120
+Down -1  #SUP: 115
+Rise -1  #SUP: 115

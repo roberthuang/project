@@ -18,8 +18,7 @@ public class RuleMapping {
                 number = number + 1;
                 number_of_rise_down.put(rise_down , number);
             } 	   
-        }
-        
+        }        
         ArrayList<String> answer = new ArrayList<>();
         if (number_of_rise_down.get("Rise") == null) {
         	answer.add("Down");
@@ -49,40 +48,23 @@ public class RuleMapping {
                 int size = 0;
                 int current = 0;
                 for (int i_1 = 0; i_1 <  itemsets.size(); i_1++) {                	
-                    for (int j = current; j < rule.size()-1; j++) {    
-                    	//boolean have = false;
-                    	
+                    for (int j = current; j < rule.size()-1; j++) {                                         
                         if (itemsets.get(i_1).containsAll(rule.get(j))) {    
                             current = j;
                             current = current + 1;
                             size = size + 1;
                             break;
-                        }/*
-                    	for (int k = 0; k < itemsets.get(i_1).size(); k++) {
-                    	    if (rule.get(j).contains(itemsets.get(i_1).get(k))) {
-                    	        have = true;                    	       
-                    	    	break;
-                    	    }
-                    	}
-                    	
-                    	if (have == true) {
-                    		current = j;
-                            current = current + 1;
-                            size = size + 1;
-                            break;
-                    	}*/
+                        }                    	
                     }                                                            
                     
-                }
-                
+                }                
                 if (size == rule.size()-1) {
                 	match_number = match_number + 1;      
                 	match_rules.add(rule);
                 }
                
             } 
-            //System.out.println(match_number);
-            
+            //System.out.println(match_number);            
             if (match_number >=2) {
                 int max = 0;
                 double max_sup = rules.get(match_rules.get(0)).get(0);
@@ -98,8 +80,7 @@ public class RuleMapping {
                     	}
                     }
                 	
-                }
-            	
+                }            	
                 ArrayList<ArrayList<String>> match_rule = match_rules.get(max);
                 ArrayList<String> Rise_Down = match_rule.get(match_rule.size()-1);
             	result.put(i, Rise_Down);
@@ -191,6 +172,5 @@ public class RuleMapping {
         double recall_down =  True_Negative / (double)( True_Negative + False_Negative);
         e.put("recall_down", recall_down );
         return e;
-        }
-    
+        }    
 }

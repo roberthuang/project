@@ -1,14 +1,14 @@
-Predict: (1) Rise: 46.0
-         (2) Down: 14.0
-window_size:3
-True_Positive: 16.0
-True_Negative: 8.0
-False_Positive: 6.0
-False_Negative:30.0
-precision_rise: 0.7272727272727273
-precision_down: 0.5714285714285714
-recall_rise: 0.34782608695652173
-recall_down: 0.21052631578947367
-acc: 0.4
+Predict: (1) Rise: null
+         (2) Down: 60.0
+window_size:10
+True_Positive: 0.0
+True_Negative: 38.0
+False_Positive: 22.0
+False_Negative:0.0
+precision_rise: 0.0
+precision_down: 0.6333333333333333
+recall_rise: NaN
+recall_down: 1.0
+acc: 0.6333333333333333
 
 

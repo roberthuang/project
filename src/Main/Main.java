@@ -24,7 +24,7 @@ public class Main {
 	        	
 	        //System.out.println(" j: " + j);
     		/**0.Set Argument**/
-    		int window_size = 3;
+    		int window_size = 10;
     		int minsup = 30;
     		double min_conf = 0.24;
     		//Input
@@ -34,7 +34,7 @@ public class Main {
             
     		HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
             //GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records);
-            GetAttr.featureExtraction_one("transformed_petro_subset1_feature.csv", records);	
+            GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records);	
             
 	        /**2.SAX**/
     	    //System.out.println("##Step 2.1: SAX(Traing)");
@@ -100,11 +100,8 @@ public class Main {
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");
-	        //}
-	            
-	     
-    	    osw.close();
-            
+	        //}	            	     
+    	    osw.close();            
         } catch (FileNotFoundException e) {
             System.out.println("[ERROR] File Not Found Exception.");
             e.printStackTrace();

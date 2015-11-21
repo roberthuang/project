@@ -54,9 +54,7 @@ public class GetAttr {
 	        }
 	    }	    
 	    return result;
-	}
-	
-	
+	}	
 	/*
     public static HashMap<Integer, String> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {
         //System.out.printf("================Moving Average(%d)==================\n",length); 	
@@ -103,8 +101,7 @@ public class GetAttr {
         //System.out.println("Moving avearge number :" + result.size());
         //System.out.println("===================================================\n");      
         return result;
-    }*/
-	 
+    }*/	 
 	 //for Weka
 	 public static HashMap<Integer, Double> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {	        
 	        HashMap<Integer, Double> result = new HashMap<>(); 
@@ -180,37 +177,6 @@ public class GetAttr {
 			e.printStackTrace();
 		}
 	}*/
-	
-	 public static void featureExtraction_one(String output_filename, ArrayList<ArrayList<String>> records) {				
-			
-			ArrayList<ArrayList<String>> result = new ArrayList<>();
-						
-			for (int i = 0; i < records.size(); i++) {		
-				ArrayList<String> temp = new ArrayList<>();
-				//Add Date
-				temp.add(records.get(i).get(0));
-				if(i == 0) {			 
-				       //temp.add(records.get(i).get(1));
-				       temp.add("Feature_S");				      			    
-				} else {
-					   if (Double.parseDouble(records.get(i).get(1)) <= 77.59) {
-					       temp.add("RR");   
-					   } else {
-						   temp.add("DD"); 
-					   }			       
-			        	//temp.add(records.get(i).get(1));			          			        	     		    
-				}
-				//Add the last one of every line
-				temp.add(records.get(i).get(records.get(i).size()-1));			
-				result.add(temp);
-			}		
-			try {
-			writeCSV("", output_filename,result);
-			} catch (IOException e) {
-				System.out.println("[ERROR] I/O Exception.");
-				e.printStackTrace();
-			}
-		} 
 	 	
     //weka
     public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records) {		      
@@ -234,8 +200,7 @@ public class GetAttr {
 			       temp.add("MAS4");
 			       temp.add("MAT2");			     
 			       temp.add("MAT3");			      
-			       temp.add("MAT4");
-			   
+			       temp.add("MAT4");			   
 			} else {				
 				   temp.add(records.get(i).get(1));
 				   if (table.get(i) == null) {
