@@ -17,16 +17,14 @@ public class Main {
         try {
     	    File fout = new File("data.txt");
     	    FileOutputStream fos = new FileOutputStream(fout);
-	        OutputStreamWriter osw = new OutputStreamWriter(fos);  
-   	        
-	             	
-	         //for (double j = 0.01; j <= 1; j = j + 0.01) {
-	        	
-	        //System.out.println(" j: " + j);
+	        OutputStreamWriter osw = new OutputStreamWriter(fos);
+	        
+   	        for (double j = 0.01;j <= 0.80; j = j + 0.01) {
+   	        System.out.println(j);
     		/**0.Set Argument**/
-    		int window_size = 10;
-    		int minsup = 30;
-    		double min_conf = 0.24;
+    		int window_size = 3;
+    		int minsup = 35;
+    		double min_conf = j;
     		//Input
     		String path = "petro_subset1_2010.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);
@@ -44,20 +42,20 @@ public class Main {
             //SAXTransformation_Testing.start("petro_subset1_breakpoints_2010.txt");
                                               
             /**3.Temporal Data Base to SDB(Training)**/
-            System.out.println("##Step 3.1: Temporal Data Base to SDB(Training)");
+            //System.out.println("##Step 3.1: Temporal Data Base to SDB(Training)");
             //For training
             //String path_of_file_training_after_SAX = "transformed_petro_subset1_feature.csv";
             String path_after_discrete = "transformed_petro_subset1_feature.csv";
     		T2SDB t = new T2SDB();
             t.translate_training(window_size, path_after_discrete,  feature_target, "SDB(Training).txt");
             
-            System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
+            //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             //For testing
             String path_of_testing_file_after_SAX = "transformed_petro_subset1_feature.csv";
             t.translate_testing(window_size, path_of_testing_file_after_SAX, "SDB(Testing).txt");
                          
             /**4.Sequential Pattern Mining**/
-            System.out.println("##Step 4: Sequential Pattern Mining");
+            //System.out.println("##Step 4: Sequential Pattern Mining");
             //Load a sequence database
             SequenceDatabase sequenceDatabase = new SequenceDatabase(); 
             sequenceDatabase.loadFile("SDB(Training).txt");
@@ -70,38 +68,37 @@ public class Main {
     		//algo.printStatistics(sequenceDatabase.size());
     		
     		/**Generating Rule**/
-    		System.out.println("##Step 5: Rule Generating");
+    		//System.out.println("##Step 5: Rule Generating");
     		RuleEvaluation.start("RuleEvaluation_config.txt", min_conf, traing_data_size);
                 		
     		/**6.Rule Mapping**/    		
-    		System.out.println("##Step 6: Rule Mapping");
+    		//System.out.println("##Step 6: Rule Mapping");
     	    RuleMapping mapping = new RuleMapping();
     		HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
     		= mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"));
     	    
     		/**7.Evaluate Precision**/
-    		HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size);    		           
+    		HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, window_size);    		           
     			    	
     		osw.write("Predict: (1) Rise: " + e.get("Rise") + "\r\n");
     		osw.write("         (2) Down: " + e.get("Down") + "\r\n");
     		osw.write("window_size:"        + window_size + "\r\n");
-    		//osw.write("minsup:"             + i + "\r\n");
-    		//osw.write("min_conf:"           + j + "\r\n");
-    		
+    		osw.write("minsup:"             + minsup + "\r\n");
+    		osw.write("min_conf:"           + min_conf + "\r\n");    		
     		osw.write("True_Positive: "    + e.get("True_Positive") + "\r\n");
     		osw.write("True_Negative: "    + e.get("True_Negative") + "\r\n");
     		osw.write("False_Positive: "       + e.get("False_Positive") + "\r\n"); 
-    		osw.write("False_Negative:"           + e.get("False_Negative") + "\r\n");
-    		
+    		osw.write("False_Negative:"           + e.get("False_Negative") + "\r\n");    		
     		osw.write("precision_rise: "    + e.get("precision_rise") + "\r\n");
     		osw.write("precision_down: "    + e.get("precision_down") + "\r\n");
     		osw.write("recall_rise: "       + e.get("recall_rise") + "\r\n");    		
     		osw.write("recall_down: "       + e.get("recall_down") + "\r\n");
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
-    		osw.write("\r\n");
-	        //}	            	     
-    	    osw.close();            
+    		osw.write("\r\n");	  	
+            }
+    	    osw.close();
+            
         } catch (FileNotFoundException e) {
             System.out.println("[ERROR] File Not Found Exception.");
             e.printStackTrace();

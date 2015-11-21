@@ -16,10 +16,9 @@ public class T2SDB {
            File fout = new File(output);
 	       FileOutputStream fos = new FileOutputStream(fout);
 	       OutputStreamWriter osw = new OutputStreamWriter(fos);           
-           
-           for (int i = 1; i <= training_data; i++) { 
+           for (int i = 1; i <= training_data-window_size+1; i++) { 
                //The calss_table's index
-               int class_index = 0;             
+               int class_index = 0;   
                for (int j = 0; j < window_size;j++) {
                    int index = i + j;                     
                    if (index <= training_data) {
@@ -32,7 +31,7 @@ public class T2SDB {
                }
                
                class_index = class_index + 1;
-               if (class_index <= training_data) {
+               if (class_index <= records.size()) {
                    osw.write(class_table.get(class_index) + " "+ -1 + " ");
                    //Debug
                    //osw.write(class_table.get(class_index) + "(" + class_index + ")" + " "+ -1 + " ");
@@ -108,7 +107,7 @@ public class T2SDB {
 	       FileOutputStream fos = new FileOutputStream(fout);
 	       OutputStreamWriter osw = new OutputStreamWriter(fos);           
            
-           for (int i = training_data + 1; i < records.size(); i++) {                                   
+           for (int i = training_data + 1; i < records.size()-window_size; i++) {      
                for (int j = 0; j < window_size;j++) {
                    int index = i + j;                     
                    if (index < records.size()) {                          

@@ -4,8 +4,8 @@ import java.io.*;
 import java.util.*;
 
 public class GetAttr {
-	//private static HashMap<Integer, Double> temp_sl = new HashMap<>();
-	//private static HashMap<Integer, Double> temp_ll = new HashMap<>();
+	private static HashMap<Integer, Double> temp_sl = new HashMap<>();
+	private static HashMap<Integer, Double> temp_ll = new HashMap<>();
 	
 	public static HashMap<Integer, String> feature(int att_index, ArrayList<ArrayList<String>> records) {
 		 HashMap<Integer, String> result = new HashMap<>(); 	    
@@ -54,8 +54,10 @@ public class GetAttr {
 	        }
 	    }	    
 	    return result;
-	}	
-	/*
+	}
+	
+	
+	
     public static HashMap<Integer, String> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {
         //System.out.printf("================Moving Average(%d)==================\n",length); 	
         HashMap<Integer, String> result = new HashMap<>(); 
@@ -101,7 +103,8 @@ public class GetAttr {
         //System.out.println("Moving avearge number :" + result.size());
         //System.out.println("===================================================\n");      
         return result;
-    }*/	 
+    }
+	 /*
 	 //for Weka
 	 public static HashMap<Integer, Double> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {	        
 	        HashMap<Integer, Double> result = new HashMap<>(); 
@@ -123,9 +126,9 @@ public class GetAttr {
 	        }       
 	           
 	        return result;
-	    }
+	    }*/
 	 
-    /*
+    
 	public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records) {				
 		
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
@@ -141,6 +144,9 @@ public class GetAttr {
 		HashMap<Integer, String> MAT_2 = Move_Average(2, records.get(0).get(2), 2, records);
 		HashMap<Integer, String> MAT_3 = Move_Average(3, records.get(0).get(2), 2, records);
 		
+		HashMap<Integer, String> MACD_S = MACD(3, 4, 2,records.get(0).get(1), records);
+		HashMap<Integer, String> MACD_T = MACD(3, 4, 2,records.get(0).get(2), records);
+		
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add Date
@@ -153,7 +159,10 @@ public class GetAttr {
 			       temp.add("MAS1_3");			       			    
 			       temp.add("MAT_2");	
 			       temp.add("MAT_3");			      
-			       temp.add("Match");			      
+			       temp.add("Match");
+			       temp.add("MACD_S");
+			       temp.add("MACD_T");
+			       
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4
 		       
@@ -164,7 +173,9 @@ public class GetAttr {
 		           temp.add(MAS1_3.get(i));		           
 		           temp.add(MAT_2.get(i));
 		           temp.add(MAT_3.get(i));	
-		           temp.add(Match.get(i));			        	     		     
+		           temp.add(Match.get(i));
+		           temp.add(MACD_S.get(i));
+		           temp.add(MACD_T.get(i));
 			}
 			//Add the last one of every line
 			temp.add(records.get(i).get(records.get(i).size()-1));			
@@ -176,7 +187,38 @@ public class GetAttr {
 			System.out.println("[ERROR] I/O Exception.");
 			e.printStackTrace();
 		}
-	}*/
+	}
+	 /*
+	 public static void featureExtraction_one(String output_filename, ArrayList<ArrayList<String>> records) {				
+			
+			ArrayList<ArrayList<String>> result = new ArrayList<>();
+						
+			for (int i = 0; i < records.size(); i++) {		
+				ArrayList<String> temp = new ArrayList<>();
+				//Add Date
+				temp.add(records.get(i).get(0));
+				if(i == 0) {			 
+				       //temp.add(records.get(i).get(1));
+				       temp.add("Feature_S");				      			    
+				} else {
+					   if (Double.parseDouble(records.get(i).get(1)) <= 77.59) {
+					       temp.add("RR");   
+					   } else {
+						   temp.add("DD"); 
+					   }			       
+			        	//temp.add(records.get(i).get(1));			          			        	     		    
+				}
+				//Add the last one of every line
+				temp.add(records.get(i).get(records.get(i).size()-1));			
+				result.add(temp);
+			}		
+			try {
+			writeCSV("", output_filename,result);
+			} catch (IOException e) {
+				System.out.println("[ERROR] I/O Exception.");
+				e.printStackTrace();
+			}
+		} 
 	 	
     //weka
     public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records) {		      
@@ -200,7 +242,8 @@ public class GetAttr {
 			       temp.add("MAS4");
 			       temp.add("MAT2");			     
 			       temp.add("MAT3");			      
-			       temp.add("MAT4");			   
+			       temp.add("MAT4");
+			   
 			} else {				
 				   temp.add(records.get(i).get(1));
 				   if (table.get(i) == null) {
@@ -243,7 +286,7 @@ public class GetAttr {
 			System.out.println("[ERROR] I/O Exception.");
 			e.printStackTrace();
 		}
-	}
+	}*/
 	
     public static HashMap<Integer, String> featureExtraction_target(ArrayList<ArrayList<String>> records) {
     	HashMap<Integer, String> result = new HashMap<>();
@@ -262,16 +305,16 @@ public class GetAttr {
     	return result; 
     }
        
-    /*
-    public static HashMap<Integer, String> MACD(int sl, int ll, int tl, ArrayList<ArrayList<String>> records) {
+    
+    public static HashMap<Integer, String> MACD(int sl, int ll, int tl, String att, ArrayList<ArrayList<String>> records) {
     	//System.out.printf("================MACD(sl=%d,ll=%d,tl=%d)==================\n", sl, ll, tl);
     	HashMap<Integer, String> result = new HashMap<>(); 
     	for (int i = 1; i < records.size(); i++) {
     	    double MACD = DIF(i, sl, ll, records) - DEM(i, sl, ll, tl, records);        	
     		if (MACD <= 0) {
-    			result.put(i, "Down");
+    			result.put(i, "MACD0_" + att.charAt(0));
     		} else {
-    			result.put(i, "Rise");			
+    			result.put(i, "MACD1_" + att.charAt(0));			
     		}
     	}
     	//System.out.println("Moving avearge number :" + result.size());
@@ -304,7 +347,7 @@ public class GetAttr {
     
     public static double DEM(int t, int sl, int ll, int tl, ArrayList<ArrayList<String>> records) {
         return 	(DIF(t, sl, ll, records) + DIF(t-1, sl, ll, records))/(double) tl;
-    }*/
+    }
         
 	static void writeCSV(String path, String filename, ArrayList<ArrayList<String>> records) throws IOException{
 		FileWriter outputFW = new FileWriter(path + filename);
