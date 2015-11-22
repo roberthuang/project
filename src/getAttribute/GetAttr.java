@@ -55,15 +55,37 @@ public class GetAttr {
 	    }	    
 	    return result;
 	}
-	public static HashMap<Integer, String> Move_Average_diff(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {
-        HashMap<Integer, String> result = new HashMap<>();   	
-		
-		
-		
-		
-		
-		
+	
+	public static HashMap<Integer, String> Move_Average_same(int length1, int length2, String att, int att_index, ArrayList<ArrayList<String>> records) {
+		HashMap<Integer, String> result = new HashMap<>();
+		int col = att_index;   
+		for (int i = 1; i < records.size(); i++ ) {       
+	           if (i <= length1) {
+	               result.put(i, "MA"+ att.charAt(0) + length1 + "_1");     
+	               continue;
+	           }
+	           double sum_t1 = 0;
+	           double sum_t2= 0;
+	           if (i - length1 + 1 >= 1) { 
+	        	   for (int p_1 = i; p_1 >= i-length1+1; p_1--) {                
+	                    sum_t1 = sum_t1+ Double.parseDouble(records.get(p_1).get(col));
+	        	   }
+	           }
+	           if (i - length2 + 1 >= 1) { 
+	        	   for (int p_1 = i; p_1 >= i-length2+1; p_1--) {                
+	                    sum_t2 = sum_t2 + Double.parseDouble(records.get(p_1).get(col));
+	        	   }
+	           }
+	           double MA = sum_t1/length1 - sum_t2/length2;
+	           if (MA > 0) {	                
+	                result.put(i, "MA" + "a" + att.charAt(0) + "_1");    
+	           } else {	                
+	                result.put(i, "MA" + "a" + att.charAt(0) + "_0"); 
+	           }       	           
+		}
+		return result;
 	}
+	
     public static HashMap<Integer, String> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {
         HashMap<Integer, String> result = new HashMap<>();    
         //The column of Target
@@ -148,6 +170,9 @@ public class GetAttr {
 		HashMap<Integer, String> MACD_S2 = MACD(3, 4, 2,records.get(0).get(1), records);
 		HashMap<Integer, String> MACD_T2 = MACD(3, 4, 2,records.get(0).get(2), records);
 		
+		HashMap<Integer, String> MAa_1_S = Move_Average_same(2, 3, records.get(0).get(1), 1, records);
+		HashMap<Integer, String> MAa_1_T = Move_Average_same(2, 3, records.get(0).get(2), 2, records);
+		
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add Date
@@ -165,6 +190,8 @@ public class GetAttr {
 			       temp.add("MACD_T1");
 			       temp.add("MACD_S2");
 			       temp.add("MACD_T2");
+			       temp.add("MAa_S");
+			       temp.add("MAa_T");
 			       
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4
@@ -181,6 +208,8 @@ public class GetAttr {
 		           temp.add(MACD_T1.get(i));
 		           temp.add(MACD_S2.get(i));
 		           temp.add(MACD_T2.get(i));
+		           temp.add(MAa_1_S.get(i));
+		           temp.add(MAa_1_T.get(i));
 			}
 			//Add the last one of every line
 			temp.add(records.get(i).get(records.get(i).size()-1));			
