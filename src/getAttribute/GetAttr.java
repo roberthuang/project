@@ -55,16 +55,17 @@ public class GetAttr {
 	    }	    
 	    return result;
 	}
-	
-	
-	
+	public static HashMap<Integer, String> Move_Average_diff(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {
+        HashMap<Integer, String> result = new HashMap<>();   	
+		
+		
+		
+		
+		
+		
+	}
     public static HashMap<Integer, String> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {
-        //System.out.printf("================Moving Average(%d)==================\n",length); 	
-        HashMap<Integer, String> result = new HashMap<>(); 
-        //int training_data = (int)((records.size()-1)*0.8);  
-        //System.out.println("Training Data Size: " + training_data);
-        //System.out.println("Record Data Size: " + records.size());
-        
+        HashMap<Integer, String> result = new HashMap<>();    
         //The column of Target
         int col = att_index;                                                                                                                            
         for (int i = 1; i < records.size(); i++ ) {       
@@ -99,9 +100,7 @@ public class GetAttr {
                 //System.out.println("i: " + i + " " + MA);
                 result.put(i, "MA" + att.charAt(0) + length + "_0"); 
             }              
-        }       
-        //System.out.println("Moving avearge number :" + result.size());
-        //System.out.println("===================================================\n");      
+        }            
         return result;
     }
 	 /*
@@ -144,8 +143,10 @@ public class GetAttr {
 		HashMap<Integer, String> MAT_2 = Move_Average(2, records.get(0).get(2), 2, records);
 		HashMap<Integer, String> MAT_3 = Move_Average(3, records.get(0).get(2), 2, records);
 		
-		HashMap<Integer, String> MACD_S = MACD(3, 4, 2,records.get(0).get(1), records);
-		HashMap<Integer, String> MACD_T = MACD(3, 4, 2,records.get(0).get(2), records);
+		HashMap<Integer, String> MACD_S1 = MACD(2, 3, 2,records.get(0).get(1), records);
+		HashMap<Integer, String> MACD_T1 = MACD(2, 3, 2,records.get(0).get(2), records);
+		HashMap<Integer, String> MACD_S2 = MACD(3, 4, 2,records.get(0).get(1), records);
+		HashMap<Integer, String> MACD_T2 = MACD(3, 4, 2,records.get(0).get(2), records);
 		
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
@@ -160,8 +161,10 @@ public class GetAttr {
 			       temp.add("MAT_2");	
 			       temp.add("MAT_3");			      
 			       temp.add("Match");
-			       temp.add("MACD_S");
-			       temp.add("MACD_T");
+			       temp.add("MACD_S1");
+			       temp.add("MACD_T1");
+			       temp.add("MACD_S2");
+			       temp.add("MACD_T2");
 			       
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4
@@ -174,8 +177,10 @@ public class GetAttr {
 		           temp.add(MAT_2.get(i));
 		           temp.add(MAT_3.get(i));	
 		           temp.add(Match.get(i));
-		           temp.add(MACD_S.get(i));
-		           temp.add(MACD_T.get(i));
+		           temp.add(MACD_S1.get(i));
+		           temp.add(MACD_T1.get(i));
+		           temp.add(MACD_S2.get(i));
+		           temp.add(MACD_T2.get(i));
 			}
 			//Add the last one of every line
 			temp.add(records.get(i).get(records.get(i).size()-1));			
@@ -304,8 +309,7 @@ public class GetAttr {
     	}    	  
     	return result; 
     }
-       
-    
+           
     public static HashMap<Integer, String> MACD(int sl, int ll, int tl, String att, ArrayList<ArrayList<String>> records) {
     	//System.out.printf("================MACD(sl=%d,ll=%d,tl=%d)==================\n", sl, ll, tl);
     	HashMap<Integer, String> result = new HashMap<>(); 
@@ -360,7 +364,5 @@ public class GetAttr {
 			if(i < records.size()-1) outputFW.write("\r\n");
 		}
 		outputFW.close();
-	}
-	
-
+	}	
 }
