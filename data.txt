@@ -1,0 +1,16 @@
+Predict: (1) Rise: 27.0
+         (2) Down: 31.0
+window_size:2
+minsup:45
+min_conf:0.5
+True_Positive: 13.0
+True_Negative: 27.0
+False_Positive: 4.0
+False_Negative:14.0
+precision_rise: 0.7647058823529411
+precision_down: 0.8709677419354839
+recall_rise: 0.48148148148148145
+recall_down: 0.6585365853658537
+acc: 0.6896551724137931
+
+

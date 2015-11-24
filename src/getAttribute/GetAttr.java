@@ -124,7 +124,8 @@ public class GetAttr {
             }              
         }            
         return result;
-    }
+    }    
+    
 	 /*
 	 //for Weka
 	 public static HashMap<Integer, Double> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {	        
@@ -149,6 +150,34 @@ public class GetAttr {
 	        return result;
 	    }*/
 	 
+    public static HashMap<Integer, String> BIAS(int length, int att_index, double threshold, ArrayList<ArrayList<String>> records) {
+    	HashMap<Integer, String> result = new HashMap<>();
+    	int col = att_index;   
+    	for (int i = 1; i < records.size(); i++) {
+    		double bias;
+    	    if (i <= length-1) {
+    	    	result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) +  "_0");
+    	    } else {
+    	    	double sum_t = 0;
+    	    	if (i - length + 1 >= 1) {
+    	    		for (int j = i; j >= i-length+1; j--) {                
+                        sum_t = sum_t + Double.parseDouble(records.get(j).get(col));
+                    } 	    	    		
+    	    	}
+    	    	sum_t = sum_t / (double)length;
+    	    	bias = (Double.parseDouble(records.get(i).get(att_index)) - sum_t)/(double) sum_t;
+    	    	if (bias > threshold) {
+    	    		result.put(i, "BIAS_" + records.get(i).get(att_index).charAt(0) +  "_1");	
+    	    	} else {
+    	    		result.put(i, "BIAS_" + records.get(i).get(att_index).charAt(0) +  "_0");	
+    	    	}    	    	
+    	    }
+    		
+    	}
+    	
+    	return result;
+    }
+    
     
 	public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records) {				
 		
@@ -173,6 +202,7 @@ public class GetAttr {
 		HashMap<Integer, String> MAa_1_S = Move_Average_same(2, 3, records.get(0).get(1), 1, records);
 		HashMap<Integer, String> MAa_1_T = Move_Average_same(2, 3, records.get(0).get(2), 2, records);
 		
+		HashMap<Integer, String> bias_s1 = BIAS(3, 1, 0.0025, records);
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add Date
@@ -189,9 +219,10 @@ public class GetAttr {
 			       temp.add("MACD_S1");
 			       temp.add("MACD_T1");
 			       temp.add("MACD_S2");
-			       temp.add("MACD_T2");
+			       temp.add("MACD1111_T2");
 			       temp.add("MAa_S");
 			       temp.add("MAa_T");
+			       temp.add("BIAS_S1");
 			       
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4
@@ -210,6 +241,7 @@ public class GetAttr {
 		           temp.add(MACD_T2.get(i));
 		           temp.add(MAa_1_S.get(i));
 		           temp.add(MAa_1_T.get(i));
+		           temp.add(bias_s1.get(i));
 			}
 			//Add the last one of every line
 			temp.add(records.get(i).get(records.get(i).size()-1));			
