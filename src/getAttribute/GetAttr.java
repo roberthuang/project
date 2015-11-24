@@ -61,7 +61,7 @@ public class GetAttr {
 		int col = att_index;   
 		for (int i = 1; i < records.size(); i++ ) {       
 	           if (i <= length1) {
-	               result.put(i, "MA"+ att.charAt(0) + length1 + "_1");     
+	               result.put(i, "MAa"+ att.charAt(0) + length1 + "_1");     
 	               continue;
 	           }
 	           double sum_t1 = 0;
@@ -78,9 +78,9 @@ public class GetAttr {
 	           }
 	           double MA = sum_t1/length1 - sum_t2/length2;
 	           if (MA > 0) {	                
-	                result.put(i, "MA" + "a" + att.charAt(0) + "_1");    
+	                result.put(i, "MAa" + att.charAt(0) + length1 + "_1");    
 	           } else {	                
-	                result.put(i, "MA" + "a" + att.charAt(0) + "_0"); 
+	                result.put(i, "MAa" + att.charAt(0) + length1 + "_0"); 
 	           }       	           
 		}
 		return result;
@@ -156,7 +156,7 @@ public class GetAttr {
     	for (int i = 1; i < records.size(); i++) {
     		double bias;
     	    if (i <= length-1) {
-    	    	result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) +  "_0");
+    	    	result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_0");
     	    } else {
     	    	double sum_t = 0;
     	    	if (i - length + 1 >= 1) {
@@ -167,9 +167,9 @@ public class GetAttr {
     	    	sum_t = sum_t / (double)length;
     	    	bias = (Double.parseDouble(records.get(i).get(att_index)) - sum_t)/(double) sum_t;
     	    	if (bias > threshold) {
-    	    		result.put(i, "BIAS_" + records.get(i).get(att_index).charAt(0) +  "_1");	
+    	    		result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_1");	
     	    	} else {
-    	    		result.put(i, "BIAS_" + records.get(i).get(att_index).charAt(0) +  "_0");	
+    	    		result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_0");	
     	    	}    	    	
     	    }
     		
@@ -202,7 +202,11 @@ public class GetAttr {
 		HashMap<Integer, String> MAa_1_S = Move_Average_same(2, 3, records.get(0).get(1), 1, records);
 		HashMap<Integer, String> MAa_1_T = Move_Average_same(2, 3, records.get(0).get(2), 2, records);
 		
-		HashMap<Integer, String> bias_s1 = BIAS(3, 1, 0.0025, records);
+		HashMap<Integer, String> BIAS3_S1 = BIAS(3, 1, 0.0025, records);
+		HashMap<Integer, String> BIAS3_T = BIAS(3, 2, 0.0025, records);
+		HashMap<Integer, String> BIAS2_S1 = BIAS(2, 1, 0.0025, records);
+		HashMap<Integer, String> BIAS2_T = BIAS(2, 2, 0.0025, records);
+		
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add Date
@@ -219,10 +223,14 @@ public class GetAttr {
 			       temp.add("MACD_S1");
 			       temp.add("MACD_T1");
 			       temp.add("MACD_S2");
-			       temp.add("MACD1111_T2");
+			       temp.add("MACD_T2");
 			       temp.add("MAa_S");
 			       temp.add("MAa_T");
-			       temp.add("BIAS_S1");
+			       temp.add("BIAS3_S1");
+			       temp.add("BIAS3_T");
+			       temp.add("BIAS2_S1");
+			       temp.add("BIAS2_T");
+			       
 			       
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4
@@ -241,7 +249,10 @@ public class GetAttr {
 		           temp.add(MACD_T2.get(i));
 		           temp.add(MAa_1_S.get(i));
 		           temp.add(MAa_1_T.get(i));
-		           temp.add(bias_s1.get(i));
+		           temp.add(BIAS3_S1.get(i));
+		           temp.add(BIAS3_T.get(i));
+		           temp.add(BIAS2_S1.get(i));
+		           temp.add(BIAS2_T.get(i));
 			}
 			//Add the last one of every line
 			temp.add(records.get(i).get(records.get(i).size()-1));			
@@ -377,9 +388,9 @@ public class GetAttr {
     	for (int i = 1; i < records.size(); i++) {
     	    double MACD = DIF(i, sl, ll, records) - DEM(i, sl, ll, tl, records);        	
     		if (MACD <= 0) {
-    			result.put(i, "MACD0_" + att.charAt(0));
+    			result.put(i, "MACD0_" + att.charAt(0) + sl + ll);
     		} else {
-    			result.put(i, "MACD1_" + att.charAt(0));			
+    			result.put(i, "MACD1_" + att.charAt(0) + sl + ll);			
     		}
     	}
     	//System.out.println("Moving avearge number :" + result.size());
