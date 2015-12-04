@@ -133,7 +133,6 @@ public class RuleMapping {
     		e.put("Down", (double)number.get("Down"));
     	}
     	
-    	//Argument
         int True_Positive  = 0;
         int True_Negative  = 0;
         int False_Positive = 0;

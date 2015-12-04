@@ -23,8 +23,8 @@ public class Main {
    	        //System.out.println(j);
     		/**0.Set Argument**/
     		int window_size = 2;
-    		int minsup = 55;
-    		double min_conf = 0.4;
+    		int minsup = 65;
+    		double min_conf = 0.3;
     		//Input
     		String path = "petro_subset1_2010.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);
@@ -80,15 +80,13 @@ public class Main {
     		/**7.Evaluate Precision**/
     		HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, window_size);    		           
     			    	
-    		osw.write("Predict: (1) Rise: " + e.get("Rise") + "\r\n");
-    		osw.write("         (2) Down: " + e.get("Down") + "\r\n");
     		osw.write("window_size:"        + window_size + "\r\n");
     		osw.write("minsup:"             + minsup + "\r\n");
     		osw.write("min_conf:"           + min_conf + "\r\n");    
     		osw.write("=== Confusion Matrix ===\r\n");
-    		osw.write("classifier as --->   a	b\r\n");
-    		osw.write("            a=Rise  " + e.get("True_Positive") + "\t" + e.get("False_Negative") + "\r\n");
-    		osw.write("            b=Down  " + e.get("True_Negative") + "\t" + e.get("False_Positive") + "\r\n");		
+    		osw.write("          a      b\r\n");
+    		osw.write("a=Rise   " + e.get("True_Positive") + "\t" + e.get("False_Negative") + "\r\n");
+    		osw.write("b=Down   " + e.get("False_Positive") + "\t" + e.get("True_Negative") + "\r\n");		
     		osw.write("precision_rise: "    + e.get("precision_rise") + "\r\n");
     		osw.write("precision_down: "    + e.get("precision_down") + "\r\n");
     		osw.write("recall_rise: "       + e.get("recall_rise") + "\r\n");    		
