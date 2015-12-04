@@ -19,12 +19,12 @@ public class Main {
     	    FileOutputStream fos = new FileOutputStream(fout);
 	        OutputStreamWriter osw = new OutputStreamWriter(fos);
 	        
-   	        for (double j = 0.01;j <= 0.80; j = j + 0.01) {
-   	        System.out.println(j);
+   	        //for (double j = 0.01;j <= 0.80; j = j + 0.01) {
+   	        //System.out.println(j);
     		/**0.Set Argument**/
     		int window_size = 2;
-    		int minsup = 65;
-    		double min_conf = j;
+    		int minsup = 55;
+    		double min_conf = 0.4;
     		//Input
     		String path = "petro_subset1_2010.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);
@@ -84,11 +84,11 @@ public class Main {
     		osw.write("         (2) Down: " + e.get("Down") + "\r\n");
     		osw.write("window_size:"        + window_size + "\r\n");
     		osw.write("minsup:"             + minsup + "\r\n");
-    		osw.write("min_conf:"           + min_conf + "\r\n");    		
-    		osw.write("True_Positive: "    + e.get("True_Positive") + "\r\n");
-    		osw.write("True_Negative: "    + e.get("True_Negative") + "\r\n");
-    		osw.write("False_Positive: "       + e.get("False_Positive") + "\r\n"); 
-    		osw.write("False_Negative:"           + e.get("False_Negative") + "\r\n");    		
+    		osw.write("min_conf:"           + min_conf + "\r\n");    
+    		osw.write("=== Confusion Matrix ===\r\n");
+    		osw.write("classifier as --->   a	b\r\n");
+    		osw.write("            a=Rise  " + e.get("True_Positive") + "\t" + e.get("False_Negative") + "\r\n");
+    		osw.write("            b=Down  " + e.get("True_Negative") + "\t" + e.get("False_Positive") + "\r\n");		
     		osw.write("precision_rise: "    + e.get("precision_rise") + "\r\n");
     		osw.write("precision_down: "    + e.get("precision_down") + "\r\n");
     		osw.write("recall_rise: "       + e.get("recall_rise") + "\r\n");    		
@@ -96,7 +96,7 @@ public class Main {
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");	  	
-            }
+            //}
     	    osw.close();
             
         } catch (FileNotFoundException e) {
