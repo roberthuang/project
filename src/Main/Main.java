@@ -19,12 +19,12 @@ public class Main {
     	    FileOutputStream fos = new FileOutputStream(fout);
 	        OutputStreamWriter osw = new OutputStreamWriter(fos);
 	        
-   	        //for (double j = 0.01;j <= 0.80; j = j + 0.01) {
-   	        //System.out.println(j);
+   	        for (double j = 0.01;j <= 0.5; j = j + 0.01) {
+   	        System.out.println(j);
     		/**0.Set Argument**/
     		int window_size = 2;
-    		int minsup = 65;
-    		double min_conf = 0.3;
+    		int minsup = 30;
+    		double min_conf = j;
     		//Input
     		String path = "petro_subset1_2010.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);
@@ -94,7 +94,7 @@ public class Main {
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");	  	
-            //}
+            }
     	    osw.close();
             
         } catch (FileNotFoundException e) {
