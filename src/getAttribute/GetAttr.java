@@ -265,6 +265,95 @@ public class GetAttr {
 			e.printStackTrace();
 		}
 	}
+	
+public static void featureExtraction2(String output_filename, ArrayList<ArrayList<String>> records, HashMap<Integer, String> target) {				
+		
+		ArrayList<ArrayList<String>> result = new ArrayList<>();
+		HashMap<Integer, String> FS2 = feature2(1, records);
+		HashMap<Integer, String> FT2 = feature2(2, records);
+		
+		HashMap<Integer, String> FS = feature(1, records);
+		HashMap<Integer, String> FT = feature(2, records);		
+		HashMap<Integer, String> Match = match_source_target(FS, FT);
+		
+		HashMap<Integer, String> MAS1_2 = Move_Average(2, records.get(0).get(1), 1, records);		
+		HashMap<Integer, String> MAS1_3 = Move_Average(3, records.get(0).get(1), 1, records);
+		HashMap<Integer, String> MAT_2 = Move_Average(2, records.get(0).get(2), 2, records);
+		HashMap<Integer, String> MAT_3 = Move_Average(3, records.get(0).get(2), 2, records);
+		
+		HashMap<Integer, String> MACD_S1 = MACD(2, 3, 2,records.get(0).get(1), records);
+		HashMap<Integer, String> MACD_T1 = MACD(2, 3, 2,records.get(0).get(2), records);
+		//HashMap<Integer, String> MACD_S2 = MACD(4, 5, 2,records.get(0).get(1), records);
+		//HashMap<Integer, String> MACD_T2 = MACD(3, 4, 2,records.get(0).get(2), records);
+		
+		HashMap<Integer, String> MAa_1_S = Move_Average_same(4, 5, records.get(0).get(1), 1, records);
+		HashMap<Integer, String> MAa_1_T = Move_Average_same(4, 5, records.get(0).get(2), 2, records);
+		
+		HashMap<Integer, String> BIAS3_S1 = BIAS(2, 1, 0.0015, records);
+		HashMap<Integer, String> BIAS3_T = BIAS(2, 2, 0.0015, records);
+		
+		//HashMap<Integer, String> BIAS2_S1 = BIAS(4, 1, 0.0035, records);
+		//HashMap<Integer, String> BIAS2_T = BIAS(2, 2, 0.0045, records);
+		
+		for (int i = 0; i < records.size(); i++) {		
+			ArrayList<String> temp = new ArrayList<>();
+			//Add Date
+			temp.add(records.get(i).get(0));
+			if(i == 0) {			 
+			       //temp.add(records.get(i).get(1));
+			       temp.add("Feature_S");
+			       temp.add("Feature_T");
+			       temp.add("MAS1_2");			     
+			       temp.add("MAS1_3");			       			    
+			       temp.add("MAT_2");	
+			       temp.add("MAT_3");			      
+			       temp.add("Match");
+			       temp.add("MACD_S1");
+			       temp.add("MACD_T1");
+			       //temp.add("MACD_S2");
+			       //temp.add("MACD_T2");
+			       temp.add("MAa_S");
+			       temp.add("MAa_T");
+			       temp.add("BIAS3_S1");
+			       temp.add("BIAS3_T");
+			       //temp.add("BIAS2_S1");
+			       //temp.add("BIAS2_T");
+			       temp.add(records.get(i).get(records.get(i).size()-1));	
+			       
+			} else {
+				//All the conditional att need to add. eg. x -> x x_3 x_4
+		       
+		        	//temp.add(records.get(i).get(1));
+		           temp.add(FS2.get(i));
+		           temp.add(FT2.get(i));
+		           temp.add(MAS1_2.get(i));
+		           temp.add(MAS1_3.get(i));		           
+		           temp.add(MAT_2.get(i));
+		           temp.add(MAT_3.get(i));	
+		           temp.add(Match.get(i));
+		           temp.add(MACD_S1.get(i));
+		           temp.add(MACD_T1.get(i));
+		           //temp.add(MACD_S2.get(i));
+		           //temp.add(MACD_T2.get(i));
+		           temp.add(MAa_1_S.get(i));
+		           temp.add(MAa_1_T.get(i));
+		           temp.add(BIAS3_S1.get(i));
+		           temp.add(BIAS3_T.get(i));
+		           //temp.add(BIAS2_S1.get(i));
+		           //temp.add(BIAS2_T.get(i));
+		           temp.add(target.get(i));
+			}
+			//Add the last one of every line
+			//temp.add(records.get(i).get(records.get(i).size()-1));			
+			result.add(temp);
+		}		
+		try {
+		writeCSV("", output_filename,result);
+		} catch (IOException e) {
+			System.out.println("[ERROR] I/O Exception.");
+			e.printStackTrace();
+		}
+	}
 	 /*
 	 public static void featureExtraction_one(String output_filename, ArrayList<ArrayList<String>> records) {				
 			
