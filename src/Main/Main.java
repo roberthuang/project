@@ -15,16 +15,16 @@ public class Main {
     public static void main(String[] args) throws 
     FileNotFoundException {
         try {
-    	    //File fout = new File("data.txt");
-    	    //FileOutputStream fos = new FileOutputStream(fout);
-	        //OutputStreamWriter osw = new OutputStreamWriter(fos);
+    	    File fout = new File("data.txt");
+    	    FileOutputStream fos = new FileOutputStream(fout);
+	        OutputStreamWriter osw = new OutputStreamWriter(fos);
 	        
    	        //for (double j = 0.01;j <= 0.5; j = j + 0.01) {
    	        //System.out.println(j);
     		/**0.Set Argument**/
     		int window_size = 2;
-    		int minsup = 30;
-    		double min_conf = 0.6;
+    		int minsup = 96;
+    		double min_conf = 0.25;
     		//Input
     		String path = "petro_subset1_2010.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);
@@ -33,7 +33,7 @@ public class Main {
     		HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
             //GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records);
             //GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records);	
-    		GetAttr.featureExtraction2("transformed_petro_subset1_feature.csv", records, feature_target);	
+    		GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records);	
             
 	        /**2.SAX**/
     	    //System.out.println("##Step 2.1: SAX(Traing)");
@@ -43,12 +43,12 @@ public class Main {
             //SAXTransformation_Testing.start("petro_subset1_breakpoints_2010.txt");
                                               
             /**3.Temporal Data Base to SDB(Training)**/
-            //System.out.println("##Step 3.1: Temporal Data Base to SDB(Training)");
+            System.out.println("##Step 3.1: Temporal Data Base to SDB(Training)");
             //For training
             //String path_of_file_training_after_SAX = "transformed_petro_subset1_feature.csv";
-            //String path_after_discrete = "transformed_petro_subset1_feature.csv";
-    		//T2SDB t = new T2SDB();
-            //t.translate_training(window_size, path_after_discrete,  feature_target, "SDB(Training).txt");
+            String path_after_discrete = "transformed_petro_subset1_feature.csv";
+    		T2SDB t = new T2SDB();
+            t.translate_training(window_size, path_after_discrete,  feature_target, "SDB(Training).txt");
             
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             //For testing
@@ -56,31 +56,31 @@ public class Main {
             //t.translate_testing(window_size, path_of_testing_file_after_SAX, "SDB(Testing).txt");
                          
             /**4.Sequential Pattern Mining**/
-            //System.out.println("##Step 4: Sequential Pattern Mining");
+            System.out.println("##Step 4: Sequential Pattern Mining");
             //Load a sequence database
-            //SequenceDatabase sequenceDatabase = new SequenceDatabase(); 
-            //sequenceDatabase.loadFile("SDB(Training).txt");
+            SequenceDatabase sequenceDatabase = new SequenceDatabase(); 
+            sequenceDatabase.loadFile("SDB(Training).txt");
             //print the database to console
             //sequenceDatabase.print();
     		
-    		//AlgoPrefixSpan_with_Strings algo = new AlgoPrefixSpan_with_Strings(); 
+    		AlgoPrefixSpan_with_Strings algo = new AlgoPrefixSpan_with_Strings(); 
     		//execute the algorithm
-    		//algo.runAlgorithm(sequenceDatabase, "sequential_patterns.txt", minsup);    
+    		algo.runAlgorithm(sequenceDatabase, "sequential_patterns.txt", minsup);    
     		//algo.printStatistics(sequenceDatabase.size());
     		
     		/**5.Generating Rule**/
-    		//System.out.println("##Step 5: Rule Generating");
-    		//RuleEvaluation.start("RuleEvaluation_config.txt", min_conf, traing_data_size);
+    		System.out.println("##Step 5: Rule Generating");
+    		RuleEvaluation.start("RuleEvaluation_config.txt", min_conf, traing_data_size);
                 		
     		/**6.Rule Mapping**/    		
-    		//System.out.println("##Step 6: Rule Mapping");
-    	    //RuleMapping mapping = new RuleMapping();
-    		//HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
-    		//= mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"));
+    		System.out.println("##Step 6: Rule Mapping");
+    	    RuleMapping mapping = new RuleMapping();
+    		HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
+    		= mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"));
     	    
     		/**7.Evaluate Precision**/ 
-    		//HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, window_size);    		           
-    		/*	    	
+    		HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, window_size);    		           
+    			
     		osw.write("window_size:"        + window_size + "\r\n");
     		osw.write("minsup:"             + minsup + "\r\n");
     		osw.write("min_conf:"           + min_conf + "\r\n");    
@@ -94,9 +94,9 @@ public class Main {
     		osw.write("recall_down: "       + e.get("recall_down") + "\r\n");
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
-    		osw.write("\r\n");*/	  	
-            //}
-    	    //osw.close();
+    		osw.write("\r\n");	  	
+            
+    	    osw.close();
             
         } catch (FileNotFoundException e) {
             System.out.println("[ERROR] File Not Found Exception.");

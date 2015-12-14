@@ -269,18 +269,17 @@ public class GetAttr {
 public static void featureExtraction2(String output_filename, ArrayList<ArrayList<String>> records, HashMap<Integer, String> target) {				
 		
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
-		HashMap<Integer, String> FS2 = feature2(1, records);
+		//HashMap<Integer, String> FS2 = feature2(1, records);
 		HashMap<Integer, String> FT2 = feature2(2, records);
 		
 		HashMap<Integer, String> FS = feature(1, records);
 		HashMap<Integer, String> FT = feature(2, records);		
 		HashMap<Integer, String> Match = match_source_target(FS, FT);
 		
-		HashMap<Integer, String> MAS1_2 = Move_Average(2, records.get(0).get(1), 1, records);		
-		HashMap<Integer, String> MAS1_3 = Move_Average(3, records.get(0).get(1), 1, records);
-		
-		HashMap<Integer, String> MAS1_4 = Move_Average(4, records.get(0).get(1), 1, records);		
-		HashMap<Integer, String> MAS1_5 = Move_Average(5, records.get(0).get(1), 1, records);
+		//HashMap<Integer, String> MAS1_2 = Move_Average(2, records.get(0).get(1), 1, records);		
+		//HashMap<Integer, String> MAS1_3 = Move_Average(3, records.get(0).get(1), 1, records);
+		//HashMap<Integer, String> MAS1_4 = Move_Average(4, records.get(0).get(1), 1, records);		
+		//HashMap<Integer, String> MAS1_5 = Move_Average(5, records.get(0).get(1), 1, records);
 		
 		HashMap<Integer, String> MAT_2 = Move_Average(2, records.get(0).get(2), 2, records);
 		HashMap<Integer, String> MAT_3 = Move_Average(3, records.get(0).get(2), 2, records);
@@ -298,19 +297,19 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 		//HashMap<Integer, String> MACD_S2 = MACD(4, 5, 2,records.get(0).get(1), records);
 		//HashMap<Integer, String> MACD_T2 = MACD(3, 4, 2,records.get(0).get(2), records);
 		
-		HashMap<Integer, String> MAa_1_S = Move_Average_same(4, 5, records.get(0).get(1), 1, records);
+		//HashMap<Integer, String> MAa_1_S = Move_Average_same(4, 5, records.get(0).get(1), 1, records);
 		
-		HashMap<Integer, String> MAa_2_S = Move_Average_same(2, 3, records.get(0).get(1), 1, records);
+		//HashMap<Integer, String> MAa_2_S = Move_Average_same(2, 3, records.get(0).get(1), 1, records);
 		
-		HashMap<Integer, String> MAa_1_T = Move_Average_same(4, 5, records.get(0).get(2), 2, records);
+		//HashMap<Integer, String> MAa_1_T = Move_Average_same(4, 5, records.get(0).get(2), 2, records);
 		
-		HashMap<Integer, String> MAa_2_T = Move_Average_same(2, 3, records.get(0).get(2), 2, records);
+		//HashMap<Integer, String> MAa_2_T = Move_Average_same(2, 3, records.get(0).get(2), 2, records);
 		
-		HashMap<Integer, String> BIAS3_S1 = BIAS(2, 1, 0.0015, records);
+		//HashMap<Integer, String> BIAS3_S1 = BIAS(2, 1, 0.0015, records);
 		HashMap<Integer, String> BIAS3_T = BIAS(2, 2, 0.0015, records);
 		
-		HashMap<Integer, String> BIAS3_T2 = BIAS(3, 2, 0.0025, records);
-		HashMap<Integer, String> BIAS3_T3 = BIAS(4, 2, 0.0025, records);
+		HashMap<Integer, String> BIAS3_T2 = BIAS(3, 2, 0.005, records);
+		HashMap<Integer, String> BIAS3_T3 = BIAS(4, 2, 0.0035, records);
 		
 		//HashMap<Integer, String> BIAS2_S1 = BIAS(4, 1, 0.0035, records);
 		//HashMap<Integer, String> BIAS2_T = BIAS(2, 2, 0.0045, records);
@@ -321,12 +320,12 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 			temp.add(records.get(i).get(0));
 			if(i == 0) {			 
 			       //temp.add(records.get(i).get(1));
-			       temp.add("Feature_S");
+			       //temp.add("Feature_S");
 			       temp.add("Feature_T");
-			       temp.add("MAS1_2");			     
-			       temp.add("MAS1_3");	
-			       temp.add("MAS1_4");			     
-			       temp.add("MAS1_5");
+			       //temp.add("MAS1_2");			     
+			       //temp.add("MAS1_3");	
+			       //temp.add("MAS1_4");			     
+			       //temp.add("MAS1_5");
 			       temp.add("MAT_2");	
 			       temp.add("MAT_3");			      
 			       temp.add("Match");
@@ -336,11 +335,11 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 			       temp.add("MACD_T2");
 			       //temp.add("MACD_S2");
 			       //temp.add("MACD_T2");
-			       temp.add("MAa_1_S");
-			       temp.add("MAa_2_S");
-			       temp.add("MAa_1_T");
-			       temp.add("MAa_2_T");
-			       temp.add("BIAS3_S1");
+			       //temp.add("MAa_1_S");
+			       //temp.add("MAa_2_S");
+			       //temp.add("MAa_1_T");
+			       //temp.add("MAa_2_T");
+			       //temp.add("BIAS3_S1");
 			       temp.add("BIAS3_T");
 			       temp.add("BIAS3_T2");
 			       temp.add("BIAS3_T3");
@@ -352,12 +351,12 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 				//All the conditional att need to add. eg. x -> x x_3 x_4
 		       
 		        	//temp.add(records.get(i).get(1));
-		           temp.add(FS2.get(i));
+		           //temp.add(FS2.get(i));
 		           temp.add(FT2.get(i));
-		           temp.add(MAS1_2.get(i));
-		           temp.add(MAS1_3.get(i));	
-		           temp.add(MAS1_4.get(i));
-		           temp.add(MAS1_5.get(i));
+		           //temp.add(MAS1_2.get(i));
+		           //temp.add(MAS1_3.get(i));	
+		           //temp.add(MAS1_4.get(i));
+		           //temp.add(MAS1_5.get(i));
 		           temp.add(MAT_2.get(i));
 		           temp.add(MAT_3.get(i));	
 		           temp.add(Match.get(i));
@@ -367,11 +366,11 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 		           temp.add(MACD_T2.get(i));
 		           //temp.add(MACD_S2.get(i));
 		           //temp.add(MACD_T2.get(i));
-		           temp.add(MAa_1_S.get(i));
-		           temp.add(MAa_2_S.get(i));
-		           temp.add(MAa_1_T.get(i));
-		           temp.add(MAa_2_T.get(i));
-		           temp.add(BIAS3_S1.get(i));
+		           //temp.add(MAa_1_S.get(i));
+		           //temp.add(MAa_2_S.get(i));
+		           //temp.add(MAa_1_T.get(i));
+		           //temp.add(MAa_2_T.get(i));
+		           //temp.add(BIAS3_S1.get(i));
 		           temp.add(BIAS3_T.get(i));
 		           temp.add(BIAS3_T2.get(i));
 		           temp.add(BIAS3_T3.get(i));
