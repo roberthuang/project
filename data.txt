@@ -1,14 +1,14 @@
 window_size:2
-minsup:96
-min_conf:0.25
+minsup:35
+min_conf:0.45
 === Confusion Matrix ===
           a      b
-a=Rise   22.0	36.0
-b=Down   0.0	0.0
-precision_rise: 1.0
-precision_down: NaN
-recall_rise: 0.3793103448275862
-recall_down: 0.0
-acc: 0.3793103448275862
+a=Rise   14.0	11.0
+b=Down   6.0	27.0
+precision_rise: 0.7
+precision_down: 0.8181818181818182
+recall_rise: 0.56
+recall_down: 0.7105263157894737
+acc: 0.7068965517241379
 
 

@@ -194,15 +194,15 @@ public class GetAttr {
 		HashMap<Integer, String> MAT_2 = Move_Average(2, records.get(0).get(2), 2, records);
 		HashMap<Integer, String> MAT_3 = Move_Average(3, records.get(0).get(2), 2, records);
 		
-		HashMap<Integer, String> MACD_S1 = MACD(2, 3, 2,records.get(0).get(1), records);
-		HashMap<Integer, String> MACD_T1 = MACD(2, 3, 2,records.get(0).get(2), records);
+		HashMap<Integer, String> MACD_S1 = MACD(3, 4, 2,records.get(0).get(1), records);
+		HashMap<Integer, String> MACD_T1 = MACD(4, 5, 3,records.get(0).get(2), records);
 		//HashMap<Integer, String> MACD_S2 = MACD(4, 5, 2,records.get(0).get(1), records);
 		//HashMap<Integer, String> MACD_T2 = MACD(3, 4, 2,records.get(0).get(2), records);
 		
 		HashMap<Integer, String> MAa_1_S = Move_Average_same(4, 5, records.get(0).get(1), 1, records);
 		HashMap<Integer, String> MAa_1_T = Move_Average_same(4, 5, records.get(0).get(2), 2, records);
 		
-		HashMap<Integer, String> BIAS3_S1 = BIAS(2, 1, 0.0015, records);
+		HashMap<Integer, String> BIAS3_S1 = BIAS(2, 1, 0.0005, records);
 		HashMap<Integer, String> BIAS3_T = BIAS(2, 2, 0.0015, records);
 		//HashMap<Integer, String> BIAS2_S1 = BIAS(4, 1, 0.0035, records);
 		//HashMap<Integer, String> BIAS2_T = BIAS(2, 2, 0.0045, records);
@@ -291,7 +291,7 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 		
 		HashMap<Integer, String> MACD_S12 = MACD(4, 5, 2,records.get(0).get(1), records);
 		
-		HashMap<Integer, String> MACD_T1 = MACD(2, 3, 2,records.get(0).get(2), records);
+		HashMap<Integer, String> MACD_T1 = MACD(3, 4, 2,records.get(0).get(2), records);
 		
 		HashMap<Integer, String> MACD_T2 = MACD(4, 5, 2,records.get(0).get(2), records);
 		//HashMap<Integer, String> MACD_S2 = MACD(4, 5, 2,records.get(0).get(1), records);
