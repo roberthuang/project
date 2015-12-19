@@ -156,7 +156,7 @@ public class GetAttr {
     	for (int i = 1; i < records.size(); i++) {
     		double bias;
     	    if (i <= length-1) {
-    	    	result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_0");
+    	    	result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold + "_0");
     	    } else {
     	    	double sum_t = 0;
     	    	if (i - length + 1 >= 1) {
@@ -167,9 +167,9 @@ public class GetAttr {
     	    	sum_t = sum_t / (double)length;
     	    	bias = (Double.parseDouble(records.get(i).get(att_index)) - sum_t)/(double) sum_t;
     	    	if (bias > threshold) {
-    	    		result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_1");	
+    	    		result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold + "_1");	
     	    	} else {
-    	    		result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_0");	
+    	    		result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold + "_0");	
     	    	}    	    	
     	    }
     		
@@ -182,30 +182,26 @@ public class GetAttr {
 	public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records) {				
 		
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
-		HashMap<Integer, String> FS2 = feature2(1, records);
+	    HashMap<Integer, String> FS2 = feature2(1, records);
 		HashMap<Integer, String> FT2 = feature2(2, records);
 		
 		HashMap<Integer, String> FS = feature(1, records);
 		HashMap<Integer, String> FT = feature(2, records);		
 		HashMap<Integer, String> Match = match_source_target(FS, FT);
 		
-		HashMap<Integer, String> MAS1_2 = Move_Average(2, records.get(0).get(1), 1, records);		
-		HashMap<Integer, String> MAS1_3 = Move_Average(3, records.get(0).get(1), 1, records);
-		HashMap<Integer, String> MAT_2 = Move_Average(2, records.get(0).get(2), 2, records);
-		HashMap<Integer, String> MAT_3 = Move_Average(3, records.get(0).get(2), 2, records);
 		
-		HashMap<Integer, String> MACD_S1 = MACD(3, 4, 2,records.get(0).get(1), records);
-		HashMap<Integer, String> MACD_T1 = MACD(4, 5, 3,records.get(0).get(2), records);
-		//HashMap<Integer, String> MACD_S2 = MACD(4, 5, 2,records.get(0).get(1), records);
-		//HashMap<Integer, String> MACD_T2 = MACD(3, 4, 2,records.get(0).get(2), records);
+		HashMap<Integer, String> MACD_T_1_2_3 = MACD(1, 2, 3,records.get(0).get(2), records);
 		
-		HashMap<Integer, String> MAa_1_S = Move_Average_same(4, 5, records.get(0).get(1), 1, records);
-		HashMap<Integer, String> MAa_1_T = Move_Average_same(4, 5, records.get(0).get(2), 2, records);
+		HashMap<Integer, String> BIAS_T_2_03 = BIAS(2, 2, 0.0003, records);
+		HashMap<Integer, String> BIAS_T_2_04 = BIAS(2, 2, 0.0004, records);
+		HashMap<Integer, String> BIAS_T_2_05 = BIAS(2, 2, 0.0005, records);
+		//HashMap<Integer, String> BIAS_T_2_06 = BIAS(2, 2, 0.0006, records);
+		//HashMap<Integer, String> BIAS_T_2_07 = BIAS(2, 2, 0.0007, records);
+		//HashMap<Integer, String> BIAS_T_2_08 = BIAS(2, 2, 0.0008, records);
+		//HashMap<Integer, String> BIAS_T_2_09 = BIAS(2, 2, 0.0009, records);
+		//HashMap<Integer, String> BIAS_T_2_10 = BIAS(2, 2, 0.0010, records);
 		
-		HashMap<Integer, String> BIAS3_S1 = BIAS(2, 1, 0.0005, records);
-		HashMap<Integer, String> BIAS3_T = BIAS(2, 2, 0.0015, records);
-		//HashMap<Integer, String> BIAS2_S1 = BIAS(4, 1, 0.0035, records);
-		//HashMap<Integer, String> BIAS2_T = BIAS(2, 2, 0.0045, records);
+		
 		
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
@@ -215,44 +211,40 @@ public class GetAttr {
 			       //temp.add(records.get(i).get(1));
 			       temp.add("Feature_S");
 			       temp.add("Feature_T");
-			       temp.add("MAS1_2");			     
-			       temp.add("MAS1_3");			       			    
-			       temp.add("MAT_2");	
-			       temp.add("MAT_3");			      
 			       temp.add("Match");
-			       temp.add("MACD_S1");
-			       temp.add("MACD_T1");
-			       //temp.add("MACD_S2");
-			       //temp.add("MACD_T2");
-			       temp.add("MAa_S");
-			       temp.add("MAa_T");
-			       temp.add("BIAS3_S1");
-			       temp.add("BIAS3_T");
-			       //temp.add("BIAS2_S1");
-			       //temp.add("BIAS2_T");
+			       //temp.add("Match");			       			      
+			       temp.add("MACD_T_1_2_3");
+			       
+			       temp.add("BIAS_T_2_03");
+			       temp.add("BIAS_T_2_04");
+			       temp.add("BIAS_T_2_05");
+			       //temp.add("BIAS_T_2_06");
+			       //temp.add("BIAS_T_2_07");
+			       //temp.add("BIAS_T_2_08");
+			       //temp.add("BIAS_T_2_09");
+			       //temp.add("BIAS_T_2_10");
+			      
 			       
 			       
 			} else {
-				//All the conditional att need to add. eg. x -> x x_3 x_4
-		       
-		        	//temp.add(records.get(i).get(1));
+				//All the conditional att need to add. eg. x -> x x_3 x_4		       
+		        
 		           temp.add(FS2.get(i));
 		           temp.add(FT2.get(i));
-		           temp.add(MAS1_2.get(i));
-		           temp.add(MAS1_3.get(i));		           
-		           temp.add(MAT_2.get(i));
-		           temp.add(MAT_3.get(i));	
 		           temp.add(Match.get(i));
-		           temp.add(MACD_S1.get(i));
-		           temp.add(MACD_T1.get(i));
-		           //temp.add(MACD_S2.get(i));
-		           //temp.add(MACD_T2.get(i));
-		           temp.add(MAa_1_S.get(i));
-		           temp.add(MAa_1_T.get(i));
-		           temp.add(BIAS3_S1.get(i));
-		           temp.add(BIAS3_T.get(i));
-		           //temp.add(BIAS2_S1.get(i));
-		           //temp.add(BIAS2_T.get(i));
+		           //temp.add(Match.get(i));
+		           temp.add(MACD_T_1_2_3.get(i));
+		           
+		           
+		           temp.add(BIAS_T_2_03.get(i));
+		           temp.add(BIAS_T_2_04.get(i));
+		           temp.add(BIAS_T_2_05.get(i));
+		           //temp.add(BIAS_T_2_06.get(i));
+		           //temp.add(BIAS_T_2_07.get(i));
+		           //temp.add(BIAS_T_2_08.get(i));
+		           //temp.add(BIAS_T_2_09.get(i));
+		           //temp.add(BIAS_T_2_10.get(i));
+		           
 			}
 			//Add the last one of every line
 			temp.add(records.get(i).get(records.get(i).size()-1));			
@@ -271,111 +263,115 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
 		//HashMap<Integer, String> FS2 = feature2(1, records);
 		HashMap<Integer, String> FT2 = feature2(2, records);
-		
 		HashMap<Integer, String> FS = feature(1, records);
 		HashMap<Integer, String> FT = feature(2, records);		
 		HashMap<Integer, String> Match = match_source_target(FS, FT);
 		
-		//HashMap<Integer, String> MAS1_2 = Move_Average(2, records.get(0).get(1), 1, records);		
-		//HashMap<Integer, String> MAS1_3 = Move_Average(3, records.get(0).get(1), 1, records);
-		//HashMap<Integer, String> MAS1_4 = Move_Average(4, records.get(0).get(1), 1, records);		
-		//HashMap<Integer, String> MAS1_5 = Move_Average(5, records.get(0).get(1), 1, records);
+		HashMap<Integer, String> MAS_2 = Move_Average(2, records.get(0).get(1), 1, records);		
+		HashMap<Integer, String> MAS_3 = Move_Average(3, records.get(0).get(1), 1, records);
+		HashMap<Integer, String> MAS_4 = Move_Average(4, records.get(0).get(1), 1, records);		
+		HashMap<Integer, String> MAS_5 = Move_Average(5, records.get(0).get(1), 1, records);
 		
 		HashMap<Integer, String> MAT_2 = Move_Average(2, records.get(0).get(2), 2, records);
 		HashMap<Integer, String> MAT_3 = Move_Average(3, records.get(0).get(2), 2, records);
+		HashMap<Integer, String> MAT_4 = Move_Average(4, records.get(0).get(2), 2, records);
+		HashMap<Integer, String> MAT_5 = Move_Average(5, records.get(0).get(2), 2, records);
 		
-		HashMap<Integer, String> MAT_4 = Move_Average(2, records.get(0).get(2), 2, records);
-		HashMap<Integer, String> MAT_5 = Move_Average(3, records.get(0).get(2), 2, records);
+		HashMap<Integer, String> MACD_S_2_3_4 = MACD(3, 4, 2,records.get(0).get(1), records);
+		HashMap<Integer, String> MACD_S_2_4_5 = MACD(4, 5, 2,records.get(0).get(1), records);
 		
-		HashMap<Integer, String> MACD_S1 = MACD(2, 3, 2,records.get(0).get(1), records);
+		HashMap<Integer, String> MACD_T_1_2_3 = MACD(1, 2, 3,records.get(0).get(2), records);
+		HashMap<Integer, String> MACD_T_2_3_4 = MACD(3, 4, 2,records.get(0).get(2), records);
+		HashMap<Integer, String> MACD_T_2_4_5 = MACD(4, 5, 2,records.get(0).get(2), records);
+		HashMap<Integer, String> MACD_T_3_4_5 = MACD(4, 5, 3,records.get(0).get(2), records);
+				
+		HashMap<Integer, String> MAa_S_2_3 = Move_Average_same(2, 3, records.get(0).get(1), 1, records);		
+		HashMap<Integer, String> MAa_S_4_5 = Move_Average_same(4, 5, records.get(0).get(1), 1, records);		
+		HashMap<Integer, String> MAa_T_2_3 = Move_Average_same(2, 3, records.get(0).get(2), 2, records);		
+		HashMap<Integer, String> MAa_T_4_5 = Move_Average_same(4, 5, records.get(0).get(2), 2, records);
+				      
+		HashMap<Integer, String> BIAS_T_2_03 = BIAS(2, 2, 0.0003, records);
+		HashMap<Integer, String> BIAS_S_2_03 = BIAS(2, 1, 0.0003, records);
+		HashMap<Integer, String> BIAS_S_2_04 = BIAS(2, 1, 0.0004, records);
+		HashMap<Integer, String> BIAS_S_2_05 = BIAS(2, 1, 0.0005, records);
+		HashMap<Integer, String> BIAS_S_2_06 = BIAS(2, 1, 0.0006, records);
 		
-		HashMap<Integer, String> MACD_S12 = MACD(4, 5, 2,records.get(0).get(1), records);
-		
-		HashMap<Integer, String> MACD_T1 = MACD(3, 4, 2,records.get(0).get(2), records);
-		
-		HashMap<Integer, String> MACD_T2 = MACD(4, 5, 2,records.get(0).get(2), records);
-		//HashMap<Integer, String> MACD_S2 = MACD(4, 5, 2,records.get(0).get(1), records);
-		//HashMap<Integer, String> MACD_T2 = MACD(3, 4, 2,records.get(0).get(2), records);
-		
-		//HashMap<Integer, String> MAa_1_S = Move_Average_same(4, 5, records.get(0).get(1), 1, records);
-		
-		//HashMap<Integer, String> MAa_2_S = Move_Average_same(2, 3, records.get(0).get(1), 1, records);
-		
-		//HashMap<Integer, String> MAa_1_T = Move_Average_same(4, 5, records.get(0).get(2), 2, records);
-		
-		//HashMap<Integer, String> MAa_2_T = Move_Average_same(2, 3, records.get(0).get(2), 2, records);
-		
-		//HashMap<Integer, String> BIAS3_S1 = BIAS(2, 1, 0.0015, records);
-		HashMap<Integer, String> BIAS3_T = BIAS(2, 2, 0.0015, records);
-		
-		HashMap<Integer, String> BIAS3_T2 = BIAS(3, 2, 0.005, records);
-		HashMap<Integer, String> BIAS3_T3 = BIAS(4, 2, 0.0035, records);
-		
-		//HashMap<Integer, String> BIAS2_S1 = BIAS(4, 1, 0.0035, records);
-		//HashMap<Integer, String> BIAS2_T = BIAS(2, 2, 0.0045, records);
 		
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add Date
 			temp.add(records.get(i).get(0));
-			if(i == 0) {			 
-			       //temp.add(records.get(i).get(1));
-			       //temp.add("Feature_S");
-			       temp.add("Feature_T");
-			       //temp.add("MAS1_2");			     
-			       //temp.add("MAS1_3");	
-			       //temp.add("MAS1_4");			     
-			       //temp.add("MAS1_5");
-			       temp.add("MAT_2");	
-			       temp.add("MAT_3");			      
+			if(i == 0) {			 			       
+			       temp.add("Feature_T");	
 			       temp.add("Match");
-			       temp.add("MACD_S1");
-			       temp.add("MACD_S12");
-			       temp.add("MACD_T1");
-			       temp.add("MACD_T2");
-			       //temp.add("MACD_S2");
-			       //temp.add("MACD_T2");
-			       //temp.add("MAa_1_S");
-			       //temp.add("MAa_2_S");
-			       //temp.add("MAa_1_T");
-			       //temp.add("MAa_2_T");
-			       //temp.add("BIAS3_S1");
-			       temp.add("BIAS3_T");
-			       temp.add("BIAS3_T2");
-			       temp.add("BIAS3_T3");
-			       //temp.add("BIAS2_S1");
-			       //temp.add("BIAS2_T");
+			       
+			       temp.add("MAS_2");	
+			       temp.add("MAS_3");	
+			       temp.add("MAS_4");	
+			       temp.add("MAS_5");
+			       
+			       temp.add("MAT_2");	
+			       temp.add("MAT_3");	
+			       temp.add("MAT_4");	
+			       temp.add("MAT_5");
+			      			       			 			   
+			       temp.add("MACD_S_2_3_4");
+			       temp.add("MACD_S_2_4_5");
+			       
+			       temp.add("MACD_T_1_2_3");
+			       temp.add("MACD_T_2_3_4");
+			       temp.add("MACD_T_2_4_5");
+			       temp.add("MACD_T_3_4_5");
+			       
+			       temp.add("BIAS_T_2_03");
+			       temp.add("BIAS_S_2_03");
+			       temp.add("BIAS_S_2_04");
+			       temp.add("BIAS_S_2_05");
+			       temp.add("BIAS_S_2_06");
+			       
+			       temp.add("MAa_S_2_3");
+			       temp.add("MAa_S_4_5");
+			       temp.add("MAa_T_2_3 ");
+			       temp.add("MAa_T_4_5 ");
+			       
+			     
 			       temp.add(records.get(i).get(records.get(i).size()-1));	
 			       
 			} else {
-				//All the conditional att need to add. eg. x -> x x_3 x_4
-		       
-		        	//temp.add(records.get(i).get(1));
-		           //temp.add(FS2.get(i));
+						       
 		           temp.add(FT2.get(i));
-		           //temp.add(MAS1_2.get(i));
-		           //temp.add(MAS1_3.get(i));	
-		           //temp.add(MAS1_4.get(i));
-		           //temp.add(MAS1_5.get(i));
-		           temp.add(MAT_2.get(i));
-		           temp.add(MAT_3.get(i));	
 		           temp.add(Match.get(i));
-		           temp.add(MACD_S1.get(i));
-		           temp.add(MACD_S12.get(i));
-		           temp.add(MACD_T1.get(i));
-		           temp.add(MACD_T2.get(i));
-		           //temp.add(MACD_S2.get(i));
-		           //temp.add(MACD_T2.get(i));
-		           //temp.add(MAa_1_S.get(i));
-		           //temp.add(MAa_2_S.get(i));
-		           //temp.add(MAa_1_T.get(i));
-		           //temp.add(MAa_2_T.get(i));
-		           //temp.add(BIAS3_S1.get(i));
-		           temp.add(BIAS3_T.get(i));
-		           temp.add(BIAS3_T2.get(i));
-		           temp.add(BIAS3_T3.get(i));
-		           //temp.add(BIAS2_S1.get(i));
-		           //temp.add(BIAS2_T.get(i));
+		           temp.add(MAS_2.get(i));
+		           temp.add(MAS_3.get(i));
+		           temp.add(MAS_4.get(i));
+		           temp.add(MAS_5.get(i));
+		           
+		           temp.add(MAT_2.get(i));
+		           temp.add(MAT_3.get(i));
+		           temp.add(MAT_4.get(i));
+		           temp.add(MAT_5.get(i));
+		           
+		           temp.add(MACD_S_2_3_4.get(i));
+			       temp.add(MACD_S_2_4_5.get(i));
+			       
+			       temp.add(MACD_T_1_2_3.get(i));
+			       temp.add(MACD_T_2_3_4.get(i));
+			       temp.add(MACD_T_2_4_5.get(i));
+			       temp.add(MACD_T_3_4_5.get(i));
+			     
+			       
+			       temp.add(BIAS_T_2_03.get(i));
+			       
+			       temp.add(BIAS_S_2_03.get(i));
+			       temp.add(BIAS_S_2_04.get(i));
+			       temp.add(BIAS_S_2_05.get(i));
+			       temp.add(BIAS_S_2_06.get(i));
+
+			       temp.add(MAa_S_2_3.get(i));
+			       temp.add(MAa_S_4_5.get(i));
+			       temp.add(MAa_T_2_3.get(i));
+			       temp.add(MAa_T_4_5.get(i));
+			      
 		           temp.add(target.get(i));
 			}
 			//Add the last one of every line

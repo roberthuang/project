@@ -6,7 +6,8 @@ import java.util.*;
 public class RuleMapping {
 	
     public HashMap<Integer, ArrayList<String>>  RuleMapping(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules,
-    HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_testing) {
+    HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_testing, HashMap<Integer, String> target_class) {
+    	/*
         //1.We evaluate the number of Rise and Down in rules.
         HashMap<String, Integer> number_of_rise_down = new HashMap<>();
         for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
@@ -18,7 +19,8 @@ public class RuleMapping {
                 number = number + 1;
                 number_of_rise_down.put(rise_down , number);
             } 	   
-        }        
+        }  
+        
         ArrayList<String> answer = new ArrayList<>();
         if (number_of_rise_down.get("Rise") == null) {
         	answer.add("Down");
@@ -33,7 +35,35 @@ public class RuleMapping {
             } else {
             	answer.add("Down");   
             }	
+        }*/
+    	
+    	HashMap<String, Integer> number_of_rise_down = new HashMap<>();
+    	for (int i = 1; i <= target_class.size()*0.8; i++) {
+    	    if (number_of_rise_down .get(target_class.get(i)) == null) {
+    	    	number_of_rise_down.put(target_class.get(i), 1);        	
+    	    } else {
+    	    	int number = number_of_rise_down.get(target_class.get(i));
+    	    	number ++;
+    	    	number_of_rise_down.put(target_class.get(i), number);
+    	    }
+    		
+    	}
+        
+    	ArrayList<String> answer = new ArrayList<>();
+    	if (number_of_rise_down.get("Rise") == null) {
+        	answer.add("Down");        	
+        } else if (number_of_rise_down.get("Down") == null) {
+        	answer.add("Rise"); 
+        } else {
+        	int Rise_number =  number_of_rise_down.get("Rise");
+            int Down_number =  number_of_rise_down.get("Down");
+            if (Rise_number > Down_number) {
+                answer.add("Rise");        	
+            } else {
+            	answer.add("Down");   
+            }	
         }
+                                     
             	 	
     	//2.Begin Mapping 
         HashMap<Integer, ArrayList<String>> result = new HashMap<>();      
@@ -92,8 +122,7 @@ public class RuleMapping {
             	result.put(i,Rise_Down);
             	
             } else {
-            	result.put(i,answer);
-            	
+            	result.put(i,answer);            	         	           
             }
             //Debug
             //System.out.println(i);
@@ -166,9 +195,9 @@ public class RuleMapping {
         e.put("precision_rise", precision_rise);
         double recall_rise =  True_Positive / (double)(True_Positive + False_Negative);
         e.put("recall_rise", recall_rise);
-        double precision_down =  True_Negative / (double)(True_Negative +  False_Positive);
+        double precision_down =  True_Negative / (double)(True_Negative +  False_Negative);
         e.put("precision_down", precision_down);
-        double recall_down =  True_Negative / (double)( True_Negative + False_Negative);
+        double recall_down =  True_Negative / (double)( True_Negative + False_Positive);
         e.put("recall_down", recall_down );
         return e;
         }    
