@@ -499,7 +499,8 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
     	    	result.put(i, "Down");  
     	    }	
     	}    	  
-    	return result; 
+    	return result;  
+    	
     }
            
     public static HashMap<Integer, String> MACD(int sl, int ll, int tl, String att, ArrayList<ArrayList<String>> records) {
