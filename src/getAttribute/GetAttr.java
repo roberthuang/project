@@ -258,7 +258,7 @@ public class GetAttr {
 		}
 	}
 	
-public static void featureExtraction2(String output_filename, ArrayList<ArrayList<String>> records, HashMap<Integer, String> target) {				
+public static void featureExtraction2(String output_filename, ArrayList<ArrayList<String>> records, HashMap<Integer, String> target, int window_size) {				
 		
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
 		//HashMap<Integer, String> FS2 = feature2(1, records);
@@ -297,7 +297,7 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 		HashMap<Integer, String> BIAS_S_2_06 = BIAS(2, 1, 0.0006, records);
 		
 		
-		for (int i = 0; i < records.size(); i++) {		
+		for (int i = 0; i <= records.size()*0.8 + 1; i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add Date
 			temp.add(records.get(i).get(0));
@@ -371,7 +371,7 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 			       temp.add(MAa_S_4_5.get(i));
 			       temp.add(MAa_T_2_3.get(i));
 			       temp.add(MAa_T_4_5.get(i));
-			      
+			       
 		           temp.add(target.get(i));
 			}
 			//Add the last one of every line

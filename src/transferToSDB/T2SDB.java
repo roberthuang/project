@@ -19,11 +19,11 @@ public class T2SDB {
            for (int i = 1; i <= training_data-window_size+1; i++) { 
                //The calss_table's index
                int class_index = 0;   
-               for (int j = 0; j < window_size;j++) {
+               for (int j = 0; j < window_size; j++) {
                    int index = i + j;                     
                    if (index <= training_data) {
                        class_index = index;     
-                       for (int k = 1;k < records.get(i).size()-1; k++) {
+                       for (int k = 1; k < records.get(i).size()-1; k++) {
                     	   osw.write(records.get(index).get(k) + " ");        	                     	   
                        }                       
                        osw.write(-1 + " ");
