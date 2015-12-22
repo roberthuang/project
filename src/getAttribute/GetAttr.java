@@ -297,7 +297,7 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 		HashMap<Integer, String> BIAS_S_2_06 = BIAS(2, 1, 0.0006, records);
 		
 		
-		for (int i = 0; i <= records.size()*0.8 + 1; i++) {		
+		for (int i = 0; i <= records.size()*0.8; i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add Date
 			temp.add(records.get(i).get(0));
