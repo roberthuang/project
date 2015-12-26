@@ -182,19 +182,19 @@ public class GetAttr {
 	public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records) {				
 		
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
-	    HashMap<Integer, String> FS2 = feature2(1, records);
-		HashMap<Integer, String> FT2 = feature2(2, records);
+	    HashMap<Integer, String> F_oil = feature2(2, records);
+		HashMap<Integer, String> F_but = feature2(3, records);
 		
-		HashMap<Integer, String> FS = feature(1, records);
-		HashMap<Integer, String> FT = feature(2, records);		
-		HashMap<Integer, String> Match = match_source_target(FS, FT);
+		HashMap<Integer, String> FS = feature(2, records);
+		HashMap<Integer, String> FT = feature(3, records);		
+		HashMap<Integer, String> Match_of_oil_but = match_source_target(FS, FT);
 		
 		
-		HashMap<Integer, String> MACD_T_1_2_3 = MACD(1, 2, 3,records.get(0).get(2), records);
+		HashMap<Integer, String> MACD_T_1_2_3 = MACD(1, 2, 3,records.get(0).get(3), records);
 		
-		HashMap<Integer, String> BIAS_T_2_03 = BIAS(2, 2, 0.0003, records);
-		HashMap<Integer, String> BIAS_T_2_04 = BIAS(2, 2, 0.0004, records);
-		HashMap<Integer, String> BIAS_T_2_05 = BIAS(2, 2, 0.0005, records);
+		HashMap<Integer, String> BIAS_T_2_03 = BIAS(2, 3, 0.0003, records);
+		HashMap<Integer, String> BIAS_T_2_04 = BIAS(2, 3, 0.0004, records);
+		HashMap<Integer, String> BIAS_T_2_05 = BIAS(2, 3, 0.0005, records);
 		//HashMap<Integer, String> BIAS_T_2_06 = BIAS(2, 2, 0.0006, records);
 		//HashMap<Integer, String> BIAS_T_2_07 = BIAS(2, 2, 0.0007, records);
 		//HashMap<Integer, String> BIAS_T_2_08 = BIAS(2, 2, 0.0008, records);
@@ -209,9 +209,9 @@ public class GetAttr {
 			temp.add(records.get(i).get(0));
 			if(i == 0) {			 
 			       //temp.add(records.get(i).get(1));
-			       temp.add("Feature_S");
-			       temp.add("Feature_T");
-			       temp.add("Match");
+			       temp.add("F_oil");
+			       temp.add("F_but");
+			       temp.add("Match_of_oil_but");
 			       //temp.add("Match");			       			      
 			       temp.add("MACD_T_1_2_3");
 			       
@@ -229,9 +229,9 @@ public class GetAttr {
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4		       
 		        
-		           temp.add(FS2.get(i));
-		           temp.add(FT2.get(i));
-		           temp.add(Match.get(i));
+		           temp.add(F_oil.get(i));
+		           temp.add(F_but.get(i));
+		           temp.add(Match_of_oil_but.get(i));
 		           //temp.add(Match.get(i));
 		           temp.add(MACD_T_1_2_3.get(i));
 		           
