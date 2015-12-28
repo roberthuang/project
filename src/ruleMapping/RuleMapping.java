@@ -42,7 +42,7 @@ public class RuleMapping {
 		ArrayList<ArrayList<ArrayList<String>>> class2_set = new ArrayList<>();
 		for (ArrayList<ArrayList<String>> match_rule : match_rules) {
 		    String str = match_rule.get(match_rule.size()-1).get(0);
-		    if (str == "Rise") {
+		    if (str.equals("Rise")) {
 		    	class1_set.add(match_rule);	
 		    } else {
 		    	class2_set.add(match_rule);
