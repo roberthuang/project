@@ -19,12 +19,12 @@ public class Main {
     	    FileOutputStream fos = new FileOutputStream(fout);
 	        OutputStreamWriter osw = new OutputStreamWriter(fos);
 	        
-   	        for (double j = 0.01;j <= 0.85; j = j + 0.01) {
-   	        System.out.println(j);
+   	        //for (double j = 0.01;j <= 0.85; j = j + 0.01) {
+   	        //System.out.println(j);
     		/**0.Set Argument**/
     		int window_size = 2;
-    		int minsup = 15;
-    		double min_conf = j;
+    		int minsup = 28;
+    		double min_conf = 0.68;
     		//Input
     		String path = "petro_subset1_2010.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);
@@ -72,7 +72,7 @@ public class Main {
     		RuleEvaluation.start("RuleEvaluation_config.txt", min_conf, traing_data_size);
                 		
     		/**6.Rule Mapping**/    		
-    		//System.out.println("##Step 6: Rule Mapping");
+    		System.out.println("##Step 6: Rule Mapping");
     	    RuleMapping mapping = new RuleMapping();
     		HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
     		= mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), feature_target);
@@ -92,7 +92,7 @@ public class Main {
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");	  	
-   	        }
+   	        //}
     	    osw.close();
    	        
         } catch (FileNotFoundException e) {
