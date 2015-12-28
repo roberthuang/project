@@ -7,36 +7,7 @@ public class RuleMapping {
 	
     public HashMap<Integer, ArrayList<String>>  RuleMapping(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules,
     HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_testing, HashMap<Integer, String> target_class) {
-    	/*
-        //1.We evaluate the number of Rise and Down in rules.
-        HashMap<String, Integer> number_of_rise_down = new HashMap<>();
-        for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
-        	String rise_down = rule.get(rule.size()-1).get(0);
-            if (number_of_rise_down.get(rise_down) == null) {
-            	number_of_rise_down.put(rise_down, 1);    	           	
-            } else {
-                int number = number_of_rise_down.get(rise_down);
-                number = number + 1;
-                number_of_rise_down.put(rise_down , number);
-            } 	   
-        }  
-        
-        ArrayList<String> answer = new ArrayList<>();
-        if (number_of_rise_down.get("Rise") == null) {
-        	answer.add("Down");
-        	
-        } else if (number_of_rise_down.get("Down") == null) {
-        	answer.add("Rise"); 
-        } else {
-        	int Rise_number =  number_of_rise_down.get("Rise");
-            int Down_number =  number_of_rise_down.get("Down");
-            if (Rise_number > Down_number) {
-                answer.add("Rise");        	
-            } else {
-            	answer.add("Down");   
-            }	
-        }*/
-    	
+ 
     	HashMap<String, Integer> number_of_rise_down = new HashMap<>();
     	for (int i = 1; i <= target_class.size()*0.8; i++) {
     	    if (number_of_rise_down .get(target_class.get(i)) == null) {
@@ -101,12 +72,16 @@ public class RuleMapping {
                 double max_confidence = rules.get(match_rules.get(0)).get(1);              
                 for (int j = 1; j < match_rules.size(); j++) {
                 	double confidence = rules.get(match_rules.get(j)).get(1);
+                	double sup = rules.get(match_rules.get(j)).get(0);
                     if (confidence > max_confidence) {
-                        max = j;	
+                        max = j;
+
                     } else if (confidence == max_confidence) {
-                    	double sup = rules.get(match_rules.get(j)).get(0);
+                    
                     	if (sup > max_sup) {
-                    		max = j;          		    
+                    		max = j;  
+
+                   
                     	}
                     }
                 	
@@ -170,16 +145,16 @@ public class RuleMapping {
         for (int i = 1; i <= predict.size(); i++) {
                 if (predict.get(i).get(0).equals("Rise"))	{
                     if (class_table.get(i+index+window_size).equals("Rise")) {
-                    	True_Positive = True_Positive + 1;	
+                    	True_Positive += 1;	
                     } else {
-                    	False_Negative = False_Negative + 1;
+                    	False_Negative += 1;
                     }
                 	
                 } else  {
                 	if (class_table.get(i+index).equals("Down")) {
-                		True_Negative = True_Negative + 1;	
+                		True_Negative += 1;	
                     } else {
-                    	False_Positive = False_Positive + 1;
+                    	False_Positive += 1;
                     }              	
                 }
         }
@@ -199,6 +174,12 @@ public class RuleMapping {
         e.put("precision_down", precision_down);
         double recall_down =  True_Negative / (double)( True_Negative + False_Positive);
         e.put("recall_down", recall_down );
+        
+        double macro_precision = ( precision_rise + precision_down) / (double) 2;
+        e.put("macro_precision", macro_precision);
+        double macro_recall = ( recall_rise + recall_down) / (double) 2;
+        e.put("macro_recall", macro_recall);
+        
         return e;
         }    
 }

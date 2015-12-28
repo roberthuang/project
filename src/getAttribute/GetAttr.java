@@ -16,7 +16,7 @@ public class GetAttr {
 	                continue;
 	            }
 	            
-	            if (Double.parseDouble(records.get(i).get(col))- Double.parseDouble(records.get(i-1).get(col)) > 0 ) {
+	            if (Double.parseDouble(records.get(i).get(col))- Double.parseDouble(records.get(i-1).get(col)) >= 0 ) {
 	    	    	result.put(i, "R");     
 	    	    } else {
 	    	    	result.put(i, "D");  
@@ -34,7 +34,7 @@ public class GetAttr {
 	                continue;
 	            }
 	            
-	            if (Double.parseDouble(records.get(i).get(col))- Double.parseDouble(records.get(i-1).get(col)) > 0 ) {
+	            if (Double.parseDouble(records.get(i).get(col))- Double.parseDouble(records.get(i-1).get(col)) >= 0 ) {
 	    	    	result.put(i,  records.get(0).get(col) + "_R");     
 	    	    } else {
 	    	    	result.put(i,  records.get(0).get(col) + "_D");  
@@ -44,13 +44,13 @@ public class GetAttr {
 	}
 	
 	
-	public static HashMap<Integer, String> match_source_target(HashMap<Integer, String> s, HashMap<Integer, String> t) {
+	public static HashMap<Integer, String> match_source_target(HashMap<Integer, String> s, HashMap<Integer, String> t, int sou, int tar) {
 		HashMap<Integer, String> result = new HashMap<>(); 
 	    for (int i = 1;i < t.size(); i++) {
 	        if (s.get(i) == t.get(i)) {
-	        	result.put(i, "Same");
+	        	result.put(i, "Same" + "_" + sou + "_" + tar);
 	        } else {
-	        	result.put(i, "Diff");
+	        	result.put(i, "Diff" + "_" + sou + "_" + tar);
 	        }
 	    }	    
 	    return result;
@@ -77,7 +77,7 @@ public class GetAttr {
 	        	   }
 	           }
 	           double MA = sum_t1/length1 - sum_t2/length2;
-	           if (MA > 0) {	                
+	           if (MA >= 0) {	                
 	                result.put(i, "MAa" + att.charAt(0) + length1 + "_1");    
 	           } else {	                
 	                result.put(i, "MAa" + att.charAt(0) + length1 + "_0"); 
@@ -115,7 +115,7 @@ public class GetAttr {
             
             //Rise or Down
             double MA = sum_t/length - sum_t_1/length;     
-            if (MA > 0) {
+            if (MA >= 0) {
                 //System.out.println("i: " + i + " " + MA);
                 result.put(i, "MA" + att.charAt(0) + length + "_1");    
             } else {
@@ -187,64 +187,45 @@ public class GetAttr {
 		
 		HashMap<Integer, String> FS = feature(2, records);
 		HashMap<Integer, String> FT = feature(3, records);		
-		HashMap<Integer, String> Match_of_oil_but = match_source_target(FS, FT);
+		HashMap<Integer, String> Match_of_oil_but = match_source_target(FS, FT, 2, 3);
+		HashMap<Integer, String> Match_of_cru_but = match_source_target(FS, FT, 1, 3);
 		
-		
+		HashMap<Integer, String> MACD_oil_1_2_3 = MACD(1, 2, 3,records.get(0).get(2), records);
 		HashMap<Integer, String> MACD_T_1_2_3 = MACD(1, 2, 3,records.get(0).get(3), records);
+		HashMap<Integer, String> MACD_T_2_3_4 = MACD(2, 3, 4,records.get(0).get(3), records);
 		
 		HashMap<Integer, String> BIAS_T_2_03 = BIAS(2, 3, 0.0003, records);
-		HashMap<Integer, String> BIAS_T_2_04 = BIAS(2, 3, 0.0004, records);
-		HashMap<Integer, String> BIAS_T_2_05 = BIAS(2, 3, 0.0005, records);
-		//HashMap<Integer, String> BIAS_T_2_06 = BIAS(2, 2, 0.0006, records);
-		//HashMap<Integer, String> BIAS_T_2_07 = BIAS(2, 2, 0.0007, records);
-		//HashMap<Integer, String> BIAS_T_2_08 = BIAS(2, 2, 0.0008, records);
-		//HashMap<Integer, String> BIAS_T_2_09 = BIAS(2, 2, 0.0009, records);
-		//HashMap<Integer, String> BIAS_T_2_10 = BIAS(2, 2, 0.0010, records);
 		
-		
-		
+
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add Date
 			temp.add(records.get(i).get(0));
-			if(i == 0) {			 
-			       //temp.add(records.get(i).get(1));
+			if(i == 0) {			 			     
 			       temp.add("F_oil");
 			       temp.add("F_but");
-			       temp.add("Match_of_oil_but");
-			       //temp.add("Match");			       			      
+			       temp.add("Match_of_oil_but");	
+			       temp.add("Match_of_cru_but");
+			       temp.add("MACD_oil_1_2_3");
 			       temp.add("MACD_T_1_2_3");
-			       
+			       temp.add("MACD_T_2_3_4");
+
 			       temp.add("BIAS_T_2_03");
-			       temp.add("BIAS_T_2_04");
-			       temp.add("BIAS_T_2_05");
-			       //temp.add("BIAS_T_2_06");
-			       //temp.add("BIAS_T_2_07");
-			       //temp.add("BIAS_T_2_08");
-			       //temp.add("BIAS_T_2_09");
-			       //temp.add("BIAS_T_2_10");
-			      
-			       
-			       
+			    
+
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4		       
 		        
 		           temp.add(F_oil.get(i));
 		           temp.add(F_but.get(i));
 		           temp.add(Match_of_oil_but.get(i));
-		           //temp.add(Match.get(i));
+		           temp.add(Match_of_cru_but.get(i));
+		           temp.add(MACD_oil_1_2_3.get(i));
 		           temp.add(MACD_T_1_2_3.get(i));
-		           
-		           
+		           temp.add(MACD_T_2_3_4.get(i));
+
 		           temp.add(BIAS_T_2_03.get(i));
-		           temp.add(BIAS_T_2_04.get(i));
-		           temp.add(BIAS_T_2_05.get(i));
-		           //temp.add(BIAS_T_2_06.get(i));
-		           //temp.add(BIAS_T_2_07.get(i));
-		           //temp.add(BIAS_T_2_08.get(i));
-		           //temp.add(BIAS_T_2_09.get(i));
-		           //temp.add(BIAS_T_2_10.get(i));
-		           
+
 			}
 			//Add the last one of every line
 			temp.add(records.get(i).get(records.get(i).size()-1));			
@@ -265,7 +246,7 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 		HashMap<Integer, String> FT2 = feature2(2, records);
 		HashMap<Integer, String> FS = feature(1, records);
 		HashMap<Integer, String> FT = feature(2, records);		
-		HashMap<Integer, String> Match = match_source_target(FS, FT);
+		HashMap<Integer, String> Match = match_source_target(FS, FT, 1, 2);
 		
 		HashMap<Integer, String> MAS_2 = Move_Average(2, records.get(0).get(1), 1, records);		
 		HashMap<Integer, String> MAS_3 = Move_Average(3, records.get(0).get(1), 1, records);
@@ -493,7 +474,7 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
     	    	result.put(i, "Rise"); 
     	    	continue;
     	    }
-    	    if (Double.parseDouble(records.get(i).get(index_of_target_att))- Double.parseDouble(records.get(i-1).get(index_of_target_att)) > 0 ) {
+    	    if (Double.parseDouble(records.get(i).get(index_of_target_att))- Double.parseDouble(records.get(i-1).get(index_of_target_att)) >= 0 ) {
     	    	result.put(i, "Rise");     
     	    } else {
     	    	result.put(i, "Down");  
@@ -503,12 +484,11 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
     	
     }
            
-    public static HashMap<Integer, String> MACD(int sl, int ll, int tl, String att, ArrayList<ArrayList<String>> records) {
-    	//System.out.printf("================MACD(sl=%d,ll=%d,tl=%d)==================\n", sl, ll, tl);
+    public static HashMap<Integer, String> MACD(int tl, int sl, int ll, String att, ArrayList<ArrayList<String>> records) {
     	HashMap<Integer, String> result = new HashMap<>(); 
     	for (int i = 1; i < records.size(); i++) {
     	    double MACD = DIF(i, sl, ll, records) - DEM(i, sl, ll, tl, records);        	
-    		if (MACD <= 0) {
+    		if (MACD < 0) {
     			result.put(i, "MACD0_" + att.charAt(0) + sl + ll);
     		} else {
     			result.put(i, "MACD1_" + att.charAt(0) + sl + ll);			
