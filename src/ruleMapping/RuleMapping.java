@@ -51,15 +51,17 @@ public class RuleMapping {
 		}
 		
 		if (class1_set.isEmpty()) {
+			System.out.println("Empty: Rise");
 			ArrayList<String> temp = new ArrayList<>();
 			temp.add("Down");
 			return temp;
 		} else if (class2_set.isEmpty()) {
+			System.out.println("Empty: Down");
 			ArrayList<String> temp = new ArrayList<>();
 			temp.add("Rise");
 			return temp;
 		} else {
-		
+			System.out.println("Mapping");
 		
 		for (ArrayList<ArrayList<String>> class1_member : class1_set) {
 			double match_number = 0;
@@ -107,8 +109,8 @@ public class RuleMapping {
 		    double r_l_ratio = none_match_c1_number / (double) other;
 		    double r_r_ratio = none_match_c2_number / (double) other;
 		    
-		    double left_entropy = -left_ratio*(l_l_ratio*Math.log(l_l_ratio)/ Math.log(2) + l_r_ratio*Math.log(l_r_ratio)/ Math.log(2));
-		    double right_entropy = -right_ratio*(r_l_ratio*Math.log(r_l_ratio)/ Math.log(2) + r_r_ratio*Math.log(r_r_ratio)/ Math.log(2));
+		    double left_entropy = left_ratio*(-(l_l_ratio*Math.log(l_l_ratio)/ Math.log(2)) - (l_r_ratio*Math.log(l_r_ratio)/ Math.log(2)));
+		    double right_entropy = right_ratio*(-(r_l_ratio*Math.log(r_l_ratio)/ Math.log(2)) - (r_r_ratio*Math.log(r_r_ratio)/ Math.log(2)));
 		    Entropy = left_entropy + right_entropy;
 		    double Gain = globalEntropy - Entropy;
 		    score_1  += Gain;
@@ -161,8 +163,8 @@ public class RuleMapping {
 		    double r_l_ratio = none_match_c1_number / (double) other;
 		    double r_r_ratio = none_match_c2_number / (double) other;
 		    
-		    double left_entropy = left_ratio*(-l_l_ratio*Math.log(l_l_ratio)/ Math.log(2) - l_r_ratio*Math.log(l_r_ratio)/ Math.log(2));
-		    double right_entropy = right_ratio*(-r_l_ratio*Math.log(r_l_ratio)/ Math.log(2) - r_r_ratio*Math.log(r_r_ratio)/ Math.log(2));
+		    double left_entropy = left_ratio*(-(l_l_ratio*Math.log(l_l_ratio)/ Math.log(2)) - (l_r_ratio*Math.log(l_r_ratio)/ Math.log(2)));
+		    double right_entropy = right_ratio*(-(r_l_ratio*Math.log(r_l_ratio)/ Math.log(2)) - (r_r_ratio*Math.log(r_r_ratio)/ Math.log(2)));
 		    Entropy = left_entropy + right_entropy;
 		    double Gain = globalEntropy - Entropy;
 		    score_2  += Gain;
