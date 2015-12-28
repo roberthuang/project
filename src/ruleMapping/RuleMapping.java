@@ -34,12 +34,14 @@ public class RuleMapping {
 	}
 	
 	public static ArrayList<String> getinstance(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, ArrayList<ArrayList<ArrayList<String>>> match_rules, ArrayList<String> default_class) {
+		
 		double globalEntropy = Cacluate_all_entropy(rules);
 		double score_1 = 0;
 		double score_2 = 0;
 		
 		ArrayList<ArrayList<ArrayList<String>>> class1_set = new ArrayList<>();
 		ArrayList<ArrayList<ArrayList<String>>> class2_set = new ArrayList<>();
+		
 		for (ArrayList<ArrayList<String>> match_rule : match_rules) {
 		    String str = match_rule.get(match_rule.size()-1).get(0);
 		    if (str.equals("Rise")) {
@@ -64,7 +66,7 @@ public class RuleMapping {
 			System.out.println("Mapping");
 		
 		for (ArrayList<ArrayList<String>> class1_member : class1_set) {
-			double match_number = 0;
+			int match_number = 0;
 			double Entropy = 0;
 			int match_c1_number = 0;
 			int match_c2_number = 0;
@@ -75,7 +77,7 @@ public class RuleMapping {
 		        int current = 0;
 		        for (int i_1 = 0; i_1 <  class1_member.size(); i_1++) {                	
                     for (int j = current; j < rule.size()-1; j++) {                                         
-                        if (class1_member.get(i_1).containsAll(rule.get(j))) {    
+                        if (rule.get(j).containsAll(class1_member.get(i_1))) {    
                             current = j;
                             current = current + 1;
                             size = size + 1;
@@ -86,39 +88,42 @@ public class RuleMapping {
                 }       
 		        if (size == rule.size()-1) {
                 	match_number = match_number + 1;      
-                	if (rule.get(rule.size()-1).get(0) == "Rise") {
+                	if (rule.get(rule.size()-1).get(0).equals("Rise")) {
                 	    match_c1_number += 1;	
                 	} else {
                 		match_c2_number += 1;
                 	}
                 } else {
-                	if (rule.get(rule.size()-1).get(0) == "Rise") {
+                	if (rule.get(rule.size()-1).get(0).equals("Rise")) {
                 		none_match_c1_number += 1;
                 	} else {
                 		none_match_c2_number += 1;
                 	}
                 }
 		    }
-		    double left_ratio = match_number / (double) rules.keySet().size();
+		    
+		    int total = rules.keySet().size();
+		    double left_ratio = match_number / (double) total;
+		    //System.out.println("Rise: " + left_ratio + "  match_number: " + match_number + " total: " + total);   
 		    double l_l_ratio = match_c1_number / (double) match_number;
 		    double l_r_ratio = match_c2_number / (double) match_number;
 		    
-		    double other = rules.keySet().size() - match_number;
+		    int other = rules.keySet().size() - match_number;
 		    
 		    double right_ratio = other / (double) rules.keySet().size();
 		    double r_l_ratio = none_match_c1_number / (double) other;
 		    double r_r_ratio = none_match_c2_number / (double) other;
 		    
-		    double left_entropy = left_ratio*(-(l_l_ratio*Math.log(l_l_ratio)/ Math.log(2)) - (l_r_ratio*Math.log(l_r_ratio)/ Math.log(2)));
-		    double right_entropy = right_ratio*(-(r_l_ratio*Math.log(r_l_ratio)/ Math.log(2)) - (r_r_ratio*Math.log(r_r_ratio)/ Math.log(2)));
+		    double left_entropy = left_ratio*(-(l_l_ratio*(Math.log(l_l_ratio)/ Math.log(2))) - (l_r_ratio*(Math.log(l_r_ratio)/ Math.log(2))));
+		    double right_entropy = right_ratio*(-(r_l_ratio*(Math.log(r_l_ratio)/ Math.log(2))) - (r_r_ratio*(Math.log(r_r_ratio)/ Math.log(2))));
 		    Entropy = left_entropy + right_entropy;
+		    System.out.println(Entropy);
 		    double Gain = globalEntropy - Entropy;
-		    score_1  += Gain;
-			
+		    score_1 += Gain;			
 		}
 		
 		for (ArrayList<ArrayList<String>> class2_member : class2_set) {
-			double match_number = 0;
+			int match_number = 0;
 			double Entropy = 0;
 			int match_c1_number = 0;
 			int match_c2_number = 0;
@@ -129,7 +134,7 @@ public class RuleMapping {
 		        int current = 0;
 		        for (int i_1 = 0; i_1 <  class2_member.size(); i_1++) {                	
                     for (int j = current; j < rule.size()-1; j++) {                                         
-                        if (class2_member.get(i_1).containsAll(rule.get(j))) {    
+                        if (rule.get(j).containsAll(class2_member.get(i_1))) {    
                             current = j;
                             current = current + 1;
                             size = size + 1;
@@ -140,37 +145,42 @@ public class RuleMapping {
                 }       
 		        if (size == rule.size()-1) {
                 	match_number = match_number + 1;      
-                	if (rule.get(rule.size()-1).get(0) == "Rise") {
+                	if (rule.get(rule.size()-1).get(0).equals("Rise")) {
                 	    match_c1_number += 1;	
                 	} else {
                 		match_c2_number += 1;
                 	}
                 } else {
-                	if (rule.get(rule.size()-1).get(0) == "Rise") {
+                	if (rule.get(rule.size()-1).get(0).equals("Rise")) {
                 		none_match_c1_number += 1;
                 	} else {
                 		none_match_c2_number += 1;
                 	}
                 }
 		    }
-		    double left_ratio = match_number / (double) rules.keySet().size();
+		   
+		    int total = rules.keySet().size();
+		    double left_ratio = match_number / (double) total;
+		    //System.out.println("Down: " + left_ratio + "  match_number: " + match_number + " total: " + total);
+		    
 		    double l_l_ratio = match_c1_number / (double) match_number;
 		    double l_r_ratio = match_c2_number / (double) match_number;
 		    
-		    double other = rules.keySet().size() - match_number;
+		    int other = rules.keySet().size() - match_number;
 		    
 		    double right_ratio = other / (double) rules.keySet().size();
 		    double r_l_ratio = none_match_c1_number / (double) other;
 		    double r_r_ratio = none_match_c2_number / (double) other;
 		    
-		    double left_entropy = left_ratio*(-(l_l_ratio*Math.log(l_l_ratio)/ Math.log(2)) - (l_r_ratio*Math.log(l_r_ratio)/ Math.log(2)));
-		    double right_entropy = right_ratio*(-(r_l_ratio*Math.log(r_l_ratio)/ Math.log(2)) - (r_r_ratio*Math.log(r_r_ratio)/ Math.log(2)));
+		    double left_entropy = left_ratio*(-(l_l_ratio*(Math.log(l_l_ratio)/ Math.log(2))) - (l_r_ratio*(Math.log(l_r_ratio)/ Math.log(2))));
+		    double right_entropy = right_ratio*(-(r_l_ratio*(Math.log(r_l_ratio)/ Math.log(2))) - (r_r_ratio*(Math.log(r_r_ratio)/ Math.log(2))));
 		    Entropy = left_entropy + right_entropy;
+		    System.out.println(Entropy);
 		    double Gain = globalEntropy - Entropy;
-		    score_2  += Gain;
+		    score_2 += Gain;
 			
 		}
-		
+	    
 		if (score_1 > score_2) {
 			ArrayList<String> temp = new ArrayList<>();
 			temp.add("Rise");
@@ -270,6 +280,7 @@ public class RuleMapping {
                 ArrayList<String> Rise_Down = match_rule.get(match_rule.size()-1);                
             	result.put(i, Rise_Down);*/
             	//CBS
+            	
             	result.put(i, getinstance(rules, match_rules, answer));
             	            
             } else if (0< match_number && match_number < 2){
