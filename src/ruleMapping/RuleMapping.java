@@ -42,7 +42,39 @@ public class RuleMapping {
 		ArrayList<ArrayList<ArrayList<String>>> class1_set = new ArrayList<>();
 		ArrayList<ArrayList<ArrayList<String>>> class2_set = new ArrayList<>();
 		
-		for (ArrayList<ArrayList<String>> match_rule : match_rules) {
+		ArrayList<ArrayList<ArrayList<String>>> match_rules_2 = new ArrayList<>();
+		
+		for (int i = 0; i < match_rules.size()-1; i++) {
+			boolean same = false;
+			for (int j = i+1; j < match_rules.size(); j++) {
+				ArrayList<ArrayList<String>> temp1 = new ArrayList<>();
+				for (int k1 = 0; k1 < match_rules.get(i).size()-1; k1++) {
+					temp1.addAll(match_rules.get(k1));
+				}
+			    
+				String str1 = match_rules.get(i).get(match_rules.get(i).size()-1).get(0);		
+				//System.out.println(str1);
+				ArrayList<ArrayList<String>> temp2 = new ArrayList<>();
+				for (int k1 = 0; k1 < match_rules.get(j).size()-1; k1++) {
+					temp2.addAll(match_rules.get(k1));
+				}
+				String str2 = match_rules.get(j).get(match_rules.get(j).size()-1).get(0);	
+				//System.out.println(str2);							
+			    if ( (temp1==temp2) && str1.equals(str2)) {
+			    	same = true;
+			    	break; 
+			    } 
+			}
+			if (same == true) {
+				
+			} else {
+				match_rules_2.add(match_rules.get(i));
+			}
+			
+		}
+		
+		
+		for (ArrayList<ArrayList<String>> match_rule : match_rules_2) {
 		    String str = match_rule.get(match_rule.size()-1).get(0);
 		    if (str.equals("Rise")) {
 		    	class1_set.add(match_rule);	
@@ -63,7 +95,7 @@ public class RuleMapping {
 			temp.add("Rise");
 			return temp;
 		} else {
-			System.out.println("Mapping");
+			System.out.println("Mapping:");
 		
 		for (ArrayList<ArrayList<String>> class1_member : class1_set) {
 			int match_number = 0;
@@ -72,7 +104,6 @@ public class RuleMapping {
 			double gainratio = 0;
 			int match_c1_number = 0;
 			int match_c2_number = 0;
-			
 			/*int none_match_c1_number = 0;
 			int none_match_c2_number = 0;*/
 		    for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
@@ -118,14 +149,16 @@ public class RuleMapping {
 		    /*double right_ratio = other / (double) total;
 		    double r_l_ratio = none_match_c1_number / (double) other;
 		    double r_r_ratio = none_match_c2_number / (double) other;*/
-		    
-		    double left_entropy = left_ratio*(-(l_l_ratio*(Math.log(l_l_ratio)/ Math.log(2))) - (l_r_ratio*(Math.log(l_r_ratio)/ Math.log(2))));
-		    /*double right_entropy = right_ratio*(-(r_l_ratio*(Math.log(r_l_ratio)/ Math.log(2))) - (r_r_ratio*(Math.log(r_r_ratio)/ Math.log(2))));*/
-		    //System.out.println(left_entropy + "  " + right_entropy);
-		    
-		    SplitInfo -= (left_ratio * Math.log(left_ratio) / Math.log(2));
+		    if (match_c2_number  == 0) {
+		    	Entropy -= left_ratio*l_l_ratio*Math.log(l_l_ratio)/ Math.log(2);
+		    } else {
+		    	Entropy -= left_ratio*l_l_ratio*Math.log(l_l_ratio)/ Math.log(2) + l_r_ratio*Math.log(l_r_ratio)/ Math.log(2);
+		    }		    
+		    /*double right_entropy = right_ratio*(-(r_l_ratio*(Math.log(r_l_ratio)/ Math.log(2))) - (r_r_ratio*(Math.log(r_r_ratio)/ Math.log(2))));*/		 
+		    //System.out.println(left_ratio + "  " + l_l_ratio + " " + l_r_ratio);
+		    SplitInfo -= (left_ratio * Math.log(left_ratio) / Math.log(2));		
 		    //System.out.println(Entropy);
-		    Entropy = left_entropy;
+		    //System.out.println("Class1: " + Entropy);
 		    double gain = globalEntropy - Entropy;
 		    gainratio = Math.abs(gain/SplitInfo);
 		    score_1 += gainratio;			
@@ -184,14 +217,18 @@ public class RuleMapping {
 		    /*double right_ratio = other / (double) total;
 		    double r_l_ratio = none_match_c1_number / (double) other;
 		    double r_r_ratio = none_match_c2_number / (double) other;*/
-		    
-		    double left_entropy = left_ratio*(-(l_l_ratio*(Math.log(l_l_ratio)/ Math.log(2))) - (l_r_ratio*(Math.log(l_r_ratio)/ Math.log(2))));
+		    if (match_c2_number  == 0) {
+		    	Entropy -= left_ratio*l_l_ratio*Math.log(l_l_ratio)/ Math.log(2);
+		    } else {
+		    	Entropy -= left_ratio*l_l_ratio*Math.log(l_l_ratio)/ Math.log(2) + l_r_ratio*Math.log(l_r_ratio)/ Math.log(2);
+		    }	 
+		  
 		    /*double right_entropy = right_ratio*(-(r_l_ratio*(Math.log(r_l_ratio)/ Math.log(2))) - (r_r_ratio*(Math.log(r_r_ratio)/ Math.log(2))));*/
-		    //System.out.println(left_entropy + "  " + right_entropy);
+		    //System.out.println(left_ratio + "  " + l_l_ratio + " " + l_r_ratio);
 		    
 		    SplitInfo -= (left_ratio * Math.log(left_ratio) / Math.log(2));
 		    //System.out.println(Entropy);
-		    Entropy = left_entropy;
+		    //System.out.println("Class2: " + Entropy);
 		    double gain = globalEntropy - Entropy;
 		    gainratio = Math.abs(gain/SplitInfo);
 		    score_1 += gainratio;			
@@ -295,8 +332,7 @@ public class RuleMapping {
                 ArrayList<ArrayList<String>> match_rule = match_rules.get(max);
                 ArrayList<String> Rise_Down = match_rule.get(match_rule.size()-1);                
             	result.put(i, Rise_Down);*/
-            	//CBS
-            	
+            	//CBS            	
             	result.put(i, getinstance(rules, match_rules, answer));
             	            
             } else if (0< match_number && match_number < 2){
