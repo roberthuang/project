@@ -1,5 +1,8 @@
-/getAttribute/
 /Main/
+/ca/
+/dataPreprocessing/
+/getAttribute/
+/ruleGeneration/
 /ruleMapping/
-/weka/
 /transferToSDB/
+/weka/

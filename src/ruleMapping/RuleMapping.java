@@ -68,10 +68,13 @@ public class RuleMapping {
 		for (ArrayList<ArrayList<String>> class1_member : class1_set) {
 			int match_number = 0;
 			double Entropy = 0;
+			double SplitInfo = 0;
+			double gainratio = 0;
 			int match_c1_number = 0;
 			int match_c2_number = 0;
-			int none_match_c1_number = 0;
-			int none_match_c2_number = 0;
+			
+			/*int none_match_c1_number = 0;
+			int none_match_c2_number = 0;*/
 		    for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
 		        int size = 0;
 		        int current = 0;
@@ -87,48 +90,57 @@ public class RuleMapping {
                                        
                 }       
 		        if (size == rule.size()-1) {
-                	match_number = match_number + 1;      
+                	match_number++;      
+                	//System.out.println(rule.get(rule.size()-1).get(0));
                 	if (rule.get(rule.size()-1).get(0).equals("Rise")) {
-                	    match_c1_number += 1;	
-                	} else {
-                		match_c2_number += 1;
+                	    match_c1_number++;	
+                	} else if (rule.get(rule.size()-1).get(0).equals("Down")){
+                		match_c2_number++;
                 	}
-                } else {
+                }/* else {
                 	if (rule.get(rule.size()-1).get(0).equals("Rise")) {
-                		none_match_c1_number += 1;
-                	} else {
-                		none_match_c2_number += 1;
+                		none_match_c1_number++;
+                	} else if (rule.get(rule.size()-1).get(0).equals("Down")) {
+                		none_match_c2_number++;
                 	}
-                }
+                }*/
 		    }
 		    
 		    int total = rules.keySet().size();
 		    double left_ratio = match_number / (double) total;
 		    //System.out.println("Rise: " + left_ratio + "  match_number: " + match_number + " total: " + total);   
 		    double l_l_ratio = match_c1_number / (double) match_number;
+		    
 		    double l_r_ratio = match_c2_number / (double) match_number;
+		    //System.out.println(l_l_ratio + " " + l_r_ratio);
+		    //int other = rules.keySet().size() - match_number;
 		    
-		    int other = rules.keySet().size() - match_number;
-		    
-		    double right_ratio = other / (double) rules.keySet().size();
+		    /*double right_ratio = other / (double) total;
 		    double r_l_ratio = none_match_c1_number / (double) other;
-		    double r_r_ratio = none_match_c2_number / (double) other;
+		    double r_r_ratio = none_match_c2_number / (double) other;*/
 		    
 		    double left_entropy = left_ratio*(-(l_l_ratio*(Math.log(l_l_ratio)/ Math.log(2))) - (l_r_ratio*(Math.log(l_r_ratio)/ Math.log(2))));
-		    double right_entropy = right_ratio*(-(r_l_ratio*(Math.log(r_l_ratio)/ Math.log(2))) - (r_r_ratio*(Math.log(r_r_ratio)/ Math.log(2))));
-		    Entropy = left_entropy + right_entropy;
-		    System.out.println(Entropy);
-		    double Gain = globalEntropy - Entropy;
-		    score_1 += Gain;			
+		    /*double right_entropy = right_ratio*(-(r_l_ratio*(Math.log(r_l_ratio)/ Math.log(2))) - (r_r_ratio*(Math.log(r_r_ratio)/ Math.log(2))));*/
+		    //System.out.println(left_entropy + "  " + right_entropy);
+		    
+		    SplitInfo -= (left_ratio * Math.log(left_ratio) / Math.log(2));
+		    //System.out.println(Entropy);
+		    Entropy = left_entropy;
+		    double gain = globalEntropy - Entropy;
+		    gainratio = Math.abs(gain/SplitInfo);
+		    score_1 += gainratio;			
 		}
 		
-		for (ArrayList<ArrayList<String>> class2_member : class2_set) {
+		for (ArrayList<ArrayList<String>> class2_member : class1_set) {
 			int match_number = 0;
 			double Entropy = 0;
+			double SplitInfo = 0;
+			double gainratio = 0;
 			int match_c1_number = 0;
 			int match_c2_number = 0;
-			int none_match_c1_number = 0;
-			int none_match_c2_number = 0;
+			
+			/*int none_match_c1_number = 0;
+			int none_match_c2_number = 0;*/
 		    for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
 		        int size = 0;
 		        int current = 0;
@@ -144,41 +156,45 @@ public class RuleMapping {
                                        
                 }       
 		        if (size == rule.size()-1) {
-                	match_number = match_number + 1;      
+                	match_number++;      
+                	//System.out.println(rule.get(rule.size()-1).get(0));
                 	if (rule.get(rule.size()-1).get(0).equals("Rise")) {
-                	    match_c1_number += 1;	
-                	} else {
-                		match_c2_number += 1;
+                	    match_c1_number++;	
+                	} else if (rule.get(rule.size()-1).get(0).equals("Down")){
+                		match_c2_number++;
                 	}
-                } else {
+                }/* else {
                 	if (rule.get(rule.size()-1).get(0).equals("Rise")) {
-                		none_match_c1_number += 1;
-                	} else {
-                		none_match_c2_number += 1;
+                		none_match_c1_number++;
+                	} else if (rule.get(rule.size()-1).get(0).equals("Down")) {
+                		none_match_c2_number++;
                 	}
-                }
+                }*/
 		    }
-		   
+		    
 		    int total = rules.keySet().size();
 		    double left_ratio = match_number / (double) total;
-		    //System.out.println("Down: " + left_ratio + "  match_number: " + match_number + " total: " + total);
-		    
+		    //System.out.println("Rise: " + left_ratio + "  match_number: " + match_number + " total: " + total);   
 		    double l_l_ratio = match_c1_number / (double) match_number;
+		    
 		    double l_r_ratio = match_c2_number / (double) match_number;
+		    //System.out.println(l_l_ratio + " " + l_r_ratio);
+		    //int other = rules.keySet().size() - match_number;
 		    
-		    int other = rules.keySet().size() - match_number;
-		    
-		    double right_ratio = other / (double) rules.keySet().size();
+		    /*double right_ratio = other / (double) total;
 		    double r_l_ratio = none_match_c1_number / (double) other;
-		    double r_r_ratio = none_match_c2_number / (double) other;
+		    double r_r_ratio = none_match_c2_number / (double) other;*/
 		    
 		    double left_entropy = left_ratio*(-(l_l_ratio*(Math.log(l_l_ratio)/ Math.log(2))) - (l_r_ratio*(Math.log(l_r_ratio)/ Math.log(2))));
-		    double right_entropy = right_ratio*(-(r_l_ratio*(Math.log(r_l_ratio)/ Math.log(2))) - (r_r_ratio*(Math.log(r_r_ratio)/ Math.log(2))));
-		    Entropy = left_entropy + right_entropy;
-		    System.out.println(Entropy);
-		    double Gain = globalEntropy - Entropy;
-		    score_2 += Gain;
-			
+		    /*double right_entropy = right_ratio*(-(r_l_ratio*(Math.log(r_l_ratio)/ Math.log(2))) - (r_r_ratio*(Math.log(r_r_ratio)/ Math.log(2))));*/
+		    //System.out.println(left_entropy + "  " + right_entropy);
+		    
+		    SplitInfo -= (left_ratio * Math.log(left_ratio) / Math.log(2));
+		    //System.out.println(Entropy);
+		    Entropy = left_entropy;
+		    double gain = globalEntropy - Entropy;
+		    gainratio = Math.abs(gain/SplitInfo);
+		    score_1 += gainratio;			
 		}
 	    
 		if (score_1 > score_2) {
