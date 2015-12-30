@@ -165,8 +165,10 @@ public class RuleMapping {
 		    //System.out.println(Entropy);
 		    //System.out.println("Class1: " + Entropy);
 		    double gain = globalEntropy - Entropy;
+		    double confidence = rules.get(class1_member).get(1);
+		    double size = class1_member.size()-1;
 		    gainratio = Math.abs(gain/SplitInfo);
-		    score_1 += gainratio;			
+		    score_1 += confidence*gainratio*size;			
 		}
 		
 		for (ArrayList<ArrayList<String>> class2_member : class1_set) {
@@ -235,8 +237,10 @@ public class RuleMapping {
 		    //System.out.println(Entropy);
 		    //System.out.println("Class2: " + Entropy);
 		    double gain = globalEntropy - Entropy;
+		    double confidence = rules.get(class2_member).get(1);
+		    double size = class2_member.size()-1;
 		    gainratio = Math.abs(gain/SplitInfo);
-		    score_1 += gainratio;			
+		    score_2 += confidence*gainratio*size;			
 		}
 	    
 		if (score_1 > score_2) {
