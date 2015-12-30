@@ -43,36 +43,41 @@ public class RuleMapping {
 		ArrayList<ArrayList<ArrayList<String>>> class2_set = new ArrayList<>();
 		
 		ArrayList<ArrayList<ArrayList<String>>> match_rules_2 = new ArrayList<>();
+		List<ArrayList<ArrayList<String>>> list = new ArrayList<>();
 		
-		for (int i = 0; i < match_rules.size()-1; i++) {
-			boolean same = false;
-			for (int j = i+1; j < match_rules.size(); j++) {
-				ArrayList<ArrayList<String>> temp1 = new ArrayList<>();
-				for (int k1 = 0; k1 < match_rules.get(i).size()-1; k1++) {
-					temp1.addAll(match_rules.get(k1));
-				}
-			    
-				String str1 = match_rules.get(i).get(match_rules.get(i).size()-1).get(0);		
-				//System.out.println(str1);
-				ArrayList<ArrayList<String>> temp2 = new ArrayList<>();
-				for (int k1 = 0; k1 < match_rules.get(j).size()-1; k1++) {
-					temp2.addAll(match_rules.get(k1));
-				}
-				String str2 = match_rules.get(j).get(match_rules.get(j).size()-1).get(0);	
-				//System.out.println(str2);							
-			    if ( (temp1==temp2) && str1.equals(str2)) {
-			    	same = true;
-			    	break; 
-			    } 
-			}
-			if (same == true) {
-				
-			} else {
-				match_rules_2.add(match_rules.get(i));
-			}
-			
-		}
+        for (ArrayList<ArrayList<String>> match_rule : match_rules) {
+            list.add(match_rule);
+        }
+        
+        for (int i = 0 ; i < list.size(); i++) {
+    	    boolean same = false;
+    	    for (int j = i+1; j < list.size(); j++) {
+    	        ArrayList<ArrayList<String>> temp1 = new ArrayList<>();
+    		for (int k1 = 0; k1 < list.get(i).size()-1; k1++) {
+    		    temp1.add(list.get(i).get(k1));
+    	        }    
+    	        String str1 = list.get(i).get(list.get(i).size()-1).get(0);
+    	        ArrayList<ArrayList<String>> temp2 = new ArrayList<>();
+    		for (int k1 = 0; k1 < list.get(j).size()-1; k1++) {
+    		    temp2.add(list.get(j).get(k1));
+    	        }
+    	        String str2 = list.get(j).get(list.get(j).size()-1).get(0);
+    	        if ( (temp1.equals(temp2)) && (!str1.equals(str2)) ) {
+    	            //System.out.println(temp1 + " " + temp2);
+    		    same = true;
+    		    list.remove(j--);		   
+    	        } 
+    	    }    
+    	    if (same) {
+    	        //System.out.println(i);
+    	        list.remove(i--);	       
+    	    }
+    	}
 		
+        for (ArrayList<ArrayList<String>> match_rule : list) {
+            match_rules_2.add(match_rule);
+
+        }
 		
 		for (ArrayList<ArrayList<String>> match_rule : match_rules_2) {
 		    String str = match_rule.get(match_rule.size()-1).get(0);
