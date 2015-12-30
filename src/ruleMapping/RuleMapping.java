@@ -33,7 +33,7 @@ public class RuleMapping {
 		
 	}
 	
-	public static ArrayList<String> getinstance(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, ArrayList<ArrayList<ArrayList<String>>> match_rules, ArrayList<String> default_class) {
+	public static ArrayList<String> getinstance(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, ArrayList<ArrayList<ArrayList<String>>> match_rules) {
 		
 		double globalEntropy = Cacluate_all_entropy(rules);
 		double score_1 = 0;
@@ -248,7 +248,14 @@ public class RuleMapping {
 			temp.add("Rise");
 			return temp;
 		} else if (score_1 == score_2) {
-		    return default_class;
+			ArrayList<String> temp = new ArrayList<>();					
+		    if (class1_set.size() > class2_set.size()) {
+		        temp.add("Rise");
+		        return temp;
+		    } else {
+		    	temp.add("Down");
+		        return temp;
+		    }
 		} else {
 			ArrayList<String> temp = new ArrayList<>();
 			temp.add("Down");
@@ -342,7 +349,7 @@ public class RuleMapping {
                 ArrayList<String> Rise_Down = match_rule.get(match_rule.size()-1);                
             	result.put(i, Rise_Down);*/
             	//CBS            	
-            	result.put(i, getinstance(rules, match_rules, answer));
+            	result.put(i, getinstance(rules, match_rules));
             	            
             } else if (0< match_number && match_number < 2){
             	//Only one match_rule

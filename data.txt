@@ -1,0 +1,12 @@
+window_size:2
+minsup:28
+min_conf:0.75
+=== Confusion Matrix ===
+          a      b
+a=Rise   23.0	10.0
+b=Down   4.0	20.0
+macro_precision: 0.7592592592592593
+macro_recall: 0.7651515151515151
+acc: 0.7543859649122807
+
+
