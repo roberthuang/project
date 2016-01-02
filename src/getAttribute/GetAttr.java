@@ -178,7 +178,6 @@ public class GetAttr {
     	return result;
     }
     
-    
 	public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records) {				
 		
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
@@ -196,7 +195,6 @@ public class GetAttr {
 		
 		HashMap<Integer, String> BIAS_T_2_03 = BIAS(2, 3, 0.0003, records);
 		
-
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add Date
@@ -209,13 +207,9 @@ public class GetAttr {
 			       temp.add("MACD_oil_1_2_3");
 			       temp.add("MACD_T_1_2_3");
 			       temp.add("MACD_T_2_3_4");
-
-			       temp.add("BIAS_T_2_03");
-			    
-
+			       temp.add("BIAS_T_2_03");			    
 			} else {
-				//All the conditional att need to add. eg. x -> x x_3 x_4		       
-		        
+				//All the conditional att need to add. eg. x -> x x_3 x_4		       		        
 		           temp.add(F_oil.get(i));
 		           temp.add(F_but.get(i));
 		           temp.add(Match_of_oil_but.get(i));
@@ -223,9 +217,7 @@ public class GetAttr {
 		           temp.add(MACD_oil_1_2_3.get(i));
 		           temp.add(MACD_T_1_2_3.get(i));
 		           temp.add(MACD_T_2_3_4.get(i));
-
 		           temp.add(BIAS_T_2_03.get(i));
-
 			}
 			//Add the last one of every line
 			temp.add(records.get(i).get(records.get(i).size()-1));			
@@ -313,9 +305,7 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 			       temp.add("MAa_S_2_3");
 			       temp.add("MAa_S_4_5");
 			       temp.add("MAa_T_2_3 ");
-			       temp.add("MAa_T_4_5 ");
-			       
-			     
+			       temp.add("MAa_T_4_5 ");			       			    
 			       temp.add(records.get(i).get(records.get(i).size()-1));	
 			       
 			} else {
@@ -494,8 +484,6 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
     			result.put(i, "MACD1_" + att.charAt(0) + sl + ll);			
     		}
     	}
-    	//System.out.println("Moving avearge number :" + result.size());
-        //System.out.println("===================================================\n"); 
     	return result;
     } 
      

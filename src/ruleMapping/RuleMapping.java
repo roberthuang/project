@@ -90,17 +90,17 @@ public class RuleMapping {
 		}
 		
 		if (class1_set.isEmpty()) {
-			System.out.println("Empty: Rise");
+			//System.out.println("Empty: Rise");
 			ArrayList<String> temp = new ArrayList<>();
 			temp.add("Down");
 			return temp;
 		} else if (class2_set.isEmpty()) {
-			System.out.println("Empty: Down");
+			//System.out.println("Empty: Down");
 			ArrayList<String> temp = new ArrayList<>();
 			temp.add("Rise");
 			return temp;
 		} else {
-			System.out.println("Mapping:");
+			//System.out.println("Mapping:");
 		
 		for (ArrayList<ArrayList<String>> class1_member : class1_set) {
 			int match_number = 0;
