@@ -12,21 +12,21 @@ import dataPreprocessing.SAXTransformation;
 import dataPreprocessing.SAXTransformation_Testing;
 
 public class Main {
-    public static void main(String[] args) throws 
-    FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException {
         try {
+          	      
     	    File fout = new File("data.txt");
     	    FileOutputStream fos = new FileOutputStream(fout);
 	        OutputStreamWriter osw = new OutputStreamWriter(fos);
 	        
-   	        for (double j = 0.01;j <= 0.90; j = j + 0.01) {
-   	        System.out.println(j);
+   	        //for (double j = 0.01;j <= 0.90; j = j + 0.01) {
+   	        //sSystem.out.println(j);
     		/**0.Set Argument**/
     		int window_size = 2;
-    		int minsup = 18;
-    		double min_conf = j;
+    		int minsup = 28;
+    		double min_conf = 0.64;
     		//Input
-    		String path = "petro_subset1_2010.csv";
+    		String path = "petro_subset1_2010_rate.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);
             int traing_data_size = (int)((records.size()-1)*0.8);
             
@@ -44,26 +44,26 @@ public class Main {
                                               
             /**3.Temporal Data Base to SDB(Training)**/
             //System.out.println("##Step 3.1: Temporal Data Base to SDB(Training)");
-            //For training            
+            /*For training*/            
             String path_after_discrete = "transformed_petro_subset1_feature.csv";
     		T2SDB t = new T2SDB();
             t.translate_training(window_size, path_after_discrete,  feature_target, "SDB(Training).txt");
             
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
-            //For testing
+            /*For testing*/
             String path_of_testing_file_after_SAX = "transformed_petro_subset1_feature.csv";
             t.translate_testing(window_size, path_of_testing_file_after_SAX, "SDB(Testing).txt");
                          
             /**4.Sequential Pattern Mining**/
             //System.out.println("##Step 4: Sequential Pattern Mining");
-            //Load a sequence database
+            /*Load a sequence database*/
             SequenceDatabase sequenceDatabase = new SequenceDatabase(); 
             sequenceDatabase.loadFile("SDB(Training).txt");
             //print the database to console
             //sequenceDatabase.print();
     		
     		AlgoPrefixSpan_with_Strings algo = new AlgoPrefixSpan_with_Strings(); 
-    		//execute the algorithm
+    		/*execute the algorithm*/
     		algo.runAlgorithm(sequenceDatabase, "sequential_patterns.txt", minsup);    
     		//algo.printStatistics(sequenceDatabase.size());
     		
@@ -91,8 +91,8 @@ public class Main {
             osw.write("macro_recall: " + e.get("macro_recall")+ "\r\n");
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
-    		osw.write("\r\n");	  	
-   	        }
+    		osw.write("\r\n");
+   	        //}
     	    osw.close();
    	        
         } catch (FileNotFoundException e) {
