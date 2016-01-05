@@ -242,12 +242,13 @@ public class RuleMapping {
 		    gainratio = Math.abs(gain/SplitInfo);
 		    score_2 += confidence*gainratio*size;			
 		}
-	    
-		if (score_1 > score_2) {
+	    double L_score_1 = score_1 / (double) class1_set.size();
+	    double L_score_2 = score_2 / (double) class2_set.size();
+		if (L_score_1 > L_score_2) {
 			ArrayList<String> temp = new ArrayList<>();
 			temp.add("Rise");
 			return temp;
-		} else if (score_1 == score_2) {
+		} else if (L_score_1 == L_score_2) {
 			ArrayList<String> temp = new ArrayList<>();					
 		    if (class1_set.size() > class2_set.size()) {
 		        temp.add("Rise");
