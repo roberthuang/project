@@ -133,13 +133,7 @@ public class RuleMapping {
                 	} else if (rule.get(rule.size()-1).get(0).equals("Down")){
                 		match_c2_number++;
                 	}
-                }/* else {
-                	if (rule.get(rule.size()-1).get(0).equals("Rise")) {
-                		none_match_c1_number++;
-                	} else if (rule.get(rule.size()-1).get(0).equals("Down")) {
-                		none_match_c2_number++;
-                	}
-                }*/
+                }
 		    }
 		    
 		    int total = rules.keySet().size();
@@ -149,29 +143,28 @@ public class RuleMapping {
 		    
 		    double l_r_ratio = match_c2_number / (double) match_number;
 		    //System.out.println(l_l_ratio + " " + l_r_ratio);
-		    //int other = rules.keySet().size() - match_number;
+		    int other = rules.keySet().size() - match_number;
 		    
-		    /*double right_ratio = other / (double) total;
-		    double r_l_ratio = none_match_c1_number / (double) other;
-		    double r_r_ratio = none_match_c2_number / (double) other;*/
+		    double right_ratio = other / (double) total;
+		    //double r_l_ratio = none_match_c1_number / (double) other;
+		    //double r_r_ratio = none_match_c2_number / (double) other;
 		    if (match_c2_number  == 0) {
-		    	Entropy -= left_ratio*l_l_ratio*Math.log(l_l_ratio)/ Math.log(2);
+		    	Entropy -= (l_l_ratio*Math.log(l_l_ratio)/ Math.log(2));
+		    } else if (match_c1_number == 0) {
+		    	Entropy -= (l_r_ratio*Math.log(l_r_ratio)/ Math.log(2));
 		    } else {
-		    	Entropy -= left_ratio*l_l_ratio*Math.log(l_l_ratio)/ Math.log(2) + l_r_ratio*Math.log(l_r_ratio)/ Math.log(2);
-		    }		    
-		    /*double right_entropy = right_ratio*(-(r_l_ratio*(Math.log(r_l_ratio)/ Math.log(2))) - (r_r_ratio*(Math.log(r_r_ratio)/ Math.log(2))));*/		 
-		    //System.out.println(left_ratio + "  " + l_l_ratio + " " + l_r_ratio);
-		    SplitInfo -= (left_ratio * Math.log(left_ratio) / Math.log(2));		
-		    //System.out.println(Entropy);
-		    //System.out.println("Class1: " + Entropy);
-		    double gain = globalEntropy - Entropy;
+		    	Entropy -= (l_l_ratio*Math.log(l_l_ratio)/ Math.log(2)) + (l_r_ratio*Math.log(l_r_ratio)/ Math.log(2));
+		    }	 	    
+		    /*double right_entropy = right_ratio*(-(r_l_ratio*(Math.log(r_l_ratio)/ Math.log(2))) - (r_r_ratio*(Math.log(r_r_ratio)/ Math.log(2))));*/		 		    
+		    SplitInfo -= (left_ratio * Math.log(left_ratio) / Math.log(2))+ ( right_ratio * Math.log( right_ratio) / Math.log(2));				  
+		    double gain = globalEntropy - (left_ratio*Entropy);
 		    double confidence = rules.get(class1_member).get(1);
-		    double size = class1_member.size()-1;
+		    double length = class1_member.size()-1;
 		    gainratio = Math.abs(gain/SplitInfo);
-		    score_1 += confidence*gainratio*size;			
+		    score_1 += confidence*gainratio*length;			
 		}
 		
-		for (ArrayList<ArrayList<String>> class2_member : class1_set) {
+		for (ArrayList<ArrayList<String>> class2_member : class2_set) {
 			int match_number = 0;
 			double Entropy = 0;
 			double SplitInfo = 0;
@@ -219,36 +212,39 @@ public class RuleMapping {
 		    
 		    double l_r_ratio = match_c2_number / (double) match_number;
 		    //System.out.println(l_l_ratio + " " + l_r_ratio);
-		    //int other = rules.keySet().size() - match_number;
+		    int other = rules.keySet().size() - match_number;
 		    
-		    /*double right_ratio = other / (double) total;
-		    double r_l_ratio = none_match_c1_number / (double) other;
-		    double r_r_ratio = none_match_c2_number / (double) other;*/
+		    double right_ratio = other / (double) total;
+		    //double r_l_ratio = none_match_c1_number / (double) other;
+		    //double r_r_ratio = none_match_c2_number / (double) other;
 		    if (match_c2_number  == 0) {
-		    	Entropy -= left_ratio*l_l_ratio*Math.log(l_l_ratio)/ Math.log(2);
+		    	Entropy -= (l_l_ratio*Math.log(l_l_ratio)/ Math.log(2));
+		    } else if (match_c1_number == 0) {
+		    	Entropy -= (l_r_ratio*Math.log(l_r_ratio)/ Math.log(2));
 		    } else {
-		    	Entropy -= left_ratio*l_l_ratio*Math.log(l_l_ratio)/ Math.log(2) + l_r_ratio*Math.log(l_r_ratio)/ Math.log(2);
-		    }	 
+		    	Entropy -= (l_l_ratio*Math.log(l_l_ratio)/ Math.log(2)) + (l_r_ratio*Math.log(l_r_ratio)/ Math.log(2));
+		    }	 	   
 		  
 		    /*double right_entropy = right_ratio*(-(r_l_ratio*(Math.log(r_l_ratio)/ Math.log(2))) - (r_r_ratio*(Math.log(r_r_ratio)/ Math.log(2))));*/
 		    //System.out.println(left_ratio + "  " + l_l_ratio + " " + l_r_ratio);
 		    
-		    SplitInfo -= (left_ratio * Math.log(left_ratio) / Math.log(2));
+		    SplitInfo -= (left_ratio * Math.log(left_ratio) / Math.log(2))+ ( right_ratio * Math.log( right_ratio) / Math.log(2));
 		    //System.out.println(Entropy);
 		    //System.out.println("Class2: " + Entropy);
-		    double gain = globalEntropy - Entropy;
+		    double gain = globalEntropy - (left_ratio*Entropy);
 		    double confidence = rules.get(class2_member).get(1);
-		    double size = class2_member.size()-1;
+		    double length = class2_member.size()-1;
 		    gainratio = Math.abs(gain/SplitInfo);
-		    score_2 += confidence*gainratio*size;			
+		    score_2 += confidence*gainratio*length;			
 		}
-	    double L_score_1 = score_1 / (double) class1_set.size();
-	    double L_score_2 = score_2 / (double) class2_set.size();
-		if (L_score_1 > L_score_2) {
-			ArrayList<String> temp = new ArrayList<>();
+		double L_score_1 = score_1/(double)class1_set.size();
+		double L_score_2 = score_2/(double)class2_set.size();
+		//System.out.println(score_1/(double)class1_set.size() + " " + score_2/(double)class2_set.size());
+		if (L_score_1  > L_score_2 ){
+			ArrayList<String> temp  = new ArrayList<>();
 			temp.add("Rise");
 			return temp;
-		} else if (L_score_1 == L_score_2) {
+		} else if (L_score_1  == L_score_2 ) {
 			ArrayList<String> temp = new ArrayList<>();					
 		    if (class1_set.size() > class2_set.size()) {
 		        temp.add("Rise");
@@ -266,7 +262,7 @@ public class RuleMapping {
 		}
 	}
 	
-    public HashMap<Integer, ArrayList<String>>  RuleMapping(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules,
+    public HashMap<Integer, ArrayList<String>> RuleMapping(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules,
     HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_testing, HashMap<Integer, String> target_class) {
  
     	HashMap<String, Integer> number_of_rise_down = new HashMap<>();
