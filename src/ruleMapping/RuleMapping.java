@@ -208,8 +208,7 @@ public class RuleMapping {
 		    int total = rules.keySet().size();
 		    double left_ratio = match_number / (double) total;
 		    //System.out.println("Rise: " + left_ratio + "  match_number: " + match_number + " total: " + total);   
-		    double l_l_ratio = match_c1_number / (double) match_number;
-		    
+		    double l_l_ratio = match_c1_number / (double) match_number;		    
 		    double l_r_ratio = match_c2_number / (double) match_number;
 		    //System.out.println(l_l_ratio + " " + l_r_ratio);
 		    int other = rules.keySet().size() - match_number;
@@ -237,6 +236,7 @@ public class RuleMapping {
 		    gainratio = Math.abs(gain/SplitInfo);
 		    score_2 += confidence*gainratio*length;			
 		}
+		
 		double L_score_1 = score_1/(double)class1_set.size();
 		double L_score_2 = score_2/(double)class2_set.size();
 		//System.out.println(score_1/(double)class1_set.size() + " " + score_2/(double)class2_set.size());

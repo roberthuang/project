@@ -158,7 +158,7 @@ public class RuleEvaluation {
 
 		while(sc.hasNextLine()){
 			String[] tokens = sc.nextLine().split(" -1  #SUP: ");
-			double sup = Double.parseDouble(tokens[1])/traing_data_size;       
+			double sup = Double.parseDouble(tokens[1])/ (double) traing_data_size;       
 			patterns.put(tokens[0], sup);            
 		}
 		sc.close();        
