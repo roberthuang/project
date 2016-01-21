@@ -22,8 +22,8 @@ public class Main {
    	        for (double j = 0.01;j <= 0.90; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/
-    		int window_size = 7;
-    		int minsup = 128;
+    		int window_size = 5;
+    		int minsup = 46;
     		double min_conf = j;
     		//Input
     		String path = "petro_subset1_2010_rate.csv";
@@ -87,8 +87,9 @@ public class Main {
     		osw.write("          a      b\r\n");
     		osw.write("a=Rise   " + e.get("True_Positive") + "\t" + e.get("False_Negative") + "\r\n");
     		osw.write("b=Down   " + e.get("False_Positive") + "\t" + e.get("True_Negative") + "\r\n");		
-            osw.write("macro_precision: " + e.get("macro_precision")+ "\r\n");
-            osw.write("macro_recall: " + e.get("macro_recall")+ "\r\n");
+            //osw.write("macro_precision: " + e.get("macro_precision")+ "\r\n");
+            //osw.write("macro_recall: " + e.get("macro_recall")+ "\r\n");
+            osw.write("macro_f_measure: " + e.get("macro_f_measure")+ "\r\n");
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");

@@ -322,9 +322,7 @@ public class RuleMapping {
                
             } 
             //System.out.println(match_number);            
-            if (match_number >=2) {
-            	//CBA
-            	/*
+            if (match_number >= 2){            	
                 int max = 0;
                 double max_sup = rules.get(match_rules.get(0)).get(0);
                 double max_confidence = rules.get(match_rules.get(0)).get(1);              
@@ -344,9 +342,9 @@ public class RuleMapping {
                 }            	
                 ArrayList<ArrayList<String>> match_rule = match_rules.get(max);
                 ArrayList<String> Rise_Down = match_rule.get(match_rule.size()-1);                
-            	result.put(i, Rise_Down);*/
+            	result.put(i, Rise_Down);
             	//CBS            	
-            	result.put(i, getinstance(rules, match_rules));
+            	//result.put(i, getinstance(rules, match_rules));
             	            
             } else if (0< match_number && match_number < 2){
             	//Only one match_rule
@@ -427,7 +425,8 @@ public class RuleMapping {
         e.put("macro_precision", macro_precision);
         double macro_recall = ( recall_rise + recall_down) / (double) 2;
         e.put("macro_recall", macro_recall);
-        
+        double macro_f_measure = 2*(macro_precision*macro_recall)/ (macro_precision+macro_recall);
+        e.put("macro_f_measure", macro_f_measure);
         return e;
         }    
 }
