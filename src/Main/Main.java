@@ -19,11 +19,12 @@ public class Main {
     	    FileOutputStream fos = new FileOutputStream(fout);
 	        OutputStreamWriter osw = new OutputStreamWriter(fos);
 	        
-   	        for (double j = 0.01;j <= 0.90; j = j + 0.01) {
+   	        for (double j = 0.1;j <= 0.40; j = j + 0.1) {
    	        System.out.println(j);
     		/**0.Set Argument**/
-    		int window_size = 5;
-    		int minsup = 46;
+    		int window_size = 3;
+    		int next_week = 2;
+    		int minsup = 26;
     		double min_conf = j;
     		//Input
     		String path = "petro_subset1_2010_rate.csv";
@@ -31,8 +32,6 @@ public class Main {
             int traing_data_size = (int)((records.size()-1)*0.8);
             
     		HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
-            //GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records);
-            //GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records);	
     		GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records);	
     		//GetAttr.featureExtraction2("transformed_petro_subset1_feature.csv", records, feature_target, window_size);	
 	        /**2.SAX**/
@@ -51,8 +50,8 @@ public class Main {
             
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             /*For testing*/
-            String path_of_testing_file_after_SAX = "transformed_petro_subset1_feature.csv";
-            t.translate_testing(window_size, path_of_testing_file_after_SAX, "SDB(Testing).txt");
+            String path_of_testing_file = "transformed_petro_subset1_feature.csv";
+            t.translate_testing(next_week, path_of_testing_file, "SDB(Testing).txt");
                          
             /**4.Sequential Pattern Mining**/
             //System.out.println("##Step 4: Sequential Pattern Mining");

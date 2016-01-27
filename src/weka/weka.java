@@ -13,15 +13,15 @@ import transferToSDB.T2SDB;
 public class weka {
     public static void main(String[] args) {
     	try { 
-    	    String path = "petro_subset1_2010.csv";
+    	    String path = "petro_subset1_2010_rate.csv";
     	    ArrayList<ArrayList<String>> records = readCSV(path);
     	    /**Feature Extraction**/    	     	   
-    	    GetAttr.featureExtraction("weka.csv", records);    	        	        	  
+    	    GetAttr.featureExtraction_weka("weka.csv", records);    	        	        	  
     	    
     	    /**Translate to SDB**/
     	    T2SDB t2sdb = new T2SDB();   
     	    HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
-    	    t2sdb.translate_training(3, "weka.csv", feature_target, "weka.txt");
+    	    t2sdb.translate_training_weka(2, "weka.csv", feature_target, "weka.txt");
     	        	 
     	} catch (FileNotFoundException e) {
     		System.out.println("[ERROR] File Not Found Exception.");

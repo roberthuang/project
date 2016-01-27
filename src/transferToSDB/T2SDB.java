@@ -52,9 +52,9 @@ public class T2SDB {
        }  
        
    }
-    /*
+    
 	//weka
-	public void translate_training(int window_size, String path, HashMap<Integer, String> class_table, String output) {
+	public void translate_training_weka(int window_size, String path, HashMap<Integer, String> class_table, String output) {
 	       try {	         
 	           ArrayList<ArrayList<String>> records = readCSV(path);
 	           
@@ -94,7 +94,7 @@ public class T2SDB {
 	           e.printStackTrace();
 	       }  
 	       
-   }*/
+   }
    
    public void translate_testing(int window_size, String path, String output) {
        try {
