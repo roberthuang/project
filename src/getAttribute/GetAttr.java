@@ -24,6 +24,32 @@ public class GetAttr {
         }       	        	
 	    return result;		
 	}
+	public static HashMap<Integer, Double> feature2_weka(int att_index, ArrayList<ArrayList<String>> records) {
+		 HashMap<Integer, Double> result = new HashMap<>(); 	    
+	     int col = att_index; 
+	     for (int i = 1; i < records.size(); i++ ) {       
+	            if (i == 1) {
+	            	
+	            } else {	            
+	                double min = Double.parseDouble(records.get(i).get(col))- Double.parseDouble(records.get(i-1).get(col));
+	                result.put(i, min);
+	            }
+         }    
+	     double average =  0.0;
+	    	for (int i = 1; i < result.size(); i++) {
+	    		if (result.get(i) != null) {
+	    			average += result.get(i);
+	    		}
+	    	}
+	    	
+	    	average /= (double) result.size();
+	    	for (int i = 1; i < result.size(); i++) {
+	    		if (result.get(i) == null) {
+	    			result.put(i, average);
+	    		}
+	    	}
+	     return result;		
+	}
 	
 	public static HashMap<Integer, String> feature2(int att_index, ArrayList<ArrayList<String>> records) {
 		 HashMap<Integer, String> result = new HashMap<>(); 	    
@@ -85,6 +111,51 @@ public class GetAttr {
 		}
 		return result;
 	}
+	public static HashMap<Integer, Double> Move_Average_weka(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {
+        HashMap<Integer, Double> result = new HashMap<>();    
+        //The column of Target
+        int col = att_index;                                                                                                                            
+        for (int i = 1; i < records.size(); i++ ) {       
+            if (i <= length) {
+              
+            }
+            
+            double sum_t = 0;
+            double sum_t_1 = 0;
+            if (i - length + 1 >= 1) {         
+                for (int p_1 = i; p_1 >= i-length+1; p_1--) {                
+                    sum_t = sum_t + Double.parseDouble(records.get(p_1).get(col));
+                } 
+                     
+                int j = i - 1;
+                if (j - length + 1 >=1) {
+                    
+                    for (int p_2 = j; p_2 >= j-length+1; p_2--) {
+                       
+                        sum_t_1 = sum_t_1 + Double.parseDouble(records.get(p_2).get(col));
+                    }
+                }
+            }          
+            
+            double MA = sum_t/length - sum_t_1/length;     
+            result.put(i, MA);
+        }  
+        
+        double average =  0.0;
+    	for (int i = 1; i < result.size(); i++) {
+    		if (result.get(i) != null) {
+    			average += result.get(i);
+    		}
+    	}
+    	
+    	average /= (double) result.size();
+    	for (int i = 1; i < result.size(); i++) {
+    		if (result.get(i) == null) {
+    			result.put(i, average);
+    		}
+    	}
+        return result;
+    }    
 	
     public static HashMap<Integer, String> Move_Average(int length, String att, int att_index, ArrayList<ArrayList<String>> records) {
         HashMap<Integer, String> result = new HashMap<>();    
@@ -177,6 +248,44 @@ public class GetAttr {
     	
     	return result;
     }
+    
+    public static HashMap<Integer, Double> BIAS_weka(int length, int att_index, double threshold, ArrayList<ArrayList<String>> records) {
+    	HashMap<Integer, Double> result = new HashMap<>();
+    	int col = att_index;   
+    	for (int i = 1; i < records.size(); i++) {
+    		double bias;
+    	    if (i <= length-1) {
+    	    	
+    	    } else {
+    	    	double sum_t = 0;
+    	    	if (i - length + 1 >= 1) {
+    	    		for (int j = i; j >= i-length+1; j--) {                
+                        sum_t = sum_t + Double.parseDouble(records.get(j).get(col));
+                    } 	    	    		
+    	    	}
+    	    	sum_t = sum_t / (double)length;
+    	    	bias = (Double.parseDouble(records.get(i).get(att_index)) - sum_t)/(double) sum_t;
+    	    	result.put(i, bias);  	    	
+    	    }
+    		
+    	}
+    	
+    	double average =  0.0;
+    	for (int i = 1; i < result.size(); i++) {
+    		if (result.get(i) != null) {
+    			average += result.get(i);
+    		}
+    	}
+    	
+    	average /= (double) result.size();
+    	for (int i = 1; i < result.size(); i++) {
+    		if (result.get(i) == null) {
+    			result.put(i, average);
+    		}
+    	}
+    	return result;
+    }
+    
     
 	public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records) {				
 		
@@ -334,32 +443,38 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 		} 
 	 */	
     //weka
-    public static void featureExtraction_weka(String output_filename, ArrayList<ArrayList<String>> records) {		      
-		
+    public static void featureExtraction_weka(String output_filename, ArrayList<ArrayList<String>> records) {		      		
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
-		HashMap<Integer, String> F_oil = feature2(2, records);	    
+		/*HashMap<Integer, String> F_oil = feature2(2, records);	    
 		HashMap<Integer, String> F_but = feature2(4, records);
 		
 		HashMap<Integer, String> FS_oil = feature(2, records);		
 		HashMap<Integer, String> FS_cru = feature(1, records);
-		HashMap<Integer, String> FT_but = feature(4, records);	
+		HashMap<Integer, String> FT_but = feature(4, records);	*/
+		HashMap<Integer, Double> FS_oil = feature2_weka(2, records);
 		
+		/*
 		HashMap<Integer, String> Match_of_oil_but = match_source_target(FS_oil, FT_but, 2, 4);
-		HashMap<Integer, String> Match_of_cru_but = match_source_target(FS_cru, FT_but, 1, 4);
+		HashMap<Integer, String> Match_of_cru_but = match_source_target(FS_cru, FT_but, 1, 4);*/
 		
-		HashMap<Integer, String> MACD_oil_1_2_3 = MACD(1, 2, 3,records.get(0).get(2), records);
+		/*HashMap<Integer, String> MACD_oil_1_2_3 = MACD(1, 2, 3,records.get(0).get(2), records);*/
+		HashMap<Integer, Double> MACD_oil_1_2_3 = MACD_weka(1, 2, 3,records.get(0).get(2), records);
 		//HashMap<Integer, String> MACD_rate_1_2_3 = MACD(1, 2, 3,records.get(0).get(3), records);
-		HashMap<Integer, String> MACD_T_1_2_3 = MACD(1, 2, 3,records.get(0).get(4), records);
-		HashMap<Integer, String> MACD_T_2_3_4 = MACD(2, 3, 4,records.get(0).get(4), records);
+		/*HashMap<Integer, String> MACD_T_1_2_3 = MACD(1, 2, 3,records.get(0).get(4), records);*/
+		HashMap<Integer, Double> MACD_T_1_2_3 = MACD_weka(1, 2, 3,records.get(0).get(4), records);
+		/*HashMap<Integer, String> MACD_T_2_3_4 = MACD(2, 3, 4,records.get(0).get(4), records);*/
+		HashMap<Integer, Double> MACD_T_2_3_4 = MACD_weka(2, 3, 4,records.get(0).get(4), records);
 		
 		//HashMap<Integer, String> BIAS_rate_2_03 = BIAS(2, 3, 0.0003, records);
-		HashMap<Integer, String> BIAS_T_2_03 = BIAS(2, 4, 0.0003, records);
+		/*HashMap<Integer, String> BIAS_T_2_03 = BIAS(2, 4, 0.0003, records);*/
+		HashMap<Integer, Double> BIAS_T_2_03 = BIAS_weka(2, 4, 0.0003, records);
 				
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add time
 			temp.add(records.get(i).get(0));
 			if(i == 0) {
+				/*
 				   temp.add("F_oil");			 
 			       temp.add("F_but");
 			       temp.add("Match_of_oil_but");	
@@ -369,8 +484,15 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 			       temp.add("MACD_T_1_2_3");
 			       temp.add("MACD_T_2_3_4");
 			       //temp.add("BIAS_rate_2_03");
-			       temp.add("BIAS_T_2_03");		   	  
-			} else {	
+			       temp.add("BIAS_T_2_03");		   	*/
+				   temp.add("FS_oil");
+				   temp.add("MACD_oil_1_2_3");
+				   temp.add("MACD_T_1_2_3");
+				   temp.add("MACD_T_2_3_4");
+				   temp.add("BIAS_T_2_03");
+				   
+			} else {
+				/*
 				   temp.add(F_oil.get(i));		           
 		           temp.add(F_but.get(i));
 		           temp.add(Match_of_oil_but.get(i));
@@ -380,7 +502,13 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 		           temp.add(MACD_T_1_2_3.get(i));
 		           temp.add(MACD_T_2_3_4.get(i));
 		           //temp.add(BIAS_rate_2_03.get(i));
-		           temp.add(BIAS_T_2_03.get(i));				 
+		           temp.add(BIAS_T_2_03.get(i));*/
+				
+				   temp.add(String.valueOf(FS_oil.get(i)));
+				   temp.add(String.valueOf(MACD_oil_1_2_3.get(i)));
+				   temp.add(String.valueOf(MACD_T_1_2_3.get(i)));
+				   temp.add(String.valueOf(MACD_T_2_3_4.get(i)));
+				   temp.add(String.valueOf(BIAS_T_2_03.get(i)));
 			}	
 			temp.add(records.get(i).get(records.get(i).size()-1));	
 			result.add(temp);
@@ -420,6 +548,15 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
     		} else {
     			result.put(i, "MACD1_" + att.charAt(0) + sl + ll);			
     		}
+    	}
+    	return result;
+    } 
+    
+    public static HashMap<Integer, Double> MACD_weka(int tl, int sl, int ll, String att, ArrayList<ArrayList<String>> records) {
+    	HashMap<Integer, Double> result = new HashMap<>(); 
+    	for (int i = 1; i < records.size(); i++) {
+    	    double MACD = DIF(i, sl, ll, records) - DEM(i, sl, ll, tl, records);        	
+    		result.put(i, MACD);
     	}
     	return result;
     } 
