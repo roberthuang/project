@@ -1,44 +1,13 @@
 window_size:3
-minsup:26
-min_conf:0.1
-=== Confusion Matrix ===
-          a      b
-a=Rise   19.0	16.0
-b=Down   4.0	18.0
-macro_f_measure: 0.6791315958076365
-acc: 0.6491228070175439
-
-
-window_size:3
-minsup:26
-min_conf:0.2
-=== Confusion Matrix ===
-          a      b
-a=Rise   19.0	16.0
-b=Down   4.0	18.0
-macro_f_measure: 0.6791315958076365
-acc: 0.6491228070175439
-
-
-window_size:3
-minsup:26
-min_conf:0.30000000000000004
-=== Confusion Matrix ===
-          a      b
-a=Rise   19.0	16.0
-b=Down   4.0	18.0
-macro_f_measure: 0.6791315958076365
-acc: 0.6491228070175439
-
-
-window_size:3
-minsup:26
+minsup:46
 min_conf:0.4
 === Confusion Matrix ===
           a      b
-a=Rise   19.0	16.0
-b=Down   4.0	18.0
-macro_f_measure: 0.6791315958076365
-acc: 0.6491228070175439
+a=Rise   25.0	24.0
+b=Down   0.0	0.0
+macro_precision: 0.5
+macro_recall: NaN
+macro_f_measure: NaN
+acc: 0.5102040816326531
 
 

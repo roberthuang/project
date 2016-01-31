@@ -331,17 +331,21 @@ public class RuleMapping {
                 	double sup = rules.get(match_rules.get(j)).get(0);
                     if (confidence > max_confidence) {
                         max = j;
+//                        max_confidence = confidence;
+//                        max_sup = sup;		
                     } else if (confidence == max_confidence) {
                     
                     	if (sup > max_sup) {
                     		max = j;  
-                   
+//                    		max_confidence = confidence;
+//                            max_sup = sup;		
                     	}
                     }
                 	
                 }            	
                 ArrayList<ArrayList<String>> match_rule = match_rules.get(max);
-                ArrayList<String> Rise_Down = match_rule.get(match_rule.size()-1);                
+                ArrayList<String> Rise_Down = match_rule.get(match_rule.size()-1);
+                System.out.println(i + " " + match_rule);
             	result.put(i, Rise_Down);
             	//CBS            	
             	//result.put(i, getinstance(rules, match_rules));

@@ -22,15 +22,21 @@ public class weka {
     	    GetAttr.featureExtraction_weka("weka.csv", records);    	        	        	  
     	    
     	    /**Translate to SDB**/
+    	    /**Training data**/
     	    T2SDB t2sdb = new T2SDB();   
     	    HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
-    	    t2sdb.translate_training_weka(2, "weka.csv", feature_target, "weka.txt");
+    	    t2sdb.translate_training_weka(1, "weka.csv", feature_target, "weka_training.txt");
+    	    
+    	    /**Testing data**/   
+//    	    t2sdb.translate_testing_weka(1, "weka.csv", "weka_testing.txt");
     	    
     	    /**Text To CSV**/
     	    try {
-                ArrayList<ArrayList<String>>  txt = read_text_weka("weka.txt");  
+                ArrayList<ArrayList<String>>  txt_training = read_text_weka("weka_training.txt");  
+//                ArrayList<ArrayList<String>>  txt_testing = read_text_weka("weka_testing.txt");  
                 try {
-    		        writeCSV("", "weka2.csv",txt);
+    		        writeCSV("", "weka2_training.csv",txt_training);
+//    		        writeCSV("", "weka2_testining.csv",txt_testing);
     		    } catch (IOException e) {
     			    System.out.println("[ERROR] I/O Exception.");
     			    e.printStackTrace();
