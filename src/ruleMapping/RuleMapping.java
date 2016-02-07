@@ -160,7 +160,12 @@ public class RuleMapping {
 		    double gain = globalEntropy - (left_ratio*Entropy);
 		    double confidence = rules.get(class1_member).get(1);
 		    double length = class1_member.size()-1;
-		    //if (length <=2) {length = 1000;}
+		    /*
+		    if (length <= 2) {
+		        length = 10000;
+		    } else if (length > 2){
+		    	length = -10000;
+		    }*/
 		    gainratio = Math.abs(gain/SplitInfo);
 		    score_1 += confidence*gainratio*length;			
 		}
@@ -235,7 +240,12 @@ public class RuleMapping {
 		    double confidence = rules.get(class2_member).get(1);
 		    double length = class2_member.size()-1;
 		    //shorter higher
-		    //if (length <=2) {length = 1000;}
+		    /*
+		    if (length <= 2) {
+		        length = 10000;
+		    } else if (length > 2){
+		    	length = -10000;
+		    }*/
 		    gainratio = Math.abs(gain/SplitInfo);
 		    score_2 += confidence*gainratio*length;			
 		}

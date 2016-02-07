@@ -1,138 +1,46 @@
-D Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
-R Diff_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 Rise -1 -2
-D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 Rise -1 -2
-D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
-R Diff_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Diff_2_4 Same_1_4 -1 Down -1 -2
-R Diff_2_4 Same_1_4 -1 R Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 Down -1 -2
-R Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Down -1 -2
-D Same_2_4 Same_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 Down -1 -2
-D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
-D Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 Down -1 -2
-D Diff_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-D Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 D Diff_2_4 Diff_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 Down -1 -2
-R Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 Down -1 -2
-D Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Down -1 -2
-D Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
-R Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 Rise -1 -2
-D Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-D Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Diff_2_4 Same_1_4 -1 R Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
-R Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
-R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 Rise -1 -2
-R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Diff_2_4 Same_1_4 -1 Rise -1 -2
-R Diff_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
-R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
-R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 Rise -1 -2
-R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 Down -1 -2
-R Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 Down -1 -2
-D Diff_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 Down -1 -2
-D Same_2_4 Same_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 Down -1 -2
-D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
-D Diff_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
-D Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 D Diff_2_4 Diff_1_4 -1 Down -1 -2
-D Same_2_4 Same_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 Down -1 -2
-D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
-D Diff_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 Rise -1 -2
-D Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
-D Same_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Diff_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
-R Diff_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
-D Diff_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
-R Diff_2_4 Same_1_4 -1 R Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Down -1 -2
-R Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 Down -1 -2
-R Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
-D Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 Down -1 -2
-R Diff_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
-R Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 Down -1 -2
-D Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Down -1 -2
-D Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 Down -1 -2
-R Diff_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 Down -1 -2
-D Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 Rise -1 -2
-D Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 Rise -1 -2
-D Same_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
-R Diff_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 Rise -1 -2
-R Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 Rise -1 -2
-D Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 Rise -1 -2
-D Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 Down -1 -2
-R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Down -1 -2
-R Same_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 Down -1 -2
-D Same_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 Down -1 -2
-D Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 Down -1 -2
-D Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
-D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 Rise -1 -2
-D Diff_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 Rise -1 -2
-D Same_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Diff_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 Down -1 -2
-R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 Down -1 -2
-R Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 Down -1 -2
-D Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
-D Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 Down -1 -2
-D Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 Down -1 -2
-D Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
-D Same_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Diff_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 Down -1 -2
-R Diff_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 Down -1 -2
-R Same_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
-D Same_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
-D Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 Down -1 -2
-D Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
-D Diff_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
-R Diff_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-R Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 Rise -1 -2
-D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
-D Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
-R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 Down -1 -2
-R Diff_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 Down -1 -2
-R Same_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Down -1 -2
-D Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 Rise -1 -2
-D Diff_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 Rise -1 -2
-D Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 Rise -1 -2
-D Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 Rise -1 -2
-D Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
-R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Diff_2_4 Same_1_4 -1 Rise -1 -2
-R Diff_2_4 Same_1_4 -1 R Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 Rise -1 -2
-R Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 Rise -1 -2
-R Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
-D Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 Down -1 -2
-D Same_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 Down -1 -2
-D Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Down -1 -2
-D Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 Down -1 -2
-R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 Down -1 -2
-D Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 Rise -1 -2
-D Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
-D Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 D Diff_2_4 Diff_1_4 -1 Rise -1 -2
+D Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
+R Diff_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
+R Same_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
+R Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Down -1 -2
+D Same_2_4 Same_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 Down -1 -2
+D Diff_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 D Diff_2_4 Diff_1_4 -1 Rise -1 -2
+R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Down -1 -2
+D Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
+R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
+R Same_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
+R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
+R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
+R Diff_2_4 Same_1_4 -1 R Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
+R Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Diff_2_4 Same_1_4 -1 Rise -1 -2
+R Diff_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
+R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
+R Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 Down -1 -2
+D Same_2_4 Same_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
+D Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
+D Diff_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
+R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
+R Diff_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
+R Diff_2_4 Same_1_4 -1 R Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
+D Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 Down -1 -2
+D Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 Down -1 -2
+D Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
+R Diff_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 Rise -1 -2
+R Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
+R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 Down -1 -2
+D Same_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
+D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
+R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Diff_2_4 Same_1_4 -1 Rise -1 -2
+R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 Down -1 -2
+D Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 Down -1 -2
+D Same_2_4 Same_1_4 -1 D Same_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
+R Same_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
+D Same_2_4 Diff_1_4 -1 D Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 Down -1 -2
+D Diff_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 Rise -1 -2
+R Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 Rise -1 -2
+R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Same_2_4 Diff_1_4 -1 R Same_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Down -1 -2
+D Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
+R Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 Rise -1 -2
+R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 Rise -1 -2
+R Same_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 D Same_2_4 Diff_1_4 -1 D Diff_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 Down -1 -2
+D Same_2_4 Diff_1_4 -1 D Diff_2_4 Diff_1_4 -1 R Diff_2_4 Diff_1_4 -1 R Diff_2_4 Same_1_4 -1 R Diff_2_4 Diff_1_4 -1 Down -1 -2
+D Same_2_4 Same_1_4 -1 D Diff_2_4 Same_1_4 -1 D Same_2_4 Diff_1_4 -1 R Same_2_4 Same_1_4 -1 D Diff_2_4 Diff_1_4 -1 Rise -1 -2

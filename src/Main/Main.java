@@ -20,9 +20,9 @@ public class Main {
 	        for (double j =  0.01;j <= 0.80; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/
-    		int window_size = 3;
+    		int window_size = 5;
     		int next_week = 5;
-    		int minsup = 13;
+    		int minsup = 8;
     		double min_conf = j;
     		//Input
     		String path = "petro_subset1_2010_rate.csv";
