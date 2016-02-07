@@ -160,6 +160,7 @@ public class RuleMapping {
 		    double gain = globalEntropy - (left_ratio*Entropy);
 		    double confidence = rules.get(class1_member).get(1);
 		    double length = class1_member.size()-1;
+		    //if (length <=2) {length = 1000;}
 		    gainratio = Math.abs(gain/SplitInfo);
 		    score_1 += confidence*gainratio*length;			
 		}
@@ -233,6 +234,8 @@ public class RuleMapping {
 		    double gain = globalEntropy - (left_ratio*Entropy);
 		    double confidence = rules.get(class2_member).get(1);
 		    double length = class2_member.size()-1;
+		    //shorter higher
+		    //if (length <=2) {length = 1000;}
 		    gainratio = Math.abs(gain/SplitInfo);
 		    score_2 += confidence*gainratio*length;			
 		}
@@ -261,7 +264,7 @@ public class RuleMapping {
 		
 		}
 	}
-	
+	/////////////
     public HashMap<Integer, ArrayList<String>> RuleMapping(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules,
     HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_testing, HashMap<Integer, String> target_class) {
  
@@ -293,11 +296,13 @@ public class RuleMapping {
         }
                                                  	 
     	//2.Begin Mapping 
-        HashMap<Integer, ArrayList<String>> result = new HashMap<>();      
+        HashMap<Integer, ArrayList<String>> result = new HashMap<>(); 
+       
         for (Integer i : SDB_for_testing.keySet()) {
+//        	System.out.println("SDB " + i);
             //Match rule's number
             int match_number = 0;
-            ArrayList<ArrayList<ArrayList<String>>> match_rules = new  ArrayList<>();            
+            ArrayList<ArrayList<ArrayList<String>>> match_rules = new ArrayList<>();            
             //The sequence in SDB_Testing
             ArrayList<ArrayList<String>> itemsets = SDB_for_testing.get(i);                            
             for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
@@ -316,13 +321,14 @@ public class RuleMapping {
                     
                 }                
                 if (size == rule.size()-1) {
-                	match_number = match_number + 1;      
+                	match_number++;      
                 	match_rules.add(rule);
                 }
                
             } 
             //System.out.println(match_number);            
-            if (match_number >= 2){            	
+            if (match_number >= 2){    
+            	/*
                 int max = 0;
                 double max_sup = rules.get(match_rules.get(0)).get(0);
                 double max_confidence = rules.get(match_rules.get(0)).get(1);              
@@ -331,14 +337,25 @@ public class RuleMapping {
                 	double sup = rules.get(match_rules.get(j)).get(0);
                     if (confidence > max_confidence) {
                         max = j;
-//                        max_confidence = confidence;
-//                        max_sup = sup;		
+                        max_confidence = confidence;
+                        max_sup = sup;		
                     } else if (confidence == max_confidence) {
-                    
                     	if (sup > max_sup) {
                     		max = j;  
-//                    		max_confidence = confidence;
-//                            max_sup = sup;		
+                    		max_confidence = confidence;
+                            max_sup = sup;		
+                    	} else if (sup == max_sup) {
+//                    	    System.out.println("Sup same!");
+                    	    int length_j = match_rules.get(j).size()-1;
+                    	    int length_max = match_rules.get(max).size()-1;
+                    	    if (length_j <= length_max) {
+                    	        max = j;
+                    	        max_sup = sup;
+                    	        max_confidence = confidence;                  
+                    	    } else {
+                    	    	continue;
+                    	    }
+                    	    
                     	}
                     }
                 	
@@ -346,9 +363,10 @@ public class RuleMapping {
                 ArrayList<ArrayList<String>> match_rule = match_rules.get(max);
                 ArrayList<String> Rise_Down = match_rule.get(match_rule.size()-1);
                 System.out.println(i + " " + match_rule);
-            	result.put(i, Rise_Down);
+            	result.put(i, Rise_Down);*/
+            	
             	//CBS            	
-            	//result.put(i, getinstance(rules, match_rules));
+            	result.put(i, getinstance(rules, match_rules));
             	            
             } else if (0< match_number && match_number < 2){
             	//Only one match_rule
@@ -363,9 +381,14 @@ public class RuleMapping {
         return result;         	 	
     }
            
-    public HashMap<String, Double> evaluate(HashMap<Integer, String> class_table , HashMap<Integer, ArrayList<String>> predict, int traing_data_size, int window_size) {
+    public HashMap<String, Double> evaluate(HashMap<Integer, String> class_table , HashMap<Integer, ArrayList<String>> predict, int traing_data_size, int next_week) throws FileNotFoundException {
     	HashMap<String, Double> e = new HashMap<>();
     	HashMap<String, Integer> number = new HashMap<>();
+   
+    		
+    	
+    
+	       
     	for (int i = 1; i <= predict.size(); i++) {
     	    if (number.get(predict.get(i).get(0)) == null) {
     	        number.put(predict.get(i).get(0), 1);
@@ -392,22 +415,36 @@ public class RuleMapping {
         int False_Positive = 0;
         int False_Negative = 0;     
         int index = traing_data_size;   
+        
+        
+        	
+//       System.out.println(class_table.size());
+        
         for (int i = 1; i <= predict.size(); i++) {
+        		System.out.println(i+ " " + predict.get(i).get(0) + " vs " + " " +(index+next_week+1) + " "+class_table.get(index+next_week+1));
                 if (predict.get(i).get(0).equals("Rise"))	{
-                    if (class_table.get(i+index+window_size).equals("Rise")) {
+                    if (class_table.get(index+next_week+1).equals("Rise")) {
                     	True_Positive += 1;	
                     } else {
                     	False_Negative += 1;
                     }
                 	
                 } else  {
-                	if (class_table.get(i+index).equals("Down")) {
+                	if (class_table.get(index+next_week+1).equals("Down")) {
                 		True_Negative += 1;	
                     } else {
                     	False_Positive += 1;
                     }              	
                 }
+                index+=  next_week;
         }
+        
+        
+    	
+    		
+    	
+        
+      
         int size = True_Negative +  True_Positive + False_Positive + False_Negative;
         e.put("True_Positive", (double)True_Positive);
         e.put("True_Negative", (double)True_Negative);
@@ -432,5 +469,7 @@ public class RuleMapping {
         double macro_f_measure = 2*(macro_precision*macro_recall)/ (macro_precision+macro_recall);
         e.put("macro_f_measure", macro_f_measure);
         return e;
-        }    
+        } 
+    	
+    
 }

@@ -8,24 +8,22 @@ import ruleMapping.RuleMapping;
 import transferToSDB.T2SDB;
 import ca.pfv.spmf.algorithms.sequentialpatterns.BIDE_and_prefixspan_with_strings.AlgoPrefixSpan_with_Strings;
 import ca.pfv.spmf.input.sequence_database_list_strings.SequenceDatabase;
-import dataPreprocessing.SAXTransformation;
-import dataPreprocessing.SAXTransformation_Testing;
+//import dataPreprocessing.SAXTransformation;
+//import dataPreprocessing.SAXTransformation_Testing;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        try {
-          	      
-    	    File fout = new File("data.txt");
+        try {          	     
+        	File fout = new File("data.txt");
     	    FileOutputStream fos = new FileOutputStream(fout);
 	        OutputStreamWriter osw = new OutputStreamWriter(fos);
-	        
-//   	        for (double j = 0.1;j <= 0.8; j = j + 0.1) {
-//   	        System.out.println(j);
+	        for (double j =  0.01;j <= 0.80; j = j + 0.01) {
+   	        System.out.println(j);
     		/**0.Set Argument**/
     		int window_size = 3;
-    		int next_week = 10;
-    		int minsup = 46;
-    		double min_conf = 0.4;
+    		int next_week = 5;
+    		int minsup = 13;
+    		double min_conf = j;
     		//Input
     		String path = "petro_subset1_2010_rate.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);
@@ -46,7 +44,7 @@ public class Main {
             /*For training*/            
             String path_after_discrete = "transformed_petro_subset1_feature.csv";
     		T2SDB t = new T2SDB();
-            t.translate_training(window_size, path_after_discrete,  feature_target, "SDB(Training).txt");
+            t.translate_training(window_size, next_week, path_after_discrete,  feature_target, "SDB(Training).txt");
             
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             /*For testing*/
@@ -74,10 +72,10 @@ public class Main {
     		//System.out.println("##Step 6: Rule Mapping");
     	    RuleMapping mapping = new RuleMapping();
     	    HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
-    		= mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), feature_target);
+    	    = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), feature_target);
     	    
-    		/**7.Evaluate Precision**/ 
-    		HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, window_size);    		           
+    		/**7.Evaluate Precision**/     		
+    	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week);    		           
     		
     		osw.write("window_size:"        + window_size + "\r\n");
     		osw.write("minsup:"             + minsup + "\r\n");
@@ -85,14 +83,18 @@ public class Main {
     		osw.write("=== Confusion Matrix ===\r\n");
     		osw.write("          a      b\r\n");
     		osw.write("a=Rise   " + e.get("True_Positive") + "\t" + e.get("False_Negative") + "\r\n");
-    		osw.write("b=Down   " + e.get("False_Positive") + "\t" + e.get("True_Negative") + "\r\n");		
+   		    osw.write("b=Down   " + e.get("False_Positive") + "\t" + e.get("True_Negative") + "\r\n");		
+    		osw.write("precision_rise: " + e.get("precision_rise")+ "\r\n");
+    		osw.write("recall_rise: " + e.get("recall_rise")+ "\r\n");
+    		osw.write("precision_down: " + e.get("precision_down")+ "\r\n");
+   		    osw.write("recall_down: " + e.get("recall_down")+ "\r\n");
             osw.write("macro_precision: " + e.get("macro_precision")+ "\r\n");
             osw.write("macro_recall: " + e.get("macro_recall")+ "\r\n");
             osw.write("macro_f_measure: " + e.get("macro_f_measure")+ "\r\n");
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");
-//  	        }
+ 	        }
     	    osw.close();
    	        
         } catch (FileNotFoundException e) {
