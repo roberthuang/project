@@ -12,11 +12,11 @@ public class GetAttr {
 	     int col = att_index; 
 	     for (int i = 1; i < records.size(); i++ ) {       
 	            if (i == 1) {
-	                result.put(i, "D" );     
+	                result.put(i, "R" );     
 	                continue;
 	            }
 	            
-	            if (Double.parseDouble(records.get(i).get(col))- Double.parseDouble(records.get(i-1).get(col)) >= 0 ) {
+	            if (Double.parseDouble(records.get(i).get(col))- Double.parseDouble(records.get(i-1).get(col)) > 0 ) {
 	    	    	result.put(i, "R");     
 	    	    } else {
 	    	    	result.put(i, "D");  
@@ -289,7 +289,7 @@ public class GetAttr {
 		HashMap<Integer, String> Match_of_oil_but = match_source_target(FS_oil, FT_but, 1, 4);
 		
 		HashMap<Integer, String> MA_rubber_3 = Move_Average(3, records.get(0).get(2), 2, records);
-		HashMap<Integer, String> MA_but_3 = Move_Average(3, records.get(0).get(4), 4, records);
+		HashMap<Integer, String> MA_but_2 = Move_Average(2, records.get(0).get(4), 4, records);
 //		HashMap<Integer, String> Match_of_MA3_rubber_but = match_source_target_technical(MA_rubber_3, MA_but_3, 2, 4, "MA3");
 		
 //		HashMap<Integer, String> MACD_rubber_1_2_3 = MACD(1, 2, 3,records.get(0).get(2), records);
@@ -308,7 +308,8 @@ public class GetAttr {
 			if(i == 0) {			 			     
 				temp.add("FT_but");
 			    temp.add("Match_of_rubber_but");	
-			    temp.add("Match_of_oil_but");	
+			    temp.add("Match_of_oil_but");
+//			    temp.add("MA_but_2");
 //			    temp.add("BIAS_T_2_03");	
 //			    temp.add("Match_of_MA3_rubber_but");	
 			} else {
@@ -316,6 +317,7 @@ public class GetAttr {
 				temp.add(FT_but.get(i));
 		        temp.add(Match_of_rubber_but.get(i));
 		        temp.add(Match_of_oil_but.get(i));
+//		        temp.add(MA_but_2.get(i));
 //		        temp.add(BIAS_T_2_03.get(i));
 //		        temp.add(Match_of_MA3_rubber_but.get(i));
 			}

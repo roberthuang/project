@@ -2,25 +2,25 @@ package ruleGeneration;
 
 /****************************************************************************************************
 
- * ³W«h²£¥Í»Pµû¦ô (RuleEvaluation)																		*
+ * ï¿½Wï¿½hï¿½ï¿½ï¿½Í»Pï¿½ï¿½ï¿½ï¿½ (RuleEvaluation)																		*
 
- * ¿é¤J¡G±ý³B²zªºtxt®æ¦¡±¡¸`¼Ë¦¡ÀÉ®×¡Bjson³]©wÀÉ¡C															*
+ * ï¿½ï¿½Jï¿½Gï¿½ï¿½ï¿½Bï¿½zï¿½ï¿½txtï¿½æ¦¡ï¿½ï¿½ï¿½`ï¿½Ë¦ï¿½ï¿½É®×¡Bjsonï¿½]ï¿½wï¿½É¡C															*
 
- * ³B²z¡G®Ú¾Ú¿é¤J¤§±¡¸`¼Ë¦¡¶°²£¥Í³W«h¶°¡A¨Ã®Ú¾Ú³]©w¤§³Ì¤p«H¤ß«×¶i¦æ³W«h¿z¿ï¡F­Y¦³³]©w³W«h¹LÂo±ø¥ó (contains_event)	*
+ * ï¿½Bï¿½zï¿½Gï¿½Ú¾Ú¿ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Ë¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³Wï¿½hï¿½ï¿½ï¿½Aï¿½Ã®Ú¾Ú³]ï¿½wï¿½ï¿½ï¿½Ì¤pï¿½Hï¿½ß«×¶iï¿½ï¿½Wï¿½hï¿½zï¿½ï¿½Fï¿½Yï¿½ï¿½ï¿½]ï¿½wï¿½Wï¿½hï¿½Lï¿½oï¿½ï¿½ï¿½ï¿½ (contains_event)	*
 
- * ¡@¡@¡@¡@®É±NÁ×§K²£¥Í¤£§t«ü©w¨Æ¥óªº³W«h¡C																	*
+ * ï¿½@ï¿½@ï¿½@ï¿½@ï¿½É±Nï¿½×§Kï¿½ï¿½ï¿½Í¤ï¿½ï¿½tï¿½ï¿½ï¿½wï¿½Æ¥óªº³Wï¿½hï¿½C																	*
 
- * ¿é¥X¡G©ó«ü©w¸ô®|¤U¿é¥X²£¥Íªº³W«h¶°ÀÉ®×¡C																*
+ * ï¿½ï¿½Xï¿½Gï¿½ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½|ï¿½Uï¿½ï¿½Xï¿½ï¿½ï¿½Íªï¿½ï¿½Wï¿½hï¿½ï¿½ï¿½É®×¡C																*
 
- * ³]©wÀÉ®æ¦¡¡G																						*
+ * ï¿½]ï¿½wï¿½É®æ¦¡ï¿½G																						*
 
- *ƒÜ- path¡G¿é¤J¤§±¡¸`¼Ë¦¡¶°ÀÉ®×ªºÀÉ®×¸ô®|¡C																*
+ *ï¿½ï¿½- pathï¿½Gï¿½ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Ë¦ï¿½ï¿½ï¿½ï¿½É®×ªï¿½ï¿½É®×¸ï¿½ï¿½|ï¿½C																*
 
- *ƒÜ- output¡G¿é¥X²£¥Í¤§³W«h¶°ÀÉ®×ªºÀÉ®×¸ô®|¡C															*
+ *ï¿½ï¿½- outputï¿½Gï¿½ï¿½Xï¿½ï¿½ï¿½Í¤ï¿½ï¿½Wï¿½hï¿½ï¿½ï¿½É®×ªï¿½ï¿½É®×¸ï¿½ï¿½|ï¿½C															*
 
- *ƒÜ- min_conf¡G³Ì¤p«H¤ß«×¡A­È°ì¬°(0, 1]ªº¯BÂI¼Æ¡C														*
+ *ï¿½ï¿½- min_confï¿½Gï¿½Ì¤pï¿½Hï¿½ß«×¡Aï¿½È°ì¬°(0, 1]ï¿½ï¿½ï¿½Bï¿½Iï¿½Æ¡C														*
 
- *ƒÜ- contains_event¡G¤@¦r¦ê°}¦C¡A«ü©w²£¥Í¤§³W«h¥²¶·¥]§tªº¨Æ¥ó¡FªÅ°}¦C¥Nªí¤£¶i¦æ¹LÂo¡C							*
+ *ï¿½ï¿½- contains_eventï¿½Gï¿½@ï¿½rï¿½ï¿½}ï¿½Cï¿½Aï¿½ï¿½ï¿½wï¿½ï¿½ï¿½Í¤ï¿½ï¿½Wï¿½hï¿½ï¿½ï¿½ï¿½ï¿½]ï¿½tï¿½ï¿½ï¿½Æ¥ï¿½Fï¿½Å°}ï¿½Cï¿½Nï¿½ï¿½ï¿½iï¿½ï¿½Lï¿½oï¿½C							*
 
  ****************************************************************************************************/
 
@@ -84,13 +84,13 @@ public class RuleEvaluation {
 
 	}
 
-	public static void start(String jsconfig, double min_conf_input, int traing_data_size) {
+	public static void start(String jsconfig, double min_conf_input, int  SDB_Training_Size) {
         
-		mainflow(jsconfig, min_conf_input, traing_data_size);
+		mainflow(jsconfig, min_conf_input,  SDB_Training_Size);
 
 	}
 	
-	static void mainflow(String jsconfig, double min_conf_input, int traing_data_size) {
+	static void mainflow(String jsconfig, double min_conf_input, int  SDB_Training_Size) {
 
 		//System.out.println("===============  RuleEvaluation ===================");
 
@@ -131,7 +131,7 @@ public class RuleEvaluation {
 
 			//1. read patterns
 
-			HashMap<String, Double> patterns = readPatterns(path, traing_data_size);
+			HashMap<String, Double> patterns = readPatterns(path,   SDB_Training_Size);
 
 			//2. generate rules
 

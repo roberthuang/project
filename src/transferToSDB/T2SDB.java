@@ -5,11 +5,12 @@ import java.util.*;
 public class T2SDB {
 	
 	
-    public void translate_training(int window_size, int next_week, String path, HashMap<Integer, String> class_table, String output) {
+    public int translate_training(int window_size, int next_week, String path, HashMap<Integer, String> class_table, String output) {
+       int SDB_Training_Size = 0;
        try {
            ArrayList<ArrayList<String>> records = readCSV(path);
            int training_data = (int)((records.size() - 1)*0.8);
-                      
+           
            //output
            File fout = new File(output);
 	       FileOutputStream fos = new FileOutputStream(fout);
@@ -27,6 +28,7 @@ public class T2SDB {
                                for (int k = 1; k < records.get(index).size()-1; k++) {
 //                   	           osw.write("("+ index+ ")"+ " "+records.get(index).get(k) + " ");       
                         	       osw.write(records.get(index).get(k) + " "); 
+                        	       
                                }                       
                                osw.write(-1 + " ");
                            } 
@@ -41,10 +43,12 @@ public class T2SDB {
                     	   break;
                        }
                        osw.write(""+-2);
-                       osw.write("\r\n");                                                                
+                       osw.write("\r\n");  
+                       SDB_Training_Size++;
                    }                                   	
            }
-           osw.close();                  
+           osw.close();     
+           
        } catch (FileNotFoundException e) {
 	       System.out.println("[ERROR] File Not Found Exception.");
 	    e.printStackTrace();
@@ -52,6 +56,7 @@ public class T2SDB {
            System.out.println("[ERROR] I/O Exception.");
            e.printStackTrace();
        }        
+       return SDB_Training_Size;
    }
     
     public void translate_training_weka(int next_week, String path, HashMap<Integer, String> class_table, String output) {

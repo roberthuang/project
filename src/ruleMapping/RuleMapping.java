@@ -28,7 +28,6 @@ public class RuleMapping {
 		} else {
 			globalEntropy = 0;		
 		}	
-
 		return globalEntropy;
 		
 	}
@@ -55,9 +54,9 @@ public class RuleMapping {
     	        ArrayList<ArrayList<String>> temp1 = new ArrayList<>();
     		for (int k1 = 0; k1 < list.get(i).size()-1; k1++) {
     		    temp1.add(list.get(i).get(k1));
-    	        }    
-    	        String str1 = list.get(i).get(list.get(i).size()-1).get(0);
-    	        ArrayList<ArrayList<String>> temp2 = new ArrayList<>();
+    	    }    
+    	    String str1 = list.get(i).get(list.get(i).size()-1).get(0);
+    	    ArrayList<ArrayList<String>> temp2 = new ArrayList<>();
     		for (int k1 = 0; k1 < list.get(j).size()-1; k1++) {
     		    temp2.add(list.get(j).get(k1));
     	        }
@@ -85,9 +84,15 @@ public class RuleMapping {
 		    	class1_set.add(match_rule);	
 		    } else {
 		    	class2_set.add(match_rule);
-		    }
-			
+		    }			
 		}
+		
+//		for (ArrayList<ArrayList<String>> class_member:class1_set) {
+//			System.out.println(class_member);
+//		}
+//		for (ArrayList<ArrayList<String>> class_member:class2_set) {
+//			System.out.println(class_member);
+//		}
 		
 		if (class1_set.isEmpty()) {
 			//System.out.println("Empty: Rise");
@@ -118,8 +123,8 @@ public class RuleMapping {
                     for (int j = current; j < rule.size()-1; j++) {                                         
                         if (rule.get(j).containsAll(class1_member.get(i_1))) {    
                             current = j;
-                            current = current + 1;
-                            size = size + 1;
+                            current++;
+                            size++;
                             break;
                         }                    	
                     }   
@@ -162,10 +167,11 @@ public class RuleMapping {
 		    double length = class1_member.size()-1;
 		    /*
 		    if (length <= 2) {
-		        length = 10000;
-		    } else if (length > 2){
-		    	length = -10000;
+		        length *= 5;
+		    }else {
+		    	length *= 3;
 		    }*/
+		    
 		    gainratio = Math.abs(gain/SplitInfo);
 		    score_1 += confidence*gainratio*length;			
 		}
@@ -242,17 +248,18 @@ public class RuleMapping {
 		    //shorter higher
 		    /*
 		    if (length <= 2) {
-		        length = 10000;
-		    } else if (length > 2){
-		    	length = -10000;
-		    }*/
+		        length *= 5;
+		    }else {
+		    	length *= 3;
+		    }*/		    
+		    
 		    gainratio = Math.abs(gain/SplitInfo);
 		    score_2 += confidence*gainratio*length;			
 		}
 		
 		double L_score_1 = score_1/(double)class1_set.size();
 		double L_score_2 = score_2/(double)class2_set.size();
-		//System.out.println(score_1/(double)class1_set.size() + " " + score_2/(double)class2_set.size());
+//		System.out.println(L_score_1 + " " +  L_score_2);
 		if (L_score_1  > L_score_2 ){
 			ArrayList<String> temp  = new ArrayList<>();
 			temp.add("Rise");
@@ -274,10 +281,12 @@ public class RuleMapping {
 		
 		}
 	}
-	/////////////
+
     public HashMap<Integer, ArrayList<String>> RuleMapping(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules,
     HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_testing, HashMap<Integer, String> target_class) {
- 
+    	
+        
+    	
     	HashMap<String, Integer> number_of_rise_down = new HashMap<>();
     	for (int i = 1; i <= target_class.size()*0.8; i++) {
     	    if (number_of_rise_down .get(target_class.get(i)) == null) {
@@ -323,8 +332,8 @@ public class RuleMapping {
                     for (int j = current; j < rule.size()-1; j++) {                                         
                         if (itemsets.get(i_1).containsAll(rule.get(j))) {    
                             current = j;
-                            current = current + 1;
-                            size = size + 1;
+                            current++;
+                            size++;
                             break;
                         }                    	
                     }                                                            
@@ -333,10 +342,11 @@ public class RuleMapping {
                 if (size == rule.size()-1) {
                 	match_number++;      
                 	match_rules.add(rule);
-                }
+//                	System.out.println(i+" "+rule);
+                } 
                
             } 
-            //System.out.println(match_number);            
+//            System.out.println(i + " match_number:" + match_number);            
             if (match_number >= 2){    
             	/*
                 int max = 0;
@@ -375,7 +385,8 @@ public class RuleMapping {
                 System.out.println(i + " " + match_rule);
             	result.put(i, Rise_Down);*/
             	
-            	//CBS            	
+            	//CBS            
+ //           	System.out.println(i+"th======================");
             	result.put(i, getinstance(rules, match_rules));
             	            
             } else if (0< match_number && match_number < 2){

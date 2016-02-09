@@ -17,12 +17,13 @@ public class Main {
         	File fout = new File("data.txt");
     	    FileOutputStream fos = new FileOutputStream(fout);
 	        OutputStreamWriter osw = new OutputStreamWriter(fos);
-	        for (double j =  0.01;j <= 0.80; j = j + 0.01) {
+	        for (double j =  0.77;j <= 0.9; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/
-    		int window_size = 10;
-    		int next_week = 10;
-    		int minsup = 10;
+    		int window_size = 5;
+    		int next_week = 5;
+    		int minsup = 8;
+    		
     		double min_conf = j;
     		//Input
     		String path = "petro_subset1_2010_rate.csv";
@@ -44,8 +45,8 @@ public class Main {
             /*For training*/            
             String path_after_discrete = "transformed_petro_subset1_feature.csv";
     		T2SDB t = new T2SDB();
-            t.translate_training(window_size, next_week, path_after_discrete,  feature_target, "SDB(Training).txt");
-            
+    		int SDB_Training_Size = t.translate_training(window_size, next_week, path_after_discrete,  feature_target, "SDB(Training).txt");
+            System.out.println(SDB_Training_Size);
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             /*For testing*/
             String path_of_testing_file = "transformed_petro_subset1_feature.csv";
@@ -65,8 +66,8 @@ public class Main {
     		//algo.printStatistics(sequenceDatabase.size());
     		
     		/**5.Generating Rule**/
-//    		System.out.println("##Step 5: Rule Generating");
-    		RuleEvaluation.start("RuleEvaluation_config.txt", min_conf, traing_data_size);
+    		System.out.println("##Step 5: Rule Generating");
+    		RuleEvaluation.start("RuleEvaluation_config.txt", min_conf, SDB_Training_Size);
                 		
     		/**6.Rule Mapping**/    		
     		//System.out.println("##Step 6: Rule Mapping");
@@ -141,8 +142,38 @@ public class Main {
             }
             result.put(index, itemsets);
             index = index + 1;
-        }     
+        }            
+        /*
+        //debug
+        for (Integer i : result.keySet()) {
+	        System.out.println(i + " " + result.get(i));
+	    
+	    }*/
+        //System.out.println(result.size());
+        sc.close();
+        return result;
         
+    }
+    
+    static HashMap<Integer, ArrayList<ArrayList<String>>> Read_Training_Data(String filename) throws FileNotFoundException{
+        HashMap<Integer, ArrayList<ArrayList<String>>> result = new HashMap<>();
+        int index = 1;        
+        Scanner sc = new Scanner(new File(filename));        
+        while(sc.hasNextLine()) {        
+            ArrayList<ArrayList<String>> itemsets = new ArrayList<>();
+            String[] tokens = sc.nextLine().split(" -1  #SUP: ");
+            String[] tokens_next = tokens[0].split(" -1 ");
+            for (String s : tokens_next) {
+                ArrayList<String> itemset = new ArrayList<>();
+                String[] tokens_next_next = s.split(" ");
+                for (String ss : tokens_next_next) {
+                    itemset.add(ss);
+                }
+                itemsets.add(itemset);
+            }
+            result.put(index, itemsets);
+            index = index + 1;
+        }            
         /*
         //debug
         for (Integer i : result.keySet()) {
@@ -203,7 +234,8 @@ public class Main {
 		sc.close();
 		return result;	
     }
-  
+    
+    
 }
 
 
