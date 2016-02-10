@@ -5,12 +5,14 @@ import java.util.*;
 
 public class RuleMapping {
 	
-	public static double Cacluate_all_entropy(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules) {
+	public static double Cacluate_all_entropy(HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training) {
 	    double globalEntropy = 0; 	
 		int rise_number = 0;
 		int down_number = 0;
-		for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
+		for (Integer i :  SDB_for_training.keySet()) {
+			ArrayList<ArrayList<String>> rule = SDB_for_training.get(i);
 		    String str = rule.get(rule.size()-1).get(0);	
+//		    System.out.println(str);
 			if (str.equals("Rise")) {
 				rise_number++;
 			} else {
@@ -26,15 +28,15 @@ public class RuleMapping {
 		if (frequencyDouble2 != 0) {
 			globalEntropy -= (frequencyDouble1 * Math.log(frequencyDouble1) / Math.log(2))+(frequencyDouble2 * Math.log(frequencyDouble2) / Math.log(2));				
 		} else {
-			globalEntropy = 0;		
+			globalEntropy -= frequencyDouble1 * Math.log(frequencyDouble1) / Math.log(2);		
 		}	
 		return globalEntropy;
 		
 	}
 	
-	public static ArrayList<String> getinstance(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, ArrayList<ArrayList<ArrayList<String>>> match_rules) {
+	public static ArrayList<String> getinstance(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, ArrayList<ArrayList<ArrayList<String>>> match_rules, HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training) {
 		
-		double globalEntropy = Cacluate_all_entropy(rules);
+		double globalEntropy = Cacluate_all_entropy(SDB_for_training);
 		double score_1 = 0;
 		double score_2 = 0;
 		
@@ -108,6 +110,7 @@ public class RuleMapping {
 			//System.out.println("Mapping:");
 		
 		for (ArrayList<ArrayList<String>> class1_member : class1_set) {
+//			System.out.println(class1_member);
 			int match_number = 0;
 			double Entropy = 0;
 			double SplitInfo = 0;
@@ -116,10 +119,11 @@ public class RuleMapping {
 			int match_c2_number = 0;
 			/*int none_match_c1_number = 0;
 			int none_match_c2_number = 0;*/
-		    for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
+		    for (Integer i : SDB_for_training.keySet()) {
+		    	ArrayList<ArrayList<String>> rule = SDB_for_training.get(i);
 		        int size = 0;
 		        int current = 0;
-		        for (int i_1 = 0; i_1 <  class1_member.size(); i_1++) {                	
+		        for (int i_1 = 0; i_1 <  class1_member.size()-1; i_1++) {                	
                     for (int j = current; j < rule.size()-1; j++) {                                         
                         if (rule.get(j).containsAll(class1_member.get(i_1))) {    
                             current = j;
@@ -130,7 +134,7 @@ public class RuleMapping {
                     }   
                                        
                 }       
-		        if (size == rule.size()-1) {
+		        if (size == class1_member.size()-1) {
                 	match_number++;      
                 	//System.out.println(rule.get(rule.size()-1).get(0));
                 	if (rule.get(rule.size()-1).get(0).equals("Rise")) {
@@ -141,14 +145,14 @@ public class RuleMapping {
                 }
 		    }
 		    
-		    int total = rules.keySet().size();
+		    int total = SDB_for_training.keySet().size();
 		    double left_ratio = match_number / (double) total;
 		    //System.out.println("Rise: " + left_ratio + "  match_number: " + match_number + " total: " + total);   
 		    double l_l_ratio = match_c1_number / (double) match_number;
 		    
 		    double l_r_ratio = match_c2_number / (double) match_number;
 		    //System.out.println(l_l_ratio + " " + l_r_ratio);
-		    int other = rules.keySet().size() - match_number;
+		    int other = SDB_for_training.keySet().size() - match_number;
 		    
 		    double right_ratio = other / (double) total;
 		    //double r_l_ratio = none_match_c1_number / (double) other;
@@ -164,7 +168,7 @@ public class RuleMapping {
 		    SplitInfo -= (left_ratio * Math.log(left_ratio) / Math.log(2))+ ( right_ratio * Math.log( right_ratio) / Math.log(2));				  
 		    double gain = globalEntropy - (left_ratio*Entropy);
 		    double confidence = rules.get(class1_member).get(1);
-		    double length = class1_member.size()-1;
+		    double length = class1_member.size();
 		    /*
 		    if (length <= 2) {
 		        length *= 5;
@@ -186,10 +190,11 @@ public class RuleMapping {
 			
 			/*int none_match_c1_number = 0;
 			int none_match_c2_number = 0;*/
-		    for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
+			for (Integer i : SDB_for_training.keySet()) {
+				ArrayList<ArrayList<String>> rule = SDB_for_training.get(i);
 		        int size = 0;
 		        int current = 0;
-		        for (int i_1 = 0; i_1 <  class2_member.size(); i_1++) {                	
+		        for (int i_1 = 0; i_1 <  class2_member.size()-1; i_1++) {                	
                     for (int j = current; j < rule.size()-1; j++) {                                         
                         if (rule.get(j).containsAll(class2_member.get(i_1))) {    
                             current = j;
@@ -200,7 +205,7 @@ public class RuleMapping {
                     }   
                                        
                 }       
-		        if (size == rule.size()-1) {
+		        if (size == class2_member.size()-1) {
                 	match_number++;      
                 	//System.out.println(rule.get(rule.size()-1).get(0));
                 	if (rule.get(rule.size()-1).get(0).equals("Rise")) {
@@ -217,13 +222,13 @@ public class RuleMapping {
                 }*/
 		    }
 		    
-		    int total = rules.keySet().size();
+		    int total = SDB_for_training.keySet().size();
 		    double left_ratio = match_number / (double) total;
 		    //System.out.println("Rise: " + left_ratio + "  match_number: " + match_number + " total: " + total);   
 		    double l_l_ratio = match_c1_number / (double) match_number;		    
 		    double l_r_ratio = match_c2_number / (double) match_number;
 		    //System.out.println(l_l_ratio + " " + l_r_ratio);
-		    int other = rules.keySet().size() - match_number;
+		    int other = SDB_for_training.keySet().size() - match_number;
 		    
 		    double right_ratio = other / (double) total;
 		    //double r_l_ratio = none_match_c1_number / (double) other;
@@ -244,7 +249,7 @@ public class RuleMapping {
 		    //System.out.println("Class2: " + Entropy);
 		    double gain = globalEntropy - (left_ratio*Entropy);
 		    double confidence = rules.get(class2_member).get(1);
-		    double length = class2_member.size()-1;
+		    double length = class2_member.size();
 		    //shorter higher
 		    /*
 		    if (length <= 2) {
@@ -259,7 +264,7 @@ public class RuleMapping {
 		
 		double L_score_1 = score_1/(double)class1_set.size();
 		double L_score_2 = score_2/(double)class2_set.size();
-//		System.out.println(L_score_1 + " " +  L_score_2);
+		System.out.println("Rise: " + L_score_1 + " " +"Down: "+  L_score_2);
 		if (L_score_1  > L_score_2 ){
 			ArrayList<String> temp  = new ArrayList<>();
 			temp.add("Rise");
@@ -283,9 +288,11 @@ public class RuleMapping {
 	}
 
     public HashMap<Integer, ArrayList<String>> RuleMapping(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules,
-    HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_testing, HashMap<Integer, String> target_class) {
+    HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_testing, HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training, HashMap<Integer, String> target_class) {
     	
-        
+//        for (Integer i  : SDB_for_training.keySet()) {
+//        	System.out.println(SDB_for_training.get(i));
+//       }
     	
     	HashMap<String, Integer> number_of_rise_down = new HashMap<>();
     	for (int i = 1; i <= target_class.size()*0.8; i++) {
@@ -387,7 +394,7 @@ public class RuleMapping {
             	
             	//CBS            
  //           	System.out.println(i+"th======================");
-            	result.put(i, getinstance(rules, match_rules));
+            	result.put(i, getinstance(rules, match_rules, SDB_for_training));
             	            
             } else if (0< match_number && match_number < 2){
             	//Only one match_rule

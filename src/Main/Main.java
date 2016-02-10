@@ -17,13 +17,12 @@ public class Main {
         	File fout = new File("data.txt");
     	    FileOutputStream fos = new FileOutputStream(fout);
 	        OutputStreamWriter osw = new OutputStreamWriter(fos);
-	        for (double j =  0.77;j <= 0.9; j = j + 0.01) {
+	        for (double j =  0.01;j <= 0.8; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/
     		int window_size = 5;
-    		int next_week = 5;
-    		int minsup = 8;
-    		
+    		int next_week = 5	;
+    		int minsup = 8;    		
     		double min_conf = j;
     		//Input
     		String path = "petro_subset1_2010_rate.csv";
@@ -46,7 +45,7 @@ public class Main {
             String path_after_discrete = "transformed_petro_subset1_feature.csv";
     		T2SDB t = new T2SDB();
     		int SDB_Training_Size = t.translate_training(window_size, next_week, path_after_discrete,  feature_target, "SDB(Training).txt");
-            System.out.println(SDB_Training_Size);
+//          System.out.println(SDB_Training_Size);
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             /*For testing*/
             String path_of_testing_file = "transformed_petro_subset1_feature.csv";
@@ -64,16 +63,16 @@ public class Main {
     		/*execute the algorithm*/
     		algo.runAlgorithm(sequenceDatabase, "sequential_patterns.txt", minsup);    
     		//algo.printStatistics(sequenceDatabase.size());
-    		
+    	
     		/**5.Generating Rule**/
-    		System.out.println("##Step 5: Rule Generating");
+//    		System.out.println("##Step 5: Rule Generating");
     		RuleEvaluation.start("RuleEvaluation_config.txt", min_conf, SDB_Training_Size);
                 		
     		/**6.Rule Mapping**/    		
     		//System.out.println("##Step 6: Rule Mapping");
     	    RuleMapping mapping = new RuleMapping();
     	    HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
-    	    = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), feature_target);
+   	        = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), Read_Training_Data("SDB(Training).txt"), feature_target);
     	    
     		/**7.Evaluate Precision**/     		
     	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week);    		           
@@ -161,7 +160,7 @@ public class Main {
         Scanner sc = new Scanner(new File(filename));        
         while(sc.hasNextLine()) {        
             ArrayList<ArrayList<String>> itemsets = new ArrayList<>();
-            String[] tokens = sc.nextLine().split(" -1  #SUP: ");
+            String[] tokens = sc.nextLine().split(" -1 -2");
             String[] tokens_next = tokens[0].split(" -1 ");
             for (String s : tokens_next) {
                 ArrayList<String> itemset = new ArrayList<>();
