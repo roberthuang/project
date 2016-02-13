@@ -149,7 +149,7 @@ public class RuleEvaluation {
 			e.printStackTrace();
 
 		}
-		//System.out.println("===================================================\n");
+		
 	}
 
 	static HashMap<String, Double> readPatterns(String filename, int traing_data_size) throws FileNotFoundException{	      

@@ -21,8 +21,9 @@ public class Main {
    	        System.out.println(j);
     		/**0.Set Argument**/
     		int window_size = 5;
-    		int next_week = 5	;
-    		int minsup = 8;    		
+    		int next_week = 5;
+    		int minsup = 10;    	
+//    		System.out.println(minsup);
     		double min_conf = j;
     		//Input
     		String path = "petro_subset1_2010_rate.csv";
@@ -44,7 +45,7 @@ public class Main {
             /*For training*/            
             String path_after_discrete = "transformed_petro_subset1_feature.csv";
     		T2SDB t = new T2SDB();
-    		int SDB_Training_Size = t.translate_training(window_size, next_week, path_after_discrete,  feature_target, "SDB(Training).txt");
+    		int SDB_Training_Size = t.translate_training_sliding_window (next_week, path_after_discrete,  feature_target, "SDB(Training).txt");
 //          System.out.println(SDB_Training_Size);
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             /*For testing*/
@@ -65,7 +66,7 @@ public class Main {
     		//algo.printStatistics(sequenceDatabase.size());
     	
     		/**5.Generating Rule**/
-//    		System.out.println("##Step 5: Rule Generating");
+    		System.out.println("##Step 5: Rule Generating");
     		RuleEvaluation.start("RuleEvaluation_config.txt", min_conf, SDB_Training_Size);
                 		
     		/**6.Rule Mapping**/    		
