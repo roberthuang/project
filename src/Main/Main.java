@@ -17,11 +17,11 @@ public class Main {
         	File fout = new File("data.txt");
     	    FileOutputStream fos = new FileOutputStream(fout);
 	        OutputStreamWriter osw = new OutputStreamWriter(fos);
-	        for (double j =  0.01;j <= 0.8; j = j + 0.01) {
+	        for (double j =  0.1;j <= 0.1; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/
-    		int window_size = 5;
-    		int next_week = 5;
+    		int window_size = 10;
+    		int next_week = 10;
     		int minsup = 10;    	
 //    		System.out.println(minsup);
     		double min_conf = j;
@@ -50,7 +50,7 @@ public class Main {
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             /*For testing*/
             String path_of_testing_file = "transformed_petro_subset1_feature.csv";
-            t.translate_testing(next_week, path_of_testing_file, "SDB(Testing).txt");
+            t.translate_testing_sliding_window(next_week, path_of_testing_file, "SDB(Testing).txt");
                          
             /**4.Sequential Pattern Mining**/
             //System.out.println("##Step 4: Sequential Pattern Mining");
@@ -66,14 +66,14 @@ public class Main {
     		//algo.printStatistics(sequenceDatabase.size());
     	
     		/**5.Generating Rule**/
-    		System.out.println("##Step 5: Rule Generating");
+//    		System.out.println("##Step 5: Rule Generating");
     		RuleEvaluation.start("RuleEvaluation_config.txt", min_conf, SDB_Training_Size);
                 		
     		/**6.Rule Mapping**/    		
     		//System.out.println("##Step 6: Rule Mapping");
     	    RuleMapping mapping = new RuleMapping();
-    	    HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
-   	        = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), Read_Training_Data("SDB(Training).txt"), feature_target);
+  	        HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
+  	        = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), Read_Training_Data("SDB(Training).txt"), feature_target);
     	    
     		/**7.Evaluate Precision**/     		
     	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week);    		           

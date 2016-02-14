@@ -308,7 +308,7 @@ public class GetAttr {
 			if(i == 0) {			 			     
 				temp.add("FT_but");
 			    temp.add("Match_of_rubber_but");	
-			    temp.add("Match_of_oil_but");
+//			    temp.add("Match_of_oil_but");
 //			    temp.add("MA_but_2");
 //			    temp.add("BIAS_T_2_03");	
 //			    temp.add("Match_of_MA3_rubber_but");	
@@ -316,7 +316,7 @@ public class GetAttr {
 				//All the conditional att need to add. eg. x -> x x_3 x_4		  
 				temp.add(FT_but.get(i));
 		        temp.add(Match_of_rubber_but.get(i));
-		        temp.add(Match_of_oil_but.get(i));
+//		        temp.add(Match_of_oil_but.get(i));
 //		        temp.add(MA_but_2.get(i));
 //		        temp.add(BIAS_T_2_03.get(i));
 //		        temp.add(Match_of_MA3_rubber_but.get(i));
