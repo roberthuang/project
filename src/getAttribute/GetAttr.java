@@ -280,11 +280,12 @@ public class GetAttr {
     
 	public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records) {						
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
-		
+		HashMap<Integer, String> FS_rate = feature(3, records);		
 		HashMap<Integer, String> FS_rubber = feature(2, records);		
 		HashMap<Integer, String> FS_oil = feature(1, records);
 		HashMap<Integer, String> FT_but = feature(4, records);
 		
+		HashMap<Integer, String> Match_of_oil_rate = match_source_target(FS_oil, FS_rate, 1, 3);
 		HashMap<Integer, String> Match_of_rubber_but = match_source_target(FS_rubber, FT_but, 2, 4);
 		HashMap<Integer, String> Match_of_oil_but = match_source_target(FS_oil, FT_but, 1, 4);
 		
@@ -307,7 +308,8 @@ public class GetAttr {
 			temp.add(records.get(i).get(0));
 			if(i == 0) {			 			     
 				temp.add("FT_but");
-			    temp.add("Match_of_rubber_but");	
+			    temp.add("Match_of_rubber_but");
+//			    temp.add("Match_of_oil_rate");
 //			    temp.add("Match_of_oil_but");
 //			    temp.add("MA_but_2");
 //			    temp.add("BIAS_T_2_03");	
@@ -316,6 +318,7 @@ public class GetAttr {
 				//All the conditional att need to add. eg. x -> x x_3 x_4		  
 				temp.add(FT_but.get(i));
 		        temp.add(Match_of_rubber_but.get(i));
+//		        temp.add(Match_of_oil_rate.get(i));
 //		        temp.add(Match_of_oil_but.get(i));
 //		        temp.add(MA_but_2.get(i));
 //		        temp.add(BIAS_T_2_03.get(i));

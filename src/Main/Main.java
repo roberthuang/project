@@ -20,8 +20,8 @@ public class Main {
 	        for (double j =  0.01;j <= 0.8; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/
-    		int window_size = 10;
-    		int next_week = 10;
+    		int window_size = 5;
+    		int next_week = 5;
     		int minsup = 10;    
 //    		System.out.println(minsup);
     		double min_conf = j;
