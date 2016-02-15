@@ -14,15 +14,15 @@ import ca.pfv.spmf.input.sequence_database_list_strings.SequenceDatabase;
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         try {          	     
-        	File fout = new File("data.txt");
+       	    File fout = new File("data.txt");
     	    FileOutputStream fos = new FileOutputStream(fout);
-	        OutputStreamWriter osw = new OutputStreamWriter(fos);
-	        for (double j =  0.1;j <= 0.1; j = j + 0.01) {
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+	        for (double j =  0.01;j <= 0.8; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/
     		int window_size = 10;
     		int next_week = 10;
-    		int minsup = 10;    	
+    		int minsup = 10;    
 //    		System.out.println(minsup);
     		double min_conf = j;
     		//Input
@@ -50,7 +50,7 @@ public class Main {
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             /*For testing*/
             String path_of_testing_file = "transformed_petro_subset1_feature.csv";
-            t.translate_testing_sliding_window(next_week, path_of_testing_file, "SDB(Testing).txt");
+            t.translate_testing(next_week, path_of_testing_file, "SDB(Testing).txt");
                          
             /**4.Sequential Pattern Mining**/
             //System.out.println("##Step 4: Sequential Pattern Mining");
@@ -95,7 +95,7 @@ public class Main {
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");
- 	        }
+	        }
     	    osw.close();
    	        
         } catch (FileNotFoundException e) {

@@ -46,7 +46,7 @@ public class T2SDB {
 	           e.printStackTrace();
 	       }        
 	       return SDB_Training_Size;
-	   }
+	}
 	
     public int translate_training(int window_size, int next_week, String path, HashMap<Integer, String> class_table, String output) {
        int SDB_Training_Size = 0;
