@@ -108,7 +108,7 @@ public class RuleEvaluation {
 
 			output_filename = jsobj.get("output").toString();
 
-			//min_conf = Double.parseDouble(jsobj.get("min_conf").toString());
+			min_conf = Double.parseDouble(jsobj.get("min_conf").toString());
 			min_conf = min_conf_input;
 
 			JSONArray js_events = (JSONArray) jsobj.get("contains_event");	
@@ -131,7 +131,7 @@ public class RuleEvaluation {
 
 			//1. read patterns
 
-			HashMap<String, Double> patterns = readPatterns(path,   SDB_Training_Size);
+			HashMap<String, Double> patterns = readPatterns(path, SDB_Training_Size);
 
 			//2. generate rules
 
@@ -139,8 +139,6 @@ public class RuleEvaluation {
 
 			//3. output to file			
 			writeFile(output_filename, rules);
-			
-			//System.out.println("Total: " + rules.size() + " rules are generated.");
 
 		} catch (FileNotFoundException e) {
 
@@ -152,15 +150,19 @@ public class RuleEvaluation {
 		
 	}
 
-	static HashMap<String, Double> readPatterns(String filename, int traing_data_size) throws FileNotFoundException{	      
+	static HashMap<String, Double> readPatterns(String filename, int SDB_Training_Size) throws FileNotFoundException{	      
 		HashMap<String, Double> patterns = new HashMap<>();
 		Scanner sc = new Scanner(new File(filename));
 
 		while(sc.hasNextLine()){
 			String[] tokens = sc.nextLine().split(" -1  #SUP: ");
-			double sup = Double.parseDouble(tokens[1])/ (double) traing_data_size;       
-			patterns.put(tokens[0], sup);            
+			double sup = Double.parseDouble(tokens[1])/ (double) SDB_Training_Size;       
+			patterns.put(tokens[0], sup);  
+			
 		}
+//		for (String s : patterns.keySet()) {
+//			System.out.println(s + " " + patterns.get(s));
+//		}
 		sc.close();        
 		return patterns;
 	}
@@ -177,7 +179,7 @@ public class RuleEvaluation {
 			double sup = patterns.get(key);
 
 			String[] items = key.split(" -1 ");
-       
+			
 			boolean keep = false;
            
 			for(int i=0;i<items.length && !keep;i++){
@@ -223,9 +225,11 @@ public class RuleEvaluation {
 
 			if(!patterns.containsKey(LHS.toString())) System.out.println(LHS + "\t->\t" + RHS);
             
+
 			double conf = 1.0 * sup / patterns.get(LHS.toString());
-            
-			
+//			System.out.println("key: " + key + " sup:" + sup);
+//			System.out.println("LHS:" + LHS.toString() + " sup:" + patterns.get(LHS.toString()));
+//			System.out.println(conf);
 			if(conf >= min_conf) rules.put(rule, new RuleEval(sup, conf));
 
 		}

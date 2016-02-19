@@ -17,12 +17,12 @@ public class Main {
        	    File fout = new File("data.txt");
     	    FileOutputStream fos = new FileOutputStream(fout);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
-	        for (double j =  0.01;j <= 0.8; j = j + 0.01) {
+	        for (double j =  0.3;j <= 0.3; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/
-    		int window_size = 5;
-    		int next_week = 5;
-    		int minsup = 10;    
+    		int window_size = 10;
+    		int next_week = 10;
+    		int minsup = 55;    
 //    		System.out.println(minsup);
     		double min_conf = j;
     		//Input
@@ -73,7 +73,7 @@ public class Main {
     		//System.out.println("##Step 6: Rule Mapping");
     	    RuleMapping mapping = new RuleMapping();
   	        HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
-  	        = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), Read_Training_Data("SDB(Training).txt"), feature_target);
+ 	        = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), Read_Training_Data("SDB(Training).txt"), feature_target, minsup);
     	    
     		/**7.Evaluate Precision**/     		
     	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week);    		           
