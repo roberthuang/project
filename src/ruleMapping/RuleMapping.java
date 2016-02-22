@@ -35,9 +35,12 @@ public class RuleMapping {
 	}
 	
 	/**CBE_CBS**/
-	public static ArrayList<String> getinstance(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, ArrayList<ArrayList<ArrayList<String>>> match_rules, HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training) {
+	public static ArrayList<String> getinstance(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, HashMap<ArrayList<ArrayList<String>>, Double> MATCH_RULES, HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training) {
+		ArrayList<ArrayList<ArrayList<String>>> match_rules = new ArrayList<>();
+		for (ArrayList<ArrayList<String>> rule : MATCH_RULES.keySet()) {
+		    match_rules.add(rule);	
+		}
 		
-	
 		double globalEntropy = Cacluate_all_entropy(SDB_for_training);
 		double score_1 = 0;
 		double score_2 = 0;
@@ -45,6 +48,8 @@ public class RuleMapping {
 		ArrayList<ArrayList<ArrayList<String>>> class1_set = new ArrayList<>();
 		ArrayList<ArrayList<ArrayList<String>>> class2_set = new ArrayList<>();
 		
+		
+		/**Remove Duplicates label**/
 		ArrayList<ArrayList<ArrayList<String>>> match_rules_2 = new ArrayList<>();
 		List<ArrayList<ArrayList<String>>> list = new ArrayList<>();
 		
@@ -126,9 +131,9 @@ public class RuleMapping {
 		        int size = 0;
 		        int current = 0;
 		 
-		        for (int i_1 = 0; i_1 <  class1_member.size()-1; i_1++) {                	
-                    for (int j = current; j < rule.size()-1; j++) {                                         
-                        if (rule.get(j).containsAll(class1_member.get(i_1))) {    
+		        for (int i_1 = 0; i_1 <  rule.size()-1; i_1++) {                	
+                    for (int j = current; j < class1_member.size()-1; j++) {                                         
+                        if (rule.get(i_1).containsAll(class1_member.get(j))) {    
                             current = j;
                             current++;
                             size++;
@@ -172,8 +177,9 @@ public class RuleMapping {
 		    double gain = globalEntropy - (left_ratio*Entropy);
 		    double confidence = rules.get(class1_member).get(1);
 		    double length = class1_member.size();
+		    double weight = MATCH_RULES.get(class1_member);
 		    gainratio = Math.abs(gain/SplitInfo);
-		    score_1 += confidence*gainratio*length;			
+		    score_1 += confidence*gainratio*length*weight;			
 		}
 		
 		for (ArrayList<ArrayList<String>> class2_member : class2_set) {
@@ -191,9 +197,9 @@ public class RuleMapping {
 		        int size = 0;
 		        int current = 0;
 
-		        for (int i_1 = 0; i_1 <  class2_member.size()-1; i_1++) {                	
-                    for (int j = current; j < rule.size()-1; j++) {                                         
-                        if (rule.get(j).containsAll(class2_member.get(i_1))) {    
+		        for (int i_1 = 0; i_1 < rule.size()-1; i_1++) {                	
+                    for (int j = current; j < class2_member.size()-1; j++) {                                         
+                        if (rule.get(i_1).containsAll(class2_member.get(j))) {    
                             current = j;
                             current++;
                             size++;
@@ -203,6 +209,7 @@ public class RuleMapping {
                     }   
                                        
                 }       
+		        
 		        if (size == class2_member.size()-1) {
                 	match_number++;      
                 	//System.out.println(rule.get(rule.size()-1).get(0));
@@ -248,13 +255,15 @@ public class RuleMapping {
 		    double gain = globalEntropy - (left_ratio*Entropy);
 		    double confidence = rules.get(class2_member).get(1);
 		    double length = class2_member.size();
+		    
+		    double weight = MATCH_RULES.get(class2_member);
 		    gainratio = Math.abs(gain/SplitInfo);
-		    score_2 += confidence*gainratio*length;			
+		    score_2 += confidence*gainratio*length*weight;			
 		}
 		
 		double L_score_1 = score_1/(double)class1_set.size();
 		double L_score_2 = score_2/(double)class2_set.size();
-		System.out.println("Rise: " + L_score_1 + " " +"Down: "+  L_score_2);
+		System.out.println("Rise: " + L_score_1 + " " + class1_set.size() +  " " +"Down: "+  L_score_2 + " " + class2_set.size());
 		if (L_score_1  > L_score_2 ){
 			ArrayList<String> temp  = new ArrayList<>();
 			temp.add("Rise");
@@ -335,8 +344,8 @@ public class RuleMapping {
 	
 		
 	
-		comp3.add(8);
-		comp3.add(9);
+		comp3.add(3);
+		comp3.add(4);
 	
 //		for (ArrayList<ArrayList<String>> rule : MATCH_RULES.keySet()) {
 //		    System.out.println(i + ": " + MATCH_RULES.get(rule));	
@@ -437,6 +446,7 @@ public class RuleMapping {
         }            	
         ArrayList<ArrayList<String>> match_rule = match_rules.get(max);
         ArrayList<String> Rise_Down = match_rule.get(match_rule.size()-1);
+        System.out.println(i + "_m3" +  " " +  match_rule);
 		return Rise_Down;	
 
 	}
@@ -463,11 +473,10 @@ public class RuleMapping {
         return MATCH_RULES;
 	}
 	
-	boolean contain_last (HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training,  ArrayList<ArrayList<String>> match_rule, int min_sup) {
-		boolean f = false;
+	double contain_last (HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training,  ArrayList<ArrayList<String>> match_rule, int min_sup, int window_size) {
 		ArrayList<Integer> comp2 = new ArrayList<>();		
-		comp2.add(8);
-		comp2.add(9);
+		comp2.add(window_size-1);
+		comp2.add(window_size-2);
 		int sup = 0;
 		int match_number = 0;
 		for (Integer i : SDB_for_training.keySet()) {
@@ -494,16 +503,19 @@ public class RuleMapping {
             }    
             
 		}
-		if (match_number >= 0.5*min_sup) {
-			f = true;
-		}
-		System.out.println(match_number +  " " + f + " " + sup);
-		return f;
+//		if (match_number >= 1) {
+//			f = true;
+//		}
+		double contain_last = match_number / (double) sup;
+		int rest = sup - match_number;
+		double not_contain_last = rest / (double) sup;
+//		System.out.println(match_number +  " " + f + " " + sup);
+		return contain_last*2 + not_contain_last*1;
 	}
 	
 	/**Rule Matching**/
     public HashMap<Integer, ArrayList<String>> RuleMapping(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules,
-    HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_testing, HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training, HashMap<Integer, String> target_class, int min_sup) throws IOException {
+    HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_testing, HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training, HashMap<Integer, String> target_class, int min_sup, int window_size) throws IOException {
     	
 //        for (Integer i  : SDB_for_training.keySet()) {
 //        	System.out.println(SDB_for_training.get(i));
@@ -528,7 +540,7 @@ public class RuleMapping {
         } else {
         	int Rise_number =  number_of_rise_down.get("Rise");
             int Down_number =  number_of_rise_down.get("Down");
-            if (Rise_number >= Down_number) {
+            if (Rise_number > Down_number) {
                 answer.add("Rise");        	
             } else {
             	answer.add("Down");   
@@ -546,8 +558,8 @@ public class RuleMapping {
 //        	System.out.println("SDB " + i);
             //Match rule's number
             int match_number = 0;
-//            HashMap<ArrayList<ArrayList<String>>, ArrayList<Integer>> MATCH_RULES = new HashMap<>();     
-            ArrayList<ArrayList<ArrayList<String>>> match_rules = new ArrayList<>();
+            HashMap<ArrayList<ArrayList<String>>, Double> MATCH_RULES = new HashMap<>();     
+//            HashMap<ArrayList<ArrayList<String>>, Double> match_rules = new HashMap<>();
             //The sequence in SDB_Testing
             ArrayList<ArrayList<String>> itemsets = SDB_for_testing.get(i);                            
             for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
@@ -573,17 +585,19 @@ public class RuleMapping {
 //                	MATCH_RULES.put(rule, periods);
 //                	System.out.println(rule + " " + rules.get(rule).get(0));
 //                	match_rules.add(rule);
-                	if (contain_last(SDB_for_training, rule, min_sup)) {
-               	        match_rules.add(rule);	
-                	}
-//                	osw.write("i: "+ i + " " + rule + " " + periods + "\r\n");
+//             	if (contain_last(SDB_for_training, rule, min_sup, window_size)) {
+//               			osw.write("i: "+ i + " " + rule + "\r\n");
+//               	        match_rules.add(rule);	
+//              }
+//                	osw.write("i: "+ i + " " + rule + "\r\n");
                 	//System.out.println(i+" "+rule + " " + periods);
-                } 
+                	MATCH_RULES.put(rule, contain_last(SDB_for_training, rule, min_sup, window_size));
+                }
             } 
            
 //          System.out.println(i + " match_number:" + match_number);            
             if (match_number >= 2){ 
-            	int choose = 3;
+            	int choose = 4;
             	if (choose == 1) {
             	    //METHOD1
 //            	    result.put(i,  MTHODE1(rules, MATCH_RULES, i));
@@ -592,21 +606,22 @@ public class RuleMapping {
 //            	    result.put(i,  MTHODE2(rules, MATCH_RULES, i));            	 
             	} else if (choose == 3) {
                    	//METHOD3
-            		result.put(i, MTHODE3(rules, match_rules, i));	
+//            		result.put(i, MTHODE3(rules, match_rules, i));	
             	} else {
             		//CBS            
 //            	    System.out.println(i+"th======================");
-            		result.put(i, getinstance(rules, match_rules, SDB_for_training));
+            		result.put(i, getinstance(rules, MATCH_RULES, SDB_for_training));
             	}
             } else if (0< match_number && match_number < 2){
             	//Only one match_rule
-//            	for (ArrayList<ArrayList<String>> rule : MATCH_RULES.keySet()) {
-//                    ArrayList<String> Rise_Down = rule.get(rule.size()-1);	
-//            		result.put(i,Rise_Down);
-//            	}        
-            	ArrayList<ArrayList<String>> rule = match_rules.get(0);
-            	ArrayList<String> Rise_Down = rule.get(rule.size()-1);
-            	result.put(i,Rise_Down);
+            	for (ArrayList<ArrayList<String>> rule : MATCH_RULES.keySet()) {
+                    ArrayList<String> Rise_Down = rule.get(rule.size()-1);	
+            		result.put(i,Rise_Down);
+            	}        
+            	
+//            	ArrayList<ArrayList<String>> rule = match_rules.get(0);
+//            	ArrayList<String> Rise_Down = rule.get(rule.size()-1);
+//            	result.put(i,Rise_Down);
             } else {
             	result.put(i,answer);            	         	           
             }

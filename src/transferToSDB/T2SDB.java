@@ -125,16 +125,16 @@ public class T2SDB {
                      	    int index = i + p;
                             if ((index  <= training_data) && ((i + next_week) <= training_data)) {    
                                 for (int k = 1; k < records.get(index).size(); k++) {
-//                    	           osw.write("("+ index+ ")"+records.get(index).get(k) + ", ");       
-                         	       osw.write(records.get(index).get(k) + ", "); 
+                    	           osw.write("("+ index+ ")"+records.get(index).get(k) + ", ");       
+//                         	       osw.write(records.get(index).get(k) + ", "); 
                                 }                                                      
                             } 
                         }
                         //Add Target Class
                         int Target_class_index = i + next_week;
                         if (Target_class_index <= training_data) {
-                            osw.write(class_table.get(Target_class_index));              
-//                          osw.write("("+ Target_class_index + ")"+class_table.get(Target_class_index));
+//                            osw.write(class_table.get(Target_class_index));              
+                          osw.write("("+ Target_class_index + ")"+class_table.get(Target_class_index));
                         } else {
                      	   break;
                         }               
@@ -253,7 +253,8 @@ public class T2SDB {
 	       for (int i = 1; i <= size; i++) {
 	    		   osw.write("A" + i + ", "); 
 	       }   	 
-	       osw.write("Target");  
+	       osw.write("Target")
+	       ;  
 	       osw.write("\r\n");     
 	       
 	       for (int i = 1+training_data; i < records.size(); i += next_week) { 
@@ -261,16 +262,16 @@ public class T2SDB {
             	    int index = i + p;
                    if ((index  < records.size()) && ((i + next_week) < records.size())) {    
                        for (int k = 1; k < records.get(index).size(); k++) {
-//           	           osw.write("("+ index+ ")"+records.get(index).get(k) + ", ");       
-                	       osw.write(records.get(index).get(k) + ", "); 
+           	           osw.write("("+ index+ ")"+records.get(index).get(k) + ", ");       
+//                	       osw.write(records.get(index).get(k) + ", "); 
                        }                                                      
                    } 
                }
                //Add Target Class
                int Target_class_index = i + next_week;
                if (Target_class_index < records.size()) {
-                   osw.write(class_table.get(Target_class_index));              
-//                   osw.write("("+ Target_class_index + ")"+class_table.get(Target_class_index));
+//                   osw.write(class_table.get(Target_class_index));              
+                   osw.write("("+ Target_class_index + ")"+class_table.get(Target_class_index));
                } else {
             	   break;
                }               
