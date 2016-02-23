@@ -17,7 +17,7 @@ public class Main {
        	    File fout = new File("data.txt");
     	    FileOutputStream fos = new FileOutputStream(fout);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
-	        for (double j =  0.01;j <= 0.8; j = j + 0.01) {
+	        for (double j =  0.64;j <= 0.64; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/
     		int window_size = 10;
