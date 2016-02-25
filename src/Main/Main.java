@@ -17,7 +17,7 @@ public class Main {
        	    File fout = new File("data.txt");
     	    FileOutputStream fos = new FileOutputStream(fout);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
-	        for (double j =  0.64;j <= 0.64; j = j + 0.01) {
+	        for (double j =  0.64;j <= 0.8; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/
     		int window_size = 10;
@@ -47,7 +47,7 @@ public class Main {
             String path_after_discrete = "transformed_petro_subset1_feature.csv";
     		T2SDB t = new T2SDB();
     		int SDB_Training_Size = t.translate_training_sliding_window (next_week, path_after_discrete,  feature_target, "SDB(Training).txt");
-//          System.out.println(SDB_Training_Size);
+          System.out.println(SDB_Training_Size);
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             /*For testing*/
             String path_of_testing_file = "transformed_petro_subset1_feature.csv";

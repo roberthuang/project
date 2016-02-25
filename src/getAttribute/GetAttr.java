@@ -24,6 +24,9 @@ public class GetAttr {
         }       	        	
 	    return result;		
 	}
+	
+	
+	
 	public static HashMap<Integer, Double> feature2_weka(int att_index, ArrayList<ArrayList<String>> records) {
 		 HashMap<Integer, Double> result = new HashMap<>(); 	    
 	     int col = att_index; 
@@ -35,6 +38,7 @@ public class GetAttr {
 	                result.put(i, min);
 	            }
          }    
+	     
 	     double average =  0.0;
 	    	for (int i = 1; i < result.size(); i++) {
 	    		if (result.get(i) != null) {
@@ -44,7 +48,7 @@ public class GetAttr {
 	    	
 	    	average /= (double) result.size();
 	    	for (int i = 1; i < result.size(); i++) {
-	    		if (result.get(i) == null) {
+	    		if (result.get(i)== null) {
 	    			result.put(i, average);
 	    		}
 	    	}
@@ -432,72 +436,34 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
     //weka
     public static void featureExtraction_weka(String output_filename, ArrayList<ArrayList<String>> records) {		      		
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
-		/*HashMap<Integer, String> F_oil = feature2(2, records);	    
-		HashMap<Integer, String> F_but = feature2(4, records);
-		
-		HashMap<Integer, String> FS_oil = feature(2, records);		
-		HashMap<Integer, String> FS_cru = feature(1, records);
-		HashMap<Integer, String> FT_but = feature(4, records);	*/
-		HashMap<Integer, Double> FS_oil = feature2_weka(2, records);
-		
-		/*
-		HashMap<Integer, String> Match_of_oil_but = match_source_target(FS_oil, FT_but, 2, 4);
-		HashMap<Integer, String> Match_of_cru_but = match_source_target(FS_cru, FT_but, 1, 4);*/
-		
-		/*HashMap<Integer, String> MACD_oil_1_2_3 = MACD(1, 2, 3,records.get(0).get(2), records);*/
-		HashMap<Integer, Double> MACD_oil_1_2_3 = MACD_weka(1, 2, 3,records.get(0).get(2), records);
-		//HashMap<Integer, String> MACD_rate_1_2_3 = MACD(1, 2, 3,records.get(0).get(3), records);
-		/*HashMap<Integer, String> MACD_T_1_2_3 = MACD(1, 2, 3,records.get(0).get(4), records);*/
-		HashMap<Integer, Double> MACD_T_1_2_3 = MACD_weka(1, 2, 3,records.get(0).get(4), records);
-		/*HashMap<Integer, String> MACD_T_2_3_4 = MACD(2, 3, 4,records.get(0).get(4), records);*/
-		HashMap<Integer, Double> MACD_T_2_3_4 = MACD_weka(2, 3, 4,records.get(0).get(4), records);
-		
-		//HashMap<Integer, String> BIAS_rate_2_03 = BIAS(2, 3, 0.0003, records);
-		/*HashMap<Integer, String> BIAS_T_2_03 = BIAS(2, 4, 0.0003, records);*/
-		HashMap<Integer, Double> BIAS_T_2_03 = BIAS_weka(2, 4, 0.0003, records);
-				
+		HashMap<Integer, String> FT_but = feature(4, records);
+		HashMap<Integer, Double> FT_but_value = feature2_weka(4, records);
+		HashMap<Integer, String> FS_rubber = feature(2, records);	
+		HashMap<Integer, Double> MA_T_2 = Move_Average_weka(2, records.get(0).get(4), 4, records);
+//		HashMap<Integer, String> Match_of_rubber_but = match_source_target(FS_rubber, FT_but, 2, 4);
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add time
 			temp.add(records.get(i).get(0));
 			if(i == 0) {
-				/*
-				   temp.add("F_oil");			 
-			       temp.add("F_but");
-			       temp.add("Match_of_oil_but");	
-			       temp.add("Match_of_cru_but");	
-			       temp.add("MACD_oil_1_2_3");
-			       //temp.add("MACD_rate_1_2_3");
-			       temp.add("MACD_T_1_2_3");
-			       temp.add("MACD_T_2_3_4");
-			       //temp.add("BIAS_rate_2_03");
-			       temp.add("BIAS_T_2_03");		   	*/
-				   temp.add("FS_oil");
-				   temp.add("MACD_oil_1_2_3");
-				   temp.add("MACD_T_1_2_3");
-				   temp.add("MACD_T_2_3_4");
-				   temp.add("BIAS_T_2_03");
-				   
+				temp.add("FT_but_value");
+				temp.add("MA_T_2");
+
+				temp.add(records.get(0).get(1));
+				temp.add(records.get(0).get(2));
+				temp.add(records.get(0).get(3));
+				temp.add(records.get(0).get(4));
 			} else {
-				/*
-				   temp.add(F_oil.get(i));		           
-		           temp.add(F_but.get(i));
-		           temp.add(Match_of_oil_but.get(i));
-		           temp.add(Match_of_cru_but.get(i));
-		           temp.add(MACD_oil_1_2_3.get(i));
-		           //temp.add(MACD_rate_1_2_3.get(i));
-		           temp.add(MACD_T_1_2_3.get(i));
-		           temp.add(MACD_T_2_3_4.get(i));
-		           //temp.add(BIAS_rate_2_03.get(i));
-		           temp.add(BIAS_T_2_03.get(i));*/
-				
-				   temp.add(String.valueOf(FS_oil.get(i)));
-				   temp.add(String.valueOf(MACD_oil_1_2_3.get(i)));
-				   temp.add(String.valueOf(MACD_T_1_2_3.get(i)));
-				   temp.add(String.valueOf(MACD_T_2_3_4.get(i)));
-				   temp.add(String.valueOf(BIAS_T_2_03.get(i)));
+				//temp.add(FT_but_weka.get(i));
+				temp.add(String.valueOf(FT_but_value.get(i)));
+				temp.add(String.valueOf(MA_T_2.get(i)));
+				temp.add(records.get(i).get(1));
+				temp.add(records.get(i).get(2));
+				temp.add(records.get(i).get(3));
+				temp.add(records.get(i).get(4));
+			
 			}	
-			temp.add(records.get(i).get(records.get(i).size()-1));	
+			//temp.add(records.get(i).get(records.get(i).size()-1));	
 			result.add(temp);
 		}		
 		try {
