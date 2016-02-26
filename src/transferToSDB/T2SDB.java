@@ -101,6 +101,59 @@ public class T2SDB {
        }        
        return SDB_Training_Size;
    }
+    //weka
+    public int translate_training_sliding_window_weka(int next_week, String path, HashMap<Integer, String> class_table, String output) {
+	       int SDB_Training_Size = 0;
+	       try {
+	           ArrayList<ArrayList<String>> records = readCSV(path);
+	           int training_data = (int)((records.size()- 1)*0.8);
+	           //output
+	           File fout = new File(output);
+		       FileOutputStream fos = new FileOutputStream(fout);
+		       OutputStreamWriter osw = new OutputStreamWriter(fos);   
+		       
+		       //Write Title
+	 	        int size = next_week*(records.get(0).size()-1);
+		        for (int i = 1; i <= size; i++) {
+		        	osw.write("A" + i  + ", ");    	
+		        }   	
+		        osw.write("Target");  
+		        osw.write("\r\n");   
+//		       System.out.println(training_data-window_size+1);
+	           for (int i = 1; i <= training_data; i++) { 
+	               for (int p = 0; p < next_week; p++) {
+	                   int index = i + p; 
+	                   if ((index  <= training_data) && ((i + next_week) <= training_data)) {    
+	                       for (int k = 1; k < records.get(index).size(); k++) {
+//	                   	       osw.write("("+ index+ ")"+ " "+records.get(index).get(k) + " ");       
+	                           osw.write(records.get(index).get(k) + ", "); 	       
+	                       }                       
+	                       //osw.write(-1 + " ");
+	                   } 
+	               }    
+	               //Add Target Class
+                int Target_class_index = i + next_week;
+	               if (Target_class_index <= training_data) {
+	                   osw.write(class_table.get(Target_class_index));
+	                   //Debug
+//	                   osw.write(class_table.get(Target_class_index) + "(" + Target_class_index + ")" + " "+ -1 + " ");
+	               } else {
+	                   break;
+	               } 
+	               SDB_Training_Size++;
+	             
+	               osw.write("\r\n");  
+	           }
+	           osw.close();        
+	       } catch (FileNotFoundException e) {
+		       System.out.println("[ERROR] File Not Found Exception.");
+		    e.printStackTrace();
+		   } catch (IOException e) {
+	           System.out.println("[ERROR] I/O Exception.");
+	           e.printStackTrace();
+	       }        
+	       return SDB_Training_Size;
+	}
     
     public void translate_training_weka(int next_week, String path, HashMap<Integer, String> class_table, String output) {
         try {
@@ -159,7 +212,14 @@ public class T2SDB {
             //output
             File fout = new File(output);
  	       FileOutputStream fos = new FileOutputStream(fout);
- 	       OutputStreamWriter osw = new OutputStreamWriter(fos);           
+ 	       OutputStreamWriter osw = new OutputStreamWriter(fos);       
+	       //Write Title
+	        int size = next_week*(records.get(0).size()-1);
+	        for (int i = 1; i <= size; i++) {
+	        	osw.write("A" + i  + ", ");    	
+	        }   	
+	        osw.write("Target");  
+	        osw.write("\r\n");  
 // 	       System.out.println(training_data + 1);
             for (int i = training_data + 1; i < records.size()-next_week; i++) {
 //         	   System.out.println(i);
@@ -236,6 +296,59 @@ public class T2SDB {
            e.printStackTrace();
        }  
    } 
+   //weka
+   public int translate_testing_sliding_window_weka(int next_week, String path, HashMap<Integer, String> class_table, String output) {
+	       int SDB_Training_Size = 0;
+	       try {
+	           ArrayList<ArrayList<String>> records = readCSV(path);
+	           int training_data = (int)((records.size()- 1)*0.8);
+	           //output
+	           File fout = new File(output);
+		       FileOutputStream fos = new FileOutputStream(fout);
+		       OutputStreamWriter osw = new OutputStreamWriter(fos);   
+//		       System.out.println(training_data-window_size+1);
+		     //Write Title
+		        int size = next_week*(records.get(0).size()-1);
+		        for (int i = 1; i <= size; i++) {
+		        	osw.write("A" + i  + ", ");    	
+		        }   	
+		        osw.write("Target");  
+		        osw.write("\r\n");  
+	           for (int i = training_data+1; i < records.size(); i++) { 
+	               for (int p = 0; p < next_week; p++) {
+	                   int index = i + p; 
+	                   if ((index  < records.size()) && ((i + next_week) <records.size())) {    
+	                       for (int k = 1; k < records.get(index).size(); k++) {
+//	                   	       osw.write("("+ index+ ")"+ " "+records.get(index).get(k) + " ");       
+	                           osw.write(records.get(index).get(k) + ", "); 	       
+	                       }                       
+	                       //osw.write(-1 + " ");
+	                   } 
+	               }    
+	               //Add Target Class
+               int Target_class_index = i + next_week;
+	               if (Target_class_index < records.size()) {
+	                   osw.write(class_table.get(Target_class_index));
+	                   //Debug
+//	                   osw.write(class_table.get(Target_class_index) + "(" + Target_class_index + ")" + " "+ -1 + " ");
+	               } else {
+	                   break;
+	               } 
+	               SDB_Training_Size++;
+	             
+	               osw.write("\r\n");  
+	           }
+	           osw.close();        
+	       } catch (FileNotFoundException e) {
+		       System.out.println("[ERROR] File Not Found Exception.");
+		    e.printStackTrace();
+		   } catch (IOException e) {
+	           System.out.println("[ERROR] I/O Exception.");
+	           e.printStackTrace();
+	       }        
+	       return SDB_Training_Size;
+	}
+   
    
    public void translate_testing_weka(int next_week, String path, HashMap<Integer, String> class_table, String output) {
        try {
