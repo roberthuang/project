@@ -29,13 +29,13 @@ package ruleGeneration;
 import java.io.File;
 
 import java.io.FileNotFoundException;
-
+import java.io.FileOutputStream;
 import java.io.FileReader;
 
 import java.io.FileWriter;
 
 import java.io.IOException;
-
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 import java.util.Collections;
@@ -166,8 +166,15 @@ public class RuleEvaluation {
 		return patterns;
 	}
 
-	static HashMap<String, RuleEval> generateRules(HashMap<String, Double> patterns, HashSet<String> contains_event){			     
-		HashMap<String, RuleEval> rules = new HashMap<>();        
+	static HashMap<String, RuleEval> generateRules(HashMap<String, Double> patterns, HashSet<String> contains_event){	
+		
+		
+		
+		
+		HashMap<String, RuleEval> rules = new HashMap<>();
+		/**Distribution of rule**/
+		HashMap<Double, Integer> distribution_of_rule = new HashMap<>();
+		
 		Iterator<String> keys = patterns.keySet().iterator();
 		String default_predict = null;
 
@@ -229,7 +236,18 @@ public class RuleEvaluation {
 //			System.out.println("key: " + key + " sup:" + sup);
 //			System.out.println("LHS:" + LHS.toString() + " sup:" + patterns.get(LHS.toString()));
 //			System.out.println(conf);
-			if(conf >= min_conf) rules.put(rule, new RuleEval(sup, conf));
+			if(conf >= min_conf) {
+				if (distribution_of_rule.get(conf) == null) {
+					int count = 1;
+					distribution_of_rule.put(conf, count);
+					
+				} else {
+					int count = distribution_of_rule.get(conf);
+					count++;
+					distribution_of_rule.put(conf, count);					
+				}
+				rules.put(rule, new RuleEval(sup, conf));
+			}
 
 		}
 
@@ -242,7 +260,19 @@ public class RuleEvaluation {
 			rules.put(rule, new RuleEval(sup, sup));	//Confidence of DEFAULT = its support
 
 		}
-		
+		/**write file**/
+	    try {        	     
+		    File fout = new File("C:\\user\\workspace\\project\\data\\distribution_" + min_conf + ".txt");
+		    FileOutputStream fos = new FileOutputStream(fout);
+		    OutputStreamWriter osw = new OutputStreamWriter(fos);
+	        for (double conf : distribution_of_rule.keySet()) {
+	    	    osw.write("conf: " + conf + "    count: "+  distribution_of_rule.get(conf) + "\r\n");   
+	        }
+	        osw.close();	    
+	    } catch (IOException e) {
+       	    System.out.println("[ERROR] I/O Exception.");
+            e.printStackTrace();  	
+        }   
 		return rules;
 	}
 	

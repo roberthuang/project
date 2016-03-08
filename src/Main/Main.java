@@ -90,6 +90,8 @@ public class Main {
     		osw.write("minsup:"             + minsup + "\r\n");
     		osw.write("min_conf:"           + min_conf + "\r\n");  
     		osw.write("rule_size:"           + rule_size + "\r\n");  
+    		osw.write("\r\n"); 
+    		osw.write("\r\n");  
     		osw.write("=== Confusion Matrix ===\r\n");
     		osw.write("          a      b\r\n");
     		osw.write("a=Rise   " + e.get("True_Positive") + "\t" + e.get("False_Negative") + "\r\n");
