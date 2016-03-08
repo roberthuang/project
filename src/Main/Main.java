@@ -14,26 +14,32 @@ import ca.pfv.spmf.input.sequence_database_list_strings.SequenceDatabase;
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         try {          	     
-       	    File fout = new File("data.txt");
+       	    File fout = new File("C:\\user\\workspace\\project\\data\\" + "data" + "_s"+ args[0] + "_c" + args[1]+ "_w" + args[2]+".txt");
     	    FileOutputStream fos = new FileOutputStream(fout);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
-	        for (double j =  0.64;j <= 0.64; j = j + 0.01) {
-   	        System.out.println(j);
-    		/**0.Set Argument**/
-    		int window_size = 2;
+	        //for (double j =  0.64;j <= 0.64; j = j + 0.01) {
+   	        //System.out.println(j);
+    		/**0.Set Argument**/    		
+    		
+    		if (args.length < 3) {
+    			System.out.println("Enter: 1. min_sup   2. min_conf   3. window_size");
+    			
+    		}
+    		
+    		int minsup = Integer.parseInt(args[0]);    
+//    		System.out.println(minsup);
+    		double min_conf = Double.parseDouble(args[1]);
+    		int window_size =  Integer.parseInt(args[2]);
     		int next_week = 0;
     		next_week = window_size;
-    		int minsup = 20;    
-//    		System.out.println(minsup);
-    		double min_conf = j;
     		//Input
-    		String path = "petro_subset1_2010_rate.csv";
+    		String path = "C:\\user\\workspace\\project\\petro_subset1_2010_rate.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);
             int traing_data_size = (int)((records.size()-1)*0.8);
             
     		HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
- //   		GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records);	
-    		GetAttr.featureExtraction_episode("transformed_petro_subset1_feature.csv", records, feature_target);
+    		GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records);	
+ //   		GetAttr.featureExtraction_episode("transformed_petro_subset1_feature.csv", records, feature_target);
     		//GetAttr.featureExtraction_weka("weka.csv", records);	
 	        /**2.SAX**/
     	    //System.out.println("##Step 2.1: SAX(Traing)");
@@ -43,7 +49,7 @@ public class Main {
             //SAXTransformation_Testing.start("petro_subset1_breakpoints_2010.txt");
                                               
             /**3.Temporal Data Base to SDB(Training)**/
-            //System.out.println("##Step 3.1: Temporal Data Base to SDB(Training)");
+            System.out.println("##Step 3.1: Temporal Data Base to SDB(Training)");
             /*For training*/            
             String path_after_discrete = "transformed_petro_subset1_feature.csv";
    		    T2SDB t = new T2SDB();
@@ -51,11 +57,11 @@ public class Main {
  //         System.out.println(SDB_Training_Size);
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");
             /*For testing*/
-//            String path_of_testing_file = "transformed_petro_subset1_feature.csv";
-//            t.translate_testing(next_week, path_of_testing_file, "SDB(Testing).txt");
+            String path_of_testing_file = "transformed_petro_subset1_feature.csv";
+            t.translate_testing(next_week, path_of_testing_file, "SDB(Testing).txt");
                          
             /**4.Sequential Pattern Mining**/
-            //System.out.println("##Step 4: Sequential Pattern Mining");
+            System.out.println("##Step 4: Sequential Pattern Mining");
             /*Load a sequence database*/
             SequenceDatabase sequenceDatabase = new SequenceDatabase(); 
             sequenceDatabase.loadFile("SDB(Training).txt");
@@ -68,21 +74,22 @@ public class Main {
     		//algo.printStatistics(sequenceDatabase.size());
     	
     		/**5.Generating Rule**/
-//    		System.out.println("##Step 5: Rule Generating");
-//    		RuleEvaluation.start("RuleEvaluation_config.txt", min_conf, SDB_Training_Size);
+    		System.out.println("##Step 5: Rule Generating");
+    		int rule_size = RuleEvaluation.start("C:\\user\\workspace\\project\\RuleEvaluation_config.txt", min_conf, SDB_Training_Size);
                 		
     		/**6.Rule Mapping**/    		
     		//System.out.println("##Step 6: Rule Mapping");
- //   	    RuleMapping mapping = new RuleMapping();
-//  	        HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
-//	        = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), Read_Training_Data("SDB(Training).txt"), feature_target, minsup, window_size);
+    	    RuleMapping mapping = new RuleMapping();
+  	        HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
+	        = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), Read_Training_Data("SDB(Training).txt"), feature_target, minsup, window_size);
     	    
     		/**7.Evaluate Precision**/     		
- //   	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week);    		           
-  /*  		
+    	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week);    		           
+    		
     		osw.write("window_size:"        + window_size + "\r\n");
     		osw.write("minsup:"             + minsup + "\r\n");
-    		osw.write("min_conf:"           + min_conf + "\r\n");    
+    		osw.write("min_conf:"           + min_conf + "\r\n");  
+    		osw.write("rule_size:"           + rule_size + "\r\n");  
     		osw.write("=== Confusion Matrix ===\r\n");
     		osw.write("          a      b\r\n");
     		osw.write("a=Rise   " + e.get("True_Positive") + "\t" + e.get("False_Negative") + "\r\n");
@@ -96,8 +103,8 @@ public class Main {
             osw.write("macro_f_measure: " + e.get("macro_f_measure")+ "\r\n");
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
-    		osw.write("\r\n");*/
-	        }
+    		osw.write("\r\n");
+	        //}
     	    osw.close();
    	        
         } catch (FileNotFoundException e) {

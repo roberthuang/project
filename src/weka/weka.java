@@ -25,8 +25,8 @@ public class weka {
     	    /**1.Training Data**/
     	    T2SDB t2sdb = new T2SDB();   
     	    HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
-    	    t2sdb.translate_training_sliding_window_weka(10, "petro_subset1_2010_rate.csv", feature_target, "weka_training.txt");
-    	    //t2sdb.translate_training_weka(10, "weka.csv", feature_target, "weka_training.txt");
+    	    //t2sdb.translate_training_sliding_window_weka(10, "petro_subset1_2010_rate.csv", feature_target, "weka_training.txt");
+    	    t2sdb.translate_training_sliding_window_weka(10, "weka.csv", feature_target, "weka_training.txt");
     	    /**2.Testing Data**/   
     	    t2sdb.translate_testing_sliding_window_weka(10, "petro_subset1_2010_rate.csv", feature_target, "weka_testing.txt");
     	    //t2sdb.translate_testing_weka(10, "weka.csv", feature_target, "weka_testing.txt");

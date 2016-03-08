@@ -84,16 +84,14 @@ public class RuleEvaluation {
 
 	}
 
-	public static void start(String jsconfig, double min_conf_input, int  SDB_Training_Size) {
+	public static int start(String jsconfig, double min_conf_input, int  SDB_Training_Size) {
         
-		mainflow(jsconfig, min_conf_input,  SDB_Training_Size);
+		return mainflow(jsconfig, min_conf_input,  SDB_Training_Size);
 
 	}
 	
-	static void mainflow(String jsconfig, double min_conf_input, int  SDB_Training_Size) {
-
-		//System.out.println("===============  RuleEvaluation ===================");
-
+	static int mainflow(String jsconfig, double min_conf_input, int  SDB_Training_Size) {
+		int rule_size = 0;
 		JSONParser parser = new JSONParser();
 
 		String path = "", output_filename = "";
@@ -136,10 +134,10 @@ public class RuleEvaluation {
 			//2. generate rules
 
 			HashMap<String, RuleEval> rules = generateRules(patterns, contains_event);
-
+			rule_size = rules.keySet().size();
 			//3. output to file			
 			writeFile(output_filename, rules);
-
+			
 		} catch (FileNotFoundException e) {
 
 			System.out.println("[ERROR] Path setting error.");
@@ -147,6 +145,7 @@ public class RuleEvaluation {
 			e.printStackTrace();
 
 		}
+		return rule_size;
 		
 	}
 

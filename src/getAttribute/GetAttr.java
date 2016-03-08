@@ -502,23 +502,22 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 		HashMap<Integer, Double> FT_but_value = feature2_weka(4, records);
 		HashMap<Integer, String> FS_rubber = feature(2, records);	
 		HashMap<Integer, Double> MA_T_2 = Move_Average_weka(2, records.get(0).get(4), 4, records);
-//		HashMap<Integer, String> Match_of_rubber_but = match_source_target(FS_rubber, FT_but, 2, 4);
+		HashMap<Integer, String> Match_of_rubber_but = match_source_target(FS_rubber, FT_but, 2, 4);
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add time
 			temp.add(records.get(i).get(0));
 			if(i == 0) {
-				temp.add("FT_but_value");
-				temp.add("MA_T_2");
-
+				temp.add("FT_but");
+				temp.add("Match_of_rubber_but");
 				temp.add(records.get(0).get(1));
 				temp.add(records.get(0).get(2));
 				temp.add(records.get(0).get(3));
 				temp.add(records.get(0).get(4));
 			} else {
 				//temp.add(FT_but_weka.get(i));
-				temp.add(String.valueOf(FT_but_value.get(i)));
-				temp.add(String.valueOf(MA_T_2.get(i)));
+				temp.add(String.valueOf(FT_but.get(i)));
+				temp.add(String.valueOf(Match_of_rubber_but.get(i)));
 				temp.add(records.get(i).get(1));
 				temp.add(records.get(i).get(2));
 				temp.add(records.get(i).get(3));
