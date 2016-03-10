@@ -666,7 +666,7 @@ public class RuleMapping {
     }
     
     /**Performance Evaluation**/       
-    public HashMap<String, Double> evaluate(HashMap<Integer, String> class_table , HashMap<Integer, ArrayList<String>> predict, int traing_data_size, int next_week) throws FileNotFoundException {
+    public HashMap<String, Double> evaluate(HashMap<Integer, String> class_table , HashMap<Integer, ArrayList<String>> predict, int traing_data_size, int next_week, int records_size) throws FileNotFoundException {
     	HashMap<String, Double> e = new HashMap<>();
     	HashMap<String, Integer> number = new HashMap<>();
 
@@ -695,28 +695,31 @@ public class RuleMapping {
         int True_Negative  = 0;
         int False_Positive = 0;
         int False_Negative = 0;     
-        int index = traing_data_size+1;   
-        
+        int testing_start = traing_data_size+1;   
+        int index = testing_start + next_week;
  
 //       System.out.println(class_table.size());
         
         for (int i = 1; i <= predict.size(); i++) {
-        		System.out.println(i+ " " + predict.get(i).get(0) + " vs " + " " +(index +next_week) + " "+class_table.get(index +next_week));
+        	    
+        	    if (index > records_size) continue; 
+        	
+        		System.out.println(i+ " " + predict.get(i).get(0) + " vs " + " " + (index) + " "+class_table.get(index));
                 if (predict.get(i).get(0).equals("Rise"))	{
-                    if (class_table.get(index +next_week).equals("Rise")) {
+                    if (class_table.get(index).equals("Rise")) {
                     	True_Positive += 1;	
                     } else {
                     	False_Negative += 1;
                     }
                 	
                 } else  {
-                	if (class_table.get(index +next_week).equals("Down")) {
+                	if (class_table.get(index).equals("Down")) {
                 		True_Negative += 1;	
                     } else {
                     	False_Positive += 1;
                     }              	
                 }
-                index += next_week;
+                index += 1;
         }
  
         int size = True_Negative +  True_Positive + False_Positive + False_Negative;

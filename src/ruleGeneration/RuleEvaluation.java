@@ -84,13 +84,13 @@ public class RuleEvaluation {
 
 	}
 
-	public static int start(String jsconfig, double min_conf_input, int  SDB_Training_Size) {
+	public static int start(String jsconfig, double min_conf_input, int minsup, int window_size, int SDB_Training_Size) {
         
-		return mainflow(jsconfig, min_conf_input,  SDB_Training_Size);
+		return mainflow(jsconfig, min_conf_input, minsup, window_size, SDB_Training_Size);
 
 	}
 	
-	static int mainflow(String jsconfig, double min_conf_input, int  SDB_Training_Size) {
+	static int mainflow(String jsconfig, double min_conf_input, int minsup, int window_size, int SDB_Training_Size) {
 		int rule_size = 0;
 		JSONParser parser = new JSONParser();
 
@@ -133,7 +133,7 @@ public class RuleEvaluation {
 
 			//2. generate rules
 
-			HashMap<String, RuleEval> rules = generateRules(patterns, contains_event);
+			HashMap<String, RuleEval> rules = generateRules(patterns, contains_event, minsup, window_size);
 			rule_size = rules.keySet().size();
 			//3. output to file			
 			writeFile(output_filename, rules);
@@ -166,7 +166,7 @@ public class RuleEvaluation {
 		return patterns;
 	}
 
-	static HashMap<String, RuleEval> generateRules(HashMap<String, Double> patterns, HashSet<String> contains_event){	
+	static HashMap<String, RuleEval> generateRules(HashMap<String, Double> patterns, HashSet<String> contains_event, int minsup, int window_size){	
 		
 		
 		
@@ -260,9 +260,10 @@ public class RuleEvaluation {
 			rules.put(rule, new RuleEval(sup, sup));	//Confidence of DEFAULT = its support
 
 		}
+		
 		/**write file**/
 	    try {        	     
-		    File fout = new File("C:\\user\\workspace\\project\\data\\distribution_" + min_conf + ".txt");
+		    File fout = new File("C:\\user\\workspace\\project\\data\\distribution" + "_s" + minsup + "_c" + min_conf + "_w"+window_size+".txt");
 		    FileOutputStream fos = new FileOutputStream(fout);
 		    OutputStreamWriter osw = new OutputStreamWriter(fos);
 	        for (double conf : distribution_of_rule.keySet()) {

@@ -203,24 +203,18 @@ public class T2SDB {
        }        
     }
     
-    public void translate_testing_sliding_window(int next_week, String path, String output) {
-        try {
+    public int translate_testing_sliding_window(int next_week, String path, String output) {
+    	    int SDB_Testing_Size = 0;
+    	try {
         	
             ArrayList<ArrayList<String>> records = readCSV(path);                          
             int training_data = (int)((records.size()-1)*0.8);       
             
             //output
             File fout = new File(output);
- 	       FileOutputStream fos = new FileOutputStream(fout);
- 	       OutputStreamWriter osw = new OutputStreamWriter(fos);       
-	       //Write Title
-	        int size = next_week*(records.get(0).size()-1);
-	        for (int i = 1; i <= size; i++) {
-	        	osw.write("A" + i  + ", ");    	
-	        }   	
-	        osw.write("Target");  
-	        osw.write("\r\n");  
-// 	       System.out.println(training_data + 1);
+ 	        FileOutputStream fos = new FileOutputStream(fout);
+ 	        OutputStreamWriter osw = new OutputStreamWriter(fos);       
+// 	        System.out.println(training_data + 1);
             for (int i = training_data + 1; i < records.size()-next_week; i++) {
 //         	   System.out.println(i);
                 for (int j = 0; j < next_week;j++) {
@@ -228,7 +222,7 @@ public class T2SDB {
                     if (index < records.size()) {           
                  	   
                  	   for (int k = 1;k < records.get(i).size()-1; k++) {
-                    	   osw.write(records.get(index).get(k) + " ");    
+                     	   osw.write(records.get(index).get(k) + " ");    
 //                     	   osw.write("("+ index+ ")"+records.get(index).get(k) + " ");       
                        }                       
                         osw.write(-1 + " ");                       
@@ -239,7 +233,8 @@ public class T2SDB {
                     }
                 }                 
                 osw.write(""+-2);
-                osw.write("\r\n");             
+                osw.write("\r\n");    
+                SDB_Testing_Size++;
             }
             osw.close(); 
             //System.out.println("Testing Data's window number: " + (records.size()- 1 - training_data) );
@@ -251,6 +246,7 @@ public class T2SDB {
             System.out.println("[ERROR] I/O Exception.");
             e.printStackTrace();
         }  
+        return SDB_Testing_Size;
     } 
     
     
