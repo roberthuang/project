@@ -14,17 +14,14 @@ import ca.pfv.spmf.input.sequence_database_list_strings.SequenceDatabase;
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         try {    
-        	
+        	File fout = new File("C:\\user\\workspace\\project\\data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+".txt");
+     	    FileOutputStream fos = new FileOutputStream(fout);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
 	        for (double j =  0.01;j <= 0.9; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/    		
-   	     File fout = new File("C:\\user\\workspace\\project\\data\\" + "data" + "_s"+ args[0] + "_c" +j+ "_w" + args[1]+".txt");
-     	FileOutputStream fos = new FileOutputStream(fout);
-         OutputStreamWriter osw = new OutputStreamWriter(fos);
- 	    
     		if (args.length < 2) {
     			System.out.println("Enter: 1. min_sup   2. min_conf   3. window_size");
-    			
     		}
     		
     		int minsup = Integer.parseInt(args[0]);    
@@ -33,7 +30,7 @@ public class Main {
     		double min_conf = j;
     		int window_size =  Integer.parseInt(args[1]);
     		int next_week = 0;
-    		next_week = window_size;
+    		next_week =  window_size;
     		//Input
     		String path = "C:\\user\\workspace\\project\\petro_subset1_2010_rate.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);
@@ -55,7 +52,7 @@ public class Main {
             /*For training*/            
             String path_after_discrete = "transformed_petro_subset1_feature.csv";
    		    T2SDB t = new T2SDB();
-    		int SDB_Training_Size = t.translate_training_sliding_window(next_week, path_after_discrete,  feature_target, "SDB(Training).txt");
+    		int SDB_Training_Size = t.translate_training_sliding_window(window_size, path_after_discrete,  feature_target, "SDB(Training).txt");
  //         System.out.println(SDB_Training_Size);
     		
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");    		
@@ -109,9 +106,9 @@ public class Main {
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");
-    		osw.close();
+    		
 	        }
-    	    //osw.close();
+    	    osw.close();
    	        
         } catch (FileNotFoundException e) {
             System.out.println("[ERROR] File Not Found Exception.");

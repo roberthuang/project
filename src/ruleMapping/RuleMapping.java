@@ -4,7 +4,9 @@ import java.io.*;
 import java.util.*;
 
 public class RuleMapping {
-	
+	/**CBE_CBS**/
+	static int rise_set_size = 0;
+	static int down_set_size = 0;
 	/**CBE_CBS**/
 	public static double Cacluate_all_entropy(HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training) {
 	    double globalEntropy = 0; 	
@@ -80,17 +82,19 @@ public class RuleMapping {
 		} else {
 		    double score_rise = 0;
 		    for (ArrayList<ArrayList<String>> rise_match_rule : Rise_set) {
+		    	if (classifier.get(rise_match_rule) == null) continue;
 		    	double score = classifier.get(rise_match_rule);
 		    	score_rise += score;
 		    }
-		    score_rise /= (double) Rise_set.size();
+		    score_rise /= (double) rise_set_size;
 		    
 		    double score_down = 0;
 		    for (ArrayList<ArrayList<String>> down_match_rule : Down_set) {
+		    	if (classifier.get(down_match_rule) == null) continue;
 		    	double score = classifier.get(down_match_rule);
 		    	score_down += score;
 		    }
-		    score_down /= (double) Down_set.size();
+		    score_down /= (double) down_set_size;
 		    
 		    if (score_rise  > score_down) {
 		    	result.add("Rise");
@@ -150,6 +154,16 @@ public class RuleMapping {
         for (ArrayList<ArrayList<String>> rule : temp_rule_set) {
         	rule_set_removed_duplicates.add(rule);
 
+        }
+        /**Caculate size**/
+        for (ArrayList<ArrayList<String>> rule : rule_set_removed_duplicates) {
+        	String rise_down = rule.get(rule.size()-1).get(0);
+            if (rise_down.equals("Rise")) {
+            	rise_set_size++;
+            } else {
+            	down_set_size++;
+            }
+        	
         }
 
 //		for (ArrayList<ArrayList<String>> class_member:class1_set) {
@@ -244,7 +258,7 @@ public class RuleMapping {
 		    double confidence = rules.get(rule).get(1);
 		    double length = rule.size();
 		    gainratio = Math.abs(gain/SplitInfo);
-		    score = confidence*gainratio*length*weight;	
+		    score = confidence*gainratio*length;	
 		    result.put(rule, score);
 		}
 		return result;
@@ -378,13 +392,56 @@ public class RuleMapping {
 	}
 	
 	/**CBE_METHOD3**/
-	public  ArrayList<String> MTHODE3 (HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, ArrayList<ArrayList<ArrayList<String>>> match_rules, int i) {
+	public  ArrayList<String> MTHODE3 (HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, ArrayList<ArrayList<ArrayList<String>>> match_rules, int index) {
+		ArrayList<ArrayList<ArrayList<String>>> rule_set = new ArrayList<>();
+		for (ArrayList<ArrayList<String>> rule : match_rules) {
+			rule_set.add(rule);
+		}
+		
+		/**Remove Duplicates label**/
+		ArrayList<ArrayList<ArrayList<String>>> rule_set_removed_duplicates = new ArrayList<>();
+		List<ArrayList<ArrayList<String>>> temp_rule_set = new ArrayList<>();
+		
+        for (ArrayList<ArrayList<String>> rule : rule_set) {
+        	temp_rule_set.add(rule);
+        }
+        
+        for (int i = 0 ; i < temp_rule_set.size(); i++) {
+    	    boolean same = false;
+    	    for (int j = i+1; j < temp_rule_set.size(); j++) {
+    	        ArrayList<ArrayList<String>> temp1 = new ArrayList<>();
+    		for (int k1 = 0; k1 < temp_rule_set.get(i).size()-1; k1++) {
+    		    temp1.add(temp_rule_set.get(i).get(k1));
+    	    }    
+    	    String str1 = temp_rule_set.get(i).get(temp_rule_set.get(i).size()-1).get(0);
+    	    ArrayList<ArrayList<String>> temp2 = new ArrayList<>();
+    		for (int k1 = 0; k1 < temp_rule_set.get(j).size()-1; k1++) {
+    		    temp2.add(temp_rule_set.get(j).get(k1));
+    	        }
+    	        String str2 = temp_rule_set.get(j).get(temp_rule_set.get(j).size()-1).get(0);
+    	        if ( (temp1.equals(temp2)) && (!str1.equals(str2)) ) {
+    	            //System.out.println(temp1 + " " + temp2);
+    		    same = true;
+    		    temp_rule_set.remove(j--);		   
+    	        } 
+    	    }    
+    	    if (same) {
+    	        //System.out.println(i);
+    	    	temp_rule_set.remove(i--);	       
+    	    }
+    	}
+		
+        for (ArrayList<ArrayList<String>> rule : temp_rule_set) {
+        	rule_set_removed_duplicates.add(rule);
+
+        }		
+
 		int max = 0;
-        double max_sup = rules.get(match_rules.get(0)).get(0);
-        double max_confidence = rules.get(match_rules.get(0)).get(1);              
-        for (int j = 1; j < match_rules.size(); j++) {
-            double confidence = rules.get(match_rules.get(j)).get(1);
-            double sup = rules.get(match_rules.get(j)).get(0);
+        double max_sup = rules.get(rule_set_removed_duplicates.get(0)).get(0);
+        double max_confidence = rules.get(rule_set_removed_duplicates.get(0)).get(1);              
+        for (int j = 1; j <rule_set_removed_duplicates.size(); j++) {
+            double confidence = rules.get(rule_set_removed_duplicates.get(j)).get(1);
+            double sup = rules.get(rule_set_removed_duplicates.get(j)).get(0);
             if (confidence > max_confidence) {
                 max = j;
                 max_confidence = confidence;
@@ -396,9 +453,9 @@ public class RuleMapping {
                     max_sup = sup;		
              	} else if (sup == max_sup) {
 //             	    System.out.println("Sup same!");
-             	    int length_j = match_rules.get(j).size()-1;
-             	    int length_max = match_rules.get(max).size()-1;
-             	    if (length_j > length_max) {
+             	    int length_j = rule_set_removed_duplicates.get(j).size()-1;
+             	    int length_max = rule_set_removed_duplicates.get(max).size()-1;
+             	    if (length_j < length_max) {
              	        max = j;
              	        max_sup = sup;
              	        max_confidence = confidence;                  
@@ -409,11 +466,10 @@ public class RuleMapping {
             }
          	
         }            	
-        ArrayList<ArrayList<String>> match_rule = match_rules.get(max);
+        ArrayList<ArrayList<String>> match_rule = rule_set_removed_duplicates.get(max);
         ArrayList<String> Rise_Down = match_rule.get(match_rule.size()-1);
-        System.out.println(i + "_m3" +  " " +  match_rule);
+        System.out.println(index + "_m3" +  " " +  match_rule);
 		return Rise_Down;	
-
 	}
 	
 	
@@ -492,8 +548,9 @@ public class RuleMapping {
         }
     	
         /**CBS_CLASSIFIER**/
-    	HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size);
-    	ArrayList<String> defaultclass = getDefault(rules);
+    	//HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size);
+    	//System.out.println("r: " + rules.size() + " c: "+classifier.size());
+    	//ArrayList<String> defaultclass = getDefault(rules);
 
     	//2.Begin Matching 
         HashMap<Integer, ArrayList<String>> result = new HashMap<>(); 
@@ -545,7 +602,7 @@ public class RuleMapping {
            
 //          System.out.println(i + " match_number:" + match_number);            
             if (match_number >= 2){ 
-            	int choose = 4;
+            	int choose = 3;
             	if (choose == 1) {
             	    //METHOD1
 //            	    result.put(i,  MTHODE1(rules, MATCH_RULES, i));
@@ -554,11 +611,11 @@ public class RuleMapping {
 //            	    result.put(i,  MTHODE2(rules, MATCH_RULES, i));            	 
             	} else if (choose == 3) {
                    	//METHOD3
-//            		result.put(i, MTHODE3(rules, match_rules, i));	
+            		result.put(i, MTHODE3(rules, match_rules, i));	
             	} else {
             		//CBS            
 //            	    System.out.println(i+"th======================");
-            		result.put(i, getinstance(classifier, match_rules,  defaultclass));
+//            		result.put(i, getinstance(classifier, match_rules,  defaultclass));
             	}
             } else if (0< match_number && match_number < 2){
             	//Only one match_rule
