@@ -219,10 +219,12 @@ public class GetAttr {
     public static HashMap<Integer, String> BIAS(int length, int att_index, double threshold, ArrayList<ArrayList<String>> records) {
     	HashMap<Integer, String> result = new HashMap<>();
     	int col = att_index;   
+    	int rise_number = 0;
+    	int down_number = 0;
     	for (int i = 1; i < records.size(); i++) {
     		double bias;
     	    if (i <= length-1) {
-    	    	result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold + "_1");
+    	    	//result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold + "_1");
     	    } else {
     	    	double sum_t = 0;
     	    	if (i - length + 1 >= 1) {
@@ -234,12 +236,24 @@ public class GetAttr {
     	    	bias = (Double.parseDouble(records.get(i).get(att_index)) - sum_t)/(double) sum_t;
     	    	if (bias >= threshold) {
     	    		result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold + "_1");	
+    	    		 rise_number++;
     	    	} else {
     	    		result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold + "_0");	
+    	    		down_number++;
     	    	}    	    	
     	    }
     		
     	}
+    	for (int i = 1; i < records.size(); i++) {
+    		if (result.get(i) == null) {
+    			if (rise_number > down_number) {
+    				result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold + "_1");
+    			} else {
+    				result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold + "_0");
+    			}
+    		}
+    	}
+    	
     	
     	return result;
     }
@@ -282,7 +296,7 @@ public class GetAttr {
     }
     
     
-	public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records) {						
+	public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records, int period, double threshold) {						
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
 		HashMap<Integer, String> FS_rate = feature(3, records);		
 		HashMap<Integer, String> FS_rubber = feature(2, records);		
@@ -304,24 +318,27 @@ public class GetAttr {
 //		HashMap<Integer, String> MA_T_2 = Move_Average(2, records.get(0).get(4), 4, records);
 		
 		//HashMap<Integer, String> BIAS_rate_2_03 = BIAS(2, 3, 0.0003, records);
-		HashMap<Integer, String> BIAS_T_2_03 = BIAS(2, 4, 0.0003, records);
+		HashMap<Integer, String> BIAS_T_2_03 = BIAS(period, 4, threshold, records);
 		
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add Date
 			temp.add(records.get(i).get(0));
-			if(i == 0) {			 			     
+			if(i == 0) {			
+				//temp.add("FT_but");
+				temp.add("BIAS_T_2_03");
 				temp.add("FT_but");
-			    temp.add("Match_of_rubber_but");
+//			    temp.add("Match_of_rubber_but");
 //			    temp.add("Match_of_oil_rate");
 //			    temp.add("Match_of_oil_but");
 //			    temp.add("MA_but_2");
 //			    temp.add("BIAS_T_2_03");	
 //			    temp.add("Match_of_MA3_rubber_but");	
 			} else {
-				//All the conditional att need to add. eg. x -> x x_3 x_4		  
-				temp.add(FT_but.get(i));
-		        temp.add(Match_of_rubber_but.get(i));
+				//All the conditional att need to add. eg. x -> x x_3 x_4		
+				temp.add(BIAS_T_2_03.get(i));
+  			    temp.add(FT_but.get(i));				
+//		        temp.add(Match_of_rubber_but.get(i));
 //		        temp.add(Match_of_oil_rate.get(i));
 //		        temp.add(Match_of_oil_but.get(i));
 //		        temp.add(MA_but_2.get(i));
@@ -372,6 +389,7 @@ public class GetAttr {
 			if(i == 0) {			 			     
 				temp.add("FT_but");
 			    temp.add("Match_of_rubber_but");
+			    
 //			    temp.add("Match_of_oil_rate");
 //			    temp.add("Match_of_oil_but");
 //			    temp.add("MA_but_2");

@@ -13,31 +13,33 @@ import ca.pfv.spmf.input.sequence_database_list_strings.SequenceDatabase;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        try {    
-        	File fout = new File("C:\\user\\workspace\\project\\data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+".txt");
+        try {        	
+        	File fout = new File("C:\\user\\workspace\\project\\data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+"_" + args[2] +"_" + args[3] + "cbs.txt");
+        	//File fout = new File("C:\\user\\workspace\\project\\data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "cbs.txt");
      	    FileOutputStream fos = new FileOutputStream(fout);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
-	        for (double j =  0.01;j <= 0.9; j = j + 0.01) {
+	        for (double j =  0.01;j <= 1; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/    		
-    		if (args.length < 2) {
-    			System.out.println("Enter: 1. min_sup   2. min_conf   3. window_size");
-    		}
-    		
+    	
     		int minsup = Integer.parseInt(args[0]);    
 //    		System.out.println(minsup);
     		//double min_conf = Double.parseDouble(args[1]);
     		double min_conf = j;
+    		
     		int window_size =  Integer.parseInt(args[1]);
-    		int next_week = 0;
-    		next_week =  window_size;
+    		int next_week = window_size;
+    		int period = Integer.parseInt(args[2]);
+    		double threshold = Double.parseDouble(args[3]) ;
+    		
+    		
     		//Input
     		String path = "C:\\user\\workspace\\project\\petro_subset1_2010_rate.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);
             int traing_data_size = (int)((records.size()-1)*0.8);
             
     		HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
-    		GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records);	
+    		GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records, period, threshold);	
  //   		GetAttr.featureExtraction_episode("transformed_petro_subset1_feature.csv", records, feature_target);
     		//GetAttr.featureExtraction_weka("weka.csv", records);	
 	        /**2.SAX**/
@@ -85,7 +87,7 @@ public class Main {
     	    
     		/**7.Evaluate Precision**/     		
     	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week, records.size());    		           
-    		
+    		if (e.get("macro_f_measure") > 0.75) {
     		osw.write("window_size:"        + window_size + "\r\n");
     		osw.write("minsup:"             + minsup + "\r\n");
     		osw.write("min_conf:"           + min_conf + "\r\n");  
@@ -106,8 +108,12 @@ public class Main {
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");
-    		
 	        }
+    		
+    		
+    		} 
+    		
+	        
     	    osw.close();
    	        
         } catch (FileNotFoundException e) {

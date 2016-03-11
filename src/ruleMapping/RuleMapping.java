@@ -392,7 +392,7 @@ public class RuleMapping {
 	}
 	
 	/**CBE_METHOD3**/
-	public  ArrayList<String> MTHODE3 (HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, ArrayList<ArrayList<ArrayList<String>>> match_rules, int index) {
+	public  ArrayList<String> MTHODE3 (HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, ArrayList<ArrayList<ArrayList<String>>> match_rules, int index, ArrayList<String> answer) {
 		ArrayList<ArrayList<ArrayList<String>>> rule_set = new ArrayList<>();
 		for (ArrayList<ArrayList<String>> rule : match_rules) {
 			rule_set.add(rule);
@@ -431,12 +431,18 @@ public class RuleMapping {
     	    }
     	}
 		
-        for (ArrayList<ArrayList<String>> rule : temp_rule_set) {
+        for (ArrayList<ArrayList<String>> rule : temp_rule_set) {        	
         	rule_set_removed_duplicates.add(rule);
 
         }		
+        
+        for (ArrayList<ArrayList<String>> r: rule_set_removed_duplicates) {
+        	if (r == null){
+        		return answer;
+        	}
+        }
 
-		int max = 0;
+		int max = 0;		
         double max_sup = rules.get(rule_set_removed_duplicates.get(0)).get(0);
         double max_confidence = rules.get(rule_set_removed_duplicates.get(0)).get(1);              
         for (int j = 1; j <rule_set_removed_duplicates.size(); j++) {
@@ -548,9 +554,9 @@ public class RuleMapping {
         }
     	
         /**CBS_CLASSIFIER**/
-    	//HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size);
+    	HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size);
     	//System.out.println("r: " + rules.size() + " c: "+classifier.size());
-    	//ArrayList<String> defaultclass = getDefault(rules);
+    	ArrayList<String> defaultclass = getDefault(rules);
 
     	//2.Begin Matching 
         HashMap<Integer, ArrayList<String>> result = new HashMap<>(); 
@@ -563,7 +569,7 @@ public class RuleMapping {
 //        	System.out.println("SDB " + i);
             //Match rule's number
             int match_number = 0;
-//            HashMap<ArrayList<ArrayList<String>>, Double> MATCH_RULES = new HashMap<>();     
+//          HashMap<ArrayList<ArrayList<String>>, Double> MATCH_RULES = new HashMap<>();     
             ArrayList<ArrayList<ArrayList<String>>> match_rules = new ArrayList<>();
             //The sequence in SDB_Testing
             ArrayList<ArrayList<String>> itemsets = SDB_for_testing.get(i);                            
@@ -602,7 +608,7 @@ public class RuleMapping {
            
 //          System.out.println(i + " match_number:" + match_number);            
             if (match_number >= 2){ 
-            	int choose = 3;
+            	int choose = 4;
             	if (choose == 1) {
             	    //METHOD1
 //            	    result.put(i,  MTHODE1(rules, MATCH_RULES, i));
@@ -611,11 +617,11 @@ public class RuleMapping {
 //            	    result.put(i,  MTHODE2(rules, MATCH_RULES, i));            	 
             	} else if (choose == 3) {
                    	//METHOD3
-            		result.put(i, MTHODE3(rules, match_rules, i));	
+            		result.put(i, MTHODE3(rules, match_rules, i, answer));	
             	} else {
             		//CBS            
 //            	    System.out.println(i+"th======================");
-//            		result.put(i, getinstance(classifier, match_rules,  defaultclass));
+            		result.put(i, getinstance(classifier, match_rules,  defaultclass));
             	}
             } else if (0< match_number && match_number < 2){
             	//Only one match_rule

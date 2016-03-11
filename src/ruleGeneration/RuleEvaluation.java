@@ -260,8 +260,8 @@ public class RuleEvaluation {
 			rules.put(rule, new RuleEval(sup, sup));	//Confidence of DEFAULT = its support
 
 		}
-		
-		/**write file**/
+	
+		/**write file**//*
 	    try {        	     
 		    File fout = new File("C:\\user\\workspace\\project\\data\\distribution" + "_s" + minsup + "_c" + min_conf + "_w"+window_size+".txt");
 		    FileOutputStream fos = new FileOutputStream(fout);
@@ -273,7 +273,7 @@ public class RuleEvaluation {
 	    } catch (IOException e) {
        	    System.out.println("[ERROR] I/O Exception.");
             e.printStackTrace();  	
-        }   
+        }  */
 		return rules;
 	}
 	
