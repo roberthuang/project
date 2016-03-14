@@ -1,49 +1,49 @@
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
-BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_1 R -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 BIAS_B_2_5.0E-4_0 D -1 -2
+Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2
+Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 -2
+Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 -2
+Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 -2
+Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 -2
+Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 -2
+Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 -2
+Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2
+Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2
+Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2
+Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2
+Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 -2
+Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 -2
+Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 -2
+Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 -2
+Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2
+Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2
+Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 -2
+Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 -2
+Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2
+Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2
+Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 -2
+Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 -2
+Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 -2
+Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 -2
+Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 -2
+Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 -2
+Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 -2
+Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 -2
+Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 -2
+Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 -2
+Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 -2
+Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 -2
+Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 -2
+Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2
+Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2
+Diff_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2
+Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2
+Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 -2
+Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 -2
+Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 -2
+Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 -2
+Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 -2
+Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 -2
+Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 -2
+Same_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2
+Same_1_4 -1 Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2
+Diff_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2
+Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Diff_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 Same_1_4 -1 -2

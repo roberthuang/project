@@ -10,16 +10,47 @@ public class GetAttr {
 	public static HashMap<Integer, String> feature(int att_index, ArrayList<ArrayList<String>> records) {
 		 HashMap<Integer, String> result = new HashMap<>(); 	    
 	     int col = att_index; 
+	     int rise_number = 0;
+	     int down_number = 0;
 	     for (int i = 1; i < records.size(); i++ ) {       
-	            if (i == 1) {
-	                result.put(i, "R" );     
+	            if (i == 1) {	                
 	                continue;
 	            }
 	            
 	            if (Double.parseDouble(records.get(i).get(col))- Double.parseDouble(records.get(i-1).get(col)) > 0 ) {
 	    	    	result.put(i, "R");     
+	    	    	rise_number++;
 	    	    } else {
 	    	    	result.put(i, "D");  
+	    	    	down_number++;
+	    	    }	
+        } 
+	    for (int i = 1; i < records.size(); i++) {
+	    	if (result.get(i) == null) {
+	    		if (rise_number > down_number) {
+	    			result.put(i, "R");	    			
+	    		} else {
+	    			result.put(i, "D");	    
+	    		}
+	    	}
+	    }
+	     
+	    return result;		
+	}
+	
+	public static HashMap<Integer, String> feature_categories(int att_index, ArrayList<ArrayList<String>> records) {
+		 HashMap<Integer, String> result = new HashMap<>(); 	    
+	     int col = att_index; 
+	     for (int i = 1; i < records.size(); i++ ) {       
+	            if (i == 1) {
+	                result.put(i, "1" );     
+	                continue;
+	            }
+	            
+	            if (Double.parseDouble(records.get(i).get(col))- Double.parseDouble(records.get(i-1).get(col)) > 0 ) {
+	    	    	result.put(i, "1");     
+	    	    } else {
+	    	    	result.put(i, "0");  
 	    	    }	
         }       	        	
 	    return result;		
@@ -81,6 +112,18 @@ public class GetAttr {
 	        	result.put(i, "Same" + "_" + sou + "_" + tar);
 	        } else {
 	        	result.put(i, "Diff" + "_" + sou + "_" + tar);
+	        }
+	    }	    
+	    return result;
+	}
+	
+	public static HashMap<Integer, String> match_source_target_categories(HashMap<Integer, String> s, HashMap<Integer, String> t, int sou, int tar) {
+		HashMap<Integer, String> result = new HashMap<>(); 
+	    for (int i = 1;i <= t.size(); i++) {
+	        if (s.get(i) == t.get(i)) {
+	        	result.put(i, "2");
+	        } else {
+	        	result.put(i, "3");
 	        }
 	    }	    
 	    return result;
@@ -296,51 +339,63 @@ public class GetAttr {
     }
     
     
-	public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records, int period, double threshold) {						
+	public static void featureExtraction(String output_filename, ArrayList<ArrayList<String>> records, int periods, double threshold) {						
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
-		HashMap<Integer, String> FS_rate = feature(3, records);		
+		HashMap<Integer, String> FS_rate = feature(3, records);
+		
 		HashMap<Integer, String> FS_rubber = feature(2, records);		
 		HashMap<Integer, String> FS_oil = feature(1, records);
 		HashMap<Integer, String> FT_but = feature(4, records);
+		//0, 1
+		HashMap<Integer, String> FT_but_catecories = feature_categories(4, records);
+	
 		
 		HashMap<Integer, String> Match_of_oil_rate = match_source_target(FS_oil, FS_rate, 1, 3);
 		HashMap<Integer, String> Match_of_rubber_but = match_source_target(FS_rubber, FT_but, 2, 4);
+		//2, 3
+		HashMap<Integer, String> Match_of_rubber_but_categories = match_source_target_categories(FS_rubber, FT_but, 2, 4);
+		
 		HashMap<Integer, String> Match_of_oil_but = match_source_target(FS_oil, FT_but, 1, 4);
 		
 		HashMap<Integer, String> MA_rubber_3 = Move_Average(3, records.get(0).get(2), 2, records);
-		HashMap<Integer, String> MA_but_2 = Move_Average(2, records.get(0).get(4), 4, records);
+		//HashMap<Integer, String> MA_but = Move_Average(period, records.get(0).get(4), 4, records);
 //		HashMap<Integer, String> Match_of_MA3_rubber_but = match_source_target_technical(MA_rubber_3, MA_but_3, 2, 4, "MA3");
 		
 //		HashMap<Integer, String> MACD_rubber_1_2_3 = MACD(1, 2, 3,records.get(0).get(2), records);
 //		HashMap<Integer, String> MACD_T_1_2_3 = MACD(1, 2, 3,records.get(0).get(4), records);
-//		HashMap<Integer, String> MACD_T_2_3_4 = MACD(2, 3, 4,records.get(0).get(4), records);
+//		HashMap<Integer, String> MACD_T = MACD(m1, m2, m3,records.get(0).get(4), records);
 		
 //		HashMap<Integer, String> MA_T_2 = Move_Average(2, records.get(0).get(4), 4, records);
 		
 		//HashMap<Integer, String> BIAS_rate_2_03 = BIAS(2, 3, 0.0003, records);
-		HashMap<Integer, String> BIAS_T_2_03 = BIAS(period, 4, threshold, records);
+		HashMap<Integer, String> BIAS_T_2_03 = BIAS(periods, 4, threshold, records);
 		
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add Date
 			temp.add(records.get(i).get(0));
 			if(i == 0) {			
-				//temp.add("FT_but");
-				temp.add("BIAS_T_2_03");
-				temp.add("FT_but");
+//				temp.add("FT_but");
+//				temp.add("BIAS_T_2_03");
+				//temp.add("BIAS_T_2_03");
+
+//				temp.add("Match_of_rubber_but_categories");
 //			    temp.add("Match_of_rubber_but");
 //			    temp.add("Match_of_oil_rate");
-//			    temp.add("Match_of_oil_but");
+			    temp.add("Match_of_oil_but");
 //			    temp.add("MA_but_2");
 //			    temp.add("BIAS_T_2_03");	
 //			    temp.add("Match_of_MA3_rubber_but");	
 			} else {
+//				temp.add(FT_but.get(i));
+//				temp.add(BIAS_T_2_03.get(i));
 				//All the conditional att need to add. eg. x -> x x_3 x_4		
-				temp.add(BIAS_T_2_03.get(i));
-  			    temp.add(FT_but.get(i));				
+				//temp.add(BIAS_T_2_03.get(i));
+//			    temp.add(FT_but_catecories.get(i));	
+//			    temp.add(Match_of_rubber_but_categories.get(i));
 //		        temp.add(Match_of_rubber_but.get(i));
 //		        temp.add(Match_of_oil_rate.get(i));
-//		        temp.add(Match_of_oil_but.get(i));
+	            temp.add(Match_of_oil_but.get(i));
 //		        temp.add(MA_but_2.get(i));
 //		        temp.add(BIAS_T_2_03.get(i));
 //		        temp.add(Match_of_MA3_rubber_but.get(i));
@@ -517,10 +572,12 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
     public static void featureExtraction_weka(String output_filename, ArrayList<ArrayList<String>> records) {		      		
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
 		HashMap<Integer, String> FT_but = feature(4, records);
+		HashMap<Integer, String> FT_but_categories = feature_categories(4, records);
 		HashMap<Integer, Double> FT_but_value = feature2_weka(4, records);
 		HashMap<Integer, String> FS_rubber = feature(2, records);	
 		HashMap<Integer, Double> MA_T_2 = Move_Average_weka(2, records.get(0).get(4), 4, records);
 		HashMap<Integer, String> Match_of_rubber_but = match_source_target(FS_rubber, FT_but, 2, 4);
+		HashMap<Integer, String> Match_of_rubber_but_categories = match_source_target_categories(FS_rubber, FT_but, 2, 4);
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add time
@@ -528,18 +585,9 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 			if(i == 0) {
 				temp.add("FT_but");
 				temp.add("Match_of_rubber_but");
-				temp.add(records.get(0).get(1));
-				temp.add(records.get(0).get(2));
-				temp.add(records.get(0).get(3));
-				temp.add(records.get(0).get(4));
 			} else {
-				//temp.add(FT_but_weka.get(i));
-				temp.add(String.valueOf(FT_but.get(i)));
-				temp.add(String.valueOf(Match_of_rubber_but.get(i)));
-				temp.add(records.get(i).get(1));
-				temp.add(records.get(i).get(2));
-				temp.add(records.get(i).get(3));
-				temp.add(records.get(i).get(4));
+				temp.add(FT_but_categories.get(i));
+				temp.add(Match_of_rubber_but_categories.get(i));			
 			
 			}	
 			//temp.add(records.get(i).get(records.get(i).size()-1));	

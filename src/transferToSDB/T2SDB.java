@@ -13,10 +13,10 @@ public class T2SDB {
 		       FileOutputStream fos = new FileOutputStream(fout);
 		       OutputStreamWriter osw = new OutputStreamWriter(fos);   
 //		       System.out.println(training_data-window_size+1);
-	           for (int i = 1; i <= training_data; i++) { 
+	           for (int i = 1; i <records.size(); i++) { 
 	               for (int p = 0; p < next_week; p++) {
 	                   int index = i + p; 
-	                   if ((index  <= training_data) && ((i + next_week) <= training_data)) {    
+	                   if ((index  <records.size()) && ((i + next_week) <records.size())) {    
 	                       for (int k = 1; k < records.get(index).size()-1; k++) {
 //	                   	       osw.write("("+ index+ ")"+ " "+records.get(index).get(k) + " ");       
 	                           osw.write(records.get(index).get(k) + " "); 	       
@@ -26,7 +26,7 @@ public class T2SDB {
 	               }    
 	               //Add Target Class
                    int Target_class_index = i + next_week;
-	               if (Target_class_index <= training_data) {
+	               if (Target_class_index <records.size()) {
 	                   osw.write(class_table.get(Target_class_index) + " "+ -1 + " ");
 	                   //Debug
 //	                   osw.write(class_table.get(Target_class_index) + "(" + Target_class_index + ")" + " "+ -1 + " ");

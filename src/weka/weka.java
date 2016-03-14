@@ -28,9 +28,10 @@ public class weka {
     	    //t2sdb.translate_training_sliding_window_weka(10, "petro_subset1_2010_rate.csv", feature_target, "weka_training.txt");
     	    t2sdb.translate_training_sliding_window_weka(10, "weka.csv", feature_target, "weka_training.txt");
     	    /**2.Testing Data**/   
-    	    t2sdb.translate_testing_sliding_window_weka(10, "petro_subset1_2010_rate.csv", feature_target, "weka_testing.txt");
-    	    //t2sdb.translate_testing_weka(10, "weka.csv", feature_target, "weka_testing.txt");
+    	    //t2sdb.translate_testing_sliding_window_weka(10, "petro_subset1_2010_rate.csv", feature_target, "weka_testing.txt");
+    	    t2sdb.translate_testing_sliding_window_weka(10, "weka.csv", feature_target, "weka_testing.txt");
     	    /**Text To CSV**/
+    	    
    	        try {
                 ArrayList<ArrayList<String>> txt_training = read_text_weka("weka_training.txt");  
                 ArrayList<ArrayList<String>> txt_testing = read_text_weka("weka_testing.txt");  

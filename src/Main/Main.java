@@ -29,9 +29,9 @@ public class Main {
     		
     		int window_size =  Integer.parseInt(args[1]);
     		int next_week = window_size;
-    		int period = Integer.parseInt(args[2]);
-    		double threshold = Double.parseDouble(args[3]) ;
-    		
+    	  
+    		int periods = Integer.parseInt(args[2]);
+    		double threshold = Double.parseDouble(args[3]);
     		
     		//Input
     		String path = "C:\\user\\workspace\\project\\petro_subset1_2010_rate.csv";
@@ -39,7 +39,7 @@ public class Main {
             int traing_data_size = (int)((records.size()-1)*0.8);
             
     		HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
-    		GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records, period, threshold);	
+    		GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records, periods, threshold);	
  //   		GetAttr.featureExtraction_episode("transformed_petro_subset1_feature.csv", records, feature_target);
     		//GetAttr.featureExtraction_weka("weka.csv", records);	
 	        /**2.SAX**/
@@ -87,7 +87,7 @@ public class Main {
     	    
     		/**7.Evaluate Precision**/     		
     	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week, records.size());    		           
-    		if (e.get("macro_f_measure") > 0.75) {
+    		if (e.get("macro_f_measure") > 0.7) {
     		osw.write("window_size:"        + window_size + "\r\n");
     		osw.write("minsup:"             + minsup + "\r\n");
     		osw.write("min_conf:"           + min_conf + "\r\n");  

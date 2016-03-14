@@ -119,44 +119,42 @@ public class RuleMapping {
 		double globalEntropy = Cacluate_all_entropy(SDB_for_training);		
 				
 		/**Remove Duplicates label**/
-		ArrayList<ArrayList<ArrayList<String>>> rule_set_removed_duplicates = new ArrayList<>();
-		List<ArrayList<ArrayList<String>>> temp_rule_set = new ArrayList<>();
+		//ArrayList<ArrayList<ArrayList<String>>> rule_set_removed_duplicates = new ArrayList<>();
 		
-        for (ArrayList<ArrayList<String>> rule : rule_set) {
-        	temp_rule_set.add(rule);
-        }
+      
         
-        for (int i = 0 ; i < temp_rule_set.size(); i++) {
+        for (int i = 0 ; i < rule_set.size(); i++) {
     	    boolean same = false;
-    	    for (int j = i+1; j < temp_rule_set.size(); j++) {
+    	    for (int j = i+1; j < rule_set.size(); j++) {
     	        ArrayList<ArrayList<String>> temp1 = new ArrayList<>();
-    		for (int k1 = 0; k1 < temp_rule_set.get(i).size()-1; k1++) {
-    		    temp1.add(temp_rule_set.get(i).get(k1));
+    		for (int k1 = 0; k1 < rule_set.get(i).size()-1; k1++) {
+    		    temp1.add(rule_set.get(i).get(k1));
     	    }    
-    	    String str1 = temp_rule_set.get(i).get(temp_rule_set.get(i).size()-1).get(0);
+    	    String str1 = rule_set.get(i).get(rule_set.get(i).size()-1).get(0);
     	    ArrayList<ArrayList<String>> temp2 = new ArrayList<>();
-    		for (int k1 = 0; k1 < temp_rule_set.get(j).size()-1; k1++) {
-    		    temp2.add(temp_rule_set.get(j).get(k1));
+    		for (int k1 = 0; k1 < rule_set.get(j).size()-1; k1++) {
+    		    temp2.add(rule_set.get(j).get(k1));
     	        }
-    	        String str2 = temp_rule_set.get(j).get(temp_rule_set.get(j).size()-1).get(0);
+    	        String str2 = rule_set.get(j).get(rule_set.get(j).size()-1).get(0);
     	        if ( (temp1.equals(temp2)) && (!str1.equals(str2)) ) {
     	            //System.out.println(temp1 + " " + temp2);
     		    same = true;
-    		    temp_rule_set.remove(j--);		   
+    		    rule_set.remove(j--);		   
     	        } 
     	    }    
     	    if (same) {
     	        //System.out.println(i);
-    	    	temp_rule_set.remove(i--);	       
+    	    	rule_set.remove(i--);	       
     	    }
     	}
 		
-        for (ArrayList<ArrayList<String>> rule : temp_rule_set) {
-        	rule_set_removed_duplicates.add(rule);
+        //for (ArrayList<ArrayList<String>> rule : rule_set) {
+        	//rule_set_removed_duplicates.add(rule);
 
-        }
+        //}
         /**Caculate size**/
-        for (ArrayList<ArrayList<String>> rule : rule_set_removed_duplicates) {
+        for (ArrayList<ArrayList<String>> rule : rule_set) {
+       //for (ArrayList<ArrayList<String>> rule : rule_set_removed_duplicates) {
         	String rise_down = rule.get(rule.size()-1).get(0);
             if (rise_down.equals("Rise")) {
             	rise_set_size++;
@@ -178,8 +176,8 @@ public class RuleMapping {
 	    ArrayList<Integer> compare_last = new ArrayList<>();
 		compare_last.add(window_size-1);
 		compare_last.add(window_size-2);
-			
-		for (ArrayList<ArrayList<String>> rule : rule_set_removed_duplicates) {
+		for (ArrayList<ArrayList<String>> rule : rule_set) {	
+		//for (ArrayList<ArrayList<String>> rule : rule_set_removed_duplicates) {
 //			System.out.println(class1_member);
 			double score = 0;
 			int match_number = 0;
