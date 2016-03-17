@@ -433,13 +433,9 @@ public class RuleMapping {
         	rule_set_removed_duplicates.add(rule);
 
         }		
-        
-        for (ArrayList<ArrayList<String>> r: rule_set_removed_duplicates) {
-        	if (r == null){
-        		return answer;
-        	}
-        }
-
+       
+        System.out.println(rule_set_removed_duplicates.size());
+        if (rule_set_removed_duplicates.size() == 0 ) return answer;
 		int max = 0;		
         double max_sup = rules.get(rule_set_removed_duplicates.get(0)).get(0);
         double max_confidence = rules.get(rule_set_removed_duplicates.get(0)).get(1);              
@@ -552,9 +548,9 @@ public class RuleMapping {
         }
     	
         /**CBS_CLASSIFIER**/
-    	HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size);
+    	//HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size);
     	//System.out.println("r: " + rules.size() + " c: "+classifier.size());
-    	ArrayList<String> defaultclass = getDefault(rules);
+    	//ArrayList<String> defaultclass = getDefault(rules);
 
     	//2.Begin Matching 
         HashMap<Integer, ArrayList<String>> result = new HashMap<>(); 
@@ -606,7 +602,7 @@ public class RuleMapping {
            
 //          System.out.println(i + " match_number:" + match_number);            
             if (match_number >= 2){ 
-            	int choose = 4;
+            	int choose = 3;
             	if (choose == 1) {
             	    //METHOD1
 //            	    result.put(i,  MTHODE1(rules, MATCH_RULES, i));
@@ -619,7 +615,7 @@ public class RuleMapping {
             	} else {
             		//CBS            
 //            	    System.out.println(i+"th======================");
-            		result.put(i, getinstance(classifier, match_rules,  defaultclass));
+ //           		result.put(i, getinstance(classifier, match_rules,  defaultclass));
             	}
             } else if (0< match_number && match_number < 2){
             	//Only one match_rule

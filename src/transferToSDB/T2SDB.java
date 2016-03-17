@@ -165,7 +165,7 @@ public class T2SDB {
 		       OutputStreamWriter osw = new OutputStreamWriter(fos);   
 		       
 		       //Write Title
-	 	        int size = next_week*(records.get(0).size()-1);
+	 	        int size = next_week*(records.get(0).size()-2);
 		        for (int i = 1; i <= size; i++) {
 		        	osw.write("A" + i  + ", ");    	
 		        }   	
@@ -176,7 +176,7 @@ public class T2SDB {
 	               for (int p = 0; p < next_week; p++) {
 	                   int index = i + p; 
 	                   if ((index  <records.size()) && ((i + next_week) <records.size())) {    
-	                       for (int k = 1; k < records.get(index).size(); k++) {
+	                       for (int k = 1; k < records.get(index).size()-1; k++) {
 //	                   	       osw.write("("+ index+ ")"+ " "+records.get(index).get(k) + " ");       
 	                           osw.write(records.get(index).get(k) + ", "); 	       
 	                       }                       
@@ -366,7 +366,7 @@ public class T2SDB {
 	               for (int p = 0; p < next_week; p++) {
 	                   int index = i + p; 
 	                   if ((index  < records.size()) && ((i + next_week) <records.size())) {    
-	                       for (int k = 1; k < records.get(index).size(); k++) {
+	                       for (int k = 1; k < records.get(index).size()-1; k++) {
 //	                   	       osw.write("("+ index+ ")"+ " "+records.get(index).get(k) + " ");       
 	                           osw.write(records.get(index).get(k) + ", "); 	       
 	                       }                       

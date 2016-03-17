@@ -16,15 +16,15 @@ import transferToSDB.T2SDB;
 public class weka {
     public static void main(String[] args) {
     	try { 
-    	    String path = "petro_subset1_2010_rate.csv";
+    	    String path = "petro_subset1_2010_rate.csv";    	    
     	    ArrayList<ArrayList<String>> records = readCSV(path);
-    	    /**Feature Extraction**/    	     	   
-    	    GetAttr.featureExtraction_weka("weka.csv", records);    	        	        	  
+    	    /**Feature Extraction**/    	
+    	    HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
+    	    GetAttr.featureExtraction_weka("weka.csv", records, feature_target);    	        	        	  
     	    
     	    /**Translate To SDB**/
     	    /**1.Training Data**/
-    	    T2SDB t2sdb = new T2SDB();   
-    	    HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
+    	    T2SDB t2sdb = new T2SDB();       	  
     	    //t2sdb.translate_training_sliding_window_weka(10, "petro_subset1_2010_rate.csv", feature_target, "weka_training.txt");
     	    t2sdb.translate_training_sliding_window_weka(10, "weka.csv", feature_target, "weka_training.txt");
     	    /**2.Testing Data**/   
