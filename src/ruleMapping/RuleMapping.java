@@ -58,7 +58,54 @@ public class RuleMapping {
 	}
 	
 	/**CBE_CBS**/
-	ArrayList<String> getinstance(HashMap<ArrayList<ArrayList<String>>, Double> classifier, ArrayList<ArrayList<ArrayList<String>>> match_rules, ArrayList<String> defaultclass) {
+	ArrayList<String> getinstance(HashMap<ArrayList<ArrayList<String>>, Double> classifier, ArrayList<ArrayList<ArrayList<String>>> match_rules, ArrayList<String> defaultclass, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, int index) {
+		try {
+			File fout = new File("match_distribution_" +index+ ".txt");
+	        FileOutputStream fos = new FileOutputStream(fout);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+            HashMap<Double, Integer> count_conf = new HashMap<>();
+            HashMap<Double, Integer> count_sup = new HashMap<>();
+			for (ArrayList<ArrayList<String>> match_rule : match_rules) {
+			    if (classifier.get(match_rule) == null) {
+			    	double sup = rules.get(match_rule).get(0);
+			    	double conf = rules.get(match_rule).get(1);	
+			    	if (count_conf.get(conf) == null) {
+			    		int count = 1;
+			    		count_conf.put(conf, count);
+			    	} else {
+			    		int count = count_conf.get(conf);
+			    		count++;
+			    		count_conf.put(conf, count);
+			    	}
+			    	if (count_sup.get(sup) == null) {
+			    		int count = 1;
+			    		count_sup.put(sup, count);
+			    	} else {
+			    		int count = count_sup.get(sup);
+			    		count++;
+			    		count_sup.put(sup, count);
+			    	}
+			    }
+			}
+			
+			for (Double conf : count_conf.keySet()) {
+			    osw.write("conf:" + conf + "  count:" + count_conf.get(conf));
+			    osw.write("\r\n");
+			}
+			for (Double sup : count_sup.keySet()) {
+		    	osw.write("sup:" + sup + "  count:" + count_sup.get(sup));
+		    	osw.write("\r\n");
+		    }
+			osw.close();
+		} catch (IOException e) {
+        	System.out.println("[ERROR] I/O Exception.");
+            e.printStackTrace();  	
+        }  
+        
+		
+		
+		
+		
 		ArrayList<ArrayList<ArrayList<String>>> Rise_set = new ArrayList<>();
 		ArrayList<ArrayList<ArrayList<String>>> Down_set = new ArrayList<>();
 		
@@ -548,9 +595,9 @@ public class RuleMapping {
         }
     	
         /**CBS_CLASSIFIER**/
-    	//HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size);
+    	HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size);
     	//System.out.println("r: " + rules.size() + " c: "+classifier.size());
-    	//ArrayList<String> defaultclass = getDefault(rules);
+    	ArrayList<String> defaultclass = getDefault(rules);
 
     	//2.Begin Matching 
         HashMap<Integer, ArrayList<String>> result = new HashMap<>(); 
@@ -602,7 +649,7 @@ public class RuleMapping {
            
 //          System.out.println(i + " match_number:" + match_number);            
             if (match_number >= 2){ 
-            	int choose = 3;
+            	int choose = 4;
             	if (choose == 1) {
             	    //METHOD1
 //            	    result.put(i,  MTHODE1(rules, MATCH_RULES, i));
@@ -615,7 +662,7 @@ public class RuleMapping {
             	} else {
             		//CBS            
 //            	    System.out.println(i+"th======================");
- //           		result.put(i, getinstance(classifier, match_rules,  defaultclass));
+            		result.put(i, getinstance(classifier, match_rules,  defaultclass, rules, i));
             	}
             } else if (0< match_number && match_number < 2){
             	//Only one match_rule
