@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.*;
 
 public class RuleMapping {
+	static HashMap<Double, Integer> count_conf_all = new HashMap<>();
+	static HashMap<Double, Integer> count_sup_all = new HashMap<>();
 	/**CBE_CBS**/
 	static int rise_set_size = 0;
 	static int down_set_size = 0;
@@ -69,6 +71,27 @@ public class RuleMapping {
 			    if (classifier.get(match_rule) == null) {
 			    	double sup = rules.get(match_rule).get(0);
 			    	double conf = rules.get(match_rule).get(1);	
+			    	
+			    	//All
+			    	if (count_conf_all.get(conf) == null) {
+			    		int count = 1;
+			    		count_conf_all.put(conf, count);
+			    	} else {
+			    		int count = count_conf_all.get(conf);
+			    		count++;
+			    		count_conf_all.put(conf, count);
+			    	}
+			    				 
+			    	if (count_sup_all.get(sup) == null) {
+			    		int count = 1;
+			    		count_sup_all.put(sup, count);
+			    	} else {
+			    		int count = count_sup_all.get(sup);
+			    		count++;
+			    		count_sup_all.put(sup, count);
+			    	}
+			    	
+			    	//Individual
 			    	if (count_conf.get(conf) == null) {
 			    		int count = 1;
 			    		count_conf.put(conf, count);
@@ -77,6 +100,7 @@ public class RuleMapping {
 			    		count++;
 			    		count_conf.put(conf, count);
 			    	}
+			    				 
 			    	if (count_sup.get(sup) == null) {
 			    		int count = 1;
 			    		count_sup.put(sup, count);
@@ -598,11 +622,11 @@ public class RuleMapping {
     	HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size);
     	//System.out.println("r: " + rules.size() + " c: "+classifier.size());
     	ArrayList<String> defaultclass = getDefault(rules);
-
+    	
     	//2.Begin Matching 
         HashMap<Integer, ArrayList<String>> result = new HashMap<>(); 
         try {    
-    	    File fout = new File("match.txt");
+    	    File fout = new File("match_distribution_all.txt");
 	        FileOutputStream fos = new FileOutputStream(fout);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
         for (Integer i : SDB_for_testing.keySet()) {
@@ -680,10 +704,14 @@ public class RuleMapping {
         	
         
         }    
+        for (Double conf : count_conf_all.keySet()) {
+        	osw.write("conf: " + conf + " count:" +  count_conf_all.get(conf) + "\r\n");
+        }
+        for (Double sup : count_sup_all.keySet()) {
+        	osw.write("sup: " + sup + " count:" +  count_sup_all.get(sup) + "\r\n");
+        }
         osw.close();
-        } catch (FileNotFoundException e) {
-        	System.out.println("[ERROR] File Not Found Exception.");
-            e.printStackTrace();
+        
         } catch (IOException e) {
         	System.out.println("[ERROR] I/O Exception.");
             e.printStackTrace();  	
