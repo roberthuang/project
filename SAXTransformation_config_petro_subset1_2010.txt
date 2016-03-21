@@ -1,11 +1,15 @@
 {
-	"path"		:	"transformed_petro_subset1_feature.csv",
-	"output"	:	"C:\\user\\workspace\\test\\transformed_petro_subset1_training_2010.csv",
-	"test_setting"	:	"C:\\user\\workspace\\test\\petro_subset1_breakpoints_2010.txt",
+	"path"		:	"petro_subset1_2010_rate.csv",
+	"output"	:	"transformed_petro_subset1_training_2010.csv",
+	"test_setting"	:	"C:\\user\\workspace\\project\\petro_subset1_breakpoints_2010.txt",
 	"attrs"		:
 	[
 		{
 			"attr_name"		:	"Crude_Oil_NYMEX",
+			"num_category"	:	3
+		}
+		{
+			"attr_name"		:	"Butadiene",
 			"num_category"	:	3
 		}
 		

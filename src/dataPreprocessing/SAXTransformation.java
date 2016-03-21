@@ -269,7 +269,7 @@ public class SAXTransformation {
 		try {
 			FileWriter fw = new FileWriter(outputfile);
 			fw.write("{\r\n\t\"path\"\t\t:\t\"transformed_petro_subset1_feature.csv\",");
-			fw.write("\r\n\t\"output\"\t:\t\"C:\\user\\workspace\\test\\transformed_petro_subset1_testing.csv\",");
+			fw.write("\r\n\t\"output\"\t:\t\"C:\\user\\workspace\\project\\transformed_petro_subset1_testing.csv\",");
 			fw.write("\r\n\t\"test_setting\"\t:\t\"petro_subset1_breakpoints_2010.txt\",");
 			fw.write("\r\n\t\"attrs\"\t:\r\n\t[");
 			boolean first = true;

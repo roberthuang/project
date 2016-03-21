@@ -1,6 +1,6 @@
 {
 	"path"		:	"transformed_petro_subset1_feature.csv",
-	"output"	:	"C:\user\workspace\test\transformed_petro_subset1_testing.csv",
+	"output"	:	"C:\user\workspace\project\transformed_petro_subset1_testing.csv",
 	"test_setting"	:	"petro_subset1_breakpoints_2010.txt",
 	"attrs"	:
 	[
@@ -8,8 +8,16 @@
 			"attr_name"	:	"Crude_Oil_NYMEX",
 			"breakpoints"	:
 			[
-				79.27464176005152,
-				93.93192490661521
+				81.00066728558632,
+				94.53279161852332
+			]
+		},
+		{
+			"attr_name"	:	"Butadiene",
+			"breakpoints"	:
+			[
+				1571.2153157637708,
+				2272.606602044448
 			]
 		}
 	]

@@ -10,6 +10,8 @@ import ca.pfv.spmf.algorithms.sequentialpatterns.BIDE_and_prefixspan_with_string
 import ca.pfv.spmf.input.sequence_database_list_strings.SequenceDatabase;
 //import dataPreprocessing.SAXTransformation;
 //import dataPreprocessing.SAXTransformation_Testing;
+import dataPreprocessing.SAXTransformation;
+import dataPreprocessing.SAXTransformation_Testing;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
@@ -18,7 +20,7 @@ public class Main {
         	//File fout = new File("C:\\user\\workspace\\project\\data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "cbs.txt");
      	    FileOutputStream fos = new FileOutputStream(fout);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
-	        for (double j =  0.01;j <= 0.01; j = j + 0.01) {
+	        for (double j =  0.8;j <= 0.8; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/    		
     	
@@ -40,28 +42,28 @@ public class Main {
             
     		HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
     		GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records, periods, threshold);	
- //   		GetAttr.featureExtraction_episode("transformed_petro_subset1_feature.csv", records, feature_target);
+    		//GetAttr.featureExtraction_episode("transformed_petro_subset1_feature.csv", records, feature_target);
     		//GetAttr.featureExtraction_weka("weka.csv", records);	
 	        /**2.SAX**/
-    	    //System.out.println("##Step 2.1: SAX(Traing)");
-            //SAXTransformation.start("SAXTransformation_config_petro_subset1_2010.txt");
+//    	    System.out.println("##Step 2.1: SAX(Training)");
+//            SAXTransformation.start("SAXTransformation_config_petro_subset1_2010.txt");
                        
             //System.out.println("##Step 2.2: SAX(Testing)");          
-            //SAXTransformation_Testing.start("petro_subset1_breakpoints_2010.txt");
+//           SAXTransformation_Testing.start("petro_subset1_breakpoints_2010.txt");
                                               
             /**3.Temporal Data Base to SDB(Training)**/
-            //System.out.println("##Step 3.1: Temporal Data Base to SDB(Training)");
+//            System.out.println("##Step 3.1: Temporal Data Base to SDB(Training)");
             /*For training*/            
             String path_after_discrete = "transformed_petro_subset1_feature.csv";
    		    T2SDB t = new T2SDB();
     		int SDB_Training_Size = t.translate_training_sliding_window(window_size, path_after_discrete,  feature_target, "SDB(Training).txt");
- //         System.out.println(SDB_Training_Size);
+            System.out.println(SDB_Training_Size);
     		
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");    		
             /*For testing*/
             String path_of_testing_file = "transformed_petro_subset1_feature.csv";
             int SDB_Testing_Size = t.translate_testing_sliding_window(next_week, path_of_testing_file, "SDB(Testing).txt");
-            System.out.println("SDB_Testing_Size: " + SDB_Testing_Size);             
+ //           System.out.println("SDB_Testing_Size: " + SDB_Testing_Size);             
             /**4.Sequential Pattern Mining**/
             //System.out.println("##Step 4: Sequential Pattern Mining");
             /*Load a sequence database*/
@@ -78,16 +80,19 @@ public class Main {
     		/**5.Generating Rule**/
     		//System.out.println("##Step 5: Rule Generating");
     		int rule_size = RuleEvaluation.start("C:\\user\\workspace\\project\\RuleEvaluation_config.txt", min_conf, minsup, window_size, SDB_Training_Size);
-                		
+    		RuleEvaluation.start("C:\\user\\workspace\\project\\RuleEvaluation_config_all.txt", 0.01, minsup, window_size, SDB_Training_Size);
+    		//System.out.println(rule_size);
+    		
     		/**6.Rule Mapping**/    		
     		//System.out.println("##Step 6: Rule Mapping");
     	    RuleMapping mapping = new RuleMapping();
   	        HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
-	        = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), Read_Training_Data("SDB(Training).txt"), feature_target, minsup, window_size);
-    	    
+	        = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), Read_Training_Data("SDB(Training).txt"),feature_target, readRules("rules_all.txt"), minsup, window_size, min_conf);
+  	       
     		/**7.Evaluate Precision**/     		
-    	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week, records.size());    		           
-    		if (e.get("macro_f_measure") > 0.7) {
+    	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week, records.size(),  min_conf);    		           
+    		//if (e.get("macro_f_measure") > 0.1) {
+    	    
     		osw.write("window_size:"        + window_size + "\r\n");
     		osw.write("minsup:"             + minsup + "\r\n");
     		osw.write("min_conf:"           + min_conf + "\r\n");  
@@ -108,7 +113,7 @@ public class Main {
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");
-	        }
+	        //}
     		
     		
     		} 

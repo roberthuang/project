@@ -59,10 +59,10 @@ public class RuleMapping {
 	
 	/**CBE_CBS**/
 	ArrayList<String> getinstance(HashMap<ArrayList<ArrayList<String>>, Double> classifier, ArrayList<ArrayList<ArrayList<String>>> match_rules, ArrayList<String> defaultclass, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, int index) {
-		try {
-			File fout = new File("match_distribution_" +index+ ".txt");
-	        FileOutputStream fos = new FileOutputStream(fout);
-            OutputStreamWriter osw = new OutputStreamWriter(fos);
+		//try {
+			//File fout = new File("match_distribution_" +index+ ".txt");
+	        //FileOutputStream fos = new FileOutputStream(fout);
+            //OutputStreamWriter osw = new OutputStreamWriter(fos);
             HashMap<Double, Integer> count_conf = new HashMap<>();
             HashMap<Double, Integer> count_sup = new HashMap<>();
 			for (ArrayList<ArrayList<String>> match_rule : match_rules) {
@@ -88,19 +88,19 @@ public class RuleMapping {
 			    }
 			}
 			
-			for (Double conf : count_conf.keySet()) {
-			    osw.write("conf:" + conf + "  count:" + count_conf.get(conf));
-			    osw.write("\r\n");
-			}
-			for (Double sup : count_sup.keySet()) {
-		    	osw.write("sup:" + sup + "  count:" + count_sup.get(sup));
-		    	osw.write("\r\n");
-		    }
-			osw.close();
-		} catch (IOException e) {
-        	System.out.println("[ERROR] I/O Exception.");
-            e.printStackTrace();  	
-        }  
+			//for (Double conf : count_conf.keySet()) {
+			//    osw.write("conf:" + conf + "  count:" + count_conf.get(conf));
+			//    osw.write("\r\n");
+			//}
+			//for (Double sup : count_sup.keySet()) {
+		    //	osw.write("sup:" + sup + "  count:" + count_sup.get(sup));
+		    //	osw.write("\r\n");
+		    //}
+			//osw.close();
+		//} catch (IOException e) {
+        //	System.out.println("[ERROR] I/O Exception.");
+        //    e.printStackTrace();  	
+        //}  
         
 		
 		
@@ -436,8 +436,14 @@ public class RuleMapping {
 		return Rise_Down;
 	}
 	
-	/**CBE_METHOD3**/
-	public  ArrayList<String> MTHODE3 (HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, ArrayList<ArrayList<ArrayList<String>>> match_rules, int index, ArrayList<String> answer) {
+	/**CBE_METHOD3
+	 * @throws IOException **/
+	public  ArrayList<String> MTHODE3 (HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, ArrayList<ArrayList<ArrayList<String>>> match_rules, int index, ArrayList<String> answer, double min_conf, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all) throws IOException {
+		 
+	    File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + index + "_"+min_conf+ ".txt");        
+	    FileOutputStream fos = new FileOutputStream(fout);
+	    OutputStreamWriter osw = new OutputStreamWriter(fos);
+		
 		ArrayList<ArrayList<ArrayList<String>>> rule_set = new ArrayList<>();
 		for (ArrayList<ArrayList<String>> rule : match_rules) {
 			rule_set.add(rule);
@@ -450,7 +456,7 @@ public class RuleMapping {
         for (ArrayList<ArrayList<String>> rule : rule_set) {
         	temp_rule_set.add(rule);
         }
-        
+        /*
         for (int i = 0 ; i < temp_rule_set.size(); i++) {
     	    boolean same = false;
     	    for (int j = i+1; j < temp_rule_set.size(); j++) {
@@ -475,13 +481,13 @@ public class RuleMapping {
     	    	temp_rule_set.remove(i--);	       
     	    }
     	}
-		
+		*/
         for (ArrayList<ArrayList<String>> rule : temp_rule_set) {        	
         	rule_set_removed_duplicates.add(rule);
 
         }		
        
-        System.out.println(rule_set_removed_duplicates.size());
+        //System.out.println(rule_set_removed_duplicates.size());
         if (rule_set_removed_duplicates.size() == 0 ) return answer;
 		int max = 0;		
         double max_sup = rules.get(rule_set_removed_duplicates.get(0)).get(0);
@@ -512,11 +518,44 @@ public class RuleMapping {
                 }
             }
          	
-        }            	
+        }    
+        osw.write(index+ "  ");
+        
+        for (ArrayList<ArrayList<String>> match_rule : match_rules) {
+        	 int INDEX = 1;
+        	 for (ArrayList<ArrayList<String>> rule_all : rules_all.keySet()) {
+                 if (rule_all.equals(match_rule)) {
+                    osw.write(INDEX + ", "); 
+                    INDEX++;
+                    break;
+                 }
+             	 INDEX++;
+             }        	
+
+        }
+       	 
+        //´X¤¤´X
         ArrayList<ArrayList<String>> match_rule = rule_set_removed_duplicates.get(max);
+        int INDEX = 1;
+   	    for (ArrayList<ArrayList<String>> rule_all : rules_all.keySet()) {
+            if (rule_all.equals(match_rule)) {
+               osw.write("LAST: " + INDEX + "\r\n"); 
+               INDEX++;
+               break;
+            }
+        	 INDEX++;
+        }     
+   	    osw.write("Matching_rule_size:" + match_rules.size()+ "\r\n"); 
+        
         ArrayList<String> Rise_Down = match_rule.get(match_rule.size()-1);
+       	  
         System.out.println(index + "_m3" +  " " +  match_rule);
-		return Rise_Down;	
+        
+		
+        osw.close();
+          
+		return Rise_Down;
+	
 	}
 	
 	
@@ -562,11 +601,9 @@ public class RuleMapping {
 	
 	/**Rule Matching**/
     public HashMap<Integer, ArrayList<String>> RuleMapping(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules,
-    HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_testing, HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training, HashMap<Integer, String> target_class, int min_sup, int window_size) throws IOException {
+    HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_testing, HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training, HashMap<Integer, String> target_class, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all,int min_sup, int window_size, double min_conf ) throws IOException {
     	
-//        for (Integer i  : SDB_for_training.keySet()) {
-//        	System.out.println(SDB_for_training.get(i));
-//        }
+
     	HashMap<String, Integer> number_of_rise_down = new HashMap<>();
     	for (int i = 1; i <= target_class.size()*0.8; i++) {
     	    if (number_of_rise_down .get(target_class.get(i)) == null) {
@@ -595,16 +632,16 @@ public class RuleMapping {
         }
     	
         /**CBS_CLASSIFIER**/
-    	HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size);
+    	//HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size);
     	//System.out.println("r: " + rules.size() + " c: "+classifier.size());
-    	ArrayList<String> defaultclass = getDefault(rules);
+    	//ArrayList<String> defaultclass = getDefault(rules);
 
     	//2.Begin Matching 
         HashMap<Integer, ArrayList<String>> result = new HashMap<>(); 
-        try {    
-    	    File fout = new File("match.txt");
-	        FileOutputStream fos = new FileOutputStream(fout);
-            OutputStreamWriter osw = new OutputStreamWriter(fos);
+        //try {    
+    	    //File fout = new File("match.txt");
+	        //FileOutputStream fos = new FileOutputStream(fout);
+            //OutputStreamWriter osw = new OutputStreamWriter(fos);
         for (Integer i : SDB_for_testing.keySet()) {
         
 //        	System.out.println("SDB " + i);
@@ -649,7 +686,7 @@ public class RuleMapping {
            
 //          System.out.println(i + " match_number:" + match_number);            
             if (match_number >= 2){ 
-            	int choose = 4;
+            	int choose = 3;
             	if (choose == 1) {
             	    //METHOD1
 //            	    result.put(i,  MTHODE1(rules, MATCH_RULES, i));
@@ -658,43 +695,44 @@ public class RuleMapping {
 //            	    result.put(i,  MTHODE2(rules, MATCH_RULES, i));            	 
             	} else if (choose == 3) {
                    	//METHOD3
-            		result.put(i, MTHODE3(rules, match_rules, i, answer));	
+            		result.put(i, MTHODE3(rules, match_rules, i, answer, min_conf, rules_all));	
             	} else {
             		//CBS            
 //            	    System.out.println(i+"th======================");
-            		result.put(i, getinstance(classifier, match_rules,  defaultclass, rules, i));
+            		//result.put(i, getinstance(classifier, match_rules,  defaultclass, rules, i));
             	}
             } else if (0< match_number && match_number < 2){
             	//Only one match_rule
 //            	for (ArrayList<ArrayList<String>> rule : MATCH_RULES.keySet()) {
 //                    ArrayList<String> Rise_Down = rule.get(rule.size()-1);	
 //            		result.put(i,Rise_Down);
-//            	}        
-            	
+//            	}                    	
             	ArrayList<ArrayList<String>> rule = match_rules.get(0);
             	ArrayList<String> Rise_Down = rule.get(rule.size()-1);
+            	System.out.println(i + " Only one" + Rise_Down);
             	result.put(i,Rise_Down);
             } else {
+            	System.out.println(i + " Guess" + answer);
             	result.put(i,answer);            	         	           
             }
         	
         
-        }    
-        osw.close();
-        } catch (FileNotFoundException e) {
-        	System.out.println("[ERROR] File Not Found Exception.");
-            e.printStackTrace();
-        } catch (IOException e) {
-        	System.out.println("[ERROR] I/O Exception.");
-            e.printStackTrace();  	
-        }  
+        } //for
+        //osw.close();
+        //} catch (FileNotFoundException e) {
+        //	System.out.println("[ERROR] File Not Found Exception.");
+         //   e.printStackTrace();
+        //} catch (IOException e) {
+        //	System.out.println("[ERROR] I/O Exception.");
+        //    e.printStackTrace();  	
+        //}  
         
         return result;         	 	
        
     }
     
     /**Performance Evaluation**/       
-    public HashMap<String, Double> evaluate(HashMap<Integer, String> class_table , HashMap<Integer, ArrayList<String>> predict, int traing_data_size, int next_week, int records_size) throws FileNotFoundException {
+    public HashMap<String, Double> evaluate(HashMap<Integer, String> class_table , HashMap<Integer, ArrayList<String>> predict, int traing_data_size, int next_week, int records_size, double  min_conf) throws FileNotFoundException {
     	HashMap<String, Double> e = new HashMap<>();
     	HashMap<String, Integer> number = new HashMap<>();
 
@@ -727,12 +765,21 @@ public class RuleMapping {
         int index = testing_start + next_week;
  
 //       System.out.println(class_table.size());
+        try {
+        	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\not_equal_" +min_conf+".txt");        
+     	    FileOutputStream fos = new FileOutputStream(fout);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);        	
         
         for (int i = 1; i <= predict.size(); i++) {
         	    
         	    if (index > records_size) continue; 
-        	
-        		System.out.println(i+ " " + predict.get(i).get(0) + " vs " + " " + (index) + " "+class_table.get(index));
+        	    if (!predict.get(i).get(0).equals(class_table.get(index))) {
+        	    	System.out.println("*" + i+ " " + predict.get(i).get(0) + " vs " + " " + (index) + " "+ class_table.get(index));
+        	    	osw.write(i + "  Prediction:  " + predict.get(i).get(0) + "  Real:  " +  class_table.get(index) + "\r\n");
+        	    } else {
+        	    	System.out.println(i+ " " + predict.get(i).get(0) + " vs " + " " + (index) + " "+class_table.get(index));	
+        	    }
+        		
                 if (predict.get(i).get(0).equals("Rise"))	{
                     if (class_table.get(index).equals("Rise")) {
                     	True_Positive += 1;	
@@ -749,7 +796,12 @@ public class RuleMapping {
                 }
                 index += 1;
         }
- 
+        osw.close(); 
+        
+        } catch (IOException e1) {
+        	System.out.println("[ERROR] I/O Exception.");
+            e1.printStackTrace();  	
+        }     
         int size = True_Negative +  True_Positive + False_Positive + False_Negative;
         e.put("True_Positive", (double)True_Positive);
         e.put("True_Negative", (double)True_Negative);
