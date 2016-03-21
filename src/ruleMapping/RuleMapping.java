@@ -103,14 +103,16 @@ public class RuleMapping {
             }     
 		}
 		
-		osw.close();
+		
 		
 		ArrayList<String> result = new ArrayList<>();
 		if (Rise_set.isEmpty()) {
 			result.add("Down");
+			osw.close();
 			return result;
 		} else if (Down_set.isEmpty()) {
 			result.add("Rise");
+			osw.close();
 			return result;
 		} else {
 		    double score_rise = 0;
@@ -131,16 +133,26 @@ public class RuleMapping {
 		    
 		    if (score_rise  > score_down) {
 		    	result.add("Rise");
+		    	osw.write("\r\n");
+		    	osw.write("score_rise  > score_down\r\n");
+		    	osw.close();
 				return result;	
 		    } else if (score_rise == score_down) {
+		    	osw.write("\r\n");
+		    	osw.write("score_rise  == score_down\r\n");
+		    	osw.close();
 		    	return answer;
 		    } else {
 		    	result.add("Down");
+		    	osw.write("\r\n");
+		    	osw.write("score_rise < score_down\r\n");
+		    	osw.close();
 				return result;	
 		    }
+		    
 		}
 		
-		
+	
 		
 	    
 		
