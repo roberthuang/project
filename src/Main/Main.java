@@ -20,7 +20,7 @@ public class Main {
         	//File fout = new File("C:\\user\\workspace\\project\\data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "cbs.txt");
      	    FileOutputStream fos = new FileOutputStream(fout);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
-	        for (double j =  0.8;j <= 0.8; j = j + 0.01) {
+	        for (double j =  0.01;j <= 0.9; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/    		
     	

@@ -436,9 +436,9 @@ public class RuleMapping {
 		return Rise_Down;
 	}
 	
-	/**CBE_METHOD3
+	/**CBE_CBA
 	 * @throws IOException **/
-	public  ArrayList<String> MTHODE3 (HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, ArrayList<ArrayList<ArrayList<String>>> match_rules, int index, ArrayList<String> answer, double min_conf, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all) throws IOException {
+	public  ArrayList<String> CBA (HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, ArrayList<ArrayList<ArrayList<String>>> match_rules, int index, ArrayList<String> answer, double min_conf, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all) throws IOException {
 		 
 	    File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + index + "_"+min_conf+ ".txt");        
 	    FileOutputStream fos = new FileOutputStream(fout);
@@ -505,10 +505,19 @@ public class RuleMapping {
              		max_confidence = confidence;
                     max_sup = sup;		
              	} else if (sup == max_sup) {
-//             	    System.out.println("Sup same!");
-             	    int length_j = rule_set_removed_duplicates.get(j).size()-1;
-             	    int length_max = rule_set_removed_duplicates.get(max).size()-1;
-             	    if (length_j < length_max) {
+             		int INDEX = 1;
+             		int j_number = 0;
+             		int max_number = 0;
+             	    for (ArrayList<ArrayList<String>> rule : rules_all.keySet()) {
+             	        if (rule.equals(rule_set_removed_duplicates.get(j))) {
+             	        	j_number  = INDEX;	
+             	        }
+             	        if (rule.equals(rule_set_removed_duplicates.get(max))) {
+             	        	max_number = INDEX;
+             	        }
+             	        INDEX++;
+             	    }
+             	    if (j_number < max_number) {
              	        max = j;
              	        max_sup = sup;
              	        max_confidence = confidence;                  
@@ -518,14 +527,15 @@ public class RuleMapping {
                 }
             }
          	
-        }    
-        osw.write(index+ "  ");
+        }   
+        
+        osw.write(index + "\r\n");
         
         for (ArrayList<ArrayList<String>> match_rule : match_rules) {
         	 int INDEX = 1;
         	 for (ArrayList<ArrayList<String>> rule_all : rules_all.keySet()) {
                  if (rule_all.equals(match_rule)) {
-                    osw.write(INDEX + ", "); 
+                    osw.write(INDEX + "(C: " + rules.get(match_rule).get(1) + "   S: " + rules.get(match_rule).get(0)+ "   L:"+ match_rule.size()+ ")" +"\r\n"); 
                     INDEX++;
                     break;
                  }
@@ -544,7 +554,9 @@ public class RuleMapping {
                break;
             }
         	 INDEX++;
-        }     
+        }    
+   	    
+   	
    	    osw.write("Matching_rule_size:" + match_rules.size()+ "\r\n"); 
         
         ArrayList<String> Rise_Down = match_rule.get(match_rule.size()-1);
@@ -695,7 +707,7 @@ public class RuleMapping {
 //            	    result.put(i,  MTHODE2(rules, MATCH_RULES, i));            	 
             	} else if (choose == 3) {
                    	//METHOD3
-            		result.put(i, MTHODE3(rules, match_rules, i, answer, min_conf, rules_all));	
+            		result.put(i, CBA(rules, match_rules, i, answer, min_conf, rules_all));	
             	} else {
             		//CBS            
 //            	    System.out.println(i+"th======================");
@@ -707,13 +719,23 @@ public class RuleMapping {
 //                    ArrayList<String> Rise_Down = rule.get(rule.size()-1);	
 //            		result.put(i,Rise_Down);
 //            	}                    	
+            	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + i + "_"+min_conf+ "one_rule.txt");        
+        	    FileOutputStream fos = new FileOutputStream(fout);
+        	    OutputStreamWriter osw = new OutputStreamWriter(fos);
             	ArrayList<ArrayList<String>> rule = match_rules.get(0);
             	ArrayList<String> Rise_Down = rule.get(rule.size()-1);
-            	System.out.println(i + " Only one" + Rise_Down);
+            	System.out.println(i + " Only one rule" + Rise_Down);
+            	osw.write(i + "   " + Rise_Down + "\r\n"); 
             	result.put(i,Rise_Down);
+            	osw.close();
             } else {
+            	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + i + "_"+min_conf+ "Guess.txt");        
+        	    FileOutputStream fos = new FileOutputStream(fout);
+        	    OutputStreamWriter osw = new OutputStreamWriter(fos);
             	System.out.println(i + " Guess" + answer);
-            	result.put(i,answer);            	         	           
+            	osw.write(i + "   " + answer + "\r\n"); 
+            	result.put(i,answer);   
+            	osw.close();
             }
         	
         
