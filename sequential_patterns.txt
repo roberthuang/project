@@ -14,13 +14,17 @@ Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1 
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 68
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 37
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 25
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 9
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 16
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 19
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 9
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 10
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 31
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 61
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 41
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 27
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 18
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 9
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 20
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 15
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 20
@@ -30,11 +34,16 @@ Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1 
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 49
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 30
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 17
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 8
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 9
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 18
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 12
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 19
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 43
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 27
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 9
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 15
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 10
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 16
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 41
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 82
@@ -46,6 +55,7 @@ Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 36
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 24
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 14
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 10
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 20
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 15
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 23
@@ -53,6 +63,8 @@ Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 28
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 19
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 14
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 12
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 14
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 45
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 116
@@ -60,12 +72,16 @@ Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1 
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 56
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 32
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 18
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 11
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 16
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 9
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 24
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 50
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 30
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 14
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 8
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 17
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 11
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 20
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 46
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 78
@@ -79,17 +95,30 @@ Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1 
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 49
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 32
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 18
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 11
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 16
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 13
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 17
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 39
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 28
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 11
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 9
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 13
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 11
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 11
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 40
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 91
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 57
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 36
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 25
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 9
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 10
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 11
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 44
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 26
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 13
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 11
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 18
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 34
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 69
@@ -100,10 +129,16 @@ Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1 
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 48
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 25
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 18
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 10
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 8
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 13
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 23
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 44
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 27
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 11
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 15
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 17
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 37
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 93
@@ -111,9 +146,14 @@ Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1 
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 35
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 18
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 14
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 9
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 9
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 17
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 39
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 24
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 12
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 12
+Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 15
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 37
 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 61
@@ -130,17 +170,34 @@ Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1 
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 49
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 30
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 20
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 12
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 8
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 10
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 19
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 40
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 30
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 12
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 12
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 13
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 9
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 10
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 42
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 92
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 62
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 40
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 27
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 13
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 10
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 11
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 13
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 42
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 30
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 16
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 11
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 10
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 12
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 30
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 69
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 143
@@ -149,19 +206,32 @@ Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 9
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 60
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 38
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 24
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 11
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 11
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 14
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 39
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 28
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 8
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 12
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 11
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 30
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 91
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 58
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 48
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 32
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 22
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 13
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 8
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 9
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 14
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 9
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 16
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 34
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 21
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 11
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 13
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 33
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 56
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 96
@@ -174,20 +244,28 @@ Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1 
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 46
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 23
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 15
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 8
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 12
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 23
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 39
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 23
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 13
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 16
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 10
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 16
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 44
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 82
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 50
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 34
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 18
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 8
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 16
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 36
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 22
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 11
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 16
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 11
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 14
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 32
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 64
@@ -198,19 +276,28 @@ Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1 
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 53
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 29
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 18
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 10
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 8
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 19
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 12
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 24
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 36
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 20
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 11
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 14
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 16
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 42
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 70
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 40
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 26
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 14
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 11
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 12
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 38
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 24
+Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 12
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 14
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 30
 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 61
@@ -230,11 +317,15 @@ Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1 
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 55
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 37
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 18
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 12
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 19
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 14
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 18
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 41
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 24
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 12
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 9
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 9
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 17
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 45
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 104
@@ -243,11 +334,17 @@ Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 31
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 19
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 16
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 13
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 9
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 14
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 49
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 27
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 19
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 11
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 8
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 17
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 9
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 22
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 42
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 74
@@ -258,18 +355,30 @@ Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1 
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 41
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 27
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 17
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 12
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 9
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 14
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 32
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 18
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 9
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 8
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 9
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 14
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 35
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 89
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 53
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 44
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 25
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 13
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 8
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 13
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 8
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 19
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 37
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 21
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 13
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 8
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 12
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 16
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 36
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 60
@@ -282,19 +391,27 @@ Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 8
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 54
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 43
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 26
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 11
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 13
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 9
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 17
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 35
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 18
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 11
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 10
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 17
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 35
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 80
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 45
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 34
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 19
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 10
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 8
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 15
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 36
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 19
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 16
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 9
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 17
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 35
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 57
@@ -304,10 +421,14 @@ Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 8
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 49
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 42
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 22
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 13
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 17
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 10
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 20
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 36
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 18
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 10
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 10
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 18
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 38
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 89
@@ -315,7 +436,11 @@ Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1 
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 48
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 25
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 21
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 11
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 10
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 16
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
+Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 8
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 23
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 32
 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 16
@@ -335,12 +460,15 @@ Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1 
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 47
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 27
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 20
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 13
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 9
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 20
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 49
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 31
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 19
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 15
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 19
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 12
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 18
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 47
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 88
@@ -348,11 +476,15 @@ Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1 
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 43
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 26
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 15
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 11
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 12
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 17
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 42
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 25
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 16
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 10
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 14
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 10
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 17
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 35
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 70
@@ -362,19 +494,29 @@ Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 7
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 44
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 38
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 22
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 13
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 8
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 8
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 16
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 30
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 16
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 12
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 8
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 12
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 14
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 35
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 76
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 42
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 35
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 18
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 12
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 8
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 9
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 17
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 38
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 22
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 16
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 9
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 16
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 34
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 56
@@ -387,19 +529,29 @@ Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 9
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 53
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 46
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 27
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 12
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 9
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 19
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 12
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 19
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 41
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 22
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 12
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 13
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 19
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 42
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 75
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 42
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 38
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 21
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 11
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 13
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 8
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 17
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 31
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 15
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 9
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 16
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 33
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 62
@@ -410,17 +562,26 @@ Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1 
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 43
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 20
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 17
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 10
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 13
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 8
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 23
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 38
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 18
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 13
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 8
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 20
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 45
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 88
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 45
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 40
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 19
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 13
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 12
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 8
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 21
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 25
+Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 11
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 14
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 43
 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 63
@@ -444,15 +605,21 @@ Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 41
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 37
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 14
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 9
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 23
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 29
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 14
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 10
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 15
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 42
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 67
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 38
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 26
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 13
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 9
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 13
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 18
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 12
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 29
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 60
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 119
@@ -461,15 +628,18 @@ Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 43
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 29
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 15
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 10
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 14
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 24
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 16
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 8
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 25
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 60
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 40
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 21
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 14
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 16
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 10
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 20
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 44
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 80
@@ -481,11 +651,14 @@ Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 37
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 25
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 14
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 11
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 19
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 12
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 28
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 49
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 34
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 19
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 13
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 22
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 15
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 15
@@ -495,9 +668,16 @@ Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1 
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 48
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 30
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 16
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 8
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 8
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 10
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 9
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 18
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 48
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 32
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 13
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 13
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 9
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 16
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 40
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 75
@@ -512,9 +692,11 @@ Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 46
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 29
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 14
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 10
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 15
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 24
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 15
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 9
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 29
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 52
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 35
@@ -531,11 +713,15 @@ Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 22
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 15
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 17
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 13
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 8
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 15
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 46
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 28
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 15
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 9
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 18
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 12
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 18
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 39
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 82
@@ -546,10 +732,16 @@ Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1 
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 56
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 32
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 22
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 12
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 8
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 10
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 9
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 24
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 42
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 27
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 10
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 19
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 13
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 15
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 45
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 102
@@ -557,11 +749,17 @@ Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1 
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 47
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 27
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 17
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 9
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 8
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 11
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 20
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 49
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 32
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 14
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 9
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 16
+Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 11
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 17
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 40
 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 74
@@ -579,8 +777,11 @@ Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 36
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 31
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 16
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 8
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 15
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 18
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 10
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 8
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 28
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 56
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 38
@@ -595,10 +796,16 @@ Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1 
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 46
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 32
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 16
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 11
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 11
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 9
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 14
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 46
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 33
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 18
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 13
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 12
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 13
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 35
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 79
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 172
@@ -608,21 +815,32 @@ Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1 
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 49
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 29
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 16
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 10
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 14
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 11
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 20
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 36
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 27
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 11
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 10
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 15
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 12
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 9
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 39
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 99
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 57
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 49
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 28
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 20
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 9
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 11
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 8
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 21
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 40
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 25
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 17
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 11
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 9
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 15
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 42
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 71
@@ -636,21 +854,32 @@ Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1 
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 56
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 33
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 19
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 9
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 10
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 17
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 10
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 23
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 43
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 28
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 9
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 13
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 9
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 15
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 46
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 95
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 62
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 38
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 23
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 12
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 8
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 15
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 46
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 27
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 16
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 10
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 18
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 10
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 8
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 19
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 33
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 69
@@ -661,20 +890,31 @@ Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1 
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 48
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 24
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 17
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 11
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 15
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 24
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 33
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 21
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 10
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 10
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 12
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 40
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 91
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 57
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 42
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 26
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 16
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 9
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 12
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 16
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 43
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 27
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 16
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 9
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 13
+Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 9
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 16
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 34
 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 65
@@ -695,13 +935,18 @@ Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 43
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 27
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 14
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 13
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 25
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 17
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 8
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 8
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 26
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 46
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 29
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 19
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 12
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 14
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 17
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 49
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 114
@@ -710,11 +955,15 @@ Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 32
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 23
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 17
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 12
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 9
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 14
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 56
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 34
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 17
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 10
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 14
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 22
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 40
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 82
@@ -726,19 +975,30 @@ Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 32
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 19
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 16
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 13
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 10
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 14
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 40
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 27
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 10
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 8
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 15
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 8
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 13
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 35
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 100
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 65
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 48
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 33
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 18
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 11
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 13
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 15
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 37
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 21
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 9
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 13
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 16
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 35
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 63
@@ -752,18 +1012,32 @@ Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1 
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 47
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 29
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 14
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 11
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 18
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 43
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 30
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 11
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 8
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 15
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 10
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 13
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 41
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 89
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 56
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 37
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 29
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 10
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 8
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 9
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 8
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 46
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 28
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 16
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 11
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 10
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 18
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 33
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 72
@@ -774,11 +1048,15 @@ Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1 
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 54
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 30
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 21
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 10
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 11
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 18
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 12
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 24
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 38
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 24
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 16
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 10
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 14
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 40
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 89
@@ -786,9 +1064,14 @@ Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1 
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 40
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 24
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 16
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 11
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 8
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 16
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 31
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 18
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 9
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 11
+Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 13
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 39
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 63
 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 91
@@ -805,20 +1088,26 @@ Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 24
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 21
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 14
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 9
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 22
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 44
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 26
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 10
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 16
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 10
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 18
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 45
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 93
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 55
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 35
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 19
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 13
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 16
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 41
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 21
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 13
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 14
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 8
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 20
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 38
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 72
@@ -828,9 +1117,13 @@ Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 8
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 51
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 37
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 20
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 11
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 9
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 17
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 32
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 14
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 13
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 9
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 18
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 36
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 87
@@ -838,10 +1131,15 @@ Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1 
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 39
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 23
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 16
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 9
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 11
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 16
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 47
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 24
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 22
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 12
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 10
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 10
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 23
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 38
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 58
@@ -855,22 +1153,31 @@ Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1 
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 56
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 30
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 15
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 8
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 19
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 12
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 26
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 47
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 27
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 15
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 8
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 19
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 11
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 8
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 20
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 51
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 83
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 46
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 33
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 16
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 10
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 9
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 17
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 39
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 20
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 12
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 14
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 9
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 19
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 37
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 69
@@ -880,19 +1187,29 @@ Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 7
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 43
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 39
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 22
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 12
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 9
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 9
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 17
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 30
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 18
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 13
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 8
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 9
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1 Down -1  #SUP: 12
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 34
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 88
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 49
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 44
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Rise -1  #SUP: 23
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1  #SUP: 15
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 8
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Same_1_3 -1  #SUP: 12
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 21
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1  #SUP: 39
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Rise -1  #SUP: 19
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1  #SUP: 14
+Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Diff_1_3 -1 Down -1  #SUP: 9
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 20
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 39
 Diff_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Same_1_3 -1 Down -1  #SUP: 60

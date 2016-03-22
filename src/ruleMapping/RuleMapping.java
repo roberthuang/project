@@ -37,29 +37,47 @@ public class RuleMapping {
 	}
 	
 	/**CBE_CBS**/
-	ArrayList<String> getDefault(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules) {
+	ArrayList<String> getDefault(HashMap<ArrayList<ArrayList<String>>, Double> classifier) {
 		ArrayList<String> result = new ArrayList<>();
-		int rise_number = 0;
-		int down_number = 0;
-		for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
-		    String rise_down = rule.get(rule.size()-1).get(0);
-		    if (rise_down.equals("Rise")) {
-		    	 rise_number++;
+		double default_socre_rise = 0;
+		double default_socre_down = 0;
+		int rise_size = 0;
+		int down_size = 0;
+		for (ArrayList<ArrayList<String>> rule : classifier.keySet()) {
+		    if (rule.get(rule.size()-1).equals("Rise")) {
+		    	rise_size++;
+		    	default_socre_rise += classifier.get(rule)/ (double) rise_set_size;
 		    } else {
-		    	 down_number++;
-		    }	
+		    	down_size++;
+		    	default_socre_down += classifier.get(rule)/ (double) down_set_size;
+		    }
 		}
-		if (rise_number > down_number) {
+		
+		if (default_socre_rise > default_socre_down) {
 			result.add("Rise");
+			return result;
+		} else if (default_socre_rise == default_socre_down) {
+			if (rise_size > down_size) {
+				result.add("Rise");
+				return result;	
+			} else {
+				result.add("Down");
+				return result;	
+			}
 		} else {
 			result.add("Down");
+			return result;
 		}
-		return result;
 	}
 	
 	/**CBE_CBS
 	 * @throws IOException **/
 	ArrayList<String> getinstance(HashMap<ArrayList<ArrayList<String>>, Double> classifier, ArrayList<ArrayList<ArrayList<String>>> match_rules, ArrayList<String> defaultclass, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, int index, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all, double min_conf, ArrayList<String> answer, int min_sup) throws IOException {
+		//test
+		File fout_test = new File("C:\\user\\workspace\\project\\test_"+index+".txt");
+	    FileOutputStream fos_test = new FileOutputStream(fout_test);
+        OutputStreamWriter osw_test = new OutputStreamWriter(fos_test);       
+		
 		
 	    File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + index + "_"+ min_conf+ "_"+ min_sup +".txt");
 	    FileOutputStream fos = new FileOutputStream(fout);
@@ -89,6 +107,7 @@ public class RuleMapping {
 			rules_all_index.put(rule_all, INDEX);			
          	INDEX++;
         }     
+		
 		osw_all.close();
 		
 		//System.out.println(INDEX);
@@ -122,27 +141,44 @@ public class RuleMapping {
 		    
 		    double score_down = 0;
 		    for (ArrayList<ArrayList<String>> down_match_rule : Down_set) {
-		    	if (classifier.get(down_match_rule) == null) continue;
-		    	double score = classifier.get(down_match_rule);
-		    	score_down += score;
+		    	if (classifier.get(down_match_rule) == null) {
+		    		
+		    		System.out.println(index + "   " + rules_all_index.get(down_match_rule) + "null");		    		
+		    		osw_test.write(index + "   " + rules_all_index.get(down_match_rule) + "null" + "\r\n");
+		    		continue;
+		    	} else {
+		    		osw_test.write(index+ "NOT: " + "   " + rules_all_index.get(down_match_rule) +"\r\n");
+		    	    double score = classifier.get(down_match_rule);
+		    	    osw_test.write("score:  " + score+"\r\n");
+		    	    score_down += score;
+		    	}
 		    }
+		    osw_test.write(" "  +score_down );
+		    score_down /= (double) down_set_size;
+		    
+		    osw_test.write("down_set_size:  " + down_set_size);
+		    
+		    osw_test.close();
 		    score_down /= (double) down_set_size;
 		    
 		    if (score_rise  > score_down) {
 		    	result.add("Rise");
 		    	osw.write("\r\n");
 		    	osw.write("score_rise  > score_down\r\n");
+		    	osw.write(score_rise+ "  " +  score_down+"\r\n");
 		    	osw.close();
 				return result;	
 		    } else if (score_rise == score_down) {
 		    	osw.write("\r\n");
 		    	osw.write("score_rise  == score_down\r\n");
+		    	osw.write(score_rise+ "  " +  score_down+"\r\n");
 		    	osw.close();
-		    	return answer;
+		    	return defaultclass;
 		    } else {
 		    	result.add("Down");
 		    	osw.write("\r\n");
 		    	osw.write("score_rise < score_down\r\n");
+		    	osw.write(score_rise+ "  " +  score_down+"\r\n");
 		    	osw.close();
 				return result;	
 		    }
@@ -189,7 +225,8 @@ public class RuleMapping {
     	    	rule_set.remove(i--);	       
     	    }
     	}
-		
+        System.out.println("before: " + rules.size());
+		System.out.println("after: " + rule_set.size());
         //for (ArrayList<ArrayList<String>> rule : rule_set) {
         	//rule_set_removed_duplicates.add(rule);
         //}
@@ -640,7 +677,7 @@ public class RuleMapping {
         /**CBS_CLASSIFIER**/
     	HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size);
     	//System.out.println("r: " + rules.size() + " c: "+classifier.size());
-    	ArrayList<String> defaultclass = getDefault(rules);
+    	ArrayList<String> defaultclass = getDefault(classifier);
 
     	//2.Begin Matching 
         HashMap<Integer, ArrayList<String>> result = new HashMap<>(); 
