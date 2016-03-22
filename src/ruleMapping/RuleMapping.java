@@ -59,15 +59,20 @@ public class RuleMapping {
 	
 	/**CBE_CBS
 	 * @throws IOException **/
-	ArrayList<String> getinstance(HashMap<ArrayList<ArrayList<String>>, Double> classifier, ArrayList<ArrayList<ArrayList<String>>> match_rules, ArrayList<String> defaultclass, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, int index, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all, double min_conf, ArrayList<String> answer) throws IOException {
+	ArrayList<String> getinstance(HashMap<ArrayList<ArrayList<String>>, Double> classifier, ArrayList<ArrayList<ArrayList<String>>> match_rules, ArrayList<String> defaultclass, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, int index, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all, double min_conf, ArrayList<String> answer, int min_sup) throws IOException {
 		
-	    File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + index + "_"+min_conf+ ".txt");
+	    File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + index + "_"+ min_conf+ "_"+ min_sup +".txt");
 	    FileOutputStream fos = new FileOutputStream(fout);
         OutputStreamWriter osw = new OutputStreamWriter(fos);           
 			
 
 		ArrayList<ArrayList<ArrayList<String>>> Rise_set = new ArrayList<>();
 		ArrayList<ArrayList<ArrayList<String>>> Down_set = new ArrayList<>();
+		
+		
+		File fout_all = new File("C:\\user\\workspace\\project\\rules_all_for_matching.txt");
+		FileOutputStream fos_all = new FileOutputStream(fout_all);
+	    OutputStreamWriter osw_all = new OutputStreamWriter(fos_all);  
 		
 		for (ArrayList<ArrayList<String>> match_rule : match_rules) {
 			 String str = match_rule.get(match_rule.size()-1).get(0);
@@ -77,33 +82,25 @@ public class RuleMapping {
 			    	Down_set.add(match_rule);
 			    }			
 	    }
-		osw.write("Rise:\r\n");
-		for (ArrayList<ArrayList<String>> rise_match_rule : Rise_set) {
-			int INDEX = 1;
-        	for (ArrayList<ArrayList<String>> rule_all : rules_all.keySet()) {
-                if (rule_all.equals(rise_match_rule)) {
-                   osw.write(INDEX + "(C: " + rules.get(rise_match_rule).get(1) + "   S: " + rules.get(rise_match_rule).get(0)+ "   L:"+ rise_match_rule.size()+ ")" +"\r\n"); 
-                   INDEX++;
-                   break;
-                }
-             	INDEX++;
-            }     
+		int INDEX = 1;
+		HashMap<ArrayList<ArrayList<String>>, Integer> rules_all_index = new HashMap<>();
+		for (ArrayList<ArrayList<String>> rule_all : rules_all.keySet()) {
+			osw_all.write(Integer.toString(INDEX)+ "    " + rule_all + "\r\n");
+			rules_all_index.put(rule_all, INDEX);			
+         	INDEX++;
+        }     
+		osw_all.close();
+		
+		//System.out.println(INDEX);
+		osw.write("Rise ("+ Rise_set.size()+"):" + "\r\n");
+		for (ArrayList<ArrayList<String>> rise_match_rule : Rise_set) {			
+            osw.write(rules_all_index.get(rise_match_rule) + "(C: " + rules.get(rise_match_rule).get(1) + "   S: " + rules.get(rise_match_rule).get(0)+ "   L:"+ rise_match_rule.size()+ ")" +"\r\n");                 
 		}
 		
-		osw.write("Down:\r\n");
+		osw.write("Down ("+ Down_set.size()+"):" + "\r\n");
 		for (ArrayList<ArrayList<String>> down_match_rule : Down_set) {
-			int INDEX = 1;
-        	for (ArrayList<ArrayList<String>> rule_all : rules_all.keySet()) {
-                if (rule_all.equals(down_match_rule)) {
-                   osw.write(INDEX + "(C: " + rules.get(down_match_rule).get(1) + "   S: " + rules.get(down_match_rule).get(0)+ "   L:"+ down_match_rule.size()+ ")" +"\r\n"); 
-                   INDEX++;
-                   break;
-                }
-             	INDEX++;
-            }     
+            osw.write(rules_all_index.get(down_match_rule) +  "(C: " + rules.get(down_match_rule).get(1) + "   S: " + rules.get(down_match_rule).get(0)+ "   L:"+ down_match_rule.size()+ ")" +"\r\n"); 
 		}
-		
-		
 		
 		ArrayList<String> result = new ArrayList<>();
 		if (Rise_set.isEmpty()) {
@@ -151,11 +148,6 @@ public class RuleMapping {
 		    }
 		    
 		}
-		
-	
-		
-	    
-		
 	}
 	
 	/**CBE_CBS**/
@@ -200,7 +192,6 @@ public class RuleMapping {
 		
         //for (ArrayList<ArrayList<String>> rule : rule_set) {
         	//rule_set_removed_duplicates.add(rule);
-
         //}
         /**Caculate size**/
         for (ArrayList<ArrayList<String>> rule : rule_set) {
@@ -714,7 +705,7 @@ public class RuleMapping {
             	} else {
             		//CBS            
 //            	    System.out.println(i+"th======================");
-            		result.put(i, getinstance(classifier, match_rules,  defaultclass, rules, i, rules_all, min_conf, answer));
+            		result.put(i, getinstance(classifier, match_rules,  defaultclass, rules, i, rules_all, min_conf, answer, min_sup));
             	}
             } else if (0< match_number && match_number < 2){
             	//Only one match_rule
@@ -757,7 +748,7 @@ public class RuleMapping {
     }
     
     /**Performance Evaluation**/       
-    public HashMap<String, Double> evaluate(HashMap<Integer, String> class_table , HashMap<Integer, ArrayList<String>> predict, int traing_data_size, int next_week, int records_size, double  min_conf) throws FileNotFoundException {
+    public HashMap<String, Double> evaluate(HashMap<Integer, String> class_table , HashMap<Integer, ArrayList<String>> predict, int traing_data_size, int next_week, int records_size, double  min_conf, int min_sup) throws FileNotFoundException {
     	HashMap<String, Double> e = new HashMap<>();
     	HashMap<String, Integer> number = new HashMap<>();
 
@@ -791,7 +782,7 @@ public class RuleMapping {
  
 //       System.out.println(class_table.size());
         try {
-        	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\not_equal_" +min_conf+".txt");        
+        	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\not_equal_" +min_conf+ "_" + min_sup +".txt");        
      	    FileOutputStream fos = new FileOutputStream(fout);
             OutputStreamWriter osw = new OutputStreamWriter(fos);        	
         
@@ -809,14 +800,14 @@ public class RuleMapping {
                     if (class_table.get(index).equals("Rise")) {
                     	True_Positive += 1;	
                     } else {
-                    	False_Negative += 1;
+                    	False_Positive ++;
                     }
                 	
                 } else  {
                 	if (class_table.get(index).equals("Down")) {
                 		True_Negative += 1;	
                     } else {
-                    	False_Positive += 1;
+                    	False_Negative ++;
                     }              	
                 }
                 index += 1;

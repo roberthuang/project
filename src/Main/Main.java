@@ -20,7 +20,7 @@ public class Main {
         	File fout = new File("C:\\user\\workspace\\project\\data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "cbs.txt");
      	    FileOutputStream fos = new FileOutputStream(fout);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
-	        for (double j =  0.01;j <= 0.9; j = j + 0.01) {
+	        for (double j =  0.36;j <= 0.36; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/    		
     	
@@ -57,7 +57,7 @@ public class Main {
             String path_after_discrete = "transformed_petro_subset1_feature.csv";
    		    T2SDB t = new T2SDB();
     		int SDB_Training_Size = t.translate_training_sliding_window(window_size, path_after_discrete,  feature_target, "SDB(Training).txt");
-            System.out.println(SDB_Training_Size);
+            System.out.println("SDB_Training_Size:" + SDB_Training_Size);
     		
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");    		
             /*For testing*/
@@ -75,12 +75,13 @@ public class Main {
     		AlgoPrefixSpan_with_Strings algo = new AlgoPrefixSpan_with_Strings(); 
     		/*execute the algorithm*/
     		algo.runAlgorithm(sequenceDatabase, "sequential_patterns.txt", minsup);    
+    		algo.runAlgorithm(sequenceDatabase, "sequential_patterns_all.txt", 2);    
     		//algo.printStatistics(sequenceDatabase.size());
     		
     		/**5.Generating Rule**/
     		//System.out.println("##Step 5: Rule Generating");
     		int rule_size = RuleEvaluation.start("C:\\user\\workspace\\project\\RuleEvaluation_config.txt", min_conf, minsup, window_size, SDB_Training_Size);
-    		RuleEvaluation.start("C:\\user\\workspace\\project\\RuleEvaluation_config_all.txt", 0.01, minsup, window_size, SDB_Training_Size);
+    		RuleEvaluation.start("C:\\user\\workspace\\project\\RuleEvaluation_config_all.txt", 0.01, 2, 2, SDB_Training_Size);
     		//System.out.println(rule_size);
     		
     		/**6.Rule Mapping**/    		
@@ -90,7 +91,7 @@ public class Main {
 	        = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), Read_Training_Data("SDB(Training).txt"),feature_target, readRules("rules_all.txt"), minsup, window_size, min_conf);
   	       
     		/**7.Evaluate Precision**/     		
-    	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week, records.size(),  min_conf);    		           
+    	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week, records.size(),  min_conf, minsup);    		           
     		//if (e.get("macro_f_measure") > 0.1) {
     	    
     		osw.write("window_size:"        + window_size + "\r\n");
@@ -120,6 +121,10 @@ public class Main {
     		
 	        
     	    osw.close();
+    	    
+    	    
+    	    
+    	    
    	        
         } catch (FileNotFoundException e) {
             System.out.println("[ERROR] File Not Found Exception.");
@@ -129,6 +134,9 @@ public class Main {
             e.printStackTrace();  	
         }     	            	  
     }
+    
+    
+   
     
     static ArrayList<ArrayList<String>> readCSV(String fullpath) throws FileNotFoundException{
         ArrayList<ArrayList<String>> records = new ArrayList<>();

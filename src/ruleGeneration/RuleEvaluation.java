@@ -233,9 +233,9 @@ public class RuleEvaluation {
             
 
 			double conf = 1.0 * sup / patterns.get(LHS.toString());
-//			System.out.println("key: " + key + " sup:" + sup);
-//			System.out.println("LHS:" + LHS.toString() + " sup:" + patterns.get(LHS.toString()));
-//			System.out.println(conf);
+			//System.out.println("key: " + key + " sup:" + sup);
+			//System.out.println("LHS:" + LHS.toString() + " sup:" + patterns.get(LHS.toString()));
+			//System.out.println(conf);
 			if(conf >= min_conf) {
 				if (distribution_of_rule.get(conf) == null) {
 					int count = 1;
