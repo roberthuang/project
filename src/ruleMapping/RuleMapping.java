@@ -35,20 +35,16 @@ public class RuleMapping {
 		}	
 		return globalEntropy;		
 	}
-	
+	//比較C1 與 C2 的總分，大者為預設的Class 總分相同則取擁有較多數的為主
 	/**CBE_CBS**/
 	ArrayList<String> getDefault(HashMap<ArrayList<ArrayList<String>>, Double> classifier) {
 		ArrayList<String> result = new ArrayList<>();
 		double default_socre_rise = 0;
 		double default_socre_down = 0;
-		int rise_size = 0;
-		int down_size = 0;
 		for (ArrayList<ArrayList<String>> rule : classifier.keySet()) {
 		    if (rule.get(rule.size()-1).equals("Rise")) {
-		    	rise_size++;
 		    	default_socre_rise += classifier.get(rule)/ (double) rise_set_size;
 		    } else {
-		    	down_size++;
 		    	default_socre_down += classifier.get(rule)/ (double) down_set_size;
 		    }
 		}
@@ -57,7 +53,7 @@ public class RuleMapping {
 			result.add("Rise");
 			return result;
 		} else if (default_socre_rise == default_socre_down) {
-			if (rise_size > down_size) {
+			if (rise_set_size > down_set_size) {
 				result.add("Rise");
 				return result;	
 			} else {
@@ -198,9 +194,7 @@ public class RuleMapping {
 				
 		/**Remove Duplicates label**/
 		//ArrayList<ArrayList<ArrayList<String>>> rule_set_removed_duplicates = new ArrayList<>();
-		
-      
-        
+
         for (int i = 0 ; i < rule_set.size(); i++) {
     	    boolean same = false;
     	    for (int j = i+1; j < rule_set.size(); j++) {
@@ -225,8 +219,8 @@ public class RuleMapping {
     	    	rule_set.remove(i--);	       
     	    }
     	}
-        System.out.println("before: " + rules.size());
-		System.out.println("after: " + rule_set.size());
+        //System.out.println("before: " + rules.size());
+		//System.out.println("after: " + rule_set.size());
         //for (ArrayList<ArrayList<String>> rule : rule_set) {
         	//rule_set_removed_duplicates.add(rule);
         //}
