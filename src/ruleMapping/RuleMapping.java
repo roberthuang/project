@@ -42,13 +42,14 @@ public class RuleMapping {
 		double default_socre_rise = 0;
 		double default_socre_down = 0;
 		for (ArrayList<ArrayList<String>> rule : classifier.keySet()) {
-		    if (rule.get(rule.size()-1).equals("Rise")) {
-		    	default_socre_rise += classifier.get(rule)/ (double) rise_set_size;
+		    if (rule.get(rule.size()-1).get(0).equals("Rise")) {
+		    	default_socre_rise += classifier.get(rule)/(double) rise_set_size;
 		    } else {
-		    	default_socre_down += classifier.get(rule)/ (double) down_set_size;
+		    	default_socre_down += classifier.get(rule)/(double) down_set_size;
 		    }
 		}
-		
+		//System.out.println(rise_set_size + " " + down_set_size);
+		//System.out.println(default_socre_rise + "  " + default_socre_down);
 		if (default_socre_rise > default_socre_down) {
 			result.add("Rise");
 			return result;
@@ -70,7 +71,7 @@ public class RuleMapping {
 	 * @throws IOException **/
 	ArrayList<String> getinstance(HashMap<ArrayList<ArrayList<String>>, Double> classifier, ArrayList<ArrayList<ArrayList<String>>> match_rules, ArrayList<String> defaultclass, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, int index, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all, double min_conf, ArrayList<String> answer, int min_sup) throws IOException {
 		//test
-		File fout_test = new File("C:\\user\\workspace\\project\\test_"+index+".txt");
+		File fout_test = new File("C:\\user\\workspace\\project\\testing_data\\test_"+index+"_"+ min_sup + ".txt");
 	    FileOutputStream fos_test = new FileOutputStream(fout_test);
         OutputStreamWriter osw_test = new OutputStreamWriter(fos_test);       
 		
@@ -96,6 +97,7 @@ public class RuleMapping {
 			    	Down_set.add(match_rule);
 			    }			
 	    }
+		
 		int INDEX = 1;
 		HashMap<ArrayList<ArrayList<String>>, Integer> rules_all_index = new HashMap<>();
 		for (ArrayList<ArrayList<String>> rule_all : rules_all.keySet()) {
@@ -120,10 +122,12 @@ public class RuleMapping {
 		ArrayList<String> result = new ArrayList<>();
 		if (Rise_set.isEmpty()) {
 			result.add("Down");
+			osw.write("Rise_set.isEmpty()" + "\r\n");
 			osw.close();
 			return result;
 		} else if (Down_set.isEmpty()) {
 			result.add("Rise");
+			osw.write("Down_set.isEmpty()" + "\r\n");
 			osw.close();
 			return result;
 		} else {
@@ -139,7 +143,7 @@ public class RuleMapping {
 		    for (ArrayList<ArrayList<String>> down_match_rule : Down_set) {
 		    	if (classifier.get(down_match_rule) == null) {
 		    		
-		    		System.out.println(index + "   " + rules_all_index.get(down_match_rule) + "null");		    		
+		    		//System.out.println(index + "   " + rules_all_index.get(down_match_rule) + "null");		    		
 		    		osw_test.write(index + "   " + rules_all_index.get(down_match_rule) + "null" + "\r\n");
 		    		continue;
 		    	} else {
@@ -155,7 +159,7 @@ public class RuleMapping {
 		    osw_test.write("down_set_size:  " + down_set_size);
 		    
 		    osw_test.close();
-		    score_down /= (double) down_set_size;
+		
 		    
 		    if (score_rise  > score_down) {
 		    	result.add("Rise");
@@ -224,6 +228,7 @@ public class RuleMapping {
         //for (ArrayList<ArrayList<String>> rule : rule_set) {
         	//rule_set_removed_duplicates.add(rule);
         //}
+        
         /**Caculate size**/
         for (ArrayList<ArrayList<String>> rule : rule_set) {
        //for (ArrayList<ArrayList<String>> rule : rule_set_removed_duplicates) {
@@ -670,7 +675,6 @@ public class RuleMapping {
     	
         /**CBS_CLASSIFIER**/
     	HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size);
-    	//System.out.println("r: " + rules.size() + " c: "+classifier.size());
     	ArrayList<String> defaultclass = getDefault(classifier);
 
     	//2.Begin Matching 
@@ -720,10 +724,11 @@ public class RuleMapping {
 //                	MATCH_RULES.put(rule, contain_last(SDB_for_training, rule, min_sup, window_size));
                 }
             } 
-           
+            int cbs_cba_for_null_rule = 0;
 //          System.out.println(i + " match_number:" + match_number);            
             if (match_number >= 2){ 
             	int choose = 4;
+            	cbs_cba_for_null_rule = choose;
             	if (choose == 1) {
             	    //METHOD1
 //            	    result.put(i,  MTHODE1(rules, MATCH_RULES, i));
@@ -744,7 +749,7 @@ public class RuleMapping {
 //                    ArrayList<String> Rise_Down = rule.get(rule.size()-1);	
 //            		result.put(i,Rise_Down);
 //            	}                    	
-            	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + i + "_"+min_conf+ "one_rule.txt");        
+            	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + i + "_"+min_conf + "_" +min_sup+"one_rule.txt");        
         	    FileOutputStream fos = new FileOutputStream(fout);
         	    OutputStreamWriter osw = new OutputStreamWriter(fos);
             	ArrayList<ArrayList<String>> rule = match_rules.get(0);
@@ -754,13 +759,26 @@ public class RuleMapping {
             	result.put(i,Rise_Down);
             	osw.close();
             } else {
-            	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + i + "_"+min_conf+ "Guess.txt");        
+            	
+            	//CBA OR CBS
+            	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + i + "_"+min_conf+  "_" +min_sup+"Guess.txt");        
         	    FileOutputStream fos = new FileOutputStream(fout);
         	    OutputStreamWriter osw = new OutputStreamWriter(fos);
-            	System.out.println(i + " Guess" + answer);
-            	osw.write(i + "   " + answer + "\r\n"); 
-            	result.put(i,answer);   
-            	osw.close();
+        	    
+        	    
+        	    if (cbs_cba_for_null_rule == 4) {
+        	    	//CBS
+                	System.out.println(i + " Guess" +  	defaultclass);     
+                	osw.write(i + "   " + defaultclass + "\r\n");             	
+                	result.put(i,defaultclass);   
+                	osw.close();	
+        	    } else {
+        	    	//CBA
+                	System.out.println(i + " Guess" +  	answer);     
+                	osw.write(i + "   " + answer + "\r\n");             	
+                	result.put(i,answer);   
+                	osw.close();
+        	    }            	
             }
         	
         
@@ -773,7 +791,8 @@ public class RuleMapping {
         //	System.out.println("[ERROR] I/O Exception.");
         //    e.printStackTrace();  	
         //}  
-        
+        rise_set_size = 0;
+        down_set_size = 0;
         return result;         	 	
        
     }
@@ -821,10 +840,10 @@ public class RuleMapping {
         	    
         	    if (index > records_size) continue; 
         	    if (!predict.get(i).get(0).equals(class_table.get(index))) {
-        	    	System.out.println("*" + i+ " " + predict.get(i).get(0) + " vs " + " " + (index) + " "+ class_table.get(index));
+        	    //	System.out.println("*" + i+ " " + predict.get(i).get(0) + " vs " + " " + (index) + " "+ class_table.get(index));
         	    	osw.write(i + "  Prediction:  " + predict.get(i).get(0) + "  Real:  " +  class_table.get(index) + "\r\n");
         	    } else {
-        	    	System.out.println(i+ " " + predict.get(i).get(0) + " vs " + " " + (index) + " "+class_table.get(index));	
+        	    //	System.out.println(i+ " " + predict.get(i).get(0) + " vs " + " " + (index) + " "+class_table.get(index));	
         	    }
         		
                 if (predict.get(i).get(0).equals("Rise"))	{
@@ -857,12 +876,27 @@ public class RuleMapping {
         
         double acc =  (True_Positive + True_Negative)/ (double)(size);
         e.put("acc", acc);
-        double precision_rise =  True_Positive / (double)(True_Positive + False_Positive);
-        e.put("precision_rise", precision_rise);
+        
+        double precision_rise = 0;
+        if (True_Positive == 0 ) {        	
+            e.put("precision_rise", 0.0);	
+        } else {
+        	precision_rise =  True_Positive / (double)(True_Positive + False_Positive);
+            e.put("precision_rise", precision_rise);
+        }       
+        
         double recall_rise =  True_Positive / (double)(True_Positive + False_Negative);
         e.put("recall_rise", recall_rise);
-        double precision_down =  True_Negative / (double)(True_Negative +  False_Negative);
-        e.put("precision_down", precision_down);
+        
+        
+        double precision_down = 0;
+        if (True_Negative == 0 ) {        	
+            e.put("precision_down", 0.0);	
+        } else {
+        	precision_down =  True_Negative / (double)(True_Negative +  False_Negative);
+            e.put("precision_down", precision_down);
+        }
+        
         double recall_down =  True_Negative / (double)( True_Negative + False_Positive);
         e.put("recall_down", recall_down );
         

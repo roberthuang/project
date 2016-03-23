@@ -253,11 +253,11 @@ public class RuleEvaluation {
 
 		if(default_predict != null){
 
-			String rule = new StringBuilder("DEFAULT -> ").append(default_predict).toString();
+//			String rule = new StringBuilder("DEFAULT -> ").append(default_predict).toString();
 
-			double sup = patterns.get(default_predict);
+//			double sup = patterns.get(default_predict);
 
-			rules.put(rule, new RuleEval(sup, sup));	//Confidence of DEFAULT = its support
+//			rules.put(rule, new RuleEval(sup, sup));	//Confidence of DEFAULT = its support
 
 		}
 	
