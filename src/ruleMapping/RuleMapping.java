@@ -71,9 +71,9 @@ public class RuleMapping {
 	 * @throws IOException **/
 	ArrayList<String> getinstance(HashMap<ArrayList<ArrayList<String>>, Double> classifier, ArrayList<ArrayList<ArrayList<String>>> match_rules, ArrayList<String> defaultclass, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, int index, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all, double min_conf, ArrayList<String> answer, int min_sup) throws IOException {
 		//test
-		File fout_test = new File("C:\\user\\workspace\\project\\testing_data\\test_"+index+"_"+ min_sup + ".txt");
-	    FileOutputStream fos_test = new FileOutputStream(fout_test);
-        OutputStreamWriter osw_test = new OutputStreamWriter(fos_test);       
+		//File fout_test = new File("C:\\user\\workspace\\project\\testing_data\\test_"+index+"_"+ min_sup + ".txt");
+	    //FileOutputStream fos_test = new FileOutputStream(fout_test);
+        //OutputStreamWriter osw_test = new OutputStreamWriter(fos_test);       
 		
 		
 	    File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + index + "_"+ min_conf+ "_"+ min_sup +".txt");
@@ -109,15 +109,15 @@ public class RuleMapping {
 		osw_all.close();
 		
 		//System.out.println(INDEX);
-		osw.write("Rise ("+ Rise_set.size()+"):" + "\r\n");
-		for (ArrayList<ArrayList<String>> rise_match_rule : Rise_set) {			
-            osw.write(rules_all_index.get(rise_match_rule) + "(C: " + rules.get(rise_match_rule).get(1) + "   S: " + rules.get(rise_match_rule).get(0)+ "   L:"+ rise_match_rule.size()+ ")" +"\r\n");                 
-		}
+		//osw.write("Rise ("+ Rise_set.size()+"):" + "\r\n");
+		//for (ArrayList<ArrayList<String>> rise_match_rule : Rise_set) {			
+        //    osw.write(rules_all_index.get(rise_match_rule) + "(C: " + rules.get(rise_match_rule).get(1) + "   S: " + rules.get(rise_match_rule).get(0)+ "   L:"+ rise_match_rule.size()+ ")" +"\r\n");                 
+		//}
 		
-		osw.write("Down ("+ Down_set.size()+"):" + "\r\n");
-		for (ArrayList<ArrayList<String>> down_match_rule : Down_set) {
-            osw.write(rules_all_index.get(down_match_rule) +  "(C: " + rules.get(down_match_rule).get(1) + "   S: " + rules.get(down_match_rule).get(0)+ "   L:"+ down_match_rule.size()+ ")" +"\r\n"); 
-		}
+		//osw.write("Down ("+ Down_set.size()+"):" + "\r\n");
+		//for (ArrayList<ArrayList<String>> down_match_rule : Down_set) {
+        //    osw.write(rules_all_index.get(down_match_rule) +  "(C: " + rules.get(down_match_rule).get(1) + "   S: " + rules.get(down_match_rule).get(0)+ "   L:"+ down_match_rule.size()+ ")" +"\r\n"); 
+		//}
 		
 		ArrayList<String> result = new ArrayList<>();
 		if (Rise_set.isEmpty()) {
@@ -133,9 +133,14 @@ public class RuleMapping {
 		} else {
 		    double score_rise = 0;
 		    for (ArrayList<ArrayList<String>> rise_match_rule : Rise_set) {
-		    	if (classifier.get(rise_match_rule) == null) continue;
-		    	double score = classifier.get(rise_match_rule);
-		    	score_rise += score;
+		    	if (classifier.get(rise_match_rule) == null) {
+		    		
+		    		continue;
+		    	} else {
+		    		osw.write("Rise " + rules_all_index.get(rise_match_rule) + " " + rules.get(rise_match_rule).get(1) + "\r\n");
+		    		double score = classifier.get(rise_match_rule);
+			    	score_rise += score;
+		    	}		    	
 		    }
 		    score_rise /= (double) rise_set_size;
 		    
@@ -144,21 +149,22 @@ public class RuleMapping {
 		    	if (classifier.get(down_match_rule) == null) {
 		    		
 		    		//System.out.println(index + "   " + rules_all_index.get(down_match_rule) + "null");		    		
-		    		osw_test.write(index + "   " + rules_all_index.get(down_match_rule) + "null" + "\r\n");
+		    		//osw_test.write(index + "   " + rules_all_index.get(down_match_rule) + "null" + "\r\n");
 		    		continue;
 		    	} else {
-		    		osw_test.write(index+ "NOT: " + "   " + rules_all_index.get(down_match_rule) +"\r\n");
+		    		osw.write("Down " + rules_all_index.get(down_match_rule) + " " + rules.get(down_match_rule).get(1)+ "\r\n");
+		    		//osw_test.write(index+ "NOT: " + "   " + rules_all_index.get(down_match_rule) +"\r\n");
 		    	    double score = classifier.get(down_match_rule);
-		    	    osw_test.write("score:  " + score+"\r\n");
+		    	    //osw_test.write("score:  " + score+"\r\n");
 		    	    score_down += score;
 		    	}
 		    }
-		    osw_test.write(" "  +score_down );
+		    //osw_test.write(" "  +score_down );
 		    score_down /= (double) down_set_size;
 		    
-		    osw_test.write("down_set_size:  " + down_set_size);
+		    //osw_test.write("down_set_size:  " + down_set_size);
 		    
-		    osw_test.close();
+		    //osw_test.close();
 		
 		    
 		    if (score_rise  > score_down) {
