@@ -108,16 +108,16 @@ public class RuleMapping {
 		
 		osw_all.close();
 		
-		//System.out.println(INDEX);
-		//osw.write("Rise ("+ Rise_set.size()+"):" + "\r\n");
-		//for (ArrayList<ArrayList<String>> rise_match_rule : Rise_set) {			
-        //    osw.write(rules_all_index.get(rise_match_rule) + "(C: " + rules.get(rise_match_rule).get(1) + "   S: " + rules.get(rise_match_rule).get(0)+ "   L:"+ rise_match_rule.size()+ ")" +"\r\n");                 
-		//}
-		
-		//osw.write("Down ("+ Down_set.size()+"):" + "\r\n");
-		//for (ArrayList<ArrayList<String>> down_match_rule : Down_set) {
-        //    osw.write(rules_all_index.get(down_match_rule) +  "(C: " + rules.get(down_match_rule).get(1) + "   S: " + rules.get(down_match_rule).get(0)+ "   L:"+ down_match_rule.size()+ ")" +"\r\n"); 
-		//}
+		//PRINT ALL MATCH RULE 
+		osw.write("Rise ("+ Rise_set.size()+"):" + "\r\n");
+		for (ArrayList<ArrayList<String>> rise_match_rule : Rise_set) {			
+            osw.write(rules_all_index.get(rise_match_rule) + "(C: " + rules.get(rise_match_rule).get(1) + "   S: " + rules.get(rise_match_rule).get(0)+ "   L:"+ rise_match_rule.size()+ ")" +"\r\n");                 
+		}
+		//PRINT ALL MATCH RULE
+		osw.write("Down ("+ Down_set.size()+"):" + "\r\n");
+		for (ArrayList<ArrayList<String>> down_match_rule : Down_set) {
+            osw.write(rules_all_index.get(down_match_rule) +  "(C: " + rules.get(down_match_rule).get(1) + "   S: " + rules.get(down_match_rule).get(0)+ "   L:"+ down_match_rule.size()+ ")" +"\r\n"); 
+		}
 		
 		ArrayList<String> result = new ArrayList<>();
 		if (Rise_set.isEmpty()) {
@@ -133,11 +133,11 @@ public class RuleMapping {
 		} else {
 		    double score_rise = 0;
 		    for (ArrayList<ArrayList<String>> rise_match_rule : Rise_set) {
-		    	if (classifier.get(rise_match_rule) == null) {
-		    		
+		    	if (classifier.get(rise_match_rule) == null) {		    		
 		    		continue;
 		    	} else {
-		    		osw.write("Rise " + rules_all_index.get(rise_match_rule) + " " + rules.get(rise_match_rule).get(1) + "\r\n");
+		    		//PRINT ALL MATCH RULES IN CLASSIFIER
+		    		osw.write("Rise " + rules_all_index.get(rise_match_rule) + " " + rules.get(rise_match_rule).get(1) + " " + rules.get(rise_match_rule).get(0)+ "\r\n");
 		    		double score = classifier.get(rise_match_rule);
 			    	score_rise += score;
 		    	}		    	
@@ -152,29 +152,24 @@ public class RuleMapping {
 		    		//osw_test.write(index + "   " + rules_all_index.get(down_match_rule) + "null" + "\r\n");
 		    		continue;
 		    	} else {
-		    		osw.write("Down " + rules_all_index.get(down_match_rule) + " " + rules.get(down_match_rule).get(1)+ "\r\n");
-		    		//osw_test.write(index+ "NOT: " + "   " + rules_all_index.get(down_match_rule) +"\r\n");
+		    		//PRINT ALL MATCH RULES IN CLASSIFIER
+		    		osw.write("Down " + rules_all_index.get(down_match_rule) + " " + rules.get(down_match_rule).get(1)+ " " + rules.get(down_match_rule).get(0) + "\r\n");
 		    	    double score = classifier.get(down_match_rule);
-		    	    //osw_test.write("score:  " + score+"\r\n");
 		    	    score_down += score;
 		    	}
 		    }
-		    //osw_test.write(" "  +score_down );
 		    score_down /= (double) down_set_size;
-		    
-		    //osw_test.write("down_set_size:  " + down_set_size);
-		    
-		    //osw_test.close();
-		
-		    
+    
 		    if (score_rise  > score_down) {
 		    	result.add("Rise");
+		    	//PRINT RESULT
 		    	osw.write("\r\n");
 		    	osw.write("score_rise  > score_down\r\n");
 		    	osw.write(score_rise+ "  " +  score_down+"\r\n");
 		    	osw.close();
 				return result;	
 		    } else if (score_rise == score_down) {
+		    	//PRINT RESULT
 		    	osw.write("\r\n");
 		    	osw.write("score_rise  == score_down\r\n");
 		    	osw.write(score_rise+ "  " +  score_down+"\r\n");
@@ -182,6 +177,7 @@ public class RuleMapping {
 		    	return defaultclass;
 		    } else {
 		    	result.add("Down");
+		    	//PRINT RESULT
 		    	osw.write("\r\n");
 		    	osw.write("score_rise < score_down\r\n");
 		    	osw.write(score_rise+ "  " +  score_down+"\r\n");
@@ -202,26 +198,24 @@ public class RuleMapping {
 
 		double globalEntropy = Cacluate_all_entropy(SDB_for_training);		
 				
-		/**Remove Duplicates label**/
-		//ArrayList<ArrayList<ArrayList<String>>> rule_set_removed_duplicates = new ArrayList<>();
-
+		/**Remove Duplicates**/
         for (int i = 0 ; i < rule_set.size(); i++) {
     	    boolean same = false;
     	    for (int j = i+1; j < rule_set.size(); j++) {
     	        ArrayList<ArrayList<String>> temp1 = new ArrayList<>();
-    		for (int k1 = 0; k1 < rule_set.get(i).size()-1; k1++) {
-    		    temp1.add(rule_set.get(i).get(k1));
-    	    }    
-    	    String str1 = rule_set.get(i).get(rule_set.get(i).size()-1).get(0);
-    	    ArrayList<ArrayList<String>> temp2 = new ArrayList<>();
-    		for (int k1 = 0; k1 < rule_set.get(j).size()-1; k1++) {
-    		    temp2.add(rule_set.get(j).get(k1));
+    		    for (int k1 = 0; k1 < rule_set.get(i).size()-1; k1++) {
+    		        temp1.add(rule_set.get(i).get(k1));
+    	        }    
+    	        String str1 = rule_set.get(i).get(rule_set.get(i).size()-1).get(0);
+    	        ArrayList<ArrayList<String>> temp2 = new ArrayList<>();
+    		    for (int k1 = 0; k1 < rule_set.get(j).size()-1; k1++) {
+    		        temp2.add(rule_set.get(j).get(k1));
     	        }
     	        String str2 = rule_set.get(j).get(rule_set.get(j).size()-1).get(0);
     	        if ( (temp1.equals(temp2)) && (!str1.equals(str2)) ) {
     	            //System.out.println(temp1 + " " + temp2);
-    		    same = true;
-    		    rule_set.remove(j--);		   
+    		        same = true;
+    		        rule_set.remove(j--);		   
     	        } 
     	    }    
     	    if (same) {
@@ -229,11 +223,6 @@ public class RuleMapping {
     	    	rule_set.remove(i--);	       
     	    }
     	}
-        //System.out.println("before: " + rules.size());
-		//System.out.println("after: " + rule_set.size());
-        //for (ArrayList<ArrayList<String>> rule : rule_set) {
-        	//rule_set_removed_duplicates.add(rule);
-        //}
         
         /**Caculate size**/
         for (ArrayList<ArrayList<String>> rule : rule_set) {
