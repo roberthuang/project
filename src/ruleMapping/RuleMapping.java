@@ -159,13 +159,17 @@ public class RuleMapping {
 		    	}
 		    }
 		    score_down /= (double) down_set_size;
-    
+		    
+//		    System.out.println(min_conf + " "+ rise_set_size + " " + down_set_size);
+		    
 		    if (score_rise  > score_down) {
 		    	result.add("Rise");
 		    	//PRINT RESULT
 		    	osw.write("\r\n");
 		    	osw.write("score_rise  > score_down\r\n");
 		    	osw.write(score_rise+ "  " +  score_down+"\r\n");
+		    	osw.write("r_s: " + rise_set_size  +"\r\n");
+		    	osw.write("d_s: " + down_set_size  +"\r\n");
 		    	osw.close();
 				return result;	
 		    } else if (score_rise == score_down) {
@@ -173,6 +177,8 @@ public class RuleMapping {
 		    	osw.write("\r\n");
 		    	osw.write("score_rise  == score_down\r\n");
 		    	osw.write(score_rise+ "  " +  score_down+"\r\n");
+		    	osw.write("r_s: " + rise_set_size  +"\r\n");
+		    	osw.write("d_s: " + down_set_size  +"\r\n");
 		    	osw.close();
 		    	return defaultclass;
 		    } else {
@@ -181,6 +187,8 @@ public class RuleMapping {
 		    	osw.write("\r\n");
 		    	osw.write("score_rise < score_down\r\n");
 		    	osw.write(score_rise+ "  " +  score_down+"\r\n");
+		    	osw.write("r_s: " + rise_set_size  +"\r\n");
+		    	osw.write("d_s: " + down_set_size  +"\r\n");
 		    	osw.close();
 				return result;	
 		    }
@@ -190,7 +198,7 @@ public class RuleMapping {
 	
 	/**CBE_CBS
 	 * @throws IOException **/
-	public static HashMap<ArrayList<ArrayList<String>>, Double> CBS_build_classifier(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training, int window_size, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all, int min_sup) throws IOException {
+	public static HashMap<ArrayList<ArrayList<String>>, Double> CBS_build_classifier(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training, int window_size, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all, int min_sup, double min_conf) throws IOException {
 	    
 		//FIND RULE INDEX
 		int INDEX = 1;
@@ -201,7 +209,7 @@ public class RuleMapping {
         }     
 		
 		//PRINT CBS DEMOVE DUPLICATES BY MOVING SUPPORT
-	    File fout = new File("C:\\user\\workspace\\project\\CBS_R_BY_S\\"+ min_sup + ".txt");
+	    File fout = new File("C:\\user\\workspace\\project\\CBS_R_BY_S\\"+ min_sup + "_" + min_conf+".txt");
 	    FileOutputStream fos = new FileOutputStream(fout);
         OutputStreamWriter osw = new OutputStreamWriter(fos);      
 		
@@ -217,10 +225,12 @@ public class RuleMapping {
 		
 		
 		
-		
+		int large_than_rise = 0;
+        int large_than_down = 0;
 		
 		double globalEntropy = Cacluate_all_entropy(SDB_for_training);		
-				
+		int pairt_of_redundant = 0;
+		int real = rule_set.size();
 		/**Remove Duplicates**/
         for (int i = 0 ; i < rule_set.size(); i++) {
     	    boolean same = false;
@@ -239,9 +249,11 @@ public class RuleMapping {
     	        	//PRINT DUPLICATES
     	        	int index_1 = rules_all_index.get(rule_set.get(i));  
     	        	int index_2 = rules_all_index.get(rule_set.get(j));
-    	        	osw.write(index_1 +"    " + index_2 + "\r\n");
+    	        	osw.write(index_1 + "    " + index_2 + "\r\n");
+    	        	osw.write(rules.get(rule_set.get(i)).get(1) + "    " + rules.get(rule_set.get(j)).get(1) + "\r\n");
     		        same = true;
-    		        rule_set.remove(j--);		   
+    		        rule_set.remove(j--);		  
+  
     	        } 
     	    }    
     	    if (same) {
@@ -249,20 +261,23 @@ public class RuleMapping {
     	    	rule_set.remove(i--);	       
     	    }
     	}
-        
+        //System.out.println(min_conf  + " " + pairt_of_redundant / (double) real);
         osw.close();
-        
+      
         /**Caculate size**/
         for (ArrayList<ArrayList<String>> rule : rule_set) {
         	String rise_down = rule.get(rule.size()-1).get(0);
             if (rise_down.equals("Rise")) {
+      
             	rise_set_size++;
             } else {
+
             	down_set_size++;
             }
         	
         }
-
+        //System.out.println(min_conf + "   " +large_than_rise + "   " + large_than_down);
+//      System.out.println(min_conf + "   " +rise_set_size + "   " + down_set_size);
 //		for (ArrayList<ArrayList<String>> class_member:class1_set) {
 //			System.out.println(class_member);
 //		}
@@ -726,9 +741,9 @@ public class RuleMapping {
         }
     	
         /**CBS_CLASSIFIER**/
-    	//HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size, rules_all, min_sup);
+    	//HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size, rules_all, min_sup, min_conf);
     	//ArrayList<String> defaultclass = getDefault(classifier);
-
+    	
     	//2.Begin Matching 
         HashMap<Integer, ArrayList<String>> result = new HashMap<>(); 
         //try {    
