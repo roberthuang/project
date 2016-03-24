@@ -188,14 +188,37 @@ public class RuleMapping {
 		}
 	}
 	
-	/**CBE_CBS**/
-	public static HashMap<ArrayList<ArrayList<String>>, Double> CBS_build_classifier(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training, int window_size) {
-	    HashMap<ArrayList<ArrayList<String>>, Double> result = new HashMap<>();
+	/**CBE_CBS
+	 * @throws IOException **/
+	public static HashMap<ArrayList<ArrayList<String>>, Double> CBS_build_classifier(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training, int window_size, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all, int min_sup) throws IOException {
+	    
+		//FIND RULE INDEX
+		int INDEX = 1;
+		HashMap<ArrayList<ArrayList<String>>, Integer> rules_all_index = new HashMap<>();
+		for (ArrayList<ArrayList<String>> rule_all : rules_all.keySet()) {			
+			rules_all_index.put(rule_all, INDEX);			
+         	INDEX++;
+        }     
+		
+		//PRINT CBS DEMOVE DUPLICATES BY MOVING SUPPORT
+	    File fout = new File("C:\\user\\workspace\\project\\CBS_R_BY_S\\"+ min_sup + ".txt");
+	    FileOutputStream fos = new FileOutputStream(fout);
+        OutputStreamWriter osw = new OutputStreamWriter(fos);      
+		
+		
+		
+		
+		HashMap<ArrayList<ArrayList<String>>, Double> result = new HashMap<>();
 		ArrayList<ArrayList<ArrayList<String>>> rule_set = new ArrayList<>();
 		for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
 			rule_set.add(rule);
 		}
-
+		
+		
+		
+		
+		
+		
 		double globalEntropy = Cacluate_all_entropy(SDB_for_training);		
 				
 		/**Remove Duplicates**/
@@ -213,7 +236,10 @@ public class RuleMapping {
     	        }
     	        String str2 = rule_set.get(j).get(rule_set.get(j).size()-1).get(0);
     	        if ( (temp1.equals(temp2)) && (!str1.equals(str2)) ) {
-    	            //System.out.println(temp1 + " " + temp2);
+    	        	//PRINT DUPLICATES
+    	        	int index_1 = rules_all_index.get(rule_set.get(i));  
+    	        	int index_2 = rules_all_index.get(rule_set.get(j));
+    	        	osw.write(index_1 +"    " + index_2 + "\r\n");
     		        same = true;
     		        rule_set.remove(j--);		   
     	        } 
@@ -224,9 +250,10 @@ public class RuleMapping {
     	    }
     	}
         
+        osw.close();
+        
         /**Caculate size**/
         for (ArrayList<ArrayList<String>> rule : rule_set) {
-       //for (ArrayList<ArrayList<String>> rule : rule_set_removed_duplicates) {
         	String rise_down = rule.get(rule.size()-1).get(0);
             if (rise_down.equals("Rise")) {
             	rise_set_size++;
@@ -463,9 +490,9 @@ public class RuleMapping {
 	
 	/**CBE_CBA
 	 * @throws IOException **/
-	public  ArrayList<String> CBA (HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, ArrayList<ArrayList<ArrayList<String>>> match_rules, int index, ArrayList<String> answer, double min_conf, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all) throws IOException {
+	public  ArrayList<String> CBA (HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, ArrayList<ArrayList<ArrayList<String>>> match_rules, int index, ArrayList<String> answer, double min_conf, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all, int min_sup) throws IOException {
 		 
-	    File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + index + "_"+min_conf+ ".txt");        
+	    File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + index + "_"+min_conf+ "_" + min_sup +".txt");        
 	    FileOutputStream fos = new FileOutputStream(fout);
 	    OutputStreamWriter osw = new OutputStreamWriter(fos);
 		
@@ -473,6 +500,36 @@ public class RuleMapping {
 		for (ArrayList<ArrayList<String>> rule : match_rules) {
 			rule_set.add(rule);
 		}
+		/*
+		int number_1 = 0;
+		int number_2 = 0;
+		int number_3 = 0;
+		int number_4 = 0;
+		int number_5 = 0;
+		
+		for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
+			double conf = rules.get(rule).get(1);
+		    if (conf  >= 0.6) {
+		    	double sup = rules.get(rule).get(0);
+		    	
+		    	double i_1 = 2/ (double) 282;
+		        if (sup >= i_1)	number_1++;
+		        double i_2 = 5/ (double) 282;
+		        if (sup >= i_2)	number_2++;
+		        double i_3 = 8/ (double) 282;
+		        if (sup >= i_3)	number_3++;
+		        double i_4 = 11/ (double) 282;
+		        if (sup >= i_4)	{
+		        	number_4++;
+		        }
+		        double i_5 = 14/ (double) 282;
+		        if (sup >= i_5)	number_5++;
+		    }
+			
+			
+		}
+		System.out.println(number_1 + " " + number_2 + " " + number_3 + " " + number_4 + " " + number_5);
+		*/
 		
 		/**Remove Duplicates label**/
 		ArrayList<ArrayList<ArrayList<String>>> rule_set_removed_duplicates = new ArrayList<>();
@@ -586,7 +643,7 @@ public class RuleMapping {
         
         ArrayList<String> Rise_Down = match_rule.get(match_rule.size()-1);
        	  
-        System.out.println(index + "_m3" +  " " +  match_rule);
+//      System.out.println(index + "_m3" +  " " +  match_rule);
         
 		
         osw.close();
@@ -669,8 +726,8 @@ public class RuleMapping {
         }
     	
         /**CBS_CLASSIFIER**/
-    	HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size);
-    	ArrayList<String> defaultclass = getDefault(classifier);
+    	//HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size, rules_all, min_sup);
+    	//ArrayList<String> defaultclass = getDefault(classifier);
 
     	//2.Begin Matching 
         HashMap<Integer, ArrayList<String>> result = new HashMap<>(); 
@@ -722,7 +779,7 @@ public class RuleMapping {
             int cbs_cba_for_null_rule = 0;
 //          System.out.println(i + " match_number:" + match_number);            
             if (match_number >= 2){ 
-            	int choose = 4;
+            	int choose = 3;
             	cbs_cba_for_null_rule = choose;
             	if (choose == 1) {
             	    //METHOD1
@@ -732,11 +789,11 @@ public class RuleMapping {
 //            	    result.put(i,  MTHODE2(rules, MATCH_RULES, i));            	 
             	} else if (choose == 3) {
                    	//METHOD3
-            		result.put(i, CBA(rules, match_rules, i, answer, min_conf, rules_all));	
+            		result.put(i, CBA(rules, match_rules, i, answer, min_conf, rules_all, min_sup));	
             	} else {
             		//CBS            
 //            	    System.out.println(i+"th======================");
-            		result.put(i, getinstance(classifier, match_rules,  defaultclass, rules, i, rules_all, min_conf, answer, min_sup));
+//            		result.put(i, getinstance(classifier, match_rules,  defaultclass, rules, i, rules_all, min_conf, answer, min_sup));
             	}
             } else if (0< match_number && match_number < 2){
             	//Only one match_rule
@@ -763,13 +820,13 @@ public class RuleMapping {
         	    
         	    if (cbs_cba_for_null_rule == 4) {
         	    	//CBS
-                	System.out.println(i + " Guess" +  	defaultclass);     
-                	osw.write(i + "   " + defaultclass + "\r\n");             	
-                	result.put(i,defaultclass);   
+//                	System.out.println(i + " Guess" +  	defaultclass);     
+//                	osw.write(i + "   " + defaultclass + "\r\n");             	
+//               	result.put(i,defaultclass);   
                 	osw.close();	
         	    } else {
         	    	//CBA
-                	System.out.println(i + " Guess" +  	answer);     
+//                	System.out.println(i + " Guess" +  	answer);     
                 	osw.write(i + "   " + answer + "\r\n");             	
                 	result.put(i,answer);   
                 	osw.close();
