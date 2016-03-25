@@ -16,8 +16,8 @@ import dataPreprocessing.SAXTransformation_Testing;
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         try {        	
-        	File fout = new File("C:\\user\\workspace\\project\\data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+"_" + args[2] +"_" + args[3] + "method1.txt");
-        	//File fout = new File("C:\\user\\workspace\\project\\data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "cbs.txt");
+        	//File fout = new File("C:\\user\\workspace\\project\\data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+"_" + args[2] +"_" + args[3] + "method1.txt");
+        	File fout = new File("C:\\user\\workspace\\project\\data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "cbs.txt");
      	    FileOutputStream fos = new FileOutputStream(fout);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
 	        for (double j =  0.01;j <= 1; j = j + 0.01) {

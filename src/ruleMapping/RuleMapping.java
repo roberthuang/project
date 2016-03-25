@@ -3,6 +3,8 @@ package ruleMapping;
 import java.io.*;
 import java.util.*;
 
+import ca.pfv.spmf.patterns.rule_itemset_array_integer_with_count.Rule;
+
 public class RuleMapping {
 	/**CBE_CBS**/
 	static int rise_set_size = 0;
@@ -261,7 +263,7 @@ public class RuleMapping {
     	    	rule_set.remove(i--);	       
     	    }
     	}
-        //System.out.println(min_conf  + " " + pairt_of_redundant / (double) real);
+      
         osw.close();
       
         /**Caculate size**/
@@ -276,6 +278,7 @@ public class RuleMapping {
             }
         	
         }
+        System.out.println(min_conf  + " "+ real + " " + rule_set.size() + "Rise: " + rise_set_size + "Down: " + down_set_size);
         //System.out.println(min_conf + "   " +large_than_rise + "   " + large_than_down);
 //      System.out.println(min_conf + "   " +rise_set_size + "   " + down_set_size);
 //		for (ArrayList<ArrayList<String>> class_member:class1_set) {
@@ -741,8 +744,8 @@ public class RuleMapping {
         }
     	
         /**CBS_CLASSIFIER**/
-    	//HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size, rules_all, min_sup, min_conf);
-    	//ArrayList<String> defaultclass = getDefault(classifier);
+    	HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size, rules_all, min_sup, min_conf);
+    	ArrayList<String> defaultclass = getDefault(classifier);
     	
     	//2.Begin Matching 
         HashMap<Integer, ArrayList<String>> result = new HashMap<>(); 
@@ -750,9 +753,7 @@ public class RuleMapping {
     	    //File fout = new File("match.txt");
 	        //FileOutputStream fos = new FileOutputStream(fout);
             //OutputStreamWriter osw = new OutputStreamWriter(fos);
-        for (Integer i : SDB_for_testing.keySet()) {
-        
-//        	System.out.println("SDB " + i);
+        for (Integer i : SDB_for_testing.keySet()) {      
             //Match rule's number
             int match_number = 0;
 //          HashMap<ArrayList<ArrayList<String>>, Double> MATCH_RULES = new HashMap<>();     
@@ -760,7 +761,6 @@ public class RuleMapping {
             //The sequence in SDB_Testing
             ArrayList<ArrayList<String>> itemsets = SDB_for_testing.get(i);                            
             for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
-//            	ArrayList<Integer> periods = new ArrayList<>();
                 //The size of mapping items in rule                
                 int size = 0;
                 int current = 0;
@@ -769,7 +769,6 @@ public class RuleMapping {
                     for (int j = current; j < rule.size()-1; j++) {                                         
                         if (itemsets.get(i_1).containsAll(rule.get(j))) {    
                             current = j;
-//                          periods.add(i_1);
                             current++;
                             size++;
                         }   
@@ -779,22 +778,13 @@ public class RuleMapping {
                 }                
                 if (size == rule.size()-1) {
                 	match_number++;      
-//                	MATCH_RULES.put(rule, periods);
-//                	System.out.println(rule + " " + rules.get(rule).get(0));
                 	match_rules.add(rule);
-//             	if (contain_last(SDB_for_training, rule, min_sup, window_size)) {
-//               			osw.write("i: "+ i + " " + rule + "\r\n");
-//               	        match_rules.add(rule);	
-//              }
-//                	osw.write("i: "+ i + " " + rule + "\r\n");
-                	//System.out.println(i+" "+rule + " " + periods);
-//                	MATCH_RULES.put(rule, contain_last(SDB_for_training, rule, min_sup, window_size));
+
                 }
             } 
-            int cbs_cba_for_null_rule = 0;
-//          System.out.println(i + " match_number:" + match_number);            
+            int cbs_cba_for_null_rule = 0;     
             if (match_number >= 2){ 
-            	int choose = 3;
+            	int choose = 4;
             	cbs_cba_for_null_rule = choose;
             	if (choose == 1) {
             	    //METHOD1
@@ -808,7 +798,7 @@ public class RuleMapping {
             	} else {
             		//CBS            
 //            	    System.out.println(i+"th======================");
-//            		result.put(i, getinstance(classifier, match_rules,  defaultclass, rules, i, rules_all, min_conf, answer, min_sup));
+            		result.put(i, getinstance(classifier, match_rules,  defaultclass, rules, i, rules_all, min_conf, answer, min_sup));
             	}
             } else if (0< match_number && match_number < 2){
             	//Only one match_rule
@@ -831,13 +821,12 @@ public class RuleMapping {
             	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + i + "_"+min_conf+  "_" +min_sup+"Guess.txt");        
         	    FileOutputStream fos = new FileOutputStream(fout);
         	    OutputStreamWriter osw = new OutputStreamWriter(fos);
-        	    
-        	    
+        	        
         	    if (cbs_cba_for_null_rule == 4) {
         	    	//CBS
 //                	System.out.println(i + " Guess" +  	defaultclass);     
-//                	osw.write(i + "   " + defaultclass + "\r\n");             	
-//               	result.put(i,defaultclass);   
+                	osw.write(i + "   " + defaultclass + "\r\n");             	
+               	    result.put(i,defaultclass);   
                 	osw.close();	
         	    } else {
         	    	//CBA
@@ -847,8 +836,7 @@ public class RuleMapping {
                 	osw.close();
         	    }            	
             }
-        	
-        
+
         } //for
         //osw.close();
         //} catch (FileNotFoundException e) {
