@@ -265,12 +265,15 @@ public class RuleMapping {
     	}
       
         osw.close();
-      
+        int large_than = 0;
         /**Caculate size**/
         for (ArrayList<ArrayList<String>> rule : rule_set) {
         	String rise_down = rule.get(rule.size()-1).get(0);
+        	if (rules.get(rule).get(1) >= 0.6) {
+        		large_than++;
+        	}
             if (rise_down.equals("Rise")) {
-      
+            	
             	rise_set_size++;
             } else {
 
@@ -278,7 +281,8 @@ public class RuleMapping {
             }
         	
         }
-        System.out.println(min_conf  + " "+ real + " " + rule_set.size() + "Rise: " + rise_set_size + "Down: " + down_set_size);
+        System.out.println(min_conf  + " "+ real + " "  + "Rise: " + rise_set_size + "Down: " + down_set_size);
+        System.out.println((large_than/ (double)rule_set.size()));
         //System.out.println(min_conf + "   " +large_than_rise + "   " + large_than_down);
 //      System.out.println(min_conf + "   " +rise_set_size + "   " + down_set_size);
 //		for (ArrayList<ArrayList<String>> class_member:class1_set) {
