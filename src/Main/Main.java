@@ -16,8 +16,8 @@ import dataPreprocessing.SAXTransformation_Testing;
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         try {        	
-        	//File fout = new File("C:\\user\\workspace\\project\\data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+"_" + args[2] +"_" + args[3] + "method1.txt");
-        	File fout = new File("C:\\user\\workspace\\project\\data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "cbs.txt");
+        	//File fout = new File("data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+"_" + args[2] +"_" + args[3] + "method1.txt");
+        	File fout = new File("data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "cbs.txt");
      	    FileOutputStream fos = new FileOutputStream(fout);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
 	        for (double j =  0.01;j <= 1; j = j + 0.01) {
@@ -36,7 +36,7 @@ public class Main {
     		double threshold = Double.parseDouble(args[3]);
     		
     		//Input
-    		String path = "C:\\user\\workspace\\project\\petro_subset1_2010_rate.csv";
+    		String path = "petro_subset1_2010_rate.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);
             int traing_data_size = (int)((records.size()-1)*0.8);
             
@@ -80,8 +80,8 @@ public class Main {
     		
     		/**5.Generating Rule**/
     		//System.out.println("##Step 5: Rule Generating");
-    		int rule_size = RuleEvaluation.start("C:\\user\\workspace\\project\\RuleEvaluation_config.txt", min_conf, minsup, window_size, SDB_Training_Size);
-    		RuleEvaluation.start("C:\\user\\workspace\\project\\RuleEvaluation_config_all.txt", 0.01, 2, 2, SDB_Training_Size);
+    		int rule_size = RuleEvaluation.start("RuleEvaluation_config.txt", min_conf, minsup, window_size, SDB_Training_Size);
+    		RuleEvaluation.start("RuleEvaluation_config_all.txt", 0.01, 2, 2, SDB_Training_Size);
     		//System.out.println(rule_size);
     		
     		/**6.Rule Mapping**/    		

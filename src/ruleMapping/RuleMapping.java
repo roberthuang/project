@@ -37,6 +37,7 @@ public class RuleMapping {
 		}	
 		return globalEntropy;		
 	}
+	
 	//比較C1 與 C2 的總分，大者為預設的Class 總分相同則取擁有較多數的為主
 	/**CBE_CBS**/
 	ArrayList<String> getDefault(HashMap<ArrayList<ArrayList<String>>, Double> classifier) {
@@ -87,7 +88,7 @@ public class RuleMapping {
 		ArrayList<ArrayList<ArrayList<String>>> Down_set = new ArrayList<>();
 		
 		
-		File fout_all = new File("C:\\user\\workspace\\project\\rules_all_for_matching.txt");
+		File fout_all = new File("rules_all_for_matching.txt");
 		FileOutputStream fos_all = new FileOutputStream(fout_all);
 	    OutputStreamWriter osw_all = new OutputStreamWriter(fos_all);  
 		
@@ -269,7 +270,7 @@ public class RuleMapping {
         /**Caculate size**/
         for (ArrayList<ArrayList<String>> rule : rule_set) {
         	String rise_down = rule.get(rule.size()-1).get(0);
-        	if (rules.get(rule).get(1) >= 0.6) {
+        	if (rules.get(rule).get(1) >= 0.7) {
         		large_than++;
         	}
             if (rise_down.equals("Rise")) {
