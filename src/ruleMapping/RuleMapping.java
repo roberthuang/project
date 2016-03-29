@@ -274,15 +274,14 @@ public class RuleMapping {
 		}
 		
 		
-		
-		
+
 		int large_than_rise = 0;
         int large_than_down = 0;
 		
 		double globalEntropy = Cacluate_all_entropy(SDB_for_training);		
 		int pairt_of_redundant = 0;
 		int real = rule_set.size();
-		/**Remove Duplicates**/
+		/**Remove Duplicates**/ /*
         for (int i = 0 ; i < rule_set.size(); i++) {
     	    boolean same = false;
     	    for (int j = i+1; j < rule_set.size(); j++) {
@@ -296,31 +295,31 @@ public class RuleMapping {
     		        temp2.add(rule_set.get(j).get(k1));
     	        }
     	        String str2 = rule_set.get(j).get(rule_set.get(j).size()-1).get(0);
-    	        if ( (temp1.equals(temp2)) && (!str1.equals(str2)) ) {
+    	        if ((temp1.equals(temp2)) && (!str1.equals(str2))) {
     	        	//PRINT DUPLICATES
     	        	int index_1 = rules_all_index.get(rule_set.get(i));  
     	        	int index_2 = rules_all_index.get(rule_set.get(j));
     	        	osw.write(index_1 + "    " + index_2 + "\r\n");
     	        	osw.write(rules.get(rule_set.get(i)).get(1) + "    " + rules.get(rule_set.get(j)).get(1) + "\r\n");
+
     		        same = true;
-    		        rule_set.remove(j--);		  
-  
+    		        rule_set.remove(j--);		    		        	
+    		        break;
     	        } 
     	    }    
     	    if (same) {
     	        //System.out.println(i);
-    	    	rule_set.remove(i--);	       
+    	    	
+    	    		rule_set.remove(i--);	 
+    	    	
+       
     	    }
-    	}
+    	}*/
       
         osw.close();
-        int large_than = 0;
         /**Caculate size**/
         for (ArrayList<ArrayList<String>> rule : rule_set) {
-        	String rise_down = rule.get(rule.size()-1).get(0);
-        	if (rules.get(rule).get(1) >= 0.7) {
-        		large_than++;
-        	}
+        	String rise_down = rule.get(rule.size()-1).get(0);        	
             if (rise_down.equals("Rise")) {
             	
             	rise_set_size++;
@@ -426,7 +425,7 @@ public class RuleMapping {
 		    double confidence = rules.get(rule).get(1);
 		    double length = rule.size();
 		    gainratio = Math.abs(gain/SplitInfo);
-		    score = confidence*gainratio*length;	
+		    score = confidence*gainratio*length*weight;	
 		    result.put(rule, score);
 		}
 		return result;
