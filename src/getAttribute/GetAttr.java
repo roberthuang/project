@@ -405,7 +405,7 @@ public class GetAttr {
 			//Add Date
 			temp.add(records.get(i).get(0));
 			if(i == 0) {			
-				temp.add("FT_but");
+//				temp.add("FT_but");
 //				temp.add("BIAS_T_2_03");
 
 //			temp.add("Match_of_rubber_but_categories");
@@ -413,10 +413,10 @@ public class GetAttr {
 //	            temp.add("Match_of_oil_rate");
 //			    temp.add("Match_of_oil_but");
 //			    temp.add("MA_but_2");
-//			    temp.add("BIAS_T_2_03");	
+			    temp.add("BIAS_T_2_03");	
 //			    temp.add("Match_of_MA3_rubber_but");	
 			} else {
-				temp.add(FT_but.get(i));
+//				temp.add(FT_but.get(i));
 				//All the conditional att need to add. eg. x -> x x_3 x_4		
 //				temp.add(BIAS_T_2_03.get(i));
 //			    temp.add(FT_but_catecories.get(i));	
@@ -425,7 +425,7 @@ public class GetAttr {
 //		        temp.add(Match_of_oil_rate.get(i));
 //	            temp.add(Match_of_oil_but.get(i));
 //		        temp.add(MA_but_2.get(i));
-//		        temp.add(BIAS_T_2_03.get(i));
+		        temp.add(BIAS_T_2_03.get(i));
 //		        temp.add(Match_of_MA3_rubber_but.get(i));
 			}
 			//Add the last one of every line
@@ -564,38 +564,7 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 			e.printStackTrace();
 		}
 	}
-	 /*
-	 public static void featureExtraction_one(String output_filename, ArrayList<ArrayList<String>> records) {				
-			
-			ArrayList<ArrayList<String>> result = new ArrayList<>();
-						
-			for (int i = 0; i < records.size(); i++) {		
-				ArrayList<String> temp = new ArrayList<>();
-				//Add Date
-				temp.add(records.get(i).get(0));
-				if(i == 0) {			 
-				       //temp.add(records.get(i).get(1));
-				       temp.add("Feature_S");				      			    
-				} else {
-					   if (Double.parseDouble(records.get(i).get(1)) <= 77.59) {
-					       temp.add("RR");   
-					   } else {
-						   temp.add("DD"); 
-					   }			       
-			        	//temp.add(records.get(i).get(1));			          			        	     		    
-				}
-				//Add the last one of every line
-				temp.add(records.get(i).get(records.get(i).size()-1));			
-				result.add(temp);
-			}		
-			try {
-			writeCSV("", output_filename,result);
-			} catch (IOException e) {
-				System.out.println("[ERROR] I/O Exception.");
-				e.printStackTrace();
-			}
-		} 
-	 */	
+	
     //weka
     public static void featureExtraction_weka(String output_filename, ArrayList<ArrayList<String>> records, HashMap<Integer, String> feature_target) {		
     	

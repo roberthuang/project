@@ -22,7 +22,7 @@ public class Main {
         	File fout = new File("data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "_p" + args[2] +"_t" + args[3]+".txt");
      	    FileOutputStream fos = new FileOutputStream(fout);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
-	        for (double j =  0.01;j <= 1; j = j + 0.01) {
+	        for (double j =  0.01;j <= 0.01; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/    		
     	
@@ -111,11 +111,11 @@ public class Main {
     		//System.out.println("##Step 6: Rule Mapping");
     	    RuleMapping mapping = new RuleMapping();
   	        HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
-	        = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), Read_Training_Data("SDB(Training).txt"),feature_target, readRules("rules_all.txt"), minsup, window_size, min_conf, rise_down_number);
+	        = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), Read_Training_Data("SDB(Training).txt"),feature_target, readRules("rules_all.txt"), minsup, window_size, min_conf, rise_down_number,  SDB_Training_Size);
   	       
     		/**7.Evaluate Precision**/     		
     	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week, records.size(),  min_conf, minsup);    		           
-    		//if (e.get("macro_f_measure") > 0.1) {
+    		if (e.get("macro_f_measure") > 0.7) {
     	    
     		osw.write("window_size:"        + window_size + "\r\n");
     		osw.write("minsup:"             + minsup + "\r\n");
@@ -137,7 +137,7 @@ public class Main {
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");
-	        //}
+	        }
 
     		} 
     		

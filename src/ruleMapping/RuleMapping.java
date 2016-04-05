@@ -9,7 +9,7 @@ public class RuleMapping {
 	//LIFT_MEASURE
 	
 	//rules:是探勘過後的規則
-	HashMap<ArrayList<ArrayList<String>>, Double> Lift_Measure(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>>  rules, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all, HashMap <String, Integer>rise_down_number){
+	HashMap<ArrayList<ArrayList<String>>, Double> Lift_Measure(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>>  rules, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all, HashMap <String, Integer>rise_down_number, int training_data_size){
 		ArrayList<ArrayList<ArrayList<String>>> rules_after_pruning = new ArrayList<>();
 		for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
 			rules_after_pruning.add(rule);
@@ -17,25 +17,35 @@ public class RuleMapping {
 	
 		//Evaluate score
 		HashMap<ArrayList<ArrayList<String>>, Double> weight_scores = new HashMap<>();
+		double max = 0;
 		for (ArrayList<ArrayList<String>> rule : rules.keySet()){
 		    double score = 0;
 		    String target = rule.get(rule.size()-1).get(0);
-		    score = rules.get(rule).get(1)/  (double) rise_down_number.get(target);	
+		    score = (rules.get(rule).get(1)* training_data_size)/  (double) rise_down_number.get(target);	
 //		    System.out.println(rules.get(rule).get(1)+ "  "  + rise_down_number.get(target) + "  "+score);
 		    if (score != 1) {
-		    	if (score == 0) System.out.println("!!!!!!!!!!!11");
-		    	if (score < 1) {
+		    	if (score == 0) {
+		    			
+		    	}
+		    	if (score > 0 &&score < 1) {
 		    		score = 1 / (double) score; 
+		    		if (score > max) max = score;
 		    		//System.out.println(rule + "   " + score);
 		    		weight_scores.put(rule, score);
-		    	} else {
+		    	} else if (score > 1) {
+		    		if (score > max) max = score;
 		    		weight_scores.put(rule, score);
 		    	}
 		    }
 		}		
-
-		System.out.println(rules_after_pruning.size());
+		for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
+			if (weight_scores.get(rule) == null) weight_scores.put(rule, max);
+			
+		}
+		
+		System.out.println("before:  " + rules_after_pruning.size());
 		//Pruning
+		/*
 		for (int i = 0; i < rules_after_pruning.size(); i++) {
 
 			ArrayList<ArrayList<String>> i_rule = rules_after_pruning.get(i);
@@ -85,25 +95,66 @@ public class RuleMapping {
                 if (size == i_rule.size()) {
                     if (weight_scores.get(i_rule) > weight_scores.get(j_rule)) {
                     	//刪除j_rule
-                    	rules_after_pruning.remove(j--);                    	
+                    	rules_after_pruning.remove(j--); 
+                    	
                     }
                 }	
  
 		    }
 			
-		}
+		} */
 		
-		System.out.println(rules_after_pruning.size());
+		
+		
+		
+		 for (int i = 0 ; i < rules_after_pruning.size(); i++) {
+	    	    boolean same = false;
+	    	    for (int j = i+1; j < rules_after_pruning.size(); j++) {
+	    	        ArrayList<ArrayList<String>> temp1 = new ArrayList<>();
+	    		    for (int k1 = 0; k1 < rules_after_pruning.get(i).size()-1; k1++) {
+	    		        temp1.add(rules_after_pruning.get(i).get(k1));
+	    	        }    
+	    	        String str1 = rules_after_pruning.get(i).get(rules_after_pruning.get(i).size()-1).get(0);
+	    	        ArrayList<ArrayList<String>> temp2 = new ArrayList<>();
+	    		    for (int k1 = 0; k1 < rules_after_pruning.get(j).size()-1; k1++) {
+	    		        temp2.add(rules_after_pruning.get(j).get(k1));
+	    	        }
+	    	        String str2 = rules_after_pruning.get(j).get(rules_after_pruning.get(j).size()-1).get(0);
+	    	        if ((temp1.equals(temp2)) && (!str1.equals(str2))) {
+	    	        	//PRINT DUPLICATES
+	    	        	//int index_1 = rules_all_index.get(rule_set.get(i));  
+	    	        	//int index_2 = rules_all_index.get(rule_set.get(j));
+	    	        	//osw.write(index_1 + "    " + index_2 + "\r\n");
+	    	        	//osw.write(rules.get(rule_set.get(i)).get(1) + "    " + rules.get(rule_set.get(j)).get(1) + "\r\n");
+
+	    		        same = true;
+	    		        rules_after_pruning.remove(j--);		    		        	
+	    		        break;
+	    	        } 
+	    	    }    
+	    	    if (same) {
+	    	        //System.out.println(i);
+	    	    	
+	    	    	rules_after_pruning.remove(i--);	 
+	    	    	
+	       
+	    	    }
+	    	}	
+		
+		
+		
+		
+		System.out.println("after:  " + rules_after_pruning.size());
 		HashMap<ArrayList<ArrayList<String>>, Double> result = new HashMap<>();
 		for (ArrayList<ArrayList<String>> rule : rules_after_pruning) {
-			weight_scores.put(rule,weight_scores.get(rule));
+			result.put(rule,weight_scores.get(rule));
 		}
 		return result;
 	}
 	
 	public  ArrayList<String> getLift(HashMap<ArrayList<ArrayList<String>>, Double> Lift_Score, ArrayList<ArrayList<ArrayList<String>>> match_rules, int i, double min_conf, ArrayList<String> answer, int min_sup){
 		
-		
+	
 		
 		ArrayList<ArrayList<ArrayList<String>>> Rise_set = new ArrayList<>();
 		ArrayList<ArrayList<ArrayList<String>>> Down_set = new ArrayList<>();
@@ -117,7 +168,6 @@ public class RuleMapping {
 			    	Down_set.add(match_rule);
 			    }			
 	    }		
-		
 		double rise_score = 0;
 		double down_score = 0;
 		
@@ -129,7 +179,9 @@ public class RuleMapping {
 			if (Lift_Score.get(down_rule) == null) continue;
 			down_score += Lift_Score.get(down_rule);
 		}
-		
+		rise_score = rise_score / (double) Rise_set.size();
+		down_score = down_score / (double) Down_set.size();
+		System.out.println(i + "  " + rise_score + "  " + down_score);
 		if (rise_score > down_score) {
 			ArrayList<String> result = new ArrayList<>();
 			result.add("Rise");
@@ -140,7 +192,7 @@ public class RuleMapping {
 			ArrayList<String> result = new ArrayList<>();
 		    result.add("Down");
 		    return result;
-		} 
+		}
 		
 		//Highest 
 		/*
@@ -939,7 +991,7 @@ public class RuleMapping {
 	
 	/**Rule Matching**/
     public HashMap<Integer, ArrayList<String>> RuleMapping(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules,
-    HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_testing, HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training, HashMap<Integer, String> target_class, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all,int min_sup, int window_size, double min_conf, HashMap<String, Integer> rise_down_number ) throws IOException {
+    HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_testing, HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training, HashMap<Integer, String> target_class, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all,int min_sup, int window_size, double min_conf, HashMap<String, Integer> rise_down_number, int training_data_size) throws IOException {
     	//System.out.println(rules_all.size());
 
     	HashMap<String, Integer> number_of_rise_down = new HashMap<>();
@@ -969,7 +1021,7 @@ public class RuleMapping {
             }	
         }
     	/**Lift_CLASSIFIER**/
-    	HashMap<ArrayList<ArrayList<String>>, Double> Lift_Score = Lift_Measure(rules, rules_all, rise_down_number); 
+    	HashMap<ArrayList<ArrayList<String>>, Double> Lift_Score = Lift_Measure(rules, rules_all, rise_down_number, training_data_size); 
     		
     	
     	
@@ -1126,10 +1178,10 @@ public class RuleMapping {
         	    
         	    if (index > records_size) continue; 
         	    if (!predict.get(i).get(0).equals(class_table.get(index))) {
-        	    //	System.out.println("*" + i+ " " + predict.get(i).get(0) + " vs " + " " + (index) + " "+ class_table.get(index));
+        	    	System.out.println("*" + i+ " " + predict.get(i).get(0) + " vs " + " " + (index) + " "+ class_table.get(index));
         	    	osw.write(i + "  Prediction:  " + predict.get(i).get(0) + "  Real:  " +  class_table.get(index) + "\r\n");
         	    } else {
-        	    //	System.out.println(i+ " " + predict.get(i).get(0) + " vs " + " " + (index) + " "+class_table.get(index));	
+        	    	System.out.println(i+ " " + predict.get(i).get(0) + " vs " + " " + (index) + " "+class_table.get(index));	
         	    }
         		
                 if (predict.get(i).get(0).equals("Rise"))	{
