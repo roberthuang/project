@@ -405,26 +405,24 @@ public class GetAttr {
 			//Add Date
 			temp.add(records.get(i).get(0));
 			if(i == 0) {			
-//				temp.add("FT_but");
+				temp.add("FT_but");
 //				temp.add("BIAS_T_2_03");
-				//temp.add("BIAS_T_2_03");
 
-//				temp.add("Match_of_rubber_but_categories");
+//			temp.add("Match_of_rubber_but_categories");
 //			    temp.add("Match_of_rubber_but");
-			    temp.add("Match_of_oil_rate");
+//	            temp.add("Match_of_oil_rate");
 //			    temp.add("Match_of_oil_but");
 //			    temp.add("MA_but_2");
 //			    temp.add("BIAS_T_2_03");	
 //			    temp.add("Match_of_MA3_rubber_but");	
 			} else {
-//				temp.add(FT_but.get(i));
-//				temp.add(BIAS_T_2_03.get(i));
+				temp.add(FT_but.get(i));
 				//All the conditional att need to add. eg. x -> x x_3 x_4		
-				//temp.add(BIAS_T_2_03.get(i));
+//				temp.add(BIAS_T_2_03.get(i));
 //			    temp.add(FT_but_catecories.get(i));	
-//			    temp.add(Match_of_rubber_but_categories.get(i));
+//		        temp.add(Match_of_rubber_but_categories.get(i));
 //		        temp.add(Match_of_rubber_but.get(i));
-		        temp.add(Match_of_oil_rate.get(i));
+//		        temp.add(Match_of_oil_rate.get(i));
 //	            temp.add(Match_of_oil_but.get(i));
 //		        temp.add(MA_but_2.get(i));
 //		        temp.add(BIAS_T_2_03.get(i));
@@ -472,25 +470,25 @@ public class GetAttr {
 			//Add Date
 			temp.add(records.get(i).get(0));
 			if(i == 0) {			 			     
-				temp.add("FT_but");
-			    temp.add("Match_of_rubber_but");
+//				temp.add("FT_but");
+//			    temp.add("Match_of_rubber_but");
 			    
 //			    temp.add("Match_of_oil_rate");
 //			    temp.add("Match_of_oil_but");
 //			    temp.add("MA_but_2");
 //			    temp.add("BIAS_T_2_03");	
 //			    temp.add("Match_of_MA3_rubber_but");
-			    temp.add("Target");
+//			    temp.add("Target");
 			} else {
 				//All the conditional att need to add. eg. x -> x x_3 x_4		  
-				temp.add(FT_but.get(i));
+//				temp.add(FT_but.get(i));
 		        temp.add(Match_of_rubber_but.get(i));
 //		        temp.add(Match_of_oil_rate.get(i));
 //		        temp.add(Match_of_oil_but.get(i));
 //		        temp.add(MA_but_2.get(i));
 //		        temp.add(BIAS_T_2_03.get(i));
 //		        temp.add(Match_of_MA3_rubber_but.get(i));
-		        temp.add(class_table.get(i));
+//		        temp.add(class_table.get(i));
 			}
 			//Add the last one of every line
 			//temp.add(records.get(i).get(records.get(i).size()-1));

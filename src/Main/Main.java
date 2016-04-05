@@ -16,8 +16,10 @@ import dataPreprocessing.SAXTransformation_Testing;
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         try {        	
-        	//File fout = new File("data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+"_" + args[2] +"_" + args[3] + "method1.txt");
-        	File fout = new File("data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "cbs.txt");
+        	//File fout = new File("data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+"_" + args[2] +"_" + args[3] + "method1.txt");        	
+        	
+        	//File fout = new File("data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "cbs.txt");
+        	File fout = new File("data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "_p" + args[2] +"_t" + args[3]+".txt");
      	    FileOutputStream fos = new FileOutputStream(fout);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
 	        for (double j =  0.01;j <= 1; j = j + 0.01) {
@@ -31,7 +33,7 @@ public class Main {
     		
     		int window_size =  Integer.parseInt(args[1]);
     		int next_week = window_size;
-    	  
+    		
     		int periods = Integer.parseInt(args[2]);
     		double threshold = Double.parseDouble(args[3]);
     		
@@ -41,6 +43,27 @@ public class Main {
             int traing_data_size = (int)((records.size()-1)*0.8);
             
     		HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
+    		
+    		
+    		HashMap<String, Integer> rise_down_number = new HashMap<>();    
+
+    		HashMap<Integer, ArrayList<ArrayList<String>>> sdb_training = Read_Training_Data("SDB(Training).txt");
+    		for (Integer i : sdb_training.keySet()) {
+    			//System.out.println(sdb_training.get(i));
+    			String target = sdb_training.get(i).get(sdb_training.get(i).size()-1).get(0);
+    			if (rise_down_number.get(target) == null) {
+    			    rise_down_number.put(target, 1);	
+    			} else {
+    				int number = rise_down_number.get(target);
+    				number++;
+    				rise_down_number.put(target, number);
+    			}
+    		}
+    		 
+    		 
+    		 
+    		 
+    		 
     		GetAttr.featureExtraction("transformed_petro_subset1_feature.csv", records, periods, threshold);	
     		//GetAttr.featureExtraction_episode("transformed_petro_subset1_feature.csv", records, feature_target);
     		//GetAttr.featureExtraction_weka("weka.csv", records);	
@@ -63,7 +86,7 @@ public class Main {
             /*For testing*/
             String path_of_testing_file = "transformed_petro_subset1_feature.csv";
             int SDB_Testing_Size = t.translate_testing_sliding_window(next_week, path_of_testing_file, "SDB(Testing).txt");
- //           System.out.println("SDB_Testing_Size: " + SDB_Testing_Size);             
+            System.out.println("SDB_Testing_Size: " + SDB_Testing_Size);             
             /**4.Sequential Pattern Mining**/
             //System.out.println("##Step 4: Sequential Pattern Mining");
             /*Load a sequence database*/
@@ -81,14 +104,14 @@ public class Main {
     		/**5.Generating Rule**/
     		//System.out.println("##Step 5: Rule Generating");
     		int rule_size = RuleEvaluation.start("RuleEvaluation_config.txt", min_conf, minsup, window_size, SDB_Training_Size);
-    		RuleEvaluation.start("RuleEvaluation_config_all.txt", 0.01, 2, 2, SDB_Training_Size);
+    		RuleEvaluation.start("RuleEvaluation_config_all.txt", 0.01, 2, window_size, SDB_Training_Size);
     		//System.out.println(rule_size);
     		
     		/**6.Rule Mapping**/    		
     		//System.out.println("##Step 6: Rule Mapping");
     	    RuleMapping mapping = new RuleMapping();
   	        HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
-	        = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), Read_Training_Data("SDB(Training).txt"),feature_target, readRules("rules_all.txt"), minsup, window_size, min_conf);
+	        = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), Read_Training_Data("SDB(Training).txt"),feature_target, readRules("rules_all.txt"), minsup, window_size, min_conf, rise_down_number);
   	       
     		/**7.Evaluate Precision**/     		
     	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week, records.size(),  min_conf, minsup);    		           
@@ -264,7 +287,25 @@ public class Main {
 		sc.close();
 		return result;	
     }
-    
+    static HashMap<String, Integer> get_rise_down_number(HashMap<Integer, String> feature_target, int window_size){
+    	int training_data_size = (int) (feature_target.size()*0.8);
+    	HashMap<String, Integer> result = new HashMap<>();
+    	for (Integer i : feature_target.keySet()) {
+    	    if (i <= (training_data_size-window_size)) {
+    	    	if (result.get(feature_target.get(i)) == null) {
+    	    		result.put(feature_target.get(i), 1);
+    	    	} else {
+    	    		int count = result.get(feature_target.get(i));
+    	    		count++;
+    	    		result.put(feature_target.get(i), count);
+    	    	}
+    	    }
+    	}
+    	
+//    	System.out.println(result.get("Rise"));
+//    	System.out.println(result.get("Down"));
+    	return result;
+    }
     
 }
 

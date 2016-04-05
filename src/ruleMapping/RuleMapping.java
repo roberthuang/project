@@ -6,6 +6,180 @@ import java.util.*;
 import ca.pfv.spmf.patterns.rule_itemset_array_integer_with_count.Rule;
 
 public class RuleMapping {
+	//LIFT_MEASURE
+	
+	//rules:是探勘過後的規則
+	HashMap<ArrayList<ArrayList<String>>, Double> Lift_Measure(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>>  rules, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all, HashMap <String, Integer>rise_down_number){
+		ArrayList<ArrayList<ArrayList<String>>> rules_after_pruning = new ArrayList<>();
+		for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
+			rules_after_pruning.add(rule);
+		}
+	
+		//Evaluate score
+		HashMap<ArrayList<ArrayList<String>>, Double> weight_scores = new HashMap<>();
+		for (ArrayList<ArrayList<String>> rule : rules.keySet()){
+		    double score = 0;
+		    String target = rule.get(rule.size()-1).get(0);
+		    score = rules.get(rule).get(1)/  (double) rise_down_number.get(target);	
+//		    System.out.println(rules.get(rule).get(1)+ "  "  + rise_down_number.get(target) + "  "+score);
+		    if (score != 1) {
+		    	if (score == 0) System.out.println("!!!!!!!!!!!11");
+		    	if (score < 1) {
+		    		score = 1 / (double) score; 
+		    		//System.out.println(rule + "   " + score);
+		    		weight_scores.put(rule, score);
+		    	} else {
+		    		weight_scores.put(rule, score);
+		    	}
+		    }
+		}		
+
+		System.out.println(rules_after_pruning.size());
+		//Pruning
+		for (int i = 0; i < rules_after_pruning.size(); i++) {
+
+			ArrayList<ArrayList<String>> i_rule = rules_after_pruning.get(i);
+		    for (int j = i+1; j < rules_after_pruning.size(); j++) {
+		    	ArrayList<ArrayList<String>> j_rule = rules_after_pruning.get(j);
+		    	
+		    	//判別j是否是i的子集
+		    	//The size of mapping items in rule                
+                int size = 0;
+                int current = 0;
+                for (int i_1 = 0; i_1 < i_rule.size(); i_1++) {                	
+                    for (int j_1 = current; j_1 < j_rule.size(); j_1++) {                                         
+                        if (i_rule.get(i_1).containsAll(j_rule.get(j_1))) {    
+                            current = j_1;
+                            current++;
+                            size++;
+                        }   
+                        break;
+                    }                                                            
+           
+                }                
+                if (size == j_rule.size()) {
+                    if (weight_scores.get(j_rule) > weight_scores.get(i_rule)) {
+                    	//刪除i_rule
+                    	rules_after_pruning.remove(i--);
+                    	break;
+                    }
+
+                }	
+                
+                //清空
+                size = 0;
+                current = 0;                
+                //判別i是否是j的子集
+
+                for (int j_1 = 0; j_1 < j_rule.size(); j_1++) {                	
+                    for (int i_1 = current; i_1 < i_rule.size(); i_1++) {                                         
+                        if (j_rule.get(j_1).containsAll(i_rule.get(i_1))) {    
+                            current = i_1;
+                            current++;
+                            size++;
+                        }   
+                        break;
+                    }                                                            
+           
+                }                
+                if (size == i_rule.size()) {
+                    if (weight_scores.get(i_rule) > weight_scores.get(j_rule)) {
+                    	//刪除j_rule
+                    	rules_after_pruning.remove(j--);                    	
+                    }
+                }	
+ 
+		    }
+			
+		}
+		
+		System.out.println(rules_after_pruning.size());
+		HashMap<ArrayList<ArrayList<String>>, Double> result = new HashMap<>();
+		for (ArrayList<ArrayList<String>> rule : rules_after_pruning) {
+			weight_scores.put(rule,weight_scores.get(rule));
+		}
+		return result;
+	}
+	
+	public  ArrayList<String> getLift(HashMap<ArrayList<ArrayList<String>>, Double> Lift_Score, ArrayList<ArrayList<ArrayList<String>>> match_rules, int i, double min_conf, ArrayList<String> answer, int min_sup){
+		
+		
+		
+		ArrayList<ArrayList<ArrayList<String>>> Rise_set = new ArrayList<>();
+		ArrayList<ArrayList<ArrayList<String>>> Down_set = new ArrayList<>();
+		
+
+		for (ArrayList<ArrayList<String>> match_rule : match_rules) {
+			 String str = match_rule.get(match_rule.size()-1).get(0);
+			    if (str.equals("Rise")) {			    	   	 
+			    	Rise_set.add(match_rule);	
+			    } else {
+			    	Down_set.add(match_rule);
+			    }			
+	    }		
+		
+		double rise_score = 0;
+		double down_score = 0;
+		
+		for (ArrayList<ArrayList<String>> rise_rule : Rise_set) {
+			if (Lift_Score.get(rise_rule) == null) continue;
+			rise_score += Lift_Score.get(rise_rule);
+		}
+		for (ArrayList<ArrayList<String>> down_rule : Down_set) {
+			if (Lift_Score.get(down_rule) == null) continue;
+			down_score += Lift_Score.get(down_rule);
+		}
+		
+		if (rise_score > down_score) {
+			ArrayList<String> result = new ArrayList<>();
+			result.add("Rise");
+			return result;
+		} else if (rise_score == down_score) {
+			return answer;
+		} else {
+			ArrayList<String> result = new ArrayList<>();
+		    result.add("Down");
+		    return result;
+		} 
+		
+		//Highest 
+		/*
+		String target = answer.get(0);
+		double max = 0;
+		for (ArrayList<ArrayList<String>> match_rule : match_rules) {
+			if (Lift_Score.get(match_rule) == null) continue;
+		    if (Lift_Score.get(match_rule) > max) {
+		    	max = Lift_Score.get(match_rule);
+		    	target = match_rule.get(match_rule.size()-1).get(0);
+		    }
+		}
+		
+		ArrayList<String> result = new ArrayList <>();
+		result.add(target);
+		return result;*/
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**CBE_CBS**/
 	static int rise_set_size = 0;
 	static int down_set_size = 0;
@@ -231,7 +405,7 @@ public class RuleMapping {
 		    	osw.write("r_s: " + rise_set_size  +"\r\n");
 		    	osw.write("d_s: " + down_set_size  +"\r\n");
 		    	osw.close();
-		    	return defaultclass;
+		    	return answer;
 		    } else {
 		    	result.add("Down");
 		    	//PRINT RESULT
@@ -269,7 +443,7 @@ public class RuleMapping {
 		
 		HashMap<ArrayList<ArrayList<String>>, Double> result = new HashMap<>();
 		ArrayList<ArrayList<ArrayList<String>>> rule_set = new ArrayList<>();
-		for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
+		for (ArrayList<ArrayList<String>> rule : rules.keySet()) {			
 			rule_set.add(rule);
 		}
 		
@@ -281,7 +455,7 @@ public class RuleMapping {
 		double globalEntropy = Cacluate_all_entropy(SDB_for_training);		
 		int pairt_of_redundant = 0;
 		int real = rule_set.size();
-		/**Remove Duplicates**/ /*
+		/**Remove Duplicates**/ 
         for (int i = 0 ; i < rule_set.size(); i++) {
     	    boolean same = false;
     	    for (int j = i+1; j < rule_set.size(); j++) {
@@ -297,10 +471,10 @@ public class RuleMapping {
     	        String str2 = rule_set.get(j).get(rule_set.get(j).size()-1).get(0);
     	        if ((temp1.equals(temp2)) && (!str1.equals(str2))) {
     	        	//PRINT DUPLICATES
-    	        	int index_1 = rules_all_index.get(rule_set.get(i));  
-    	        	int index_2 = rules_all_index.get(rule_set.get(j));
-    	        	osw.write(index_1 + "    " + index_2 + "\r\n");
-    	        	osw.write(rules.get(rule_set.get(i)).get(1) + "    " + rules.get(rule_set.get(j)).get(1) + "\r\n");
+    	        	//int index_1 = rules_all_index.get(rule_set.get(i));  
+    	        	//int index_2 = rules_all_index.get(rule_set.get(j));
+    	        	//osw.write(index_1 + "    " + index_2 + "\r\n");
+    	        	//osw.write(rules.get(rule_set.get(i)).get(1) + "    " + rules.get(rule_set.get(j)).get(1) + "\r\n");
 
     		        same = true;
     		        rule_set.remove(j--);		    		        	
@@ -314,7 +488,7 @@ public class RuleMapping {
     	    	
        
     	    }
-    	}*/
+    	}
       
         osw.close();
         /**Caculate size**/
@@ -765,8 +939,8 @@ public class RuleMapping {
 	
 	/**Rule Matching**/
     public HashMap<Integer, ArrayList<String>> RuleMapping(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules,
-    HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_testing, HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training, HashMap<Integer, String> target_class, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all,int min_sup, int window_size, double min_conf ) throws IOException {
-    	
+    HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_testing, HashMap<Integer, ArrayList<ArrayList<String>>> SDB_for_training, HashMap<Integer, String> target_class, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all,int min_sup, int window_size, double min_conf, HashMap<String, Integer> rise_down_number ) throws IOException {
+    	//System.out.println(rules_all.size());
 
     	HashMap<String, Integer> number_of_rise_down = new HashMap<>();
     	for (int i = 1; i <= target_class.size()*0.8; i++) {
@@ -794,10 +968,16 @@ public class RuleMapping {
             	answer.add("Down");   
             }	
         }
+    	/**Lift_CLASSIFIER**/
+    	HashMap<ArrayList<ArrayList<String>>, Double> Lift_Score = Lift_Measure(rules, rules_all, rise_down_number); 
+    		
+    	
+    	
+    	
     	
         /**CBS_CLASSIFIER**/
-    	HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size, rules_all, min_sup, min_conf);
-    	ArrayList<String> defaultclass = getDefault(classifier);
+//    	HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size, rules_all, min_sup, min_conf);
+//    	ArrayList<String> defaultclass = getDefault(classifier);
     	
     	//2.Begin Matching 
         HashMap<Integer, ArrayList<String>> result = new HashMap<>(); 
@@ -836,21 +1016,20 @@ public class RuleMapping {
             } 
             int cbs_cba_for_null_rule = 0;     
             if (match_number >= 2){ 
-            	int choose = 4;
+            	int choose = 2;
             	cbs_cba_for_null_rule = choose;
             	if (choose == 1) {
-            	    //METHOD1
-//            	    result.put(i,  MTHODE1(rules, MATCH_RULES, i));
+
             	} else if (choose == 2) {
-            		//METHOD2          
-//            	    result.put(i,  MTHODE2(rules, MATCH_RULES, i));            	 
+            		//LIFT_MEASURE         
+            	    result.put(i, getLift(Lift_Score, match_rules, i, min_conf, answer, min_sup));            	 
             	} else if (choose == 3) {
-                   	//METHOD3
+                   	//CBA
             		result.put(i, CBA(rules, match_rules, i, answer, min_conf, rules_all, min_sup));	
             	} else {
             		//CBS            
 //            	    System.out.println(i+"th======================");
-            		result.put(i, getinstance(classifier, match_rules,  defaultclass, rules, i, rules_all, min_conf, answer, min_sup));
+//            		result.put(i, getinstance(classifier, match_rules,  defaultclass, rules, i, rules_all, min_conf, answer, min_sup));
             	}
             } else if (0< match_number && match_number < 2){
             	//Only one match_rule
@@ -859,7 +1038,7 @@ public class RuleMapping {
 //            		result.put(i,Rise_Down);
 //            	}                    	
             	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + i + "_"+min_conf + "_" +min_sup+"one_rule.txt");        
-        	    FileOutputStream fos = new FileOutputStream(fout);
+        	    FileOutputStream fos = new FileOutputStream(fout);        	    
         	    OutputStreamWriter osw = new OutputStreamWriter(fos);
             	ArrayList<ArrayList<String>> rule = match_rules.get(0);
             	ArrayList<String> Rise_Down = rule.get(rule.size()-1);
@@ -877,12 +1056,12 @@ public class RuleMapping {
         	    if (cbs_cba_for_null_rule == 4) {
         	    	//CBS
 //                	System.out.println(i + " Guess" +  	defaultclass);     
-                	osw.write(i + "   " + defaultclass + "\r\n");             	
-               	    result.put(i,defaultclass);   
-                	osw.close();	
+//                	osw.write(i + "   " + answer + "\r\n");             	
+//               	    result.put(i,answer);   
+//                	osw.close();	
         	    } else {
         	    	//CBA
-//                	System.out.println(i + " Guess" +  	answer);     
+                	System.out.println(i + " Guess" +  	answer);     
                 	osw.write(i + "   " + answer + "\r\n");             	
                 	result.put(i,answer);   
                 	osw.close();
