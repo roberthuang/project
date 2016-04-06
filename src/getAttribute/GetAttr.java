@@ -398,7 +398,7 @@ public class GetAttr {
 //		HashMap<Integer, String> MA_T_2 = Move_Average(2, records.get(0).get(4), 4, records);
 		
 		//HashMap<Integer, String> BIAS_rate_2_03 = BIAS(2, 3, 0.0003, records);
-		HashMap<Integer, String> BIAS_T_2_03 = BIAS(periods, 4, threshold, records);
+		HashMap<Integer, String> BIAS_T_2_03 = BIAS(periods, 3, threshold, records);
 		
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
