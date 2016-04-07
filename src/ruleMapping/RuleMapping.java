@@ -7,9 +7,15 @@ import ca.pfv.spmf.patterns.rule_itemset_array_integer_with_count.Rule;
 
 public class RuleMapping {
 	//LIFT_MEASURE
-	
+	static int lift_rise = 0;
+	static int lift_down = 0;
 	//rules:是探勘過後的規則
 	HashMap<ArrayList<ArrayList<String>>, Double> Lift_Measure(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>>  rules, HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all, HashMap <String, Integer>rise_down_number, int training_data_size){
+		
+		
+		
+		
+		
 		ArrayList<ArrayList<ArrayList<String>>> rules_after_pruning = new ArrayList<>();
 		for (ArrayList<ArrayList<String>> rule : rules.keySet()) {
 			rules_after_pruning.add(rule);
@@ -104,9 +110,6 @@ public class RuleMapping {
 			
 		} */
 		
-		
-		
-		
 		 for (int i = 0 ; i < rules_after_pruning.size(); i++) {
 	    	    boolean same = false;
 	    	    for (int j = i+1; j < rules_after_pruning.size(); j++) {
@@ -141,21 +144,40 @@ public class RuleMapping {
 	    	    }
 	    	}	
 		
-		
-		
-		
+
 		System.out.println("after:  " + rules_after_pruning.size());
 		HashMap<ArrayList<ArrayList<String>>, Double> result = new HashMap<>();
 		for (ArrayList<ArrayList<String>> rule : rules_after_pruning) {
+			if (rule.get(rule.size()-1).get(0).equals("Rise")) {
+				lift_rise++;
+			} else {
+				lift_down++;
+			}
 			result.put(rule,weight_scores.get(rule));
 		}
 		return result;
 	}
 	
-	public  ArrayList<String> getLift(HashMap<ArrayList<ArrayList<String>>, Double> Lift_Score, ArrayList<ArrayList<ArrayList<String>>> match_rules, int i, double min_conf, ArrayList<String> answer, int min_sup){
+	public  ArrayList<String> getLift(HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules, HashMap<ArrayList<ArrayList<String>>, Double> Lift_Score, ArrayList<ArrayList<ArrayList<String>>> match_rules, int i, double min_conf, ArrayList<String> answer, int min_sup,  HashMap<ArrayList<ArrayList<String>>, ArrayList<Double>> rules_all) throws IOException{
+		//規則的索引
+		int INDEX = 1;
+		HashMap<ArrayList<ArrayList<String>>, Integer> rules_all_index = new HashMap<>();
+		for (ArrayList<ArrayList<String>> rule_all : rules_all.keySet()) {
+			rules_all_index.put(rule_all, INDEX);			
+         	INDEX++;
+        }     
 		
-	
 		
+		
+		
+		
+		
+		
+		File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + i + "_"+ min_conf+ "_"+ min_sup +".txt");
+	    FileOutputStream fos = new FileOutputStream(fout);
+        OutputStreamWriter osw = new OutputStreamWriter(fos);   
+        
+		//將match_rule分成兩堆
 		ArrayList<ArrayList<ArrayList<String>>> Rise_set = new ArrayList<>();
 		ArrayList<ArrayList<ArrayList<String>>> Down_set = new ArrayList<>();
 		
@@ -170,18 +192,37 @@ public class RuleMapping {
 	    }		
 		double rise_score = 0;
 		double down_score = 0;
-		
+		osw.write("Rise:  " + Rise_set.size() +"\r\n");
 		for (ArrayList<ArrayList<String>> rise_rule : Rise_set) {
-			if (Lift_Score.get(rise_rule) == null) continue;
-			rise_score += Lift_Score.get(rise_rule);
+			if (Lift_Score.get(rise_rule) == null) {
+				continue;
+			} else {
+				osw.write(rules_all_index.get(rise_rule)+"  " + rules.get(rise_rule).get(1) + "  " +Lift_Score.get(rise_rule)+"\r\n");
+				rise_score += Lift_Score.get(rise_rule);	
+			}
 		}
+		osw.write("Down:  "+Down_set.size()+"\r\n");
 		for (ArrayList<ArrayList<String>> down_rule : Down_set) {
-			if (Lift_Score.get(down_rule) == null) continue;
-			down_score += Lift_Score.get(down_rule);
+			if (Lift_Score.get(down_rule) == null) {
+				continue;
+			} else {
+				osw.write(rules_all_index.get(down_rule)+ "  " +rules.get(down_rule).get(1)+"  " +Lift_Score.get(down_rule)+ "\r\n");
+				down_score += Lift_Score.get(down_rule);	
+			}
 		}
-		rise_score = rise_score / (double) Rise_set.size();
-		down_score = down_score / (double) Down_set.size();
+		
+		
+		
+		//rise_score = rise_score / (double) Rise_set.size();
+		//down_score = down_score / (double) Down_set.size();
+		osw.write("before_rise: " + rise_score + "  before_down:  " + down_score  + "\r\n");
+		osw.write("rise_size: " + lift_rise + "  down_size:  " + lift_down  + "\r\n");
+		rise_score = rise_score / (double) lift_rise;
+		down_score = down_score / (double) lift_down;
+		osw.write("after_rise: " + rise_score + "  after_down:  " + down_score  + "\r\n");
 		System.out.println(i + "  " + rise_score + "  " + down_score);
+		
+		osw.close();
 		if (rise_score > down_score) {
 			ArrayList<String> result = new ArrayList<>();
 			result.add("Rise");
@@ -1074,7 +1115,7 @@ public class RuleMapping {
 
             	} else if (choose == 2) {
             		//LIFT_MEASURE         
-            	    result.put(i, getLift(Lift_Score, match_rules, i, min_conf, answer, min_sup));            	 
+            	    result.put(i, getLift(rules, Lift_Score, match_rules, i, min_conf, answer, min_sup, rules_all));            	 
             	} else if (choose == 3) {
                    	//CBA
             		result.put(i, CBA(rules, match_rules, i, answer, min_conf, rules_all, min_sup));	
@@ -1131,6 +1172,8 @@ public class RuleMapping {
         //}  
         rise_set_size = 0;
         down_set_size = 0;
+        lift_rise = 0;
+        lift_down = 0;
         return result;         	 	
        
     }

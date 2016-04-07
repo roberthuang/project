@@ -115,7 +115,7 @@ public class Main {
   	       
     		/**7.Evaluate Precision**/     		
     	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week, records.size(),  min_conf, minsup);    		           
-    		if (e.get("macro_f_measure") > 0.7) {
+    		//if (e.get("macro_f_measure") > 0.7) {
     	    
     		osw.write("window_size:"        + window_size + "\r\n");
     		osw.write("minsup:"             + minsup + "\r\n");
@@ -137,7 +137,7 @@ public class Main {
     		osw.write("acc: "               + e.get("acc") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");
-	        }
+	        //}
 
     		} 
     		
