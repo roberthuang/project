@@ -18,11 +18,11 @@ public class Main {
         try {        	
         	//File fout = new File("data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+"_" + args[2] +"_" + args[3] + "method1.txt");        	
         	
-        	//File fout = new File("data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "cbs.txt");
-        	File fout = new File("data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "_p" + args[2] +"_t" + args[3]+".txt");
+        	File fout = new File("data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "_p" + args[2] +"_t" + args[3]+"cbs.txt");
+        	//File fout = new File("data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "_p" + args[2] +"_t" + args[3]+".txt");
      	    FileOutputStream fos = new FileOutputStream(fout);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
-	        for (double j =  0.01;j <= 1; j = j + 0.01) {
+	        for (double j =  0.5;j <= 1; j = j + 0.01) {
    	        System.out.println(j);
     		/**0.Set Argument**/    		
     	
@@ -85,7 +85,7 @@ public class Main {
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");    		
             /*For testing*/
             String path_of_testing_file = "transformed_petro_subset1_feature.csv";
-            int SDB_Testing_Size = t.translate_testing_sliding_window(next_week, path_of_testing_file, "SDB(Testing).txt");
+            int SDB_Testing_Size = t.translate_testing_sliding_window(window_size, path_of_testing_file, "SDB(Testing).txt");
             System.out.println("SDB_Testing_Size: " + SDB_Testing_Size);             
             /**4.Sequential Pattern Mining**/
             //System.out.println("##Step 4: Sequential Pattern Mining");

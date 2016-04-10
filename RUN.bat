@@ -15,4 +15,19 @@ java -jar project.jar 2 10 4 0.01
 java -jar project.jar 2 10 5 0.0001
 java -jar project.jar 2 10 5 0.001
 java -jar project.jar 2 10 5 0.01
+java -jar project.jar 2 10 6 0.0001
+java -jar project.jar 2 10 6 0.001
+java -jar project.jar 2 10 6 0.01
+java -jar project.jar 2 10 7 0.0001
+java -jar project.jar 2 10 7 0.001
+java -jar project.jar 2 10 7 0.01
+java -jar project.jar 2 10 8 0.0001
+java -jar project.jar 2 10 8 0.001
+java -jar project.jar 2 10 8 0.01
+java -jar project.jar 2 10 9 0.0001
+java -jar project.jar 2 10 9 0.001
+java -jar project.jar 2 10 9 0.01
+java -jar project.jar 2 10 10 0.0001
+java -jar project.jar 2 10 10 0.001
+java -jar project.jar 2 10 10 0.01
 
