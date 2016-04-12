@@ -331,7 +331,7 @@ public class GetAttr {
     	return result;
     }
     
-    public static HashMap<Integer, Double> BIAS_weka(int length, int att_index, double threshold, ArrayList<ArrayList<String>> records) {
+    public static HashMap<Integer, Double> BIAS_N(int length, int att_index, ArrayList<ArrayList<String>> records) {
     	HashMap<Integer, Double> result = new HashMap<>();
     	int col = att_index;   
     	for (int i = 1; i < records.size(); i++) {
@@ -348,8 +348,7 @@ public class GetAttr {
     	    	sum_t = sum_t / (double)length;
     	    	bias = (Double.parseDouble(records.get(i).get(att_index)) - sum_t)/(double) sum_t;
     	    	result.put(i, bias);  	    	
-    	    }
-    		
+    	    }    		
     	}
     	
     	double average =  0.0;
@@ -565,35 +564,28 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 		}
 	}
 	
-    //weka
-    public static void featureExtraction_weka(String output_filename, ArrayList<ArrayList<String>> records, HashMap<Integer, String> feature_target) {		
-    	
-		ArrayList<ArrayList<String>> result = new ArrayList<>();
-		HashMap<Integer, String> FS_rate = feature(3, records);		
-		HashMap<Integer, String> FS_rubber = feature(2, records);		
-		HashMap<Integer, String> FS_oil = feature(1, records);
-		HashMap<Integer, String> FT_but = feature(4, records);
-		HashMap<Integer, String> FT_but_categories = feature_categories(4, records);
-		HashMap<Integer, Double> FT_but_value = feature2_weka(4, records);
-	
-		HashMap<Integer, Double> MA_T_2 = Move_Average_weka(2, records.get(0).get(4), 4, records);
-		
-		//HashMap<Integer, String> Match_of_oil_rate_categories = match_source_target_categories(FS_oil, FS_rate, 1,3);
-		HashMap<Integer, String> Match_of_rate_but_categories = match_source_target_categories(FS_rate, FT_but, 3,4);
-		HashMap<Integer, String> Match_of_oil_but_categories = match_source_target_categories(FS_oil, FT_but, 1,4);
-		
-		for (int i = 0; i < records.size(); i++) {		
+    //N
+    public static void featureExtraction_N(String output_filename, ArrayList<ArrayList<String>> records) {		
+    	ArrayList<ArrayList<String>> result = new ArrayList<>();
+    	HashMap<Integer, Double> BIAS_N_4 = BIAS_N(2, 4,records);
+    	HashMap<Integer, Double> BIAS_N_3= BIAS_N(2, 3,records);
+    	HashMap<Integer, Double> BIAS_N_2 = BIAS_N(2, 2,records);
+    	HashMap<Integer, Double> BIAS_N_1 = BIAS_N(2, 1,records);
+		int training_data_size = (int) ((records.size()-1)*0.8);
+		for (int i = 0; i <= training_data_size; i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add time
 			temp.add(records.get(i).get(0));
 			if(i == 0) {
-				temp.add("FT_but_categories");
-				temp.add("Match_of_oil_but_categories");
-				temp.add("Target");
+				temp.add("BIAS_N_1");
+				temp.add("BIAS_N_2");
+				temp.add("BIAS_N_3");
+				temp.add("BIAS_N_4");
 			} else {
-				temp.add(FT_but_categories.get(i));
-				temp.add(Match_of_oil_but_categories.get(i));			
-				temp.add(feature_target.get(i));		
+				temp.add(String.valueOf(BIAS_N_1.get(i)));
+				temp.add(String.valueOf(BIAS_N_2.get(i)));	
+				temp.add(String.valueOf(BIAS_N_3.get(i)));
+				temp.add(String.valueOf(BIAS_N_4.get(i)));		
 			}	
 			//temp.add(records.get(i).get(records.get(i).size()-1));	
 			result.add(temp);

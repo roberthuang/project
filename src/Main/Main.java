@@ -15,7 +15,7 @@ import dataPreprocessing.SAXTransformation_Testing;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        try {        	
+       try {        	
         	//File fout = new File("data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+"_" + args[2] +"_" + args[3] + "method1.txt");        	
         	
         	File fout = new File("data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "_p" + args[2] +"_t" + args[3]+"cbs.txt");
@@ -27,7 +27,7 @@ public class Main {
     		/**0.Set Argument**/    		
     	
     		int minsup = Integer.parseInt(args[0]);    
-//    		System.out.println(minsup);
+    		System.out.println(minsup);
     		//double min_conf = Double.parseDouble(args[1]);
     		double min_conf = j;
     		
@@ -69,7 +69,7 @@ public class Main {
     		//GetAttr.featureExtraction_weka("weka.csv", records);	
 	        /**2.SAX**/
 //    	    System.out.println("##Step 2.1: SAX(Training)");
-//            SAXTransformation.start("SAXTransformation_config_petro_subset1_2010.txt");
+//          SAXTransformation.start("SAXTransformation_config_petro_subset1_2010.txt");
                        
             //System.out.println("##Step 2.2: SAX(Testing)");          
 //           SAXTransformation_Testing.start("petro_subset1_breakpoints_2010.txt");
@@ -80,13 +80,13 @@ public class Main {
             String path_after_discrete = "transformed_petro_subset1_feature.csv";
    		    T2SDB t = new T2SDB();
     		int SDB_Training_Size = t.translate_training_sliding_window(window_size, path_after_discrete,  feature_target, "SDB(Training).txt");
-            System.out.println("SDB_Training_Size:" + SDB_Training_Size);
+//            System.out.println("SDB_Training_Size:" + SDB_Training_Size);
     		
             //System.out.println("##Step 3.2: Temporal Data Base to SDB(Testing)");    		
             /*For testing*/
             String path_of_testing_file = "transformed_petro_subset1_feature.csv";
             int SDB_Testing_Size = t.translate_testing_sliding_window(window_size, path_of_testing_file, "SDB(Testing).txt");
-            System.out.println("SDB_Testing_Size: " + SDB_Testing_Size);             
+ //           System.out.println("SDB_Testing_Size: " + SDB_Testing_Size);             
             /**4.Sequential Pattern Mining**/
             //System.out.println("##Step 4: Sequential Pattern Mining");
             /*Load a sequence database*/
@@ -116,7 +116,7 @@ public class Main {
     		/**7.Evaluate Precision**/     		
     	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week, records.size(),  min_conf, minsup);    		           
     		//if (e.get("macro_f_measure") > 0.7) {
-    	    
+   	    
     		osw.write("window_size:"        + window_size + "\r\n");
     		osw.write("minsup:"             + minsup + "\r\n");
     		osw.write("min_conf:"           + min_conf + "\r\n");  
@@ -149,7 +149,7 @@ public class Main {
     	    
    	        
         } catch (FileNotFoundException e) {
-            System.out.println("[ERROR] File Not Found Exception.");
+              System.out.println("[ERROR] File Not Found Exception.");
             e.printStackTrace();
         } catch (IOException e) {
         	System.out.println("[ERROR] I/O Exception.");
