@@ -289,7 +289,7 @@ public class GetAttr {
         return result;
     }    
 	 
-    public static HashMap<Integer, String> BIAS(int length, int att_index, double threshold, ArrayList<ArrayList<String>> records) {
+    public static HashMap<Integer, String> BIAS(int length, int att_index, double threshold1, double threshold2,ArrayList<ArrayList<String>> records) {
     	HashMap<Integer, String> result = new HashMap<>();
     	int col = att_index;   
     	int rise_number = 0;
@@ -307,22 +307,21 @@ public class GetAttr {
     	    	}
     	    	sum_t = sum_t / (double)length;
     	    	bias = (Double.parseDouble(records.get(i).get(att_index)) - sum_t)/(double) sum_t;
-    	    	if (bias >= threshold) {
-    	    		result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold + "_1");	
+    	    	if (bias <= threshold1) {
+    	    		result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold1 + "_1");	
     	    		 rise_number++;
-    	    	} else {
-    	    		result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold + "_0");	
-    	    		down_number++;
+    	    	} else if (bias >= threshold2){
+    	    		result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold2 + "_0");	
+    	    		 down_number++;
     	    	}    	    	
     	    }
-    		
     	}
     	for (int i = 1; i < records.size(); i++) {
     		if (result.get(i) == null) {
     			if (rise_number > down_number) {
-    				result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold + "_1");
+    				result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold1 + "_1");
     			} else {
-    				result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold + "_0");
+    				result.put(i, "BIAS_" + records.get(0).get(att_index).charAt(0) + "_" + length + "_" + threshold2 + "_0");
     			}
     		}
     	}
@@ -330,7 +329,7 @@ public class GetAttr {
     	
     	return result;
     }
-    
+    //minus
     public static HashMap<Integer, Double> BIAS_N(int length, int att_index, ArrayList<ArrayList<String>> records) {
     	HashMap<Integer, Double> result = new HashMap<>();
     	int col = att_index;   
@@ -352,7 +351,7 @@ public class GetAttr {
     	}
     	
     	double average =  0.0;
-    	for (int i = 1; i < result.size(); i++) {
+    	for (int i = 1; i <= result.size(); i++) {
     		if (result.get(i) != null) {
     			average += result.get(i);
     		}
@@ -364,6 +363,7 @@ public class GetAttr {
     			result.put(i, average);
     		}
     	}
+
     	return result;
     }
     
@@ -397,7 +397,7 @@ public class GetAttr {
 //		HashMap<Integer, String> MA_T_2 = Move_Average(2, records.get(0).get(4), 4, records);
 		
 		//HashMap<Integer, String> BIAS_rate_2_03 = BIAS(2, 3, 0.0003, records);
-		HashMap<Integer, String> BIAS_T_2_03 = BIAS(periods, 3, threshold, records);
+		HashMap<Integer, String> BIAS_T_2_03 = BIAS(9, 3, -0.012, 0.016,records);
 		
 		for (int i = 0; i < records.size(); i++) {		
 			ArrayList<String> temp = new ArrayList<>();
@@ -439,139 +439,33 @@ public class GetAttr {
 			e.printStackTrace();
 		}
 	}
-	
-	public static void featureExtraction_episode(String output_filename, ArrayList<ArrayList<String>> records, HashMap<Integer, String> class_table) {						
-		ArrayList<ArrayList<String>> result = new ArrayList<>();
-		HashMap<Integer, String> FS_rate = feature(3, records);		
-		HashMap<Integer, String> FS_rubber = feature(2, records);		
-		HashMap<Integer, String> FS_oil = feature(1, records);
-		HashMap<Integer, String> FT_but = feature(4, records);
-		
-		HashMap<Integer, String> Match_of_oil_rate = match_source_target(FS_oil, FS_rate, 1, 3);
-		HashMap<Integer, String> Match_of_rubber_but = match_source_target(FS_rubber, FT_but, 2, 4);
-		HashMap<Integer, String> Match_of_oil_but = match_source_target(FS_oil, FT_but, 1, 4);
-		
-		HashMap<Integer, String> MA_rubber_3 = Move_Average(3, records.get(0).get(2), 2, records);
-		HashMap<Integer, String> MA_but_2 = Move_Average(2, records.get(0).get(4), 4, records);
-//		HashMap<Integer, String> Match_of_MA3_rubber_but = match_source_target_technical(MA_rubber_3, MA_but_3, 2, 4, "MA3");
-		
-//		HashMap<Integer, String> MACD_rubber_1_2_3 = MACD(1, 2, 3,records.get(0).get(2), records);
-//		HashMap<Integer, String> MACD_T_1_2_3 = MACD(1, 2, 3,records.get(0).get(4), records);
-//		HashMap<Integer, String> MACD_T_2_3_4 = MACD(2, 3, 4,records.get(0).get(4), records);
-		
-//		HashMap<Integer, String> MA_T_2 = Move_Average(2, records.get(0).get(4), 4, records);
-		
-		//HashMap<Integer, String> BIAS_rate_2_03 = BIAS(2, 3, 0.0003, records);
-		HashMap<Integer, String> BIAS_T_2_03 = BIAS(2, 4, 0.0003, records);
-		
-		for (int i = 0; i < records.size(); i++) {		
-			ArrayList<String> temp = new ArrayList<>();
-			//Add Date
-			temp.add(records.get(i).get(0));
-			if(i == 0) {			 			     
-//				temp.add("FT_but");
-//			    temp.add("Match_of_rubber_but");
-			    
-//			    temp.add("Match_of_oil_rate");
-//			    temp.add("Match_of_oil_but");
-//			    temp.add("MA_but_2");
-//			    temp.add("BIAS_T_2_03");	
-//			    temp.add("Match_of_MA3_rubber_but");
-//			    temp.add("Target");
-			} else {
-				//All the conditional att need to add. eg. x -> x x_3 x_4		  
-//				temp.add(FT_but.get(i));
-		        temp.add(Match_of_rubber_but.get(i));
-//		        temp.add(Match_of_oil_rate.get(i));
-//		        temp.add(Match_of_oil_but.get(i));
-//		        temp.add(MA_but_2.get(i));
-//		        temp.add(BIAS_T_2_03.get(i));
-//		        temp.add(Match_of_MA3_rubber_but.get(i));
-//		        temp.add(class_table.get(i));
-			}
-			//Add the last one of every line
-			//temp.add(records.get(i).get(records.get(i).size()-1));
-			
-			result.add(temp);
-		}		
-		try {
-		writeCSV("", output_filename,result);
-		} catch (IOException e) {
-			System.out.println("[ERROR] I/O Exception.");
-			e.printStackTrace();
-		}
-	}
-	
-	
-public static void featureExtraction2(String output_filename, ArrayList<ArrayList<String>> records, HashMap<Integer, String> target, int window_size) {				
-		
-		ArrayList<ArrayList<String>> result = new ArrayList<>();
-		HashMap<Integer, String> F_oil = feature2(2, records);	    
-	    HashMap<Integer, String> F_but = feature2(4, records);
-			
-		HashMap<Integer, String> FS_oil = feature(2, records);		
-		HashMap<Integer, String> FS_cru = feature(1, records);
-		HashMap<Integer, String> FT_but = feature(4, records);	
-			
-		HashMap<Integer, String> Match_of_oil_but = match_source_target(FS_oil, FT_but, 2, 4);
-		HashMap<Integer, String> Match_of_cru_but = match_source_target(FS_cru, FT_but, 1, 4);
-			
-		HashMap<Integer, String> MACD_oil_1_2_3 = MACD(1, 2, 3,records.get(0).get(2), records);
-		//HashMap<Integer, String> MACD_rate_1_2_3 = MACD(1, 2, 3,records.get(0).get(3), records);
-		HashMap<Integer, String> MACD_T_1_2_3 = MACD(1, 2, 3,records.get(0).get(4), records);
-		HashMap<Integer, String> MACD_T_2_3_4 = MACD(2, 3, 4,records.get(0).get(4), records);
-			
-		//HashMap<Integer, String> BIAS_rate_2_03 = BIAS(2, 3, 0.0003, records);
-		HashMap<Integer, String> BIAS_T_2_03 = BIAS(2, 4, 0.0003, records);
-		
-		for (int i = 0; i <= records.size()*0.8; i++) {		
-			ArrayList<String> temp = new ArrayList<>();
-			//Add Date
-			temp.add(records.get(i).get(0));
-			if(i == 0) {			 			       
-			    temp.add("F_oil");			 
-			    temp.add("F_but");
-			    temp.add("Match_of_oil_but");	
-			    temp.add("Match_of_cru_but");	
-			    temp.add("MACD_oil_1_2_3");
-			    //temp.add("MACD_rate_1_2_3");
-			    temp.add("MACD_T_1_2_3");
-			    temp.add("MACD_T_2_3_4");
-			    //temp.add("BIAS_rate_2_03");
-               temp.add("BIAS_T_2_03");			
-			    temp.add(records.get(i).get(records.get(i).size()-1));	  
-			} else {
-				//All the conditional att need to add. eg. x -> x x_3 x_4		       		        
-		        temp.add(F_oil.get(i));		           
-		        temp.add(F_but.get(i));
-		        temp.add(Match_of_oil_but.get(i));
-		        temp.add(Match_of_cru_but.get(i));
-		        temp.add(MACD_oil_1_2_3.get(i));
-		        //temp.add(MACD_rate_1_2_3.get(i));
-		        temp.add(MACD_T_1_2_3.get(i));
-		        temp.add(MACD_T_2_3_4.get(i));
-		        //temp.add(BIAS_rate_2_03.get(i));
-		        temp.add(BIAS_T_2_03.get(i));		       
-		        temp.add(target.get(i));			 
-			}	
-			result.add(temp);
-		}		
-		try {
-		writeCSV("", output_filename,result);
-		} catch (IOException e) {
-			System.out.println("[ERROR] I/O Exception.");
-			e.printStackTrace();
-		}
-	}
-	
+
     //N
-    public static void featureExtraction_N(String output_filename, ArrayList<ArrayList<String>> records) {		
+    public static void featureExtraction_N(String output_filename, ArrayList<ArrayList<String>> records, HashMap<Integer, String> feature_target, int window_size) {		
     	ArrayList<ArrayList<String>> result = new ArrayList<>();
-    	HashMap<Integer, Double> BIAS_N_4 = BIAS_N(2, 4,records);
-    	HashMap<Integer, Double> BIAS_N_3= BIAS_N(2, 3,records);
-    	HashMap<Integer, Double> BIAS_N_2 = BIAS_N(2, 2,records);
-    	HashMap<Integer, Double> BIAS_N_1 = BIAS_N(2, 1,records);
+    	HashMap<Integer, Double> BIAS_N_4 = BIAS_N(10, 4,records);
+    	HashMap<Integer, Double> BIAS_N_3= BIAS_N(10, 3,records);
+    	HashMap<Integer, Double> BIAS_N_2 = BIAS_N(10, 2,records);
+    	HashMap<Integer, Double> BIAS_N_1 = BIAS_N(10, 1,records);
 		int training_data_size = (int) ((records.size()-1)*0.8);
+		
+		HashMap<Integer, String> feature_target_in_sequence = new HashMap<>();
+		
+		int start = window_size+1;
+	    for (int i = 1; i <= 230; i++) {
+
+	        if (i < start) {
+	        	System.out.println(i + "  " +  start);
+	        	feature_target_in_sequence.put(i, feature_target.get(start));	
+	        } else {
+	        	start += 10;
+	        	
+	        	System.out.println(i + "  " +  start);
+	        	feature_target_in_sequence.put(i, feature_target.get(start));	
+	        }
+	    }
+		
+		
 		for (int i = 0; i <= training_data_size; i++) {		
 			ArrayList<String> temp = new ArrayList<>();
 			//Add time
@@ -581,11 +475,13 @@ public static void featureExtraction2(String output_filename, ArrayList<ArrayLis
 				temp.add("BIAS_N_2");
 				temp.add("BIAS_N_3");
 				temp.add("BIAS_N_4");
+				temp.add("Target");
 			} else {
 				temp.add(String.valueOf(BIAS_N_1.get(i)));
 				temp.add(String.valueOf(BIAS_N_2.get(i)));	
 				temp.add(String.valueOf(BIAS_N_3.get(i)));
 				temp.add(String.valueOf(BIAS_N_4.get(i)));		
+				temp.add(feature_target.get(i));		
 			}	
 			//temp.add(records.get(i).get(records.get(i).size()-1));	
 			result.add(temp);
