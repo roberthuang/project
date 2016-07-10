@@ -1,17 +1,26 @@
 {
-	"path"		:	"petro_subset1_2010_rate.csv",
-	"output"	:	"transformed_petro_subset1_training_2010.csv",
+	"path"		:	"transformed_petro_subset1_feature.csv",
+	"output"	:	"transformed_petro_subset1_feature_for_sax_training.csv",
 	"test_setting"	:	"C:\\user\\workspace\\project\\petro_subset1_breakpoints_2010.txt",
 	"attrs"		:
 	[
 		{
-			"attr_name"		:	"Crude_Oil_NYMEX",
+			"attr_name"		:	"BIAS_N_1",
 			"num_category"	:	3
 		}
 		{
-			"attr_name"		:	"Butadiene",
+			"attr_name"		:	"BIAS_N_2",
 			"num_category"	:	3
 		}
+
+		{
+			"attr_name"		:	"BIAS_N_3",
+			"num_category"	:	3
+		}
+		{
+			"attr_name"		:	"BIAS_N_4",
+			"num_category"	:	3
+		}		
 		
 	]
 }

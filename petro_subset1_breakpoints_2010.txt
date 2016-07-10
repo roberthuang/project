@@ -1,23 +1,39 @@
 {
 	"path"		:	"transformed_petro_subset1_feature.csv",
-	"output"	:	"C:\user\workspace\project\transformed_petro_subset1_testing.csv",
+	"output"	:	"transformed_petro_subset1_feature_for_sax_testing.csv",
 	"test_setting"	:	"petro_subset1_breakpoints_2010.txt",
 	"attrs"	:
 	[
 		{
-			"attr_name"	:	"Crude_Oil_NYMEX",
+			"attr_name"	:	"BIAS_N_1",
 			"breakpoints"	:
 			[
-				81.00066728558632,
-				94.53279161852332
+				-0.021384635922677784,
+				0.015643080138009285
 			]
 		},
 		{
-			"attr_name"	:	"Butadiene",
+			"attr_name"	:	"BIAS_N_2",
 			"breakpoints"	:
 			[
-				1571.2153157637708,
-				2272.606602044448
+				-0.022525654181580982,
+				0.012810169881907984
+			]
+		},
+		{
+			"attr_name"	:	"BIAS_N_3",
+			"breakpoints"	:
+			[
+				-0.002978863778449691,
+				0.0027982157606648737
+			]
+		},
+		{
+			"attr_name"	:	"BIAS_N_4",
+			"breakpoints"	:
+			[
+				-0.03811223764527742,
+				0.03535583236622365
 			]
 		}
 	]

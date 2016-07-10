@@ -263,9 +263,9 @@ public class RuleMapping {
         //OutputStreamWriter osw_test = new OutputStreamWriter(fos_test);       
 		
 		
-	    File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + index + "_"+ min_conf+ "_"+ min_sup +".txt");
-	    FileOutputStream fos = new FileOutputStream(fout);
-        OutputStreamWriter osw = new OutputStreamWriter(fos);           
+//	    File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + index + "_"+ min_conf+ "_"+ min_sup +".txt");
+//	    FileOutputStream fos = new FileOutputStream(fout);
+//        OutputStreamWriter osw = new OutputStreamWriter(fos);           
 			
 
 		ArrayList<ArrayList<ArrayList<String>>> Rise_set = new ArrayList<>();
@@ -296,38 +296,36 @@ public class RuleMapping {
 		osw_all.close();
 		
 		//PRINT ALL MATCH RULE 
-		osw.write("Rise ("+ Rise_set.size()+"):" + "\r\n");
-		for (ArrayList<ArrayList<String>> rise_match_rule : Rise_set) {			
-            osw.write(rules_all_index.get(rise_match_rule) + "(C: " + rules.get(rise_match_rule).get(1) + "   S: " + rules.get(rise_match_rule).get(0)+ "   L:"+ rise_match_rule.size()+ ")" +"\r\n");                 
-		}
+//		osw.write("Rise ("+ Rise_set.size()+"):" + "\r\n");
+//		for (ArrayList<ArrayList<String>> rise_match_rule : Rise_set) {			
+//            osw.write(rules_all_index.get(rise_match_rule) + "(C: " + rules.get(rise_match_rule).get(1) + "   S: " + rules.get(rise_match_rule).get(0)+ "   L:"+ rise_match_rule.size()+ ")" +"\r\n");                 
+//		}
 		//PRINT ALL MATCH RULE
-		osw.write("Down ("+ Down_set.size()+"):" + "\r\n");
-		for (ArrayList<ArrayList<String>> down_match_rule : Down_set) {
-            osw.write(rules_all_index.get(down_match_rule) +  "(C: " + rules.get(down_match_rule).get(1) + "   S: " + rules.get(down_match_rule).get(0)+ "   L:"+ down_match_rule.size()+ ")" +"\r\n"); 
-		}
+//		osw.write("Down ("+ Down_set.size()+"):" + "\r\n");
+//		for (ArrayList<ArrayList<String>> down_match_rule : Down_set) {
+//            osw.write(rules_all_index.get(down_match_rule) +  "(C: " + rules.get(down_match_rule).get(1) + "   S: " + rules.get(down_match_rule).get(0)+ "   L:"+ down_match_rule.size()+ ")" +"\r\n"); 
+//		}
 		
 		ArrayList<String> result = new ArrayList<>();
 		if (Rise_set.isEmpty()) {
 			result.add("Down");
-			osw.write("Rise_set.isEmpty()" + "\r\n");
-			osw.close();
+			System.out.println(index + " Down");
+//			osw.write("Rise_set.isEmpty()" + "\r\n");
+//			osw.close();
 			return result;
 		} else if (Down_set.isEmpty()) {
 			result.add("Rise");
-			osw.write("Down_set.isEmpty()" + "\r\n");
-			osw.close();
+			System.out.println(index + " Rise");
 			return result;
 		} else {
-			//int top_k = 2;
-			//ArrayList<Double> top_k_list_rise = new ArrayList<>();
-			//int r = 0;
+
 		    double score_rise = 0;
 		    for (ArrayList<ArrayList<String>> rise_match_rule : Rise_set) {
 		    	if (classifier.get(rise_match_rule) == null) {		    		
 		    		continue;
 		    	} else {
 		    		//PRINT ALL MATCH RULES IN CLASSIFIER
-		    		osw.write("Rise " + rules_all_index.get(rise_match_rule) + " " + rules.get(rise_match_rule).get(1) + " " + rules.get(rise_match_rule).get(0)+ "\r\n");
+//		    		osw.write("Rise " + rules_all_index.get(rise_match_rule) + " " + rules.get(rise_match_rule).get(1) + " " + rules.get(rise_match_rule).get(0)+ "\r\n");
 		    		double score = classifier.get(rise_match_rule);
 		    		//top_k_list_rise.add(score);
 		    		//r++;
@@ -369,7 +367,7 @@ public class RuleMapping {
 		    		continue;
 		    	} else {
 		    		//PRINT ALL MATCH RULES IN CLASSIFIER
-		    		osw.write("Down " + rules_all_index.get(down_match_rule) + " " + rules.get(down_match_rule).get(1)+ " " + rules.get(down_match_rule).get(0) + "\r\n");
+//		    		osw.write("Down " + rules_all_index.get(down_match_rule) + " " + rules.get(down_match_rule).get(1)+ " " + rules.get(down_match_rule).get(0) + "\r\n");
 		    	    double score = classifier.get(down_match_rule);
 		    	    score_down += score;
 		    	    //d++;
@@ -399,32 +397,35 @@ public class RuleMapping {
 		    
 		    if (score_rise  > score_down) {
 		    	result.add("Rise");
+		    	System.out.println(index + "  Rise score high");
 		    	//PRINT RESULT
-		    	osw.write("\r\n");
-		    	osw.write("score_rise  > score_down\r\n");
-		    	osw.write(score_rise+ "  " +  score_down+"\r\n");
-		    	osw.write("r_s: " + rise_set_size  +"\r\n");
-		    	osw.write("d_s: " + down_set_size  +"\r\n");
-		    	osw.close();
+//		    	osw.write("\r\n");
+//		    	osw.write("score_rise  > score_down\r\n");
+//		    	osw.write(score_rise+ "  " +  score_down+"\r\n");
+//		    	osw.write("r_s: " + rise_set_size  +"\r\n");
+//		    	osw.write("d_s: " + down_set_size  +"\r\n");
+//		    	osw.close();
 				return result;	
 		    } else if (score_rise == score_down) {
 		    	//PRINT RESULT
-		    	osw.write("\r\n");
-		    	osw.write("score_rise  == score_down\r\n");
-		    	osw.write(score_rise+ "  " +  score_down+"\r\n");
-		    	osw.write("r_s: " + rise_set_size  +"\r\n");
-		    	osw.write("d_s: " + down_set_size  +"\r\n");
-		    	osw.close();
+//		    	osw.write("\r\n");
+//		    	osw.write("score_rise  == score_down\r\n");
+//		    	osw.write(score_rise+ "  " +  score_down+"\r\n");
+//		    	osw.write("r_s: " + rise_set_size  +"\r\n");
+//		    	osw.write("d_s: " + down_set_size  +"\r\n");
+//		    	osw.close();
+		    	System.out.println(index + "  score equal, return default class");
 		    	return answer;
 		    } else {
 		    	result.add("Down");
 		    	//PRINT RESULT
-		    	osw.write("\r\n");
-		    	osw.write("score_rise < score_down\r\n");
-		    	osw.write(score_rise+ "  " +  score_down+"\r\n");
-		    	osw.write("r_s: " + rise_set_size  +"\r\n");
-		    	osw.write("d_s: " + down_set_size  +"\r\n");
-		    	osw.close();
+//		    	osw.write("\r\n");
+//		    	osw.write("score_rise < score_down\r\n");
+//		    	osw.write(score_rise+ "  " +  score_down+"\r\n");
+//		    	osw.write("r_s: " + rise_set_size  +"\r\n");
+//		    	osw.write("d_s: " + down_set_size  +"\r\n");
+//		    	osw.close();
+		    	System.out.println(index + "  Down score high");
 				return result;	
 		    }
 		    
@@ -975,13 +976,7 @@ public class RuleMapping {
             } else {
             	answer.add("Down");   
             }	
-        }
-    	/**Lift_CLASSIFIER**/
-    	//HashMap<ArrayList<ArrayList<String>>, Double> Lift_Score = Lift_Measure(rules, rules_all, rise_down_number, training_data_size); 
-    		
-    	
-    	
-    	
+        }    
     	
         /**CBS_CLASSIFIER**/
     	HashMap<ArrayList<ArrayList<String>>, Double> classifier = CBS_build_classifier(rules, SDB_for_training, window_size, rules_all, min_sup, min_conf);
@@ -1019,15 +1014,13 @@ public class RuleMapping {
                 if (size == rule.size()-1) {
                 	match_number++;      
                 	match_rules.add(rule);
-
                 }
             } 
-            int cbs_cba_for_null_rule = 0;     
+            int cbs_cba_for_null_rule = 4;     
             if (match_number >= 2){ 
             	int choose = 4;
             	cbs_cba_for_null_rule = choose;
             	if (choose == 1) {
-
             	} else if (choose == 2) {
             		//LIFT_MEASURE         
  //           	    result.put(i, getLift(rules, Lift_Score, match_rules, i, min_conf, answer, min_sup, rules_all));            	 
@@ -1036,8 +1029,7 @@ public class RuleMapping {
             		result.put(i, CBA(rules, match_rules, i, answer, min_conf, rules_all, min_sup));	
             	} else {
             		//CBS            
-//            	    System.out.println(i+"th======================");
-            		result.put(i, getinstance(classifier, match_rules,  defaultclass, rules, i, rules_all, min_conf, answer, min_sup));
+            		result.put(i, getinstance(classifier, match_rules,  defaultclass, rules, i, rules_all, min_conf, defaultclass, min_sup));
             	}
             } else if (0< match_number && match_number < 2){
             	//Only one match_rule
@@ -1045,34 +1037,34 @@ public class RuleMapping {
 //                    ArrayList<String> Rise_Down = rule.get(rule.size()-1);	
 //            		result.put(i,Rise_Down);
 //            	}                    	
-            	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + i + "_"+min_conf + "_" +min_sup+"one_rule.txt");        
-        	    FileOutputStream fos = new FileOutputStream(fout);        	    
-        	    OutputStreamWriter osw = new OutputStreamWriter(fos);
+//            	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + i + "_"+min_conf + "_" +min_sup+"one_rule.txt");        
+//        	    FileOutputStream fos = new FileOutputStream(fout);        	    
+//        	    OutputStreamWriter osw = new OutputStreamWriter(fos);
             	ArrayList<ArrayList<String>> rule = match_rules.get(0);
             	ArrayList<String> Rise_Down = rule.get(rule.size()-1);
             	System.out.println(i + " Only one rule" + Rise_Down);
-            	osw.write(i + "   " + Rise_Down + "\r\n"); 
+//            	osw.write(i + "   " + Rise_Down + "\r\n"); 
             	result.put(i,Rise_Down);
-            	osw.close();
+//            	osw.close();
             } else {
             	
             	//CBA OR CBS
-            	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + i + "_"+min_conf+  "_" +min_sup+"Guess.txt");        
-        	    FileOutputStream fos = new FileOutputStream(fout);
-        	    OutputStreamWriter osw = new OutputStreamWriter(fos);
+//            	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + i + "_"+min_conf+  "_" +min_sup+"Guess.txt");        
+//        	    FileOutputStream fos = new FileOutputStream(fout);
+//        	    OutputStreamWriter osw = new OutputStreamWriter(fos);
         	        
         	    if (cbs_cba_for_null_rule == 4) {
         	    	//CBS
-//                	System.out.println(i + " Guess" +  	defaultclass);     
-                	osw.write(i + "   " + defaultclass + "\r\n");             	
+                	System.out.println(i + " Guess(defaultclass)" +  	defaultclass);     
+//                	osw.write(i + "   " + defaultclass + "\r\n");             	
                	    result.put(i,defaultclass);   
-                	osw.close();	
+//                	osw.close();	
         	    } else {
         	    	//CBA
-                	System.out.println(i + " Guess" +  	answer);     
-                	osw.write(i + "   " + answer + "\r\n");             	
-                	result.put(i,answer);   
-                	osw.close();
+//                	System.out.println(i + " Guess" +  	answer);     
+//                	osw.write(i + "   " + answer + "\r\n");             	
+//                	result.put(i,answer);   
+//                	osw.close();
         	    }            	
             }
 

@@ -68,8 +68,7 @@ public class SAXTransformation_Testing {
 		try {
 			JSONObject jsobj = (JSONObject) parser.parse(new FileReader(jsconfig));
 			path = (String) jsobj.get("path");
-			//output_filename = jsobj.get("output").toString();
-			output_filename = "C:\\user\\workspace\\test\\transformed_petro_subset1_testing_2010.csv";
+			output_filename = jsobj.get("output").toString();
 			test_setting_path = jsobj.get("test_setting").toString();
 		    
 			
@@ -116,14 +115,14 @@ public class SAXTransformation_Testing {
 						double val = Double.parseDouble(curValue);
 						for(int i=0;i<breakpoints.length;i++){
 							if(val <= breakpoints[i]){
-								//curRecord.set(c, records.get(0).get(c) + "_" + (i+1));
-								curRecord.set(c, "C" + "_" + (i+1));
+								curRecord.set(c, records.get(0).get(c) + "_" + (i+1));
+//								curRecord.set(c, "C" + "_" + (i+1));
 								break;
 							}
 						}
 						if(val > breakpoints[breakpoints.length-1])
-							//curRecord.set(c, records.get(0).get(c) + "_" + (breakpoints.length+1));
-							curRecord.set(c, "C" + "_" + (breakpoints.length+1));
+							curRecord.set(c, records.get(0).get(c) + "_" + (breakpoints.length+1));
+//							curRecord.set(c, "C" + "_" + (breakpoints.length+1));
 					} catch(NumberFormatException e) {
 						//The value is not a valid double
 						curRecord.set(c, INVALID_SYMBOL);
