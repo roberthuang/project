@@ -19,14 +19,12 @@ public class Main {
         	File fout = new File("data\\" + "data" + "_s"+ args[0] + "_w" + args[1]+ "_p" + args[2] +"cbs.txt");
      	    FileOutputStream fos = new FileOutputStream(fout);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
-	        for (double j =  0.6;j <= 0.9; j = j + 0.01) {
-   	        System.out.println(j);
+	       
     		/**0.Set Argument**/    		
     	
     		int minsup = Integer.parseInt(args[0]);    
     		System.out.println(minsup);
     		//double min_conf = Double.parseDouble(args[1]);
-    		double min_conf = j;
     		
     		int window_size =  Integer.parseInt(args[1]);
     		int next_week = window_size;
@@ -77,6 +75,9 @@ public class Main {
     		algo.printStatistics(sequenceDatabase.size());
     		System.out.println("Done for mining!");
     		
+    		for (double j =  0.6;j <= 0.9; j = j + 0.01) {
+    	   	    System.out.println(j);
+    	   	    double min_conf = j;
     		/**Generating Rule**/
     		int rule_size = RuleEvaluation.start("RuleEvaluation_config.txt", min_conf, minsup, window_size, SDB_Training_Size);
     		System.out.println("Done for Rule!");
