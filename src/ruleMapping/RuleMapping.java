@@ -1017,11 +1017,10 @@ public class RuleMapping {
                 	match_number++;      
                 	match_rules.add(rule);
                 }
-            } 
-            int cbs_cba_for_null_rule = 4;     
+            }  
+            //對應到的規則大於等於2
             if (match_number >= 2){ 
-            	int choose = 4;
-            	cbs_cba_for_null_rule = choose;
+            	int choose = 4;            	
             	if (choose == 1) {
             	} else if (choose == 2) {
             		//LIFT_MEASURE         
@@ -1033,6 +1032,7 @@ public class RuleMapping {
             		//CBS            
             		result.put(i, getinstance(classifier, match_rules,  defaultclass, rules, i, rules_all, min_conf, defaultclass, min_sup));
             	}
+            //對應到的規則等於1
             } else if (0< match_number && match_number < 2){
             	//Only one match_rule
 //            	for (ArrayList<ArrayList<String>> rule : MATCH_RULES.keySet()) {
@@ -1048,26 +1048,15 @@ public class RuleMapping {
 //            	osw.write(i + "   " + Rise_Down + "\r\n"); 
             	result.put(i,Rise_Down);
 //            	osw.close();
-            } else {
-            	
-            	//CBA OR CBS
-//            	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\testing_" + i + "_"+min_conf+  "_" +min_sup+"Guess.txt");        
-//        	    FileOutputStream fos = new FileOutputStream(fout);
-//        	    OutputStreamWriter osw = new OutputStreamWriter(fos);
-        	        
-        	    if (cbs_cba_for_null_rule == 4) {
+            //沒對應到規則
+            } else {            		
         	    	//CBS
-                	System.out.println(i + " Guess(defaultclass)" +  	defaultclass);     
-//                	osw.write(i + "   " + defaultclass + "\r\n");             	
-               	    result.put(i,defaultclass);   
-//                	osw.close();	
-        	    } else {
-        	    	//CBA
-//                	System.out.println(i + " Guess" +  	answer);     
-//                	osw.write(i + "   " + answer + "\r\n");             	
-//                	result.put(i,answer);   
-//                	osw.close();
-        	    }            	
+                	System.out.println(i + "None Mapping!");     
+//                	osw.write(i + "   " + defaultclass + "\r\n");       
+                	ArrayList<String> none = new ArrayList<>();
+                	none.add("0");
+               	    result.put(i,none);   
+//                	osw.close();	        	             
             }
 
         } //for
@@ -1080,9 +1069,7 @@ public class RuleMapping {
         //    e.printStackTrace();  	
         //}  
         rise_set_size = 0;
-        down_set_size = 0;
-        lift_rise = 0;
-        lift_down = 0;
+        down_set_size = 0;    
         return result;         	 	
        
     }
@@ -1119,45 +1106,49 @@ public class RuleMapping {
         int False_Negative = 0;     
         int testing_start = traing_data_size+1;   
         int index = testing_start + next_week;
- 
-//       System.out.println(class_table.size());
-        try {
-        	File fout = new File("C:\\user\\workspace\\project\\matching_problem\\not_equal_" +min_conf+ "_" + min_sup +".txt");        
-     	    FileOutputStream fos = new FileOutputStream(fout);
-            OutputStreamWriter osw = new OutputStreamWriter(fos);        	
         
+        
+        //統計applicability
+        int applicability_count = 0;
         for (int i = 1; i <= predict.size(); i++) {
         	    
         	    if (index > records_size) continue; 
+        	    //判斷是否可預測
+        	    if (!predict.get(i).get(0).equals("0")) {
+        	    	applicability_count++;	
+        	    }        	    
+        	            	    
+        	    //對照表
         	    if (!predict.get(i).get(0).equals(class_table.get(index))) {
         	    	System.out.println("*" + i+ " " + predict.get(i).get(0) + " vs " + " " + (index) + " "+ class_table.get(index));
-        	    	osw.write(i + "  Prediction:  " + predict.get(i).get(0) + "  Real:  " +  class_table.get(index) + "\r\n");
         	    } else {
         	    	System.out.println(i+ " " + predict.get(i).get(0) + " vs " + " " + (index) + " "+class_table.get(index));	
         	    }
-        		
+
                 if (predict.get(i).get(0).equals("Rise"))	{
                     if (class_table.get(index).equals("Rise")) {
-                    	True_Positive += 1;	
+                    	True_Positive++;	
                     } else {
-                    	False_Positive ++;
+                    	False_Negative++;
                     }
                 	
-                } else  {
-                	if (class_table.get(index).equals("Down")) {
-                		True_Negative += 1;	
+                } else if (predict.get(i).get(0).equals("Down")) {
+                	if (class_table.get(index).equals("Rise")) {
+                        False_Positive++;	
                     } else {
-                    	False_Negative ++;
-                    }              	
+                     	False_Positive++;
+                    }       	
                 }
                 index += 1;
         }
-        osw.close(); 
-        
-        } catch (IOException e1) {
-        	System.out.println("[ERROR] I/O Exception.");
-            e1.printStackTrace();  	
-        }     
+      
+        /**          
+         *           Predict R      Predict D
+         * Real R |True Positive |False Positive|           
+         *        -------------------------------
+         * Real D |False Negative|True Negative |
+         * 
+         */
         int size = True_Negative +  True_Positive + False_Positive + False_Negative;
         e.put("True_Positive", (double)True_Positive);
         e.put("True_Negative", (double)True_Negative);
@@ -1171,11 +1162,11 @@ public class RuleMapping {
         if (True_Positive == 0 ) {        	
             e.put("precision_rise", 0.0);	
         } else {
-        	precision_rise =  True_Positive / (double)(True_Positive + False_Positive);
+        	precision_rise =  True_Positive / (double)(True_Positive + False_Negative);
             e.put("precision_rise", precision_rise);
         }       
         
-        double recall_rise =  True_Positive / (double)(True_Positive + False_Negative);
+        double recall_rise =  True_Positive / (double)(True_Positive + False_Positive);
         e.put("recall_rise", recall_rise);
         
         
@@ -1183,19 +1174,20 @@ public class RuleMapping {
         if (True_Negative == 0 ) {        	
             e.put("precision_down", 0.0);	
         } else {
-        	precision_down =  True_Negative / (double)(True_Negative +  False_Negative);
+        	precision_down =  True_Negative / (double)(True_Negative +  False_Positive);
             e.put("precision_down", precision_down);
         }
         
-        double recall_down =  True_Negative / (double)( True_Negative + False_Positive);
-        e.put("recall_down", recall_down );
-        
+        double recall_down =  True_Negative / (double)(True_Negative + False_Negative);
+        e.put("recall_down", recall_down );        
         double macro_precision = ( precision_rise + precision_down) / (double) 2;
         e.put("macro_precision", macro_precision);
         double macro_recall = ( recall_rise + recall_down) / (double) 2;
         e.put("macro_recall", macro_recall);
         double macro_f_measure = 2*(macro_precision*macro_recall)/ (macro_precision+macro_recall);
-        e.put("macro_f_measure", macro_f_measure);
+        e.put("macro_f_measure", macro_f_measure);        
+        double applicability = applicability_count / (double) predict.size();
+        e.put("applicability", applicability);        
         return e;
         } 
  

@@ -21,16 +21,17 @@ public class Main {
             OutputStreamWriter osw = new OutputStreamWriter(fos);
 	       
     		/**0.Set Argument**/    		
-    	
-    		int minsup = Integer.parseInt(args[0]);    
-    		System.out.println(minsup);
+            System.out.println("Parameters: ");
+    		int minsup = Integer.parseInt(args[0]);
+    		System.out.println("minsup: " + minsup);
     		//double min_conf = Double.parseDouble(args[1]);
     		
     		int window_size =  Integer.parseInt(args[1]);
+    		System.out.println("window_size: " + window_size);
     		int next_week = window_size;
     		    		
     		int period_for_MA_BIAS = Integer.parseInt(args[2]);
-    		
+    		System.out.println("period_for_MA_BIAS: " + period_for_MA_BIAS);
     		/**­n¿é¤Jªºdata**/
     		String path = "petro_subset1_2010_rate.csv";
             ArrayList<ArrayList<String>> records = readCSV(path);
@@ -112,6 +113,7 @@ public class Main {
             osw.write("macro_recall: " + e.get("macro_recall")+ "\r\n");
             osw.write("macro_f_measure: " + e.get("macro_f_measure")+ "\r\n");
     		osw.write("acc: "               + e.get("acc") + "\r\n");
+    		osw.write("applicability: "               + e.get("applicability") + "\r\n");
     		osw.write("\r\n");
     		osw.write("\r\n");
 	        //}
