@@ -1129,14 +1129,14 @@ public class RuleMapping {
                     if (class_table.get(index).equals("Rise")) {
                     	True_Positive++;	
                     } else {
-                    	False_Negative++;
+                    	False_Positive++;
                     }
                 	
                 } else if (predict.get(i).get(0).equals("Down")) {
                 	if (class_table.get(index).equals("Rise")) {
-                        False_Positive++;	
+                        False_Negative++;	
                     } else {
-                     	False_Positive++;
+                     	True_Negative++;
                     }       	
                 }
                 index += 1;
@@ -1144,11 +1144,12 @@ public class RuleMapping {
       
         /**          
          *           Predict R      Predict D
-         * Real R |True Positive |False Positive|           
+         * Real R |True Positive |False Negative|           
          *        -------------------------------
-         * Real D |False Negative|True Negative |
+         * Real D |False Positive|True Negative |
          * 
          */
+        
         int size = True_Negative +  True_Positive + False_Positive + False_Negative;
         e.put("True_Positive", (double)True_Positive);
         e.put("True_Negative", (double)True_Negative);
@@ -1162,11 +1163,11 @@ public class RuleMapping {
         if (True_Positive == 0 ) {        	
             e.put("precision_rise", 0.0);	
         } else {
-        	precision_rise =  True_Positive / (double)(True_Positive + False_Negative);
+        	precision_rise =  True_Positive / (double)(True_Positive + False_Positive);
             e.put("precision_rise", precision_rise);
         }       
         
-        double recall_rise =  True_Positive / (double)(True_Positive + False_Positive);
+        double recall_rise =  True_Positive / (double) predict.size();
         e.put("recall_rise", recall_rise);
         
         
@@ -1174,11 +1175,11 @@ public class RuleMapping {
         if (True_Negative == 0 ) {        	
             e.put("precision_down", 0.0);	
         } else {
-        	precision_down =  True_Negative / (double)(True_Negative +  False_Positive);
+        	precision_down =  True_Negative / (double)(True_Negative +  False_Negative);
             e.put("precision_down", precision_down);
         }
         
-        double recall_down =  True_Negative / (double)(True_Negative + False_Negative);
+        double recall_down =  True_Negative / (double)predict.size();
         e.put("recall_down", recall_down );        
         double macro_precision = ( precision_rise + precision_down) / (double) 2;
         e.put("macro_precision", macro_precision);

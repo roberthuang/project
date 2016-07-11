@@ -76,7 +76,7 @@ public class Main {
     		algo.printStatistics(sequenceDatabase.size());
     		System.out.println("Done for mining!");
     		
-    		for (double j =  0.6;j <= 0.9; j = j + 0.01) {
+    		for (double j =  0.5;j <= 0.5; j = j + 0.01) {
     	   	    System.out.println(j);
     	   	    double min_conf = j;
     		/**Generating Rule**/
