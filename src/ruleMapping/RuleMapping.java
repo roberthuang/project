@@ -464,7 +464,9 @@ public class RuleMapping {
 		double globalEntropy = Cacluate_all_entropy(SDB_for_training);		
 		int pairt_of_redundant = 0;
 		int real = rule_set.size();
-		/**Remove Duplicates**/ 
+		
+		/**Remove Duplicates**/
+		/*
 		System.out.println("before:  " + rule_set.size());
         for (int i = 0 ; i < rule_set.size(); i++) {
     	    boolean same = false;
@@ -498,7 +500,7 @@ public class RuleMapping {
        
     	    }
     	}
-        System.out.println("after:  " + rule_set.size());
+        System.out.println("after:  " + rule_set.size());*/
         osw.close();
         /**Caculate size**/
         for (ArrayList<ArrayList<String>> rule : rule_set) {
