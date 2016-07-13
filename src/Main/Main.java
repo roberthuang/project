@@ -58,7 +58,6 @@ public class Main {
    		    T2SDB t = new T2SDB();
     		int SDB_Training_Size = t.translate_training_sliding_window(window_size,  path_after_discrete_training ,  feature_target, "SDB(Training).txt");
 
-    			
             //For testing
             String path_after_discrete_testing = "transformed_petro_subset1_feature_for_sax_testing.csv";
             int SDB_Testing_Size = t.translate_testing_sliding_window(window_size, path_after_discrete_testing, "SDB(Testing).txt");
@@ -76,12 +75,12 @@ public class Main {
     		algo.printStatistics(sequenceDatabase.size());
     		System.out.println("Done for mining!");
     		
-    		for (double j =  0.5;j <= 0.5; j = j + 0.01) {
-    	   	    System.out.println(j);
-    	   	    double min_conf = j;
+    		for (double j =  0.7;j <= 0.9; j = j + 0.01) {
+    	   	System.out.println(j);
+    	   	double min_conf = j;
     		/**Generating Rule**/
     		int rule_size = RuleEvaluation.start("RuleEvaluation_config.txt", min_conf, minsup, window_size, SDB_Training_Size);
-    		System.out.println("Done for Rule!");
+    		System.out.println("Done for Rule!, rule size: " + rule_size);
 
     	
     		/**Rule Mapping**/    		

@@ -1,2 +1,30 @@
-java -jar project.jar 2 10 2 -0.007
-
+java -jar project.jar 15 5 4
+java -jar project.jar 15 5 5
+java -jar project.jar 18 5 2
+java -jar project.jar 18 5 3
+java -jar project.jar 18 5 4
+java -jar project.jar 18 5 5
+java -jar project.jar 20 5 2
+java -jar project.jar 20 5 3
+java -jar project.jar 20 5 4
+java -jar project.jar 20 5 5
+java -jar project.jar 25 5 2
+java -jar project.jar 25 5 3
+java -jar project.jar 25 5 4
+java -jar project.jar 25 5 5
+java -jar project.jar 30 5 2
+java -jar project.jar 30 5 3
+java -jar project.jar 30 5 4
+java -jar project.jar 30 5 5
+java -jar project.jar 33 5 2
+java -jar project.jar 33 5 3
+java -jar project.jar 33 5 4
+java -jar project.jar 33 5 5
+java -jar project.jar 35 5 2
+java -jar project.jar 35 5 3
+java -jar project.jar 35 5 4
+java -jar project.jar 35 5 5
+java -jar project.jar 40 5 2
+java -jar project.jar 40 5 3
+java -jar project.jar 40 5 4
+java -jar project.jar 40 5 5

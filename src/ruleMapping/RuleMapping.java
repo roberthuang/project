@@ -1167,7 +1167,7 @@ public class RuleMapping {
             e.put("precision_rise", precision_rise);
         }       
         
-        double recall_rise =  True_Positive / (double) size;
+        double recall_rise =  True_Positive / (double) (True_Positive+False_Negative);
         e.put("recall_rise", recall_rise);
         
         
@@ -1179,7 +1179,7 @@ public class RuleMapping {
             e.put("precision_down", precision_down);
         }
         
-        double recall_down =  True_Negative / (double) size;
+        double recall_down =  True_Negative / (double) (False_Positive+True_Negative);
         e.put("recall_down", recall_down );        
         double macro_precision = ( precision_rise + precision_down) / (double) 2;
         e.put("macro_precision", macro_precision);

@@ -432,8 +432,7 @@ public class GetAttr {
 	        	System.out.println(i + "  " +  start);
 	        	feature_target_in_sequence.put(i, feature_target.get(start));	
 	        } else {
-	        	start += 10;
-	        	
+	        	start += 10;	        	
 	        	System.out.println(i + "  " +  start);
 	        	feature_target_in_sequence.put(i, feature_target.get(start));	
 	        }
