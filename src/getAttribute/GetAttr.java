@@ -484,6 +484,28 @@ public class GetAttr {
     	return result;  
     	
     }
+    public static void featureExtraction_target_user_defined(ArrayList<ArrayList<String>> records) {
+    	ArrayList<ArrayList<String>> result = new ArrayList<>();
+    	int index_of_target_att = records.get(0).size()-1;
+    	for (int i = 1; i < records.size(); i++) {
+    	    if (i==1) {    	    	
+    	    	continue;
+    	    } else {    	        	   
+    	        double diff = Double.parseDouble(records.get(i).get(index_of_target_att))- Double.parseDouble(records.get(i-1).get(index_of_target_att));
+    	        String string = String.valueOf(diff);
+    	        ArrayList<String> temp = new ArrayList<>();
+    	        temp.add(string);
+    	        result.add(temp);
+    	    }
+    	}    	  
+    	try {
+    		writeCSV("", "Target.csv",result);
+    	} catch (IOException e) {
+    			System.out.println("[ERROR] I/O Exception.");
+    			e.printStackTrace();
+    	}  
+    	
+    }
            
     public static HashMap<Integer, String> MACD(int tl, int sl, int ll, String att, ArrayList<ArrayList<String>> records) {
     	HashMap<Integer, String> result = new HashMap<>(); 

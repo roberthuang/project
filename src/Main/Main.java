@@ -37,9 +37,16 @@ public class Main {
             ArrayList<ArrayList<String>> records = readCSV(path);
             int traing_data_size = (int)((records.size()-1)*0.8);
             
-    		HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
+            //使用者自訂漲跌
+            int user_defined = 1;
+            if (user_defined == 1){
+                GetAttr.featureExtraction_target_user_defined(records);
+            } 
+            HashMap<Integer, String> feature_target = GetAttr.featureExtraction_target(records);
+            
     		
-    		
+        	int debug = 1;
+    		if (debug == 0) {
     		HashMap<String, Integer> rise_down_number = new HashMap<>();    
 
     		/**BIAS MA**/ 
@@ -88,8 +95,7 @@ public class Main {
   	        HashMap<Integer, ArrayList<String>> result_of_predict_for_testing_data 
 	        = mapping.RuleMapping(readRules("rules.txt"), ReadSDB_for_testing("SDB(Testing).txt"), Read_Training_Data("SDB(Training).txt"),feature_target, readRules("rules_all.txt"), minsup, window_size, min_conf, rise_down_number,  SDB_Training_Size);
 
-    		int debug = 0;
-    		if (debug == 0) {
+    	
     		/**7.Evaluate Precision**/     		
     	    HashMap<String, Double> e = mapping.evaluate(feature_target, result_of_predict_for_testing_data, traing_data_size, next_week, records.size(),  min_conf, minsup);    		           
     		//if (e.get("macro_f_measure") > 0.7) {
@@ -116,8 +122,8 @@ public class Main {
     		osw.write("\r\n");
     		osw.write("\r\n");
 	        //}
-    		}
     		} //end for
+    		} //end debug
 
     	    osw.close();
     	    
